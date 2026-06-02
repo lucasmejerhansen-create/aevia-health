@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>Tak for dit køb | Aevia Health</title>
-<meta name="description" content="Tak for dit køb hos Aevia Health. Vi kontakter dig for at planlægge dit forløb.">
+<title>Thank you for your purchase | Aevia Health</title>
+<meta name="description" content="Thank you for your purchase with Aevia Health. We'll contact you to plan your pathway.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png">
+<link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="../assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="../assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png">
 <style>
 :root{
   --navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--muted-2:#94a0b2;--gold-soft:rgba(201,164,55,.12);
@@ -35,12 +35,8 @@ p{color:var(--muted);font-size:1.02rem;margin-bottom:14px}
 .btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
 .logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none;display:inline-block;margin-bottom:32px}
 .logo span{color:var(--gold)}
-
-/* ---------- A11y: synligt tastatur-fokus + reduceret bevægelse ---------- */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.btn:focus-visible,.aevc-chip:focus-visible{outline:2px solid #c9a437;outline-offset:2px;border-radius:6px}
+a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a437;outline-offset:2px;border-radius:6px}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
-
-.skiplink{position:absolute;left:-9999px;top:0;z-index:400;background:#c9a437;color:#0a1628;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;font-family:var(--sans)}.skiplink:focus{left:0}
 @media(max-width:1140px){.hamburger{display:flex;align-items:center;justify-content:center}.nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);border-bottom:1px solid var(--line);padding:10px 16px 22px;display:none}.nav-links.open{display:flex}.nav-links > li > a{padding:14px 6px;width:100%;font-size:1rem}.nav-cta{display:inline-block;margin-top:8px;text-align:center}.lang-li{padding:14px 6px;border-top:1px solid var(--line);justify-content:flex-start}}
 </style>
 </head>
@@ -50,48 +46,47 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="check">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
     </div>
-    <h1>Tak, din betaling er gennemført</h1>
-    <p>Vi har modtaget dit køb, og en kvittering er sendt til din e-mail.</p>
+    <h1>Thank you, your payment is complete</h1>
+    <p>We've received your purchase, and a receipt has been sent to your email.</p>
 
     <div class="steps">
-      <h2>Hvad sker der nu?</h2>
+      <h2>What happens now?</h2>
       <ol>
-        <li>Vores team kontakter dig inden for 1 hverdag for at booke din blodprøve og gennemgang.</li>
-        <li>Du får en personlig forberedelsesguide forud for testen.</li>
-        <li>Din rapport og 1:1 lægegennemgang følger inden for 10 arbejdsdage.</li>
+        <li>Our team contacts you within 1 working day to book your blood test and review.</li>
+        <li>You receive a personal preparation guide ahead of the test.</li>
+        <li>Your report and 1:1 physician review follow within 10 working days.</li>
       </ol>
     </div>
 
-    <a href="index.html" class="btn">Tilbage til forsiden</a>
+    <a href="index.html" class="btn">Back to the homepage</a>
     <p class="ref" id="ref"></p>
   </div>
 
   <script>
-    // Vis ordrereference (Stripe session-id) hvis den er med i URL'en.
     var id = new URLSearchParams(window.location.search).get("session_id");
     if (id) {
-      document.getElementById("ref").textContent = "Ordrereference: " + id;
+      document.getElementById("ref").textContent = "Order reference: " + id;
     }
   </script>
-<!-- Aevia AI-assistent (forbind AEVC_ENDPOINT til backend for fulde LLM-svar; ellers udvidet vidensbase) -->
-<button id="aevc-btn" aria-label="Åbn chat" aria-expanded="false">
+<!-- Aevia AI assistant -->
+<button id="aevc-btn" aria-label="Open chat" aria-expanded="false">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.8-5.9A8.5 8.5 0 1 1 21 11.5z"/></svg>
-  <span>Spørg Aevia</span>
+  <span>Ask Aevia</span>
 </button>
-<div id="aevc-panel" role="dialog" aria-label="Aevia assistent">
+<div id="aevc-panel" role="dialog" aria-label="Aevia assistant">
   <div class="aevc-head">
-    <div><strong>Aevia-assistent</strong><span>Svarer typisk straks</span></div>
-    <button id="aevc-close" aria-label="Luk chat">&times;</button>
+    <div><strong>Aevia assistant</strong><span>Typically replies right away</span></div>
+    <button id="aevc-close" aria-label="Close chat">&times;</button>
   </div>
   <div id="aevc-log" class="aevc-log" aria-live="polite" aria-atomic="false"></div>
   <div class="aevc-chips">
-    <button class="aevc-chip">Hvad koster det?</button>
-    <button class="aevc-chip">Hvad indgår i pakkerne?</button>
-    <button class="aevc-chip">Ser min arbejdsgiver mine resultater?</button>
-    <button class="aevc-chip">Book en tid</button>
+    <button class="aevc-chip">What does it cost?</button>
+    <button class="aevc-chip">What's included in the packages?</button>
+    <button class="aevc-chip">Will my employer see my results?</button>
+    <button class="aevc-chip">Book a time</button>
   </div>
-  <form id="aevc-form"><input id="aevc-input" type="text" aria-label="Skriv dit spørgsmål" autocomplete="off" placeholder="Skriv dit spørgsmål…"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></form>
-  <p class="aevc-disc">AI-assistent, generel info, ikke lægefaglig rådgivning. Ved tvivl: <a href="book.html">book en tid</a>.</p>
+  <form id="aevc-form"><input id="aevc-input" type="text" aria-label="Type your question" autocomplete="off" placeholder="Type your question…"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></form>
+  <p class="aevc-disc">AI assistant, general information, not medical advice. If in doubt: <a href="book.html">book a time</a>.</p>
 </div>
 <style>
 #aevc-btn{position:fixed;right:22px;bottom:22px;z-index:300;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border:none;border-radius:999px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-weight:600;font-size:.95rem;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .15s ease,background .2s ease}
@@ -125,41 +120,39 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </style>
 <script>
 (function(){
-  /* ── For FULDE AI-svar på alle spørgsmål: deploy backend (se chatbot-backend/README.md)
-        og indsæt dens URL her. Uden den bruges den lokale vidensbase nedenfor som fallback. ── */
   var AEVC_ENDPOINT="";
-  var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
-  var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
+  var GREET="Hi! I'm Aevia's assistant. Ask me anything, packages, prices, services, confidentiality, health and longevity, or pick a suggestion below.";
+  var FALLBACK="Good question. I don't have a precise answer here, but we'll clear it up quickly: <a href='book.html'>book your time directly</a> or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. In the meantime, would you like to hear about our <a href='pakker.html'>packages</a> or <a href='ydelser.html'>services</a>?";
   var KB=[
-   {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
-   {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
-   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Executive 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Executive tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
-   {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
-   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Executive og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
-   {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
-   {k:["genetisk","genetik","dna","gen ","arvelig"],a:"Den genetiske profil kortlægger arvelige risikofaktorer (indgår i Elite) og kobles altid til en lægefaglig tolkning."},
-   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Executive. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
-   {k:["blodpr","blodpanel","markør","mangel","vitamin","jern","b12"],a:"Vores fulde blodpanel måler 70+ markører, inkl. mangeltjek for vitaminer og mineraler (fx D-vitamin, B12, jern). Indgår i alle pakker. Se <a href='pakker.html'>Pakker</a>."},
-   {k:["d-vitamin","d vitamin"],a:"Mange danskere mangler D-vitamin, især om vinteren. Vi måler det i blodpanelet, så du kan supplere præcist. Læs <a href='d-vitamin-mangel.html'>artiklen</a>."},
-   {k:["søvn","sove","sover"],a:"Søvn er det stærkeste enkeltgreb for energi og longevity: fast rytme, mørkt/køligt rum, skærm og alkohol væk før sengetid. Vi måler effekten via biomarkører. Læs <a href='soevn-ydeevne.html'>artiklen</a>."},
-   {k:["kost","diæt","spise","protein","mad","sukker"],a:"Generelt: protein- og fiberrigt, begræns flydende sukker, og spis gerne grønt før stivelse. Vi laver en personlig protokol ud fra dine egne tal, ikke en standardkur."},
-   {k:["træn","motion","styrke","løb","fitness","zone 2"],a:"En effektiv opskrift: rolig Zone 2-træning 2–3x/uge + ét hårdt intervalpas + styrke 2x/uge. Læs <a href='zone-2-traening.html'>Zone 2</a> og <a href='vo2max-levetid.html'>VO2max</a>."},
-   {k:["stress","udbrændt","pres","kortisol"],a:"Kronisk stress hæver kortisol og rammer søvn, blodsukker og hjerte. Faste mikropauser, åndedræt og bevægelse hjælper målbart. Læs <a href='stress-kortisol.html'>artiklen</a>."},
-   {k:["kvinde","kvinder","overgangsalder","menopause"],a:"Kvinders sundhed følger andre kurver, særligt omkring overgangsalderen (hormoner, knogler, hjerte). Læs <a href='kvinder-longevity.html'>Longevity for kvinder</a>."},
-   {k:["bryan johnson","blueprint","longevity"],a:"Longevity handler om at måle, ændre én ting ad gangen og følge op, uden ekstremerne. Læs vores tag på <a href='bryan-johnson.html'>Bryan Johnson-metoden</a>."},
-   {k:["hvem udfører","klinik","lab","udfører","laboratorium","speciallæge"],a:"Aevia driver ikke egen klinik. Vi koordinerer din diagnostik gennem akkrediterede laboratorier, billeddiagnostiske centre og speciallæger og samler alt i én rapport. Se <a href='proces.html'>Sådan virker det</a>."},
-   {k:["fortrolig","gdpr","data","arbejdsgiver","chef","ser min","privatliv","sikker","anonym"],a:"Dine helbredsdata er følsomme (GDPR art. 9): krypteret opbevaring, deles aldrig med arbejdsgiver. Virksomheder får kun en <strong>anonymiseret teamrapport</strong>, aldrig individuelle tal. Skriv aldrig helbredsoplysninger her i chatten. Mere i <a href='privatlivspolitik.html'>privatlivspolitikken</a>."},
-   {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået 1:1 med en sundhedsspecialist."},
-   {k:["book","booking","tid","samtale","ring","kontakt","mail","telefon"],a:"Book din tid direkte på <a href='book.html'>book-siden</a>, ring +45 28 30 39 33 eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["køb","betaling","betale","online","faktura","kort","afdrag"],a:"De tre private pakker kan købes online med kort eller på faktura. Virksomhedsaftaler indgås via kontakt. Gå til <a href='pakker.html'>Pakker</a>."},
-   {k:["virksomhed","medarbejder","team","ansat","arbejdsplads","erhverv","hr"],a:"For virksomheder samler vi ledergruppens resultater i en anonymiseret teamrapport, arbejdsgiver ser aldrig individuelle tal, og deltagelse er frivillig. Læs <a href='virksomheder.html'>For virksomheder</a>."},
-   {k:["gratis","guide","tjekliste","nyhedsbrev","download"],a:"Hent vores gratis <strong>Longevity-tjekliste: 10 evidensbaserede vaner</strong> på <a href='indsigter.html#brief'>Indsigter</a>."},
-   {k:["hvor","adresse","beliggende","københavn","ligger"],a:"Aevia har adresse på Bredgade 11, 7400 Herning. Vi koordinerer prøvetagning så tæt på dig som muligt."},
-   {k:["hvem egner","passer","for hvem","relevant","for mig"],a:"Aevia er til alle voksne, der vil kende deres reelle helbred og handle tidligt, uanset titel. Du booker privat, via din arbejdsplads eller for hele teamet."},
-   {k:["menneske","robot","ai","bot","rigtig person"],a:"Jeg er Aevias digitale assistent. Jeg svarer på det meste, og kan sætte dig i kontakt med et menneske via <a href='book.html'>booking</a>."},
-   {k:["hej","halløj","goddag","hello","hallo"],a:"Hej! Hvad kan jeg hjælpe med, pakker, ydelser, fortrolighed, sundhed eller booking?"},
-   {k:["tak","mange tak","perfekt","fedt","super"],a:"Selv tak! Er der andet, jeg kan hjælpe med, fx <a href='pakker.html'>pakker</a> eller <a href='book.html'>booking</a>?"}
+   {k:["112","emergency","acute","chest pain","short of breath","faint","unconscious","bleeding"],a:"⚠️ If this sounds like an emergency, e.g. chest pain, shortness of breath or loss of consciousness, call <strong>112</strong> or the on-call doctor immediately. Aevia is preventive and cannot handle acute cases."},
+   {k:["symptom","sick","ill","pain","hurts","diagnose","what's wrong","is it dangerous","clot","cancer"],a:"I'm afraid I can't assess symptoms or make diagnoses. If you have a specific concern, book a time with Aevia or contact your own doctor, in an emergency call 112. <a href='book.html'>Book a conversation</a>."},
+   {k:["cost","price","prices","how much","amount","dkk","expensive"],a:"Private packages: <strong>Core DKK 8,900</strong>, <strong>Executive DKK 14,900</strong>, <strong>Elite DKK 29,900</strong>. Company agreements from DKK 120,000. See everything on <a href='pakker.html'>Packages &amp; pricing</a>. Shall I help you choose?"},
+   {k:["include","included","contain","package","packages","difference","level","what do i get"],a:"All packages: biological age, full blood panel (70+ markers) and a personal report. Executive adds VO2max and a hormone panel; Elite adds whole-body MRI, genetics and 3-month follow-up. See <a href='ydelser.html'>Services</a>."},
+   {k:["biological age"],a:"Your biological age shows how fast your body is actually ageing, independent of your birthday. It's included in every package. Read the <a href='biologisk-alder.html'>article</a>."},
+   {k:["vo2","fitness","cardio","oxygen"],a:"VO2max measures your cardiorespiratory fitness and is one of the strongest markers of longevity, and it can be trained. Included in Executive and Elite. Read <a href='vo2max-levetid.html'>about VO2max</a>."},
+   {k:["mri","scan","imaging","whole body","whole-body"],a:"Whole-body MRI scans organs and tissue without radiation and is included in Elite. Read <a href='mri-helkropsscanning.html'>about whole-body MRI</a>."},
+   {k:["genetic","genetics","dna","gene","hereditary"],a:"The genetic profile maps hereditary risk factors (included in Elite) and is always linked to a medical interpretation."},
+   {k:["hormone","testosterone","cortisol","oestrogen","estrogen"],a:"The hormone panel measures testosterone, cortisol and thyroid hormones, among others; included from Executive. Read <a href='testosteron-performance.html'>about hormones</a>."},
+   {k:["blood","panel","marker","deficiency","vitamin","iron","b12"],a:"Our full blood panel measures 70+ markers, including deficiency checks for vitamins and minerals (e.g. vitamin D, B12, iron). Included in every package. See <a href='pakker.html'>Packages</a>."},
+   {k:["vitamin d"],a:"Many people are short on vitamin D, especially in winter. We measure it in the blood panel so you can supplement precisely. Read the <a href='d-vitamin-mangel.html'>article</a>."},
+   {k:["sleep","sleeping"],a:"Sleep is the single strongest lever for energy and longevity: a fixed rhythm, a dark/cool room, screens and alcohol away before bed. We measure the effect via biomarkers. Read the <a href='soevn-ydeevne.html'>article</a>."},
+   {k:["diet","eat","protein","food","sugar"],a:"In general: protein- and fibre-rich, limit liquid sugar, and eat greens before starch. We build a personal protocol from your own numbers, not a standard diet."},
+   {k:["train","exercise","strength","run","fitness","zone 2"],a:"An effective recipe: easy Zone 2 training 2–3x/week + one hard interval session + strength 2x/week. Read <a href='zone-2-traening.html'>Zone 2</a> and <a href='vo2max-levetid.html'>VO2max</a>."},
+   {k:["stress","burnout","pressure","cortisol"],a:"Chronic stress raises cortisol and affects sleep, blood sugar and the heart. Regular micro-breaks, breathing and movement help measurably. Read the <a href='stress-kortisol.html'>article</a>."},
+   {k:["woman","women","menopause"],a:"Women's health follows different curves, particularly around menopause (hormones, bones, heart). Read <a href='kvinder-longevity.html'>Longevity for women</a>."},
+   {k:["bryan johnson","blueprint","longevity"],a:"Longevity is about measuring, changing one thing at a time and following up, without the extremes. Read our take on the <a href='bryan-johnson.html'>Bryan Johnson method</a>."},
+   {k:["who performs","clinic","lab","laboratory","specialist"],a:"Aevia does not run its own clinic. We coordinate your diagnostics through accredited laboratories, imaging centres and specialist physicians and gather it all into one report. See <a href='proces.html'>How it works</a>."},
+   {k:["confidential","gdpr","data","employer","boss","see my","privacy","secure","anonymous"],a:"Your health data is sensitive (GDPR Art. 9): encrypted storage, never shared with an employer. Companies only get an <strong>anonymised team report</strong>, never individual numbers. Never write health information here in the chat. More in the <a href='privatlivspolitik.html'>privacy policy</a>."},
+   {k:["when","delivery","report","result","how long","time"],a:"You receive your report within <strong>10 working days</strong> of your final test, reviewed 1:1 with a health specialist."},
+   {k:["book","booking","time","conversation","call","contact","mail","phone"],a:"Book your time directly on the <a href='book.html'>booking page</a>, call +45 28 30 39 33 or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
+   {k:["buy","payment","pay","online","invoice","card","instalment"],a:"The three private packages can be bought online by card or on invoice. Company agreements are arranged via contact. Go to <a href='pakker.html'>Packages</a>."},
+   {k:["company","employee","team","staff","workplace","corporate","hr"],a:"For companies we gather the leadership team's results into an anonymised team report, the employer never sees individual numbers, and participation is voluntary. Read <a href='virksomheder.html'>For companies</a>."},
+   {k:["free","guide","checklist","newsletter","download"],a:"Get our free <strong>Longevity checklist: 10 evidence-based habits</strong> on <a href='indsigter.html#brief'>Insights</a>."},
+   {k:["where","address","located","herning","location"],a:"Aevia is based at Bredgade 11, 7400 Herning, Denmark. We coordinate sample collection as close to you as possible."},
+   {k:["who is it for","suitable","for whom","relevant","for me"],a:"Aevia is for all adults who want to know their real health and act early, whatever their title. You can book privately, through your workplace or for the whole team."},
+   {k:["human","robot","ai","bot","real person"],a:"I'm Aevia's digital assistant. I answer most things, and can put you in touch with a person via <a href='book.html'>booking</a>."},
+   {k:["hi","hello","hey","good day"],a:"Hi! What can I help with, packages, services, confidentiality, health or booking?"},
+   {k:["thanks","thank you","perfect","great","awesome"],a:"You're welcome! Anything else I can help with, e.g. <a href='pakker.html'>packages</a> or <a href='book.html'>booking</a>?"}
   ];
   var hist=[];
   function aevcOK(){try{return localStorage.getItem('aevia_cookie')==='all';}catch(e){return false;}}
