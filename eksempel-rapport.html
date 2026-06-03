@@ -555,12 +555,8 @@ svg .grid{stroke:var(--line)}
   });
   if(items.length>1){
     var toc=document.createElement('div'); toc.className='card toc-card';
-    var links=items.map(function(it){return '<a href="#'+it.id+'" class="toc-a">'+it.title+'</a>';}).join('');
-    toc.innerHTML='<div class="toc-top"><div class="eyebrow" style="margin:0">'+T.toc+'</div><div class="toc-btns"><button type="button" class="toc-btn" id="foldall"></button><button type="button" class="toc-btn" id="printrep">'+T.print+'</button></div></div><nav class="toc-nav">'+links+'</nav>';
+    toc.innerHTML='<div class="toc-top" style="margin:0;justify-content:flex-end"><div class="toc-btns"><button type="button" class="toc-btn" id="foldall"></button><button type="button" class="toc-btn" id="printrep">'+T.print+'</button></div></div>';
     items[0].card.parentNode.insertBefore(toc, items[0].card.nextSibling);
-    [].slice.call(toc.querySelectorAll('.toc-a')).forEach(function(a){
-      a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById(a.getAttribute('href').slice(1));if(t){t.classList.remove('collapsed');t.querySelector('.cl-head').setAttribute('aria-expanded','true');t.scrollIntoView({behavior:'smooth',block:'start'});}});
-    });
     var collapsed=false, fb=toc.querySelector('#foldall');
     function lbl(){fb.textContent=collapsed?T.unfold:T.fold;}
     lbl();
