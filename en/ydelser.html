@@ -267,7 +267,7 @@ footer.site{border-top:1px solid var(--line);padding:66px 0 36px;background:var(
 .banner img{width:100%;height:100%;object-fit:cover;display:block}
 .banner::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 90px 16px rgba(10,22,40,.55);pointer-events:none}
 /* alternating service rows */
-.yrow{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:center;padding:36px;margin-bottom:26px;background:var(--navy-2);border:1px solid var(--line);border-radius:20px;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}.yrow:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.yrow{display:grid;grid-template-columns:1fr;padding:36px;margin-bottom:26px;background:var(--navy-2);border:1px solid var(--line);border-radius:20px;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}.yrow:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.35)}
 .yrow:last-child{border-bottom:none}
 .yrow.flip .ymedia{order:2}
 .ymedia{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--navy-3)}
@@ -305,6 +305,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .yrow:last-child{margin-bottom:0}
 .ytext h2{letter-spacing:-.01em}
 @media(max-width:1140px){.hamburger{display:flex;align-items:center;justify-content:center}.nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);border-bottom:1px solid var(--line);padding:10px 16px 22px;display:none}.nav-links.open{display:flex}.nav-links > li > a{padding:14px 6px;width:100%;font-size:1rem}.nav-cta{display:inline-block;margin-top:8px;text-align:center}.lang-li{padding:14px 6px;border-top:1px solid var(--line);justify-content:flex-start}}
+.ylink{display:inline-block;margin:0 0 14px;color:var(--gold);text-decoration:none;font-weight:600;font-size:.92rem}.ylink:hover{text-decoration:underline}
 </style>
 
 </head>
@@ -346,10 +347,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <section>
   <div class="container">
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Abstrakt DNA-streng i blå toner, biologisk alder"></div>
   <div class="ytext">
     <span class="eyebrow">Service 01</span>
-    <h2>Biological age test</h2>
+    <h2 id="biologisk-alder" style="scroll-margin-top:90px">Biological age test</h2>
+    <a href="biologisk-alder.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>Your biological age shows how fast your body is actually ageing, independent of your birthday. It is calculated from a broad set of biomarkers in your blood.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Two people aged 50 can differ by 15 years in biological age. It is the one health KPI you can actively move, and it responds in months, not years.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Calculated from a full blood panel and clinical data</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Compared against your chronological age</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in every package</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Re-tests with Elite and the annual agreement show the trend</li></ul></div>
@@ -358,10 +359,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Blodprøverør på laboratorium, fuldt blodpanel med 70+ markører"></div>
   <div class="ytext">
     <span class="eyebrow">Service 02</span>
-    <h2>Full blood panel, 70+ markers</h2>
+    <h2 id="blodpanel-h" style="scroll-margin-top:90px">Full blood panel, 70+ markers</h2>
+    <a href="#bloodpanel" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>A full blood panel analyses 70+ markers, from hormones and inflammation to vitamin status and metabolism. It is a precise snapshot of your internal state.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Most leaders only notice problems once they can feel them. The blood panel reveals imbalances long before symptoms, so you can act proactively rather than reactively.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Blood draw at an accredited partner lab within 48 hours</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>70+ markers incl. inflammation, lipids, glucose and vitamins</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Report ready within 10 working days</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personal review with a health specialist</li></ul></div>
@@ -370,10 +371,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Person under VO2max-test med maske på kondicykel"></div>
   <div class="ytext">
     <span class="eyebrow">Service 03</span>
-    <h2>VO2max-test</h2>
+    <h2 id="vo2max" style="scroll-margin-top:90px">VO2max-test</h2>
+    <a href="vo2max-levetid.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>VO2max measures how efficiently your body takes up and uses oxygen under load. It is the single strongest measure of your fitness and endurance.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Few markers predict longevity as precisely as VO2max, and it can be trained. It also drives your energy and mental clarity through a long working day.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Maximal oxygen-uptake test at a sports-physiology lab</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Measurement of fitness, thresholds and recovery capacity</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>A concrete training protocol built on your number</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in Plus and Elite</li></ul></div>
@@ -382,10 +383,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Blodprøverør til hormonanalyse på laboratorium"></div>
   <div class="ytext">
     <span class="eyebrow">Service 04</span>
-    <h2>Hormonpanel</h2>
+    <h2 id="hormonpanel" style="scroll-margin-top:90px">Hormonpanel</h2>
+    <a href="testosteron-performance.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>The hormone panel maps the signalling molecules that govern energy, sleep, mood, muscle mass and recovery, including testosterone, cortisol and thyroid hormones.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Hormonal imbalances often hit exactly what a leader runs on: focus, drive and headroom. They are invisible on a standard check-up, but measurable here.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Extended hormone profile via blood sample</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Assessment of stress, sex and thyroid hormones</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Interpretation and recommendations from a specialist physician</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in Plus and Elite</li></ul></div>
@@ -394,10 +395,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Patient føres ind i MR-scanner, helkrops-MRI"></div>
   <div class="ytext">
     <span class="eyebrow">Service 05</span>
-    <h2>MRI / helkropsscanning</h2>
+    <h2 id="mri" style="scroll-margin-top:90px">MRI / helkropsscanning</h2>
+    <a href="mri-helkropsscanning.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>A whole-body MRI scans the body's organs and tissue without radiation. It looks for abnormalities that do not yet cause symptoms.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>It is the most thorough screening we offer. For many leaders, knowing that nothing has been overlooked is the value in itself.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Whole-body MRI without contrast at a private imaging centre</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Review by a consultant radiologist</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Any findings are coordinated straight to the relevant specialist</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in Elite</li></ul></div>
@@ -406,10 +407,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Læge i konsultation om genetisk profil og risikogener"></div>
   <div class="ytext">
     <span class="eyebrow">Service 06</span>
-    <h2>Genetisk profil</h2>
+    <h2 id="genetik" style="scroll-margin-top:90px">Genetisk profil</h2>
+    <a href="eksempel-rapport.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>The genetic profile maps the hereditary factors that influence your disease risk, your metabolism and your response to training and diet.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Your genes do not change, but what you do with them does. The profile shows where you have an innate advantage and where you need extra attention.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Analysis of relevant risk genes and carrier status</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Insight into metabolism and response to diet and training</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Interpretation set in the context of your other results</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in Elite</li></ul></div>
@@ -418,10 +419,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Læge i personlig samtale om din sundhedsprotokol"></div>
   <div class="ytext">
     <span class="eyebrow">Service 07</span>
-    <h2>Personlig sundhedsprotokol</h2>
+    <h2 id="protokol" style="scroll-margin-top:90px">Personlig sundhedsprotokol</h2>
+    <a href="eksempel-rapport.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>The protocol is your complete report: every result translated into plain language, plus a concrete action plan with prioritised, measurable steps.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Data without a plan is just numbers. The protocol tells you exactly what to do first, why, and what you can expect to move.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>A consolidated report across all tests</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>A prioritised action plan with measurable KPIs</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>1:1 review with a health specialist (30 min.)</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in every package</li></ul></div>
@@ -430,10 +431,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="../https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Ledergruppe i møde, anonymiseret teamrapport"></div>
   <div class="ytext">
     <span class="eyebrow">Service 08</span>
     <h2>Team report</h2>
+    <a href="virksomheder.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>The team report gathers the leadership group's results into one anonymised overview. The company sees patterns and risk at group level, never individual data.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>It turns health into a measurable management tool. You can document risk, prioritise initiatives and track progress quarter by quarter.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>An aggregated, anonymised health picture of the group</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Breakdown by risk category and key figures</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>GDPR Article 9-compliant anonymisation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in the company package and annual agreement</li></ul></div>
@@ -442,10 +443,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Skærm med stigende graf, kvartalsvise re-tests og udvikling"></div>
   <div class="ytext">
     <span class="eyebrow">Service 09</span>
-    <h2>Kvartalsvise re-tests</h2>
+    <h2 id="retest" style="scroll-margin-top:90px">Kvartalsvise re-tests</h2>
+    <a href="virksomheder.html" class="ylink">Read more →</a>
     <div class="ylayer"><span class="ylabel">What is it?</span><p>With quarterly re-tests we measure your key people four times a year and show the trend over time rather than a single snapshot.</p></div>
     <div class="ylayer"><span class="ylabel">Why does it matter?</span><p>Health is a trend, not a snapshot. Ongoing measurement catches changes early and documents the effect of the initiatives you invest in.</p></div>
     <div class="ylayer"><span class="ylabel">What actually happens?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Re-test of key markers every quarter</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>A trend report showing development over time</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 20 key employees</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Included in the annual agreement</li></ul></div>
@@ -683,7 +684,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 (function(){
   /* ── For FULDE AI-svar på alle spørgsmål: deploy backend (se chatbot-backend/README.md)
         og indsæt dens URL her. Uden den bruges den lokale vidensbase nedenfor som fallback. ── */
-  var AEVC_ENDPOINT="";
+  var AEVC_ENDPOINT="/api/chat";
   var GREET="Hi! I'm Aevia's assistant. Ask me anything, packages, prices, services, confidentiality, health and longevity, or pick a suggestion below.";
   var FALLBACK="Good question. I don't have a precise answer here, but we'll clear it up quickly: <a href='book.html'>book your time directly</a> or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. In the meantime, would you like to hear about our <a href='pakker.html'>packages</a> or <a href='ydelser.html'>services</a>?";
   var KB=[
@@ -783,5 +784,6 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 })();
 </script>
 
+<script src="../glossary.js"></script>
 </body>
 </html>

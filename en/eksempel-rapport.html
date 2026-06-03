@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example report | Aevia Health</title>
+<meta name="description" content="See an in-depth, anonymised example report from Aevia: biological age over time, a category overview, each marker shown as a range bar, and the physician's detailed assessment. Figures are fictional.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aevia.dk/en/eksempel-rapport.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<style>
+:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--ok:#3fb27f;--warn:#c9a437;--low:#e0844b;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 28px}
+.logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--gold);text-decoration:none;font-size:.92rem}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
+.disc{color:var(--muted-2);font-size:.9rem;background:var(--navy-2);border:1px solid var(--line-2);border-radius:10px;padding:12px 16px;margin:18px 0 30px}
+.card{background:var(--navy-2);border:1px solid var(--line-2);border-radius:16px;padding:26px 28px;margin-bottom:20px}
+h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 4px}
+.csub{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+.agerow{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.agebox{flex:1;min-width:150px;text-align:center;background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:18px}
+.agebox .n{font-family:var(--serif);font-size:2.4rem;font-weight:600;line-height:1}
+.agebox .n.gold{color:var(--gold)}
+.agebox .l{color:var(--muted);font-size:.82rem;margin-top:8px}
+.catrow{display:grid;grid-template-columns:150px 1fr 48px;align-items:center;gap:14px;margin-bottom:12px}
+.catrow .cl{font-size:.92rem;color:var(--text)}
+.cbar{height:10px;background:var(--navy);border-radius:999px;overflow:hidden}
+.cbar i{display:block;height:100%;border-radius:999px}
+.catrow .cv{font-size:.85rem;color:var(--muted);text-align:right}
+.mgroup{margin-top:22px}
+.mgroup h3{font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:14px;letter-spacing:.02em}
+.mrow{padding:14px 0;border-top:1px solid var(--line)}
+.mrow:first-of-type{border-top:none}
+.mtop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap}
+.mn{font-weight:600;font-size:.98rem}
+.mbadge{font-size:.68rem;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.mbadge.ok{background:rgba(63,178,127,.15);color:#7fd4a6}
+.mbadge.warn{background:var(--gold-soft);color:var(--gold)}
+.mbadge.low{background:rgba(224,132,75,.15);color:#e0a06b}
+.track{position:relative;height:9px;border-radius:999px;display:flex;overflow:hidden;background:var(--navy)}
+.track i{height:100%}
+.needle{position:absolute;top:-4px;width:3px;height:17px;background:#fff;border-radius:2px;box-shadow:0 0 0 2px var(--navy-2);transform:translateX(-1px)}
+.mmeta{display:flex;justify-content:space-between;margin-top:7px;font-size:.82rem;color:var(--muted)}
+.mmeta .val{color:var(--text);font-weight:500}
+.mnote{font-size:.9rem;color:var(--muted);margin-top:6px}
+.summary p{margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.summary .lead-line{border-left:3px solid var(--gold);background:var(--navy);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text);margin-bottom:16px}
+.docsign{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.docsign .av{width:40px;height:40px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:600}
+.docsign .dn{font-weight:600;font-size:.92rem}.docsign .dt{color:var(--muted);font-size:.82rem}
+.plan li{margin:0 0 10px 20px;color:var(--muted)}
+.plan li b{color:var(--text);font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%}
+.cta{text-align:center;margin-top:36px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;background:var(--gold);color:var(--navy);transition:all .2s ease}
+.btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2);margin-left:10px}
+.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+.foot a{color:var(--gold);text-decoration:none}
+svg .grid{stroke:var(--line)}
+.timeline .ti{display:flex;gap:16px;padding:0 0 18px}.timeline .ti:last-child{padding-bottom:0}
+.timeline .td{flex:none;width:62px;font-weight:600;color:var(--gold);font-size:.9rem}
+.timeline .tc{color:var(--muted);font-size:.93rem;border-left:2px solid var(--line-2);padding-left:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="index.html" class="logo">Aevia<span>.</span></a>
+    <a href="pakker.html" class="back">← Packages &amp; pricing</a>
+  </div>
+
+  <span class="eyebrow">Example report</span>
+  <h1>This is what your report looks like</h1>
+  <p style="color:var(--muted);max-width:62ch">An anonymised, in-depth example, so you know exactly what you get. An AI compiles your results into the report, and a physician reviews and approves it before you receive it.</p>
+  <div class="disc">Note: This is a fictional example. The name, figures, charts and assessments are made up and for illustration only.</div>
+
+  <div class="card">
+    <div class="eyebrow" style="margin-bottom:6px">Profile &amp; biological age</div>
+    <div class="agerow">
+      <div style="flex:2;min-width:200px">
+        <div style="font-family:var(--serif);font-size:1.3rem">Anonymous participant</div>
+        <div style="color:var(--muted);font-size:.92rem;margin-top:4px">Male · 44 years · Aevia Plus pathway</div>
+      </div>
+      <div class="agebox"><div class="n">44</div><div class="l">Chronological age</div></div>
+      <div class="agebox"><div class="n gold">39</div><div class="l">Biological age</div></div>
+      <div class="agebox"><div class="n" style="color:#7fd4a6">−5</div><div class="l">Years younger</div></div>
+    </div>
+    <h3 style="font-size:.95rem;color:var(--gold);font-weight:600;margin:24px 0 4px">Your progress over time</h3>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:10px">Biological age at each annual check — measurable progress, year by year.</p>
+    <svg viewBox="0 0 640 220" width="100%" role="img" aria-label="Chart: biological age falls from 46 in 2024 to 39 in 2026, while chronological age rises">
+      <line class="grid" x1="40" y1="30" x2="40" y2="180"/>
+      <line class="grid" x1="40" y1="180" x2="620" y2="180"/>
+      <line class="grid" x1="40" y1="105" x2="620" y2="105" stroke-dasharray="4 5"/>
+      <text x="34" y="35" fill="#94a0b2" font-size="11" text-anchor="end">46</text>
+      <text x="34" y="110" fill="#94a0b2" font-size="11" text-anchor="end">42</text>
+      <text x="34" y="184" fill="#94a0b2" font-size="11" text-anchor="end">38</text>
+      <polyline fill="none" stroke="#4a5a72" stroke-width="2" stroke-dasharray="5 5" points="120,68 360,49 600,30"/>
+      <text x="600" y="22" fill="#7d8aa0" font-size="11" text-anchor="end">Chronological</text>
+      <polyline fill="none" stroke="#c9a437" stroke-width="3" points="120,49 360,86 600,143"/>
+      <circle cx="120" cy="49" r="5" fill="#c9a437"/><circle cx="360" cy="86" r="5" fill="#c9a437"/><circle cx="600" cy="143" r="5" fill="#c9a437"/>
+      <text x="120" y="40" fill="#f5f5f0" font-size="12" text-anchor="middle">46</text>
+      <text x="360" y="77" fill="#f5f5f0" font-size="12" text-anchor="middle">42</text>
+      <text x="600" y="134" fill="#f5f5f0" font-size="12" text-anchor="middle">39</text>
+      <text x="120" y="200" fill="#94a0b2" font-size="11" text-anchor="middle">2024</text>
+      <text x="360" y="200" fill="#94a0b2" font-size="11" text-anchor="middle">2025</text>
+      <text x="600" y="200" fill="#94a0b2" font-size="11" text-anchor="middle">2026</text>
+      <text x="600" y="160" fill="#c9a437" font-size="11" text-anchor="end">Biological</text>
+    </svg>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:10px">Your body currently functions about 5 years younger than your date of birth — and the gap has widened each year. It is driven mainly by good fitness and low inflammation; three markers still pull the other way.</p>
+  </div>
+
+  <div class="card">
+    <h2>Category overview</h2>
+    <p class="csub">A quick picture of where you stand across the major areas.</p>
+    <div id="cats"></div>
+    <div class="legend"><span><i style="background:var(--ok)"></i>Optimal</span><span><i style="background:var(--warn)"></i>Attention</span><span><i style="background:var(--low)"></i>Needs improvement</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Key markers in detail</h2>
+    <p class="csub">The white line shows your value. The coloured bar shows what is optimal, what needs attention, and what should be improved.</p>
+    <div id="markers"></div>
+  </div>
+
+  <div class="card">
+    <h2>How your biological age is calculated</h2>
+    <p class="csub">A short note on the method behind the number.</p>
+    <p style="color:var(--muted)">Your biological age is a model, not a diagnosis. It is calculated from a combination of your biomarkers — including inflammation (hs-CRP), metabolism (HbA1c, albumin), kidney function (eGFR), lipids and blood count — weighted by how strongly each marker relates to ageing in the research. The number is compared with your chronological age, so you can see whether your body ages faster or slower than the calendar — and most importantly, whether it moves over time.</p>
+  </div>
+
+  <div class="card">
+    <h2>The physician's assessment</h2>
+    <p class="csub">Written and approved by the physician who reviewed your report.</p>
+    <div class="summary">
+      <p class="lead-line">Overall a strong starting point. Your fitness and low inflammation are real protective factors, and your biological age has improved three years running. The primary effort over the coming year is to lower ApoB and improve your insulin sensitivity — two things that tend to move substantially with focused work.</p>
+      <p><b>Heart and circulation.</b> Your ApoB at 1.15 g/L is slightly raised and is the single most important marker to lower for your long-term risk. LDL follows the same pattern. The good news is that your Lp(a) is low — the inherited risk you cannot change is not a factor for you. With dietary changes and possible follow-up tests, I expect ApoB can be brought below target within 3-6 months; if not, we should discuss further measures.</p>
+      <p><b>Metabolism and blood sugar.</b> Your long-term blood sugar (HbA1c) is fine, but your fasting insulin at 11 mIU/L reveals early insulin resistance — an early signal, long before blood sugar normally reacts. It is one of the most valuable early warnings in the whole report, precisely because it can be reversed with strength training and fewer refined carbohydrates.</p>
+      <p><b>Inflammation and vitamins.</b> Your hs-CRP and homocysteine are both in the optimal range — a strong sign of low background inflammation. Your vitamin D, however, is low (42 nmol/L), which is common in Denmark and easily corrected with supplements; it affects energy, immunity and bones.</p>
+      <p><b>Fitness and hormones.</b> Your VO2max at 48 ml/kg/min is above average for your age and is one of the strongest single factors for a long life — keep it up. Your sex hormones are in a healthy range with no need for intervention.</p>
+      <p><b>Overall recommendation.</b> Focus on the two markers that can move the most (ApoB and insulin), correct vitamin D, and maintain your fitness. I recommend a re-test of the core markers in 12 months to confirm progress — and a short follow-up after 3 months if you would like to adjust along the way.</p>
+      <div class="docsign">
+        <div class="av">P</div>
+        <div><div class="dn">Physician, internal medicine</div><div class="dt">Report reviewed and approved · fictional example</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Your plan</h2>
+    <p class="csub">Concrete, prioritised steps — the most important first.</p>
+    <ul class="plan">
+      <li><b>Lower ApoB:</b> more unsaturated fat and fibre, fewer refined carbohydrates and saturated fat.</li>
+      <li><b>Improve insulin sensitivity:</b> 2-3 strength sessions per week + a walk after meals.</li>
+      <li><b>Correct vitamin D:</b> supplement 70-100 µg daily, especially during winter.</li>
+      <li><b>Maintain your fitness:</b> keep 2-3 cardio sessions per week — it is your strongest protection.</li>
+      <li><b>Follow up:</b> re-test core markers in 12 months (included in membership); short check after 3 months if needed.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>The next 12 months</h2>
+    <p class="csub">How we follow up on your plan.</p>
+    <div class="timeline">
+      <div class="ti"><div class="td">Now</div><div class="tc">Report + 1:1 physician review. You get your plan and get started.</div></div>
+      <div class="ti"><div class="td">3 mo.</div><div class="tc">Short follow-up (optional): adjust the plan, possibly a mini re-test of ApoB and insulin.</div></div>
+      <div class="ti"><div class="td">12 mo.</div><div class="tc">Full re-test of core markers — we measure progress in black and white (included in membership).</div></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a href="book.html" class="btn">Book your own health check</a>
+    <a href="pakker.html" class="btn ghost">See packages &amp; pricing</a>
+  </div>
+
+  <div class="foot">
+    Aevia · <a href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a> · +45 28 30 39 33 · <a href="index.html">aevia.dk</a><br>
+    Fictional example for illustration. Your report is built on your own tests and approved by a physician.
+  </div>
+</div>
+
+<script>
+(function(){
+  var C={ok:'#3fb27f',warn:'#c9a437',low:'#e0844b'};
+  var cats=[['Heart & circulation',68,'warn'],['Metabolism & blood sugar',74,'warn'],['Inflammation',94,'ok'],['Vitamins & minerals',58,'low'],['Fitness',90,'ok'],['Hormones',86,'ok']];
+  document.getElementById('cats').innerHTML=cats.map(function(c){
+    return '<div class="catrow"><div class="cl">'+c[0]+'</div><div class="cbar"><i style="width:'+c[1]+'%;background:'+C[c[2]]+'"></i></div><div class="cv">'+c[1]+'/100</div></div>';
+  }).join('');
+  var groups=[
+   ['Heart & circulation',[
+     {n:'ApoB',disp:'1.15 g/L',opt:'Target: < 0.9',v:1.15,min:0.5,max:1.7,z:[[0.9,'ok'],[1.2,'warn'],[1.7,'low']],s:'warn',sl:'Attention',note:'The marker for harmful cholesterol particles is slightly raised — the most important to lower for your risk.'},
+     {n:'LDL cholesterol',disp:'3.4 mmol/L',opt:'Target: < 3.0',v:3.4,min:1.5,max:5,z:[[3.0,'ok'],[4.0,'warn'],[5,'low']],s:'warn',sl:'Attention',note:'Follows the same pattern as ApoB. Typically falls with dietary changes.'},
+     {n:'Lp(a)',disp:'12 nmol/L',opt:'Target: < 75',v:12,min:0,max:150,z:[[75,'ok'],[125,'warn'],[150,'low']],s:'ok',sl:'Optimal',note:'Low inherited risk — a factor outside your control that fortunately does not apply to you.'},
+   ]],
+   ['Metabolism & blood sugar',[
+     {n:'HbA1c',disp:'33 mmol/mol',opt:'Target: < 39',v:33,min:25,max:55,z:[[39,'ok'],[47,'warn'],[55,'low']],s:'ok',sl:'Optimal',note:'Long-term blood sugar is fine — focus shifts to insulin before it develops.'},
+     {n:'Fasting insulin',disp:'11 mIU/L',opt:'Target: < 7',v:11,min:2,max:20,z:[[7,'ok'],[12,'warn'],[20,'low']],s:'warn',sl:'Attention',note:'Early sign of insulin resistance — years before blood sugar would normally react.'},
+   ]],
+   ['Inflammation',[
+     {n:'hs-CRP',disp:'0.6 mg/L',opt:'Target: < 1.0',v:0.6,min:0,max:5,z:[[1,'ok'],[3,'warn'],[5,'low']],s:'ok',sl:'Optimal',note:'Low inflammation — a strong sign in your favour.'},
+     {n:'Homocysteine',disp:'9 µmol/L',opt:'Target: < 10',v:9,min:4,max:20,z:[[10,'ok'],[15,'warn'],[20,'low']],s:'ok',sl:'Optimal',note:'In the healthy range; supports heart and brain.'},
+   ]],
+   ['Vitamins & minerals',[
+     {n:'Vitamin D',disp:'42 nmol/L',opt:'Target: 75-120',v:42,min:0,max:140,z:[[50,'low'],[75,'warn'],[140,'ok']],s:'low',sl:'Low',note:'Low level, common in Denmark — easily corrected with supplements.'},
+     {n:'Ferritin',disp:'120 µg/L',opt:'Target: 30-300',v:120,min:0,max:400,z:[[30,'low'],[300,'ok'],[400,'warn']],s:'ok',sl:'Optimal',note:'Healthy iron stores.'},
+   ]],
+   ['Fitness & hormones',[
+     {n:'VO2max',disp:'48 ml/kg/min',opt:'Good: > 42',v:48,min:25,max:60,z:[[35,'low'],[42,'warn'],[60,'ok']],s:'ok',sl:'Good',note:'Above average for your age — one of the strongest factors for a long life.'},
+     {n:'Testosterone',disp:'18 nmol/L',opt:'Normal: 12-30',v:18,min:5,max:35,z:[[12,'low'],[30,'ok'],[35,'warn']],s:'ok',sl:'Normal',note:'Healthy level with no need for intervention.'},
+   ]],
+   ['Liver & kidneys',[
+     {n:'ALT',disp:'28 U/L',opt:'Target: < 45',v:28,min:10,max:90,z:[[45,'ok'],[70,'warn'],[90,'low']],s:'ok',sl:'Optimal',note:'Liver enzyme in a fine range — no sign of strain.'},
+     {n:'GGT',disp:'22 U/L',opt:'Target: < 40',v:22,min:5,max:120,z:[[40,'ok'],[80,'warn'],[120,'low']],s:'ok',sl:'Optimal',note:'Normal; sensitive to alcohol and bile ducts.'},
+     {n:'eGFR',disp:'95 ml/min',opt:'Good: > 90',v:95,min:30,max:120,z:[[60,'low'],[90,'warn'],[120,'ok']],s:'ok',sl:'Good',note:'Kidney function is fully normal.'},
+   ]],
+   ['Blood count & thyroid',[
+     {n:'Hemoglobin',disp:'9.2 mmol/L',opt:'Normal: 8.3-10.5',v:9.2,min:7,max:12,z:[[8.3,'low'],[10.5,'ok'],[12,'warn']],s:'ok',sl:'Normal',note:'Healthy oxygen-carrying capacity.'},
+     {n:'White blood cells',disp:'6.0 bn/L',opt:'Normal: 3.5-8.8',v:6.0,min:2,max:12,z:[[3.5,'low'],[8.8,'ok'],[12,'warn']],s:'ok',sl:'Normal',note:'Immune system at rest — no sign of infection.'},
+     {n:'TSH',disp:'2.1 mIU/L',opt:'Normal: 0.3-4.0',v:2.1,min:0,max:6,z:[[0.3,'low'],[4,'ok'],[6,'warn']],s:'ok',sl:'Normal',note:'Thyroid is well balanced.'},
+   ]],
+  ];
+  function bar(m){
+    var span=m.max-m.min, prev=m.min, segs='';
+    m.z.forEach(function(zz){ var w=(zz[0]-prev)/span*100; prev=zz[0]; segs+='<i style="width:'+w+'%;background:'+C[zz[1]]+';opacity:.55"></i>'; });
+    var pos=(m.v-m.min)/span*100; if(pos<0)pos=0; if(pos>100)pos=100;
+    return '<div class="mrow"><div class="mtop"><span class="mn">'+m.n+'</span><span class="mbadge '+m.s+'">'+m.sl+'</span></div>'+
+      '<div class="track">'+segs+'<span class="needle" style="left:'+pos+'%"></span></div>'+
+      '<div class="mmeta"><span class="val">'+m.disp+'</span><span>'+m.opt+'</span></div>'+
+      '<div class="mnote">'+m.note+'</div></div>';
+  }
+  document.getElementById('markers').innerHTML=groups.map(function(g){
+    return '<div class="mgroup"><h3>'+g[0]+'</h3>'+g[1].map(bar).join('')+'</div>';
+  }).join('');
+})();
+</script>
+<script src="../glossary.js"></script>
+</body>
+</html>

@@ -465,7 +465,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 (function(){
   /* ── For FULDE AI-svar på alle spørgsmål: deploy backend (se chatbot-backend/README.md)
         og indsæt dens URL her. Uden den bruges den lokale vidensbase nedenfor som fallback. ── */
-  var AEVC_ENDPOINT="";
+  var AEVC_ENDPOINT="/api/chat";
   var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
   var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
   var KB=[
@@ -565,5 +565,6 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 })();
 </script>
 
+<script src="glossary.js"></script>
 </body>
 </html>

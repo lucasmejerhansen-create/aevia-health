@@ -259,7 +259,7 @@ footer.site{border-top:1px solid var(--line);padding:66px 0 36px;background:var(
 .banner img{width:100%;height:100%;object-fit:cover;display:block}
 .banner::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 90px 16px rgba(10,22,40,.55);pointer-events:none}
 /* alternating service rows */
-.yrow{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:center;padding:36px;margin-bottom:26px;background:var(--navy-2);border:1px solid var(--line);border-radius:20px;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}.yrow:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.yrow{display:grid;grid-template-columns:1fr;padding:36px;margin-bottom:26px;background:var(--navy-2);border:1px solid var(--line);border-radius:20px;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}.yrow:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.35)}
 .yrow:last-child{border-bottom:none}
 .yrow.flip .ymedia{order:2}
 .ymedia{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--navy-3)}
@@ -302,6 +302,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lang-li a:hover{color:var(--text)}
 .lang-li a.lang-active{color:var(--gold);font-weight:600}
 .lang-li .sep{color:var(--line-2)}
+.ylink{display:inline-block;margin:0 0 14px;color:var(--gold);text-decoration:none;font-weight:600;font-size:.92rem}.ylink:hover{text-decoration:underline}
 </style>
 
 </head>
@@ -344,10 +345,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <section>
   <div class="container">
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1681911046053-1d2fdce39ea0?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Abstrakt DNA-streng i blå toner, biologisk alder"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 01</span>
-    <h2>Biologisk alder-test</h2>
+    <h2 id="biologisk-alder" style="scroll-margin-top:90px">Biologisk alder-test</h2>
+    <a href="biologisk-alder.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af din fødselsdag. Den beregnes ud fra et bredt sæt biomarkører i dit blod.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>To personer på 50 kan have 15 års forskel i biologisk alder. Det er den eneste sundheds-KPI, du kan flytte aktivt, og den reagerer på måneder, ikke år.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Beregnes ud fra fuldt blodpanel og kliniske data</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Sammenholdes med din kronologiske alder</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i alle pakker</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Re-test ved Elite og årsaftale viser udviklingen</li></ul></div>
@@ -356,10 +357,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Blodprøverør på laboratorium, fuldt blodpanel med 70+ markører"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 02</span>
-    <h2>Fuldt blodpanel, 70+ markører</h2>
+    <h2 id="blodpanel-h" style="scroll-margin-top:90px">Fuldt blodpanel, 70+ markører</h2>
+    <a href="#bloodpanel" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Et fuldt blodpanel analyserer 70+ markører, fra hormoner og inflammation til vitaminstatus og stofskifte. Det er et præcist øjebliksbillede af din indre tilstand.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>De fleste ledere opdager først problemer, når de mærkes. Blodpanelet afslører ubalancer længe før symptomer, så du kan handle proaktivt i stedet for reaktivt.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Blodprøve hos akkrediteret partnerlab inden for 48 timer</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>70+ markører inkl. inflammation, lipider, glukose og vitaminer</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Rapport klar inden for 10 arbejdsdage</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personlig gennemgang med sundhedsspecialist</li></ul></div>
@@ -368,10 +369,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Person under VO2max-test med maske på kondicykel"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 03</span>
-    <h2>VO2max-test</h2>
+    <h2 id="vo2max" style="scroll-margin-top:90px">VO2max-test</h2>
+    <a href="vo2max-levetid.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>VO2max måler, hvor effektivt din krop optager og bruger ilt under belastning. Det er det stærkeste enkeltmål for din kondition og udholdenhed.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Få markører forudsiger levetid lige så præcist som VO2max, og den kan trænes. Den afgør også din energi og mentale klarhed gennem en lang arbejdsdag.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Maksimal iltoptagelsestest på sportsfysiologisk laboratorium</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Måling af kondition, tærskler og restitutionsevne</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Konkret træningsprotokol bygget på dit tal</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i Plus og Elite</li></ul></div>
@@ -380,10 +381,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1579154341184-22069e4614d2?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Blodprøverør til hormonanalyse på laboratorium"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 04</span>
-    <h2>Hormonpanel</h2>
+    <h2 id="hormonpanel" style="scroll-margin-top:90px">Hormonpanel</h2>
+    <a href="testosteron-performance.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Hormonpanelet kortlægger de signalstoffer, der styrer energi, søvn, humør, muskelmasse og restitution, bl.a. testosteron, kortisol og stofskiftehormoner.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Hormonelle ubalancer rammer ofte præcis det, en leder lever af: fokus, drive og overskud. De er usynlige på et standardtjek, men målbare her.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Udvidet hormonprofil via blodprøve</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Vurdering af stress-, køns- og stofskiftehormoner</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tolkning og anbefalinger fra speciallæge</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i Plus og Elite</li></ul></div>
@@ -392,10 +393,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1576671414121-aa0c81c869e1?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Patient føres ind i MR-scanner, helkrops-MRI"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 05</span>
-    <h2>MRI / helkropsscanning</h2>
+    <h2 id="mri" style="scroll-margin-top:90px">MRI / helkropsscanning</h2>
+    <a href="mri-helkropsscanning.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>En helkrops-MRI scanner kroppens organer og væv uden røntgenstråling. Den leder efter afvigelser, der endnu ikke giver symptomer.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Det er den mest grundige screening, vi tilbyder. For mange ledere er det at vide, at intet er overset, værdien i sig selv.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Helkrops-MRI uden kontrast hos privat billeddiagnostisk center</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gennemgang ved speciallæge i radiologi</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fund koordineres straks til relevant specialist</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i Elite</li></ul></div>
@@ -404,10 +405,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Læge i konsultation om genetisk profil og risikogener"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 06</span>
-    <h2>Genetisk profil</h2>
+    <h2 id="genetik" style="scroll-margin-top:90px">Genetisk profil</h2>
+    <a href="eksempel-rapport.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Den genetiske profil kortlægger de arvelige faktorer, der påvirker din risiko for sygdom, dit stofskifte og din reaktion på træning og kost.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Dine gener ændrer sig ikke, men hvad du gør med dem, gør. Profilen viser, hvor du har en medfødt fordel, og hvor du skal være ekstra opmærksom.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Analyse af relevante risikogener og bærerstatus</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indsigt i metabolisme og respons på kost og træning</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tolkning sat i kontekst af dine øvrige resultater</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i Elite</li></ul></div>
@@ -416,10 +417,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1758691461957-474a7686e388?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Læge i personlig samtale om din sundhedsprotokol"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 07</span>
-    <h2>Personlig sundhedsprotokol</h2>
+    <h2 id="protokol" style="scroll-margin-top:90px">Personlig sundhedsprotokol</h2>
+    <a href="eksempel-rapport.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Protokollen er din samlede rapport: alle resultater oversat til klart sprog plus en konkret handlingsplan med prioriterede, målbare skridt.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Data uden en plan er bare tal. Protokollen fortæller dig præcis, hvad du skal gøre først, hvorfor, og hvad du kan forvente at flytte.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Samlet rapport på tværs af alle tests</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Prioriteret handlingsplan med målbare KPI'er</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>1:1 gennemgang med sundhedsspecialist (30 min.)</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i alle pakker</li></ul></div>
@@ -428,10 +429,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow flip">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Ledergruppe i møde, anonymiseret teamrapport"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 08</span>
     <h2>Teamrapport</h2>
+    <a href="virksomheder.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Teamrapporten samler ledergruppens resultater i ét anonymiseret overblik. Virksomheden ser mønstre og risiko på gruppeniveau, aldrig individuelle data.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Den gør sundhed til et målbart ledelsesværktøj. I kan dokumentere risiko, prioritere indsatser og følge udviklingen kvartal for kvartal.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Aggregeret, anonymiseret sundhedsbillede af gruppen</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fordeling på risikokategorier og nøgletal</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>GDPR artikel 9-kompatibel anonymisering</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i virksomhedspakke og årsaftale</li></ul></div>
@@ -440,10 +441,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 <div class="yrow">
-  <div class="ymedia"><img src="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600" srcset="https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=400&h=300 400w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=800&h=600 800w, https://images.unsplash.com/photo-1560221328-12fe60f83ab8?fm=webp&q=70&fit=crop&auto=format&w=1200&h=900 1200w" sizes="(max-width:820px) 100vw, 40vw" width="800" height="600" loading="lazy" decoding="async" alt="Skærm med stigende graf, kvartalsvise re-tests og udvikling"></div>
   <div class="ytext">
     <span class="eyebrow">Ydelse 09</span>
-    <h2>Kvartalsvise re-tests</h2>
+    <h2 id="retest" style="scroll-margin-top:90px">Kvartalsvise re-tests</h2>
+    <a href="virksomheder.html" class="ylink">Læs mere →</a>
     <div class="ylayer"><span class="ylabel">Hvad er det?</span><p>Med kvartalsvise re-tests måler vi jeres nøglemedarbejdere fire gange om året og viser udviklingen over tid frem for ét enkelt øjebliksbillede.</p></div>
     <div class="ylayer"><span class="ylabel">Hvorfor betyder det noget?</span><p>Sundhed er en trend, ikke et snapshot. Løbende måling fanger forandringer tidligt og dokumenterer effekten af de indsatser, I investerer i.</p></div>
     <div class="ylayer"><span class="ylabel">Hvad sker der konkret?</span><ul class="ychecks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Re-test af centrale markører hvert kvartal</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Trendrapport med udvikling over tid</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Op til 20 nøglemedarbejdere</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indgår i årsaftalen</li></ul></div>
@@ -469,8 +470,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
         <h3>Hjerte &amp; kredsløb</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Din reelle risiko for hjerte-kar-sygdom — ApoB og Lp(a) fanger det, totalkolesterol overser.</p>
-        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Det samlede kolesterol i blodet — et groft overblik over din fedtstofbalance.">Total kolesterol</button><button type="button" class="chip-btn" data-exp="Det skadelige kolesterol, der kan aflejre sig i blodårerne og øge risikoen for hjerte-kar-sygdom.">LDL</button><button type="button" class="chip-btn" data-exp="Det beskyttende kolesterol, der hjælper med at fjerne overskydende fedt fra blodårerne.">HDL</button><button type="button" class="chip-btn" data-exp="Alt det skadelige kolesterol samlet — ofte et bedre risikomål end LDL alene.">Non-HDL</button><button type="button" class="chip-btn" data-exp="Blodets fedtstoffer; høje værdier hænger sammen med kost, vægt og hjerte-kar-risiko.">Triglycerider</button><button type="button" class="chip-btn" data-exp="Tæller de skadelige partikler direkte — et af de mest præcise mål for hjerte-kar-risiko.">ApoB</button><button type="button" class="chip-btn" data-exp="Proteinet i det gode kolesterol; afspejler din beskyttelse mod åreforkalkning.">ApoA1</button><button type="button" class="chip-btn" data-exp="En arvelig risikofaktor for hjerte-kar-sygdom, som de fleste aldrig får målt.">Lp(a)</button></div>
+        <p style="font-size:.93rem;margin-bottom:12px">Din reelle risiko for hjerte kar sygdom — ApoB og Lp(a) fanger det, totalkolesterol overser.</p>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Det samlede kolesterol i blodet — et groft overblik over din fedtstofbalance.">Total kolesterol</button><button type="button" class="chip-btn" data-exp="Det skadelige kolesterol, der kan aflejre sig i blodårerne og øge risikoen for hjerte kar sygdom.">LDL</button><button type="button" class="chip-btn" data-exp="Det beskyttende kolesterol, der hjælper med at fjerne overskydende fedt fra blodårerne.">HDL</button><button type="button" class="chip-btn" data-exp="Alt det skadelige kolesterol samlet — ofte et bedre risikomål end LDL alene.">Non-HDL</button><button type="button" class="chip-btn" data-exp="Blodets fedtstoffer; høje værdier hænger sammen med kost, vægt og hjerte kar risiko.">Triglycerider</button><button type="button" class="chip-btn" data-exp="Tæller de skadelige partikler direkte — et af de mest præcise mål for hjerte kar risiko.">ApoB</button><button type="button" class="chip-btn" data-exp="Proteinet i det gode kolesterol; afspejler din beskyttelse mod åreforkalkning.">ApoA1</button><button type="button" class="chip-btn" data-exp="En arvelig risikofaktor for hjerte kar sygdom, som de fleste aldrig får målt.">Lp(a)</button></div>
         <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
@@ -485,8 +486,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
         <h3>Inflammation</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Skjult, kronisk inflammation accelererer aldring og hjerte-kar-risiko.</p>
-        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="En følsom markør for skjult, kronisk inflammation i kroppen.">hs-CRP</button><button type="button" class="chip-btn" data-exp="En aminosyre, der ved høje niveauer øger risiko for hjerte-kar-sygdom og demens.">Homocystein</button><button type="button" class="chip-btn" data-exp="Urinsyre; høje værdier kan give urinsyregigt og belaste hjerte og nyrer.">Urat</button><button type="button" class="chip-btn" data-exp="Et protein i blodets størkning, der også stiger ved inflammation.">Fibrinogen</button></div>
+        <p style="font-size:.93rem;margin-bottom:12px">Skjult, kronisk inflammation accelererer aldring og hjerte kar risiko.</p>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="En følsom markør for skjult, kronisk inflammation i kroppen.">hs-CRP</button><button type="button" class="chip-btn" data-exp="En aminosyre, der ved høje niveauer øger risiko for hjerte kar sygdom og demens.">Homocystein</button><button type="button" class="chip-btn" data-exp="Urinsyre; høje værdier kan give urinsyregigt og belaste hjerte og nyrer.">Urat</button><button type="button" class="chip-btn" data-exp="Et protein i blodets størkning, der også stiger ved inflammation.">Fibrinogen</button></div>
         <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
@@ -681,7 +682,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 (function(){
   /* ── For FULDE AI-svar på alle spørgsmål: deploy backend (se chatbot-backend/README.md)
         og indsæt dens URL her. Uden den bruges den lokale vidensbase nedenfor som fallback. ── */
-  var AEVC_ENDPOINT="";
+  var AEVC_ENDPOINT="/api/chat";
   var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
   var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
   var KB=[
@@ -781,5 +782,6 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 })();
 </script>
 
+<script src="glossary.js"></script>
 </body>
 </html>

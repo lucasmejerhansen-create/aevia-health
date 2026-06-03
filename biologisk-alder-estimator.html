@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test din biologiske alder (gratis estimat) | Aevia Health</title>
+<meta name="description" content="Få et hurtigt, gratis estimat af din biologiske alder ud fra din livsstil. Tag testen på et minut — og se, hvordan et præcist Aevia-tjek kan måle den rigtigt.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aevia.dk/biologisk-alder-estimator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<style>
+:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:24px 20px 80px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 24px}
+.logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--gold);text-decoration:none;font-size:.92rem}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
+.lead{color:var(--muted);margin-bottom:26px}
+.q{background:var(--navy-2);border:1px solid var(--line-2);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.q label.qt{display:block;font-weight:600;margin-bottom:12px;font-size:.98rem}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0;width:0;height:0}
+.opts span{display:inline-block;padding:9px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:.9rem;color:var(--muted);transition:all .15s ease}
+.opts label:hover span{border-color:var(--gold);color:var(--text)}
+.opts input:checked + span{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+.q input[type=number]{width:120px;padding:11px 14px;border:1px solid var(--line-2);background:var(--navy);color:var(--text);border-radius:10px;font:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--gold);color:var(--navy);transition:all .2s ease;font-family:inherit}
+.btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
+.result{display:none;background:var(--navy-2);border:1px solid var(--gold);border-radius:16px;padding:28px;margin-top:8px;text-align:center}
+.result .big{font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold);line-height:1}
+.result .sub{color:var(--muted);margin:10px 0 6px}
+.result .msg{margin:16px auto 0;max-width:46ch;color:var(--text)}
+.disc{color:var(--muted-2);font-size:.84rem;margin-top:18px}
+.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+.foot a{color:var(--gold);text-decoration:none}
+.err{color:#e0a06b;font-size:.9rem;margin-top:10px;display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="index.html" class="logo">Aevia<span>.</span></a>
+    <a href="index.html" class="back">← Forside</a>
+  </div>
+
+  <span class="eyebrow">Gratis · 1 minut</span>
+  <h1>Hvor gammel er din krop egentlig?</h1>
+  <p class="lead">Din biologiske alder siger mere om dit helbred end din fødselsdato. Få et hurtigt estimat ud fra din livsstil — og se, hvordan et præcist Aevia-tjek kan måle den rigtigt ud fra dit blod.</p>
+
+  <form id="quiz">
+    <div class="q">
+      <label class="qt" for="age">Din alder</label>
+      <input type="number" id="age" min="18" max="100" placeholder="fx 44">
+    </div>
+
+    <div class="q">
+      <span class="qt">Ryger du?</span>
+      <div class="opts">
+        <label><input type="radio" name="smoke" value="0"><span>Nej / aldrig</span></label>
+        <label><input type="radio" name="smoke" value="2"><span>Tidligere</span></label>
+        <label><input type="radio" name="smoke" value="4"><span>Ja</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="qt">Hvor ofte træner du om ugen?</span>
+      <div class="opts">
+        <label><input type="radio" name="exercise" value="2"><span>Sjældent / aldrig</span></label>
+        <label><input type="radio" name="exercise" value="-1"><span>1-2 gange</span></label>
+        <label><input type="radio" name="exercise" value="-3"><span>3+ gange</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="qt">Hvor meget sover du typisk?</span>
+      <div class="opts">
+        <label><input type="radio" name="sleep" value="2"><span>Under 6 timer</span></label>
+        <label><input type="radio" name="sleep" value="0"><span>6-7 timer</span></label>
+        <label><input type="radio" name="sleep" value="-1"><span>7-8 timer</span></label>
+        <label><input type="radio" name="sleep" value="1"><span>Over 8 timer</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="qt">Spiser du frugt og grønt dagligt?</span>
+      <div class="opts">
+        <label><input type="radio" name="diet" value="-1"><span>Ja, dagligt</span></label>
+        <label><input type="radio" name="diet" value="0"><span>Nogenlunde</span></label>
+        <label><input type="radio" name="diet" value="2"><span>Sjældent</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="qt">Hvordan er dit stressniveau?</span>
+      <div class="opts">
+        <label><input type="radio" name="stress" value="-1"><span>Lavt</span></label>
+        <label><input type="radio" name="stress" value="0"><span>Middel</span></label>
+        <label><input type="radio" name="stress" value="2"><span>Højt</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="qt">Hvor meget alkohol drikker du?</span>
+      <div class="opts">
+        <label><input type="radio" name="alcohol" value="0"><span>Lidt / intet</span></label>
+        <label><input type="radio" name="alcohol" value="1"><span>Moderat</span></label>
+        <label><input type="radio" name="alcohol" value="3"><span>Meget</span></label>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:22px">
+      <button type="submit" class="btn">Se mit estimat</button>
+      <p class="err" id="err">Udfyld din alder og alle spørgsmål for at se dit estimat.</p>
+    </div>
+  </form>
+
+  <div class="result" id="result">
+    <div class="eyebrow" style="margin-bottom:8px">Dit estimat</div>
+    <div class="big" id="bioage">—</div>
+    <div class="sub" id="delta"></div>
+    <p class="msg" id="msg"></p>
+    <div style="margin-top:22px">
+      <a href="book.html" class="btn">Få den målt præcist — book et tjek</a>
+      <div style="margin-top:12px"><a href="indsigter.html#brief" class="btn ghost">Få vores gratis longevity-tjekliste</a></div>
+    </div>
+    <p class="disc">Dette er et groft, uforpligtende estimat baseret på livsstil — ikke en måling. Din rigtige biologiske alder beregnes ud fra 70+ biomarkører i dit blod og godkendes af en læge.</p>
+  </div>
+
+  <div class="foot">
+    Aevia · <a href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a> · +45 28 30 39 33 · <a href="index.html">aevia.dk</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var form=document.getElementById('quiz');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var age=parseInt(document.getElementById('age').value,10);
+    var groups=['smoke','exercise','sleep','diet','stress','alcohol'];
+    var delta=0, ok=!!age && age>=18 && age<=100;
+    groups.forEach(function(g){
+      var sel=form.querySelector('input[name="'+g+'"]:checked');
+      if(!sel){ok=false;} else {delta+=parseInt(sel.value,10);}
+    });
+    var err=document.getElementById('err');
+    if(!ok){ err.style.display='block'; return; }
+    err.style.display='none';
+    if(delta>12)delta=12; if(delta<-8)delta=-8;
+    var bio=age+delta; if(bio<18)bio=18;
+    document.getElementById('bioage').textContent=bio+' år';
+    var d=document.getElementById('delta');
+    var msg=document.getElementById('msg');
+    if(delta<0){ d.textContent='Ca. '+Math.abs(delta)+' år yngre end din alder'; d.style.color='#7fd4a6';
+      msg.textContent='Stærkt udgangspunkt! Din livsstil trækker i den rigtige retning. En præcis måling kan vise, hvor du allerede er stærk — og de få steder, der stadig kan optimeres.'; }
+    else if(delta===0){ d.textContent='Cirka på niveau med din alder'; d.style.color='var(--muted)';
+      msg.textContent='Du ligger nogenlunde, hvor man ville forvente. Små, målrettede ændringer kan rykke det — men kun en måling viser, hvor du skal sætte ind.'; }
+    else { d.textContent='Ca. '+delta+' år ældre end din alder'; d.style.color='#e0a06b';
+      msg.textContent='Der er et tydeligt potentiale at hente. Den gode nyhed: livsstilsmarkører kan ofte flyttes hurtigt — når du ved præcis, hvor du skal starte.'; }
+    var r=document.getElementById('result');
+    r.style.display='block';
+    r.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
+</script>
+<script src="glossary.js"></script>
+</body>
+</html>
