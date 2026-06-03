@@ -512,79 +512,104 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 <!-- BLOOD PANEL OVERVIEW -->
-<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="bloodpanel" style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <style>
+#bloodpanel .chip-btn{display:inline-block;cursor:pointer;appearance:none;-webkit-appearance:none;font-family:inherit;font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;margin:0 7px 7px 0;transition:border-color .15s ease,background .15s ease,color .15s ease}
+#bloodpanel .chip-btn:hover{border-color:var(--gold);color:var(--text)}
+#bloodpanel .chip-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+#bloodpanel .chip-exp{margin:14px 0 0;font-size:.92rem;line-height:1.55;color:var(--text);background:var(--navy);border-left:2px solid var(--gold);padding:12px 14px;border-radius:0 8px 8px 0}
+</style>
   <div class="container">
     <div class="center" style="margin-bottom:14px"><span class="eyebrow">Inkluderet i alle pakker</span><h2>Hvad vi måler — og hvorfor</h2></div>
-    <p class="lead center" style="margin-bottom:44px">Over 70 markører i én blodprøve. Ikke kun „normalt eller ej“, men hvor du ligger i forhold til dine optimale niveauer — og hvad hver gruppe fortæller om dit helbred.</p>
+    <p class="lead center" style="margin-bottom:44px">Over 70 markører i én blodprøve. Tryk på en markør for at se, hvad den fortæller om dit helbred.</p>
     <div class="grid grid-3">
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
         <h3>Hjerte &amp; kredsløb</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Din reelle risiko for hjerte-kar-sygdom — ApoB og Lp(a) fanger det, totalkolesterol overser.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Total kolesterol</span><span class="chip" style="font-size:.78rem">LDL</span><span class="chip" style="font-size:.78rem">HDL</span><span class="chip" style="font-size:.78rem">Non-HDL</span><span class="chip" style="font-size:.78rem">Triglycerider</span><span class="chip" style="font-size:.78rem">ApoB</span><span class="chip" style="font-size:.78rem">ApoA1</span><span class="chip" style="font-size:.78rem">Lp(a)</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Det samlede kolesterol i blodet — et groft overblik over din fedtstofbalance.">Total kolesterol</button><button type="button" class="chip-btn" data-exp="Det skadelige kolesterol, der kan aflejre sig i blodårerne og øge risikoen for hjerte-kar-sygdom.">LDL</button><button type="button" class="chip-btn" data-exp="Det beskyttende kolesterol, der hjælper med at fjerne overskydende fedt fra blodårerne.">HDL</button><button type="button" class="chip-btn" data-exp="Alt det skadelige kolesterol samlet — ofte et bedre risikomål end LDL alene.">Non-HDL</button><button type="button" class="chip-btn" data-exp="Blodets fedtstoffer; høje værdier hænger sammen med kost, vægt og hjerte-kar-risiko.">Triglycerider</button><button type="button" class="chip-btn" data-exp="Tæller de skadelige partikler direkte — et af de mest præcise mål for hjerte-kar-risiko.">ApoB</button><button type="button" class="chip-btn" data-exp="Proteinet i det gode kolesterol; afspejler din beskyttelse mod åreforkalkning.">ApoA1</button><button type="button" class="chip-btn" data-exp="En arvelig risikofaktor for hjerte-kar-sygdom, som de fleste aldrig får målt.">Lp(a)</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
         <h3>Blodsukker &amp; metabolisme</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Fanger insulinresistens og tidlig type 2-diabetes — ofte år før symptomer.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Fasteglukose</span><span class="chip" style="font-size:.78rem">HbA1c</span><span class="chip" style="font-size:.78rem">Fasteinsulin</span><span class="chip" style="font-size:.78rem">C-peptid</span><span class="chip" style="font-size:.78rem">HOMA-IR</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Dit blodsukker i fastende tilstand — en basal test for diabetes-risiko.">Fasteglukose</button><button type="button" class="chip-btn" data-exp="Dit gennemsnitlige blodsukker over 2-3 måneder; afslører skjult højt blodsukker.">HbA1c</button><button type="button" class="chip-btn" data-exp="Viser insulinresistens ofte år før selve blodsukkeret stiger.">Fasteinsulin</button><button type="button" class="chip-btn" data-exp="Måler, hvor meget insulin din egen bugspytkirtel producerer.">C-peptid</button><button type="button" class="chip-btn" data-exp="Beregnes ud fra glukose og insulin og giver et tal for insulinresistens.">HOMA-IR</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
         <h3>Inflammation</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Skjult, kronisk inflammation accelererer aldring og hjerte-kar-risiko.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">hs-CRP</span><span class="chip" style="font-size:.78rem">Homocystein</span><span class="chip" style="font-size:.78rem">Urat</span><span class="chip" style="font-size:.78rem">Fibrinogen</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="En følsom markør for skjult, kronisk inflammation i kroppen.">hs-CRP</button><button type="button" class="chip-btn" data-exp="En aminosyre, der ved høje niveauer øger risiko for hjerte-kar-sygdom og demens.">Homocystein</button><button type="button" class="chip-btn" data-exp="Urinsyre; høje værdier kan give urinsyregigt og belaste hjerte og nyrer.">Urat</button><button type="button" class="chip-btn" data-exp="Et protein i blodets størkning, der også stiger ved inflammation.">Fibrinogen</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14M6 3v7a6 6 0 0 0 12 0V3"/><path d="M8 21h8"/></svg></div>
         <h3>Lever</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Afslører fedtlever, belastning fra alkohol eller medicin og generel organfunktion.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">ALAT</span><span class="chip" style="font-size:.78rem">ASAT</span><span class="chip" style="font-size:.78rem">GGT</span><span class="chip" style="font-size:.78rem">Basisk fosfatase</span><span class="chip" style="font-size:.78rem">Bilirubin</span><span class="chip" style="font-size:.78rem">Albumin</span><span class="chip" style="font-size:.78rem">LDH</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Et leverenzym; forhøjet niveau tyder på belastning eller skade af leveren.">ALAT</button><button type="button" class="chip-btn" data-exp="Et enzym fra lever og muskler, der bruges sammen med ALAT til at vurdere leveren.">ASAT</button><button type="button" class="chip-btn" data-exp="Et leverenzym, der især stiger ved alkohol og problemer i galdevejene.">GGT</button><button type="button" class="chip-btn" data-exp="Et enzym relateret til lever, galdeveje og knogler.">Basisk fosfatase</button><button type="button" class="chip-btn" data-exp="Et nedbrydningsprodukt fra røde blodlegemer; viser lever- og galdefunktion.">Bilirubin</button><button type="button" class="chip-btn" data-exp="Det vigtigste protein i blodet; lavt niveau kan tyde på sygdom eller dårlig ernæring.">Albumin</button><button type="button" class="chip-btn" data-exp="Et enzym, der findes i mange væv og stiger ved celleskade.">LDH</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s7 4 7 10a7 7 0 0 1-14 0c0-6 7-10 7-10z"/></svg></div>
         <h3>Nyre &amp; elektrolytter</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Nyrefunktion og kroppens væske- og mineralbalance — vigtige tidlige advarsler.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Kreatinin</span><span class="chip" style="font-size:.78rem">eGFR</span><span class="chip" style="font-size:.78rem">Karbamid</span><span class="chip" style="font-size:.78rem">Cystatin C</span><span class="chip" style="font-size:.78rem">Natrium</span><span class="chip" style="font-size:.78rem">Kalium</span><span class="chip" style="font-size:.78rem">Klorid</span><span class="chip" style="font-size:.78rem">Calcium</span><span class="chip" style="font-size:.78rem">Magnesium</span><span class="chip" style="font-size:.78rem">Fosfat</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Et affaldsstof, der viser, hvor godt dine nyrer renser blodet.">Kreatinin</button><button type="button" class="chip-btn" data-exp="Et beregnet mål for din samlede nyrefunktion.">eGFR</button><button type="button" class="chip-btn" data-exp="Et affaldsstof fra proteinomsætning; et supplerende mål for nyrefunktion.">Karbamid</button><button type="button" class="chip-btn" data-exp="Et mere præcist mål for nyrefunktion, uafhængigt af muskelmasse.">Cystatin C</button><button type="button" class="chip-btn" data-exp="En elektrolyt, der styrer kroppens væskebalance.">Natrium</button><button type="button" class="chip-btn" data-exp="En elektrolyt, der er afgørende for muskler, nerver og hjerterytme.">Kalium</button><button type="button" class="chip-btn" data-exp="En elektrolyt, der indgår i kroppens syre-base- og væskebalance.">Klorid</button><button type="button" class="chip-btn" data-exp="Vigtigt for knogler, muskler og nerver.">Calcium</button><button type="button" class="chip-btn" data-exp="Nødvendigt for energi, muskler og nervesystem; mangel er almindelig.">Magnesium</button><button type="button" class="chip-btn" data-exp="Indgår i cellernes energi og knoglernes opbygning.">Fosfat</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <h3>Fuldt blodtal</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Blodets evne til at transportere ilt, dit immunforsvar og tegn på skjult sygdom.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Hæmoglobin</span><span class="chip" style="font-size:.78rem">Hæmatokrit</span><span class="chip" style="font-size:.78rem">Erytrocytter</span><span class="chip" style="font-size:.78rem">MCV</span><span class="chip" style="font-size:.78rem">MCH</span><span class="chip" style="font-size:.78rem">MCHC</span><span class="chip" style="font-size:.78rem">RDW</span><span class="chip" style="font-size:.78rem">Leukocytter</span><span class="chip" style="font-size:.78rem">Neutrofile</span><span class="chip" style="font-size:.78rem">Lymfocytter</span><span class="chip" style="font-size:.78rem">Monocytter</span><span class="chip" style="font-size:.78rem">Eosinofile</span><span class="chip" style="font-size:.78rem">Basofile</span><span class="chip" style="font-size:.78rem">Trombocytter</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Det iltbærende protein i de røde blodlegemer; lavt niveau betyder blodmangel.">Hæmoglobin</button><button type="button" class="chip-btn" data-exp="Andelen af blodet, der består af røde blodlegemer.">Hæmatokrit</button><button type="button" class="chip-btn" data-exp="Antallet af røde blodlegemer, der transporterer ilt.">Erytrocytter</button><button type="button" class="chip-btn" data-exp="Størrelsen på de røde blodlegemer; hjælper med at finde årsagen til blodmangel.">MCV</button><button type="button" class="chip-btn" data-exp="Mængden af hæmoglobin pr. rødt blodlegeme.">MCH</button><button type="button" class="chip-btn" data-exp="Koncentrationen af hæmoglobin i de røde blodlegemer.">MCHC</button><button type="button" class="chip-btn" data-exp="Variationen i de røde blodlegemers størrelse; et tidligt tegn på mangler.">RDW</button><button type="button" class="chip-btn" data-exp="De hvide blodlegemer — dit immunforsvar; ændringer kan vise infektion eller inflammation.">Leukocytter</button><button type="button" class="chip-btn" data-exp="Den type hvide blodlegemer, der bekæmper bakterielle infektioner.">Neutrofile</button><button type="button" class="chip-btn" data-exp="Hvide blodlegemer, der styrer immunforsvaret mod virus.">Lymfocytter</button><button type="button" class="chip-btn" data-exp="Hvide blodlegemer, der rydder op og bekæmper infektion.">Monocytter</button><button type="button" class="chip-btn" data-exp="Hvide blodlegemer, der stiger ved allergi og parasitter.">Eosinofile</button><button type="button" class="chip-btn" data-exp="En sjælden type hvide blodlegemer, der indgår i allergiske reaktioner.">Basofile</button><button type="button" class="chip-btn" data-exp="Blodpladerne, der får blodet til at størkne.">Trombocytter</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s7 4 7 10a7 7 0 0 1-14 0c0-6 7-10 7-10z"/></svg></div>
         <h3>Jern, vitaminer &amp; mineraler</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Energi, immunforsvar og koncentration — de hyppigste mangler, der dræner dig.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Jern</span><span class="chip" style="font-size:.78rem">Transferrin</span><span class="chip" style="font-size:.78rem">Transferrinmætning</span><span class="chip" style="font-size:.78rem">Ferritin</span><span class="chip" style="font-size:.78rem">D-vitamin</span><span class="chip" style="font-size:.78rem">B12</span><span class="chip" style="font-size:.78rem">Folat</span><span class="chip" style="font-size:.78rem">Zink</span><span class="chip" style="font-size:.78rem">B6</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Nødvendigt for at danne hæmoglobin; mangel er en hyppig årsag til træthed.">Jern</button><button type="button" class="chip-btn" data-exp="Proteinet, der transporterer jern rundt i blodet.">Transferrin</button><button type="button" class="chip-btn" data-exp="Viser, hvor godt jernet udnyttes — fanger tidlig jernmangel.">Transferrinmætning</button><button type="button" class="chip-btn" data-exp="Kroppens jernlager; også en markør for inflammation.">Ferritin</button><button type="button" class="chip-btn" data-exp="Vigtigt for knogler, immunforsvar og energi; mangel er udbredt i Danmark.">D-vitamin</button><button type="button" class="chip-btn" data-exp="Nødvendigt for nerver og bloddannelse; mangel giver træthed og nerveproblemer.">B12</button><button type="button" class="chip-btn" data-exp="B9-vitamin, vigtigt for bloddannelse sammen med B12.">Folat</button><button type="button" class="chip-btn" data-exp="Mineral vigtigt for immunforsvar, sårheling og hormoner.">Zink</button><button type="button" class="chip-btn" data-exp="Vitamin involveret i energiomsætning og nervesystem.">B6</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M9 5l3-3 3 3"/><circle cx="12" cy="15" r="6"/></svg></div>
         <h3>Stofskifte &amp; hormoner</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Drivkraften bag energi, vægt, humør, søvn og restitution. (Fra Plus &amp; Elite)</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">TSH</span><span class="chip" style="font-size:.78rem">Frit T4</span><span class="chip" style="font-size:.78rem">Frit T3</span><span class="chip" style="font-size:.78rem">TPO-antistoffer</span><span class="chip" style="font-size:.78rem">Testosteron</span><span class="chip" style="font-size:.78rem">Frit testosteron</span><span class="chip" style="font-size:.78rem">SHBG</span><span class="chip" style="font-size:.78rem">Østradiol</span><span class="chip" style="font-size:.78rem">LH</span><span class="chip" style="font-size:.78rem">FSH</span><span class="chip" style="font-size:.78rem">Prolaktin</span><span class="chip" style="font-size:.78rem">Progesteron</span><span class="chip" style="font-size:.78rem">DHEA-S</span><span class="chip" style="font-size:.78rem">Kortisol</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Hjernens signal til skjoldbruskkirtlen; det primære mål for stofskiftet.">TSH</button><button type="button" class="chip-btn" data-exp="Skjoldbruskkirtlens lagerhormon; bruges til at vurdere stofskiftet.">Frit T4</button><button type="button" class="chip-btn" data-exp="Det aktive stofskiftehormon, der styrer din energiomsætning.">Frit T3</button><button type="button" class="chip-btn" data-exp="Afslører autoimmun sygdom i skjoldbruskkirtlen.">TPO-antistoffer</button><button type="button" class="chip-btn" data-exp="Vigtigt for muskler, energi, libido og humør — hos både mænd og kvinder.">Testosteron</button><button type="button" class="chip-btn" data-exp="Den aktive, tilgængelige del af testosteron.">Frit testosteron</button><button type="button" class="chip-btn" data-exp="Et protein, der binder kønshormoner og påvirker, hvor meget der er aktivt.">SHBG</button><button type="button" class="chip-btn" data-exp="Det vigtigste østrogen; centralt for knogler, hjerte og reproduktion.">Østradiol</button><button type="button" class="chip-btn" data-exp="Et hypofysehormon, der styrer produktionen af kønshormoner.">LH</button><button type="button" class="chip-btn" data-exp="Et hypofysehormon, der styrer ægløsning og sædproduktion.">FSH</button><button type="button" class="chip-btn" data-exp="Et hormon, der ved høje niveauer kan påvirke frugtbarhed og libido.">Prolaktin</button><button type="button" class="chip-btn" data-exp="Et kvindeligt kønshormon, vigtigt for cyklus og graviditet.">Progesteron</button><button type="button" class="chip-btn" data-exp="Et binyrehormon og forstadie til kønshormoner; falder med alderen.">DHEA-S</button><button type="button" class="chip-btn" data-exp="Stresshormonet; påvirker energi, søvn, vægt og immunforsvar.">Kortisol</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
         <h3>Longevity-markører</h3>
         <p style="font-size:.93rem;margin-bottom:12px">Ekstra dybde for dig, der vil optimere — vækst, fedtsyrebalance og hjertebelastning. (Tilvalg)</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">IGF-1</span><span class="chip" style="font-size:.78rem">Omega-3-indeks</span><span class="chip" style="font-size:.78rem">NT-proBNP</span></div>
+        <div class="trust-row" style="margin:0"><button type="button" class="chip-btn" data-exp="Et væksthormon-relateret signal, der knyttes til aldring og muskelmasse.">IGF-1</button><button type="button" class="chip-btn" data-exp="Måler dine omega-3-fedtsyrer; hænger sammen med hjerte og hjerne.">Omega-3-indeks</button><button type="button" class="chip-btn" data-exp="Et tidligt mål for belastning af hjertet.">NT-proBNP</button></div>
+        <p class="chip-exp" aria-live="polite" hidden></p>
       </div>
 
     </div>
     <p class="form-note center" style="margin-top:22px">Det fulde markørudvalg afhænger af pakken: stofskifte &amp; hormoner indgår fra Plus og opefter, og longevity-markørerne er tilvalg. ApoE-genotype hører til genetik (Elite). Den endelige sammensætning godkendes af vores lægefaglige partner.</p>
     <div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book din blodprøve</a><a href="ydelser.html" class="btn btn-ghost">Læs om ydelserne</a></div>
   </div>
+  <script>
+(function(){var sec=document.getElementById("bloodpanel");if(!sec)return;
+sec.querySelectorAll(".card").forEach(function(card){var exp=card.querySelector(".chip-exp");if(!exp)return;
+card.querySelectorAll(".chip-btn").forEach(function(btn){btn.addEventListener("click",function(){
+var wasActive=btn.classList.contains("active");
+card.querySelectorAll(".chip-btn").forEach(function(b){b.classList.remove("active");});
+if(wasActive){exp.hidden=true;return;}
+btn.classList.add("active");exp.textContent=btn.getAttribute("data-exp");exp.hidden=false;});});});
+})();
+</script>
 </section>
 
 <!-- BUSINESS PACKAGES -->
