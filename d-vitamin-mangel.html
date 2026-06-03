@@ -468,7 +468,28 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var AEVC_ENDPOINT="/api/chat";
   var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
   var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
-  var KB=[
+  var KB=[/*GLOS*/
+   {k:["homocystein"],a:"Homocystein er en aminosyre. Høje niveauer øger risikoen for hjerte og hjerne og kan ofte sænkes med B-vitaminer. Måles i vores blodpanel."},
+   {k:["apob","apo b"],a:"ApoB er antallet af skadelige kolesterolpartikler, et af de mest præcise mål for hjerte kar risiko. Indgår i blodpanelet."},
+   {k:["lp(a)","lipoprotein a","lp a"],a:"Lp(a) er en arvelig type kolesterol, der øger risikoen for hjerte kar sygdom. Måles sjældent normalt, men indgår hos os."},
+   {k:["apoa1","apo a1"],a:"ApoA1 er proteinet i det gode kolesterol og afspejler din beskyttelse mod åreforkalkning."},
+   {k:["ldl"],a:"LDL er det skadelige kolesterol, der kan aflejre sig i blodårerne. Indgår i blodpanelet."},
+   {k:["hdl"],a:"HDL er det beskyttende kolesterol, der hjælper med at fjerne overskydende fedt fra blodet."},
+   {k:["triglycerid"],a:"Triglycerider er fedtstoffer i blodet, knyttet til kost, vægt og hjerte kar risiko."},
+   {k:["hba1c","langtidsblodsukker"],a:"HbA1c er dit gennemsnitlige blodsukker over 2-3 måneder, et vigtigt mål for diabetes-risiko."},
+   {k:["insulinresistens","fasteinsulin","faste-insulin"],a:"Insulinresistens betyder, at cellerne reagerer dårligere på insulin, ofte et tidligt tegn år før blodsukkeret stiger. Vi måler faste-insulin."},
+   {k:["hs-crp","hscrp"," crp"],a:"hs-CRP er en følsom markør for skjult, kronisk inflammation, som fremskynder aldring og hjerte kar risiko."},
+   {k:["egfr","nyrefunktion","kreatinin"],a:"eGFR og kreatinin viser, hvor godt dine nyrer renser blodet."},
+   {k:["ferritin","jernlager"],a:"Ferritin er kroppens jernlager og bruges til at vurdere jernstatus."},
+   {k:["shbg"],a:"SHBG er et protein, der binder kønshormoner og påvirker, hvor meget der er aktivt i kroppen."},
+   {k:["tsh","stofskifte","skjoldbrusk","thyreoidea"],a:"TSH er hjernens signal til skjoldbruskkirtlen og det primære mål for dit stofskifte."},
+   {k:["igf-1","igf1","væksthormon"],a:"IGF-1 er et væksthormon-relateret signal, der knyttes til aldring og muskelmasse."},
+   {k:["albumin"],a:"Albumin er det vigtigste protein i blodet; lavt niveau kan tyde på sygdom eller dårlig ernæring."},
+   {k:["alat","asat","ggt","leverenzym"],a:"ALAT, ASAT og GGT er leverenzymer, der viser, om leveren er belastet (fx af alkohol, medicin eller fedtlever)."},
+   {k:["epigenetik","epigenetisk"],a:"Epigenetik handler om, hvordan livsstil tænder og slukker for dine gener, og bruges til at måle biologisk alder."},
+   {k:["omega-3","omega 3"],a:"Omega-3-indekset måler dine omega-3-fedtsyrer, som hænger sammen med hjerte og hjerne."},
+   {k:["nt-probnp","probnp"],a:"NT-proBNP er et tidligt mål for, om hjertet er belastet."},
+
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
    {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Plus 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},

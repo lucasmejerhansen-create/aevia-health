@@ -492,7 +492,28 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var AEVC_ENDPOINT="/api/chat";
   var GREET="Hi! I'm Aevia's assistant. Ask me anything, packages, prices, services, confidentiality, health and longevity, or pick a suggestion below.";
   var FALLBACK="Good question. I don't have a precise answer here, but we'll clear it up quickly: <a href='book.html'>book your time directly</a> or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. In the meantime, would you like to hear about our <a href='pakker.html'>packages</a> or <a href='ydelser.html'>services</a>?";
-  var KB=[
+  var KB=[/*GLOS*/
+   {k:["homocystein"],a:"Homocysteine is an amino acid. High levels raise heart and brain risk and can often be lowered with B vitamins. Measured in our blood panel."},
+   {k:["apob","apo b"],a:"ApoB is the number of harmful cholesterol particles, one of the most accurate measures of cardiovascular risk."},
+   {k:["lp(a)","lipoprotein a","lp a"],a:"Lp(a) is an inherited type of cholesterol that raises cardiovascular risk. Rarely measured normally, but included with us."},
+   {k:["apoa1","apo a1"],a:"ApoA1 is the protein in good cholesterol and reflects your protection against artery disease."},
+   {k:["ldl"],a:"LDL is the harmful cholesterol that can build up in your arteries."},
+   {k:["hdl"],a:"HDL is the protective cholesterol that helps clear excess fat from the blood."},
+   {k:["triglycerid"],a:"Triglycerides are fats in the blood, linked to diet, weight and cardiovascular risk."},
+   {k:["hba1c"],a:"HbA1c is your average blood sugar over 2-3 months, an important measure of diabetes risk."},
+   {k:["insulin resistance","fasting insulin"],a:"Insulin resistance means cells respond less to insulin, often an early sign years before blood sugar rises."},
+   {k:["hs-crp","hscrp"," crp"],a:"hs-CRP is a sensitive marker for hidden, chronic inflammation that accelerates ageing and cardiovascular risk."},
+   {k:["egfr","kidney function","creatinine"],a:"eGFR and creatinine show how well your kidneys clean the blood."},
+   {k:["ferritin"],a:"Ferritin is your iron store and is used to assess iron status."},
+   {k:["shbg"],a:"SHBG is a protein that binds sex hormones and affects how much is active in the body."},
+   {k:["tsh","thyroid"],a:"TSH is the brain signal to the thyroid and the main measure of your metabolism."},
+   {k:["igf-1","igf1"],a:"IGF-1 is a growth-hormone-related signal linked to ageing and muscle mass."},
+   {k:["albumin"],a:"Albumin is the main blood protein; a low level can indicate illness or poor nutrition."},
+   {k:["alat","asat","ggt","alt","ast","liver enzyme"],a:"ALT, AST and GGT are liver enzymes that show whether the liver is strained (e.g. by alcohol, medication or fatty liver)."},
+   {k:["epigenetic"],a:"Epigenetics is about how lifestyle switches your genes on and off, and is used to measure biological age."},
+   {k:["omega-3","omega 3"],a:"The omega-3 index measures your omega-3 fatty acids, tied to heart and brain health."},
+   {k:["nt-probnp","probnp"],a:"NT-proBNP is an early measure of strain on the heart."},
+
    {k:["112","emergency","acute","chest pain","short of breath","faint","unconscious","bleeding"],a:"⚠️ If this sounds like an emergency, e.g. chest pain, shortness of breath or loss of consciousness, call <strong>112</strong> or the on-call doctor immediately. Aevia is preventive and cannot handle acute cases."},
    {k:["symptom","sick","ill","pain","hurts","diagnose","what's wrong","is it dangerous","clot","cancer"],a:"I'm afraid I can't assess symptoms or make diagnoses. If you have a specific concern, book a time with Aevia or contact your own doctor, in an emergency call 112. <a href='book.html'>Book a conversation</a>."},
    {k:["cost","price","prices","how much","amount","dkk","expensive"],a:"Private packages: <strong>Core DKK 8,900</strong>, <strong>Plus DKK 14,900</strong>, <strong>Elite DKK 29,900</strong>. Company agreements from DKK 120,000. See everything on <a href='pakker.html'>Packages &amp; pricing</a>. Shall I help you choose?"},
