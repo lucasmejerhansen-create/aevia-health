@@ -438,7 +438,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <select id="pakke" name="pakke">
               <option value="">I'm not sure yet</option>
               <option>Aevia Core (8.900 DKK)</option>
-              <option>Aevia Executive (14.900 DKK)</option>
+              <option>Aevia Plus (14.900 DKK)</option>
               <option>Aevia Elite (29.900 DKK)</option>
               <option>Company package (120,000 DKK)</option>
               <option>Annual agreement (180,000 DKK/yr)</option>
@@ -472,7 +472,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <h4>Services</h4>
         <ul>
           <li><a href="pakker.html">Aevia Core</a></li>
-          <li><a href="pakker.html">Aevia Executive</a></li>
+          <li><a href="pakker.html">Aevia Plus</a></li>
           <li><a href="pakker.html">Aevia Elite</a></li>
           <li><a href="virksomheder.html">Company agreements</a></li>
         </ul>
@@ -586,13 +586,13 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[
    {k:["112","emergency","acute","chest pain","short of breath","faint","unconscious","bleeding"],a:"⚠️ If this sounds like an emergency, e.g. chest pain, shortness of breath or loss of consciousness, call <strong>112</strong> or the on-call doctor immediately. Aevia is preventive and cannot handle acute cases."},
    {k:["symptom","sick","ill","pain","hurts","diagnose","what's wrong","is it dangerous","clot","cancer"],a:"I'm afraid I can't assess symptoms or make diagnoses. If you have a specific concern, book a time with Aevia or contact your own doctor, in an emergency call 112. <a href='book.html'>Book a conversation</a>."},
-   {k:["cost","price","prices","how much","amount","dkk","expensive"],a:"Private packages: <strong>Core DKK 8,900</strong>, <strong>Executive DKK 14,900</strong>, <strong>Elite DKK 29,900</strong>. Company agreements from DKK 120,000. See everything on <a href='pakker.html'>Packages &amp; pricing</a>. Shall I help you choose?"},
-   {k:["include","included","contain","package","packages","difference","level","what do i get"],a:"All packages: biological age, full blood panel (70+ markers) and a personal report. Executive adds VO2max and a hormone panel; Elite adds whole-body MRI, genetics and 3-month follow-up. See <a href='ydelser.html'>Services</a>."},
+   {k:["cost","price","prices","how much","amount","dkk","expensive"],a:"Private packages: <strong>Core DKK 8,900</strong>, <strong>Plus DKK 14,900</strong>, <strong>Elite DKK 29,900</strong>. Company agreements from DKK 120,000. See everything on <a href='pakker.html'>Packages &amp; pricing</a>. Shall I help you choose?"},
+   {k:["include","included","contain","package","packages","difference","level","what do i get"],a:"All packages: biological age, full blood panel (70+ markers) and a personal report. Plus adds VO2max and a hormone panel; Elite adds whole-body MRI, genetics and 3-month follow-up. See <a href='ydelser.html'>Services</a>."},
    {k:["biological age"],a:"Your biological age shows how fast your body is actually ageing, independent of your birthday. It's included in every package. Read the <a href='biologisk-alder.html'>article</a>."},
-   {k:["vo2","fitness","cardio","oxygen"],a:"VO2max measures your cardiorespiratory fitness and is one of the strongest markers of longevity, and it can be trained. Included in Executive and Elite. Read <a href='vo2max-levetid.html'>about VO2max</a>."},
+   {k:["vo2","fitness","cardio","oxygen"],a:"VO2max measures your cardiorespiratory fitness and is one of the strongest markers of longevity, and it can be trained. Included in Plus and Elite. Read <a href='vo2max-levetid.html'>about VO2max</a>."},
    {k:["mri","scan","imaging","whole body","whole-body"],a:"Whole-body MRI scans organs and tissue without radiation and is included in Elite. Read <a href='mri-helkropsscanning.html'>about whole-body MRI</a>."},
    {k:["genetic","genetics","dna","gene","hereditary"],a:"The genetic profile maps hereditary risk factors (included in Elite) and is always linked to a medical interpretation."},
-   {k:["hormone","testosterone","cortisol","oestrogen","estrogen"],a:"The hormone panel measures testosterone, cortisol and thyroid hormones, among others; included from Executive. Read <a href='testosteron-performance.html'>about hormones</a>."},
+   {k:["hormone","testosterone","cortisol","oestrogen","estrogen"],a:"The hormone panel measures testosterone, cortisol and thyroid hormones, among others; included from Plus. Read <a href='testosteron-performance.html'>about hormones</a>."},
    {k:["blood","panel","marker","deficiency","vitamin","iron","b12"],a:"Our full blood panel measures 70+ markers, including deficiency checks for vitamins and minerals (e.g. vitamin D, B12, iron). Included in every package. See <a href='pakker.html'>Packages</a>."},
    {k:["vitamin d"],a:"Many people are short on vitamin D, especially in winter. We measure it in the blood panel so you can supplement precisely. Read the <a href='d-vitamin-mangel.html'>article</a>."},
    {k:["sleep","sleeping"],a:"Sleep is the single strongest lever for energy and longevity: a fixed rhythm, a dark/cool room, screens and alcohol away before bed. We measure the effect via biomarkers. Read the <a href='soevn-ydeevne.html'>article</a>."},
@@ -646,7 +646,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 <script>
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var an={vo2max:'VO2max-test',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){for(var i=0;i<sel.options.length;i++){if(sel.options[i].text.indexOf(names[pk])===0){sel.selectedIndex=i;break;}}}
@@ -712,7 +712,7 @@ var BOOKING={
 };
 (function(){
   var p=new URLSearchParams(location.search);
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var pk=p.get('pakke'),total=p.get('total');
   var label=(names[pk]||'')+(total?(' ('+Number(total).toLocaleString('en-GB')+' DKK)'):'');
   var el=document.getElementById('aevia-calendly');

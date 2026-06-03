@@ -435,7 +435,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <select id="pakke" name="pakke">
               <option value="">Jeg er ikke sikker endnu</option>
               <option>Aevia Core (8.900 DKK)</option>
-              <option>Aevia Executive (14.900 DKK)</option>
+              <option>Aevia Plus (14.900 DKK)</option>
               <option>Aevia Elite (29.900 DKK)</option>
               <option>Virksomhedspakke (120.000 DKK)</option>
               <option>Årsaftale (180.000 DKK/år)</option>
@@ -469,7 +469,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <h4>Ydelser</h4>
         <ul>
           <li><a href="pakker.html">Aevia Core</a></li>
-          <li><a href="pakker.html">Aevia Executive</a></li>
+          <li><a href="pakker.html">Aevia Plus</a></li>
           <li><a href="pakker.html">Aevia Elite</a></li>
           <li><a href="virksomheder.html">Virksomhedsaftaler</a></li>
         </ul>
@@ -583,13 +583,13 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
-   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Executive 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Executive tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
+   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Plus 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
+   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
    {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
-   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Executive og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
+   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
    {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
    {k:["genetisk","genetik","dna","gen ","arvelig"],a:"Den genetiske profil kortlægger arvelige risikofaktorer (indgår i Elite) og kobles altid til en lægefaglig tolkning."},
-   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Executive. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
+   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Plus. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
    {k:["blodpr","blodpanel","markør","mangel","vitamin","jern","b12"],a:"Vores fulde blodpanel måler 70+ markører, inkl. mangeltjek for vitaminer og mineraler (fx D-vitamin, B12, jern). Indgår i alle pakker. Se <a href='pakker.html'>Pakker</a>."},
    {k:["d-vitamin","d vitamin"],a:"Mange danskere mangler D-vitamin, især om vinteren. Vi måler det i blodpanelet, så du kan supplere præcist. Læs <a href='d-vitamin-mangel.html'>artiklen</a>."},
    {k:["søvn","sove","sover"],a:"Søvn er det stærkeste enkeltgreb for energi og longevity: fast rytme, mørkt/køligt rum, skærm og alkohol væk før sengetid. Vi måler effekten via biomarkører. Læs <a href='soevn-ydeevne.html'>artiklen</a>."},
@@ -643,7 +643,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 <script>
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var an={vo2max:'VO2max-test',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){for(var i=0;i<sel.options.length;i++){if(sel.options[i].text.indexOf(names[pk])===0){sel.selectedIndex=i;break;}}}
@@ -709,7 +709,7 @@ var BOOKING={
 };
 (function(){
   var p=new URLSearchParams(location.search);
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var pk=p.get('pakke'),total=p.get('total');
   var label=(names[pk]||'')+(total?(' ('+Number(total).toLocaleString('da-DK')+' kr.)'):'');
   var el=document.getElementById('aevia-calendly');
