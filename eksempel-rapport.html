@@ -82,6 +82,27 @@ svg .grid{stroke:var(--line)}
 .card.collapsed .cbody{display:none}
 .card.collapsed .cl-head .chev{transform:rotate(-90deg)}
 </style>
+<style>
+.mtags{display:flex;gap:7px;align-items:center}
+.dlt{font-size:.66rem;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap;background:var(--line-2);color:var(--muted)}
+.dlt.good{background:rgba(63,178,127,.15);color:#7fd4a6}
+.dlt.bad{background:rgba(224,132,75,.15);color:#e0a06b}
+.bench{font-size:.8rem;color:var(--muted-2);margin-top:7px}
+.bench b{color:var(--gold);font-weight:600}
+.toc-card .toc-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.toc-btns{display:flex;gap:8px;flex-wrap:wrap}
+.toc-btn{background:var(--gold-soft);border:1px solid var(--gold);color:var(--gold);font-weight:600;font-size:.82rem;padding:7px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+.toc-btn:hover{background:var(--gold);color:var(--navy)}
+.toc-nav{display:flex;flex-wrap:wrap;gap:8px}
+.toc-a{font-size:.85rem;color:var(--muted);background:var(--navy);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;transition:all .15s}
+.toc-a:hover{border-color:var(--gold);color:var(--text)}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  #aevc-btn,#aevc-panel,.toc-btns,.back,.cta{display:none!important}
+  .card.collapsed .cbody{display:block!important}
+  .card{break-inside:avoid}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -147,6 +168,32 @@ svg .grid{stroke:var(--line)}
       <text x="600" y="160" fill="#c9a437" font-size="11" text-anchor="end">Biologisk</text>
     </svg>
     <p style="color:var(--muted);font-size:.9rem;margin-top:10px">Din krop fungerer aktuelt som ca. 5 år yngre end din fødselsdato — og afstanden er vokset hvert år. Det drives primært af god kondition og lav inflammation; tre markører trækker stadig den anden vej.</p>
+  </div>
+
+  <!-- PROJEKTION -->
+  <div class="card">
+    <h2>Hvor er du på vej hen?</h2>
+    <p class="csub">To mulige fremtider for din biologiske alder — afhængigt af, hvad du gør nu.</p>
+    <svg viewBox="0 0 640 250" width="100%" role="img" aria-label="Projektion: følger du planen falder din biologiske alder mod 36 i 2031; gør du intet stiger den mod 46">
+      <line class="grid" x1="40" y1="30" x2="40" y2="190"/>
+      <line class="grid" x1="40" y1="190" x2="620" y2="190"/>
+      <line class="grid" x1="40" y1="110" x2="620" y2="110" stroke-dasharray="4 5"/>
+      <text x="34" y="34" fill="#94a0b2" font-size="11" text-anchor="end">46</text>
+      <text x="34" y="114" fill="#94a0b2" font-size="11" text-anchor="end">41</text>
+      <text x="34" y="194" fill="#94a0b2" font-size="11" text-anchor="end">36</text>
+      <polyline fill="none" stroke="#e0844b" stroke-width="2.5" stroke-dasharray="6 5" points="120,142 370,94 600,30"/>
+      <circle cx="120" cy="142" r="4" fill="#e0844b"/><circle cx="370" cy="94" r="4" fill="#e0844b"/><circle cx="600" cy="30" r="4" fill="#e0844b"/>
+      <text x="600" y="22" fill="#e0a06b" font-size="11" text-anchor="end">Gør intet</text>
+      <polyline fill="none" stroke="#c9a437" stroke-width="3" points="120,142 370,174 600,190"/>
+      <circle cx="120" cy="142" r="5" fill="#c9a437"/><circle cx="370" cy="174" r="5" fill="#c9a437"/><circle cx="600" cy="190" r="5" fill="#c9a437"/>
+      <text x="600" y="206" fill="#c9a437" font-size="11" text-anchor="end">Følg planen</text>
+      <text x="120" y="132" fill="#f5f5f0" font-size="12" text-anchor="middle">39</text>
+      <text x="120" y="232" fill="#94a0b2" font-size="11" text-anchor="middle">2026</text>
+      <text x="370" y="232" fill="#94a0b2" font-size="11" text-anchor="middle">2028</text>
+      <text x="600" y="232" fill="#94a0b2" font-size="11" text-anchor="middle">2031</text>
+      <line x1="600" y1="30" x2="600" y2="190" stroke="#28394f" stroke-width="1" stroke-dasharray="3 4"/>
+    </svg>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:10px">Forskellen mellem at følge planen og at lade stå til kan være <b>op mod 10 biologiske år</b> over fem år (illustrativt). Det er hele pointen med at måle nu — og følge op.</p>
   </div>
 
   <!-- KATEGORI-OVERBLIK -->
@@ -252,6 +299,15 @@ svg .grid{stroke:var(--line)}
 <script>
 (function(){
   var C={ok:'#3fb27f',warn:'#c9a437',low:'#e0844b'};
+  var EX={
+   'ApoB':{pc:'41%',d:'▼ 0,08',g:1},'LDL-kolesterol':{pc:'45%',d:'▼ 0,2',g:1},'Lp(a)':{pc:'88%',d:'stabil'},
+   'HbA1c':{pc:'72%',d:'▼ 1',g:1},'Faste-insulin':{pc:'35%',d:'▲ 0,8',g:0},
+   'hs-CRP':{pc:'84%',d:'▼ 0,2',g:1},'Homocystein':{pc:'60%',d:'stabil'},
+   'D-vitamin':{pc:'22%',d:'▼ 6',g:0},'Ferritin':{pc:'66%',d:'stabil'},
+   'VO2max':{pc:'79%',d:'▲ 3',g:1},'Testosteron':{pc:'55%',d:'stabil'},
+   'ALAT':{pc:'70%',d:'▼ 4',g:1},'GGT':{pc:'74%',d:'▼ 3',g:1},'eGFR':{pc:'68%',d:'stabil'},
+   'Hæmoglobin':{pc:'58%',d:'stabil'},'Leukocytter':{pc:'60%',d:'stabil'},'TSH':{pc:'62%',d:'stabil'}};
+
   // kategori-overblik
   var cats=[['Hjerte & kredsløb',68,'warn'],['Stofskifte & blodsukker',74,'warn'],['Inflammation',94,'ok'],['Vitaminer & mineraler',58,'low'],['Kondition',90,'ok'],['Hormoner',86,'ok']];
   document.getElementById('cats').innerHTML=cats.map(function(c){
@@ -295,10 +351,13 @@ svg .grid{stroke:var(--line)}
     var span=m.max-m.min, prev=m.min, segs='';
     m.z.forEach(function(zz){ var w=(zz[0]-prev)/span*100; prev=zz[0]; segs+='<i style="width:'+w+'%;background:'+C[zz[1]]+';opacity:.55"></i>'; });
     var pos=(m.v-m.min)/span*100; if(pos<0)pos=0; if(pos>100)pos=100;
-    return '<div class="mrow"><div class="mtop"><span class="mn">'+m.n+'</span><span class="mbadge '+m.s+'">'+m.sl+'</span></div>'+
+    var ex=EX[m.n]||{};
+    var dl=ex.d?'<span class="dlt '+(ex.g===1?'good':ex.g===0?'bad':'')+'">'+ex.d+'</span>':'';
+    var bench=ex.pc?'<div class="bench">Benchmark: bedre end <b>'+ex.pc+'</b> på din alder</div>':'';
+    return '<div class="mrow"><div class="mtop"><span class="mn">'+m.n+'</span><span class="mtags">'+dl+'<span class="mbadge '+m.s+'">'+m.sl+'</span></span></div>'+
       '<div class="track">'+segs+'<span class="needle" style="left:'+pos+'%"></span></div>'+
       '<div class="mmeta"><span class="val">'+m.disp+'</span><span>'+m.opt+'</span></div>'+
-      '<div class="mnote">'+m.note+'</div></div>';
+      '<div class="mnote">'+m.note+'</div>'+bench+'</div>';
   }
   document.getElementById('markers').innerHTML=groups.map(function(g){
     return '<div class="mgroup"><h3>'+g[0]+'</h3>'+g[1].map(bar).join('')+'</div>';
@@ -460,22 +519,39 @@ svg .grid{stroke:var(--line)}
 </script>
 <script>
 (function(){
-  var cards=document.querySelectorAll('.card');
-  Array.prototype.forEach.call(cards,function(card){
+  var EN=(document.documentElement.lang||'').slice(0,2)==='en';
+  var T=EN?{toc:'Contents',fold:'Collapse all',unfold:'Expand all',print:'Download / print'}
+         :{toc:'Indhold',fold:'Fold alt ind',unfold:'Fold alt ud',print:'Download / print'};
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var items=[];
+  cards.forEach(function(card,i){
     var head=card.querySelector('h2')||card.querySelector('.eyebrow');
     if(!head) return;
     var body=document.createElement('div'); body.className='cbody';
-    var n=head.nextSibling;
-    while(n){var nx=n.nextSibling; body.appendChild(n); n=nx;}
+    var n=head.nextSibling; while(n){var nx=n.nextSibling; body.appendChild(n); n=nx;}
     card.appendChild(body);
-    head.classList.add('cl-head');
+    head.classList.add('cl-head'); card.id='sec-'+i;
     head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded','true');
-    var chev=document.createElement('span'); chev.className='chev'; chev.setAttribute('aria-hidden','true'); chev.textContent='\u25be';
-    head.appendChild(chev);
-    function toggle(){var c=card.classList.toggle('collapsed'); head.setAttribute('aria-expanded', c?'false':'true');}
-    head.addEventListener('click',toggle);
-    head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+    var chev=document.createElement('span'); chev.className='chev'; chev.setAttribute('aria-hidden','true'); chev.textContent='▾'; head.appendChild(chev);
+    function tg(){var c=card.classList.toggle('collapsed'); head.setAttribute('aria-expanded',c?'false':'true');}
+    head.addEventListener('click',tg);
+    head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});
+    items.push({id:card.id,title:(head.textContent||'').replace('▾','').trim(),card:card,head:head});
   });
+  if(items.length>1){
+    var toc=document.createElement('div'); toc.className='card toc-card';
+    var links=items.map(function(it){return '<a href="#'+it.id+'" class="toc-a">'+it.title+'</a>';}).join('');
+    toc.innerHTML='<div class="toc-top"><div class="eyebrow" style="margin:0">'+T.toc+'</div><div class="toc-btns"><button type="button" class="toc-btn" id="foldall"></button><button type="button" class="toc-btn" id="printrep">'+T.print+'</button></div></div><nav class="toc-nav">'+links+'</nav>';
+    items[0].card.parentNode.insertBefore(toc, items[0].card.nextSibling);
+    [].slice.call(toc.querySelectorAll('.toc-a')).forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById(a.getAttribute('href').slice(1));if(t){t.classList.remove('collapsed');t.querySelector('.cl-head').setAttribute('aria-expanded','true');t.scrollIntoView({behavior:'smooth',block:'start'});}});
+    });
+    var collapsed=false, fb=toc.querySelector('#foldall');
+    function lbl(){fb.textContent=collapsed?T.unfold:T.fold;}
+    lbl();
+    fb.addEventListener('click',function(){collapsed=!collapsed;items.forEach(function(it){it.card.classList.toggle('collapsed',collapsed);it.head.setAttribute('aria-expanded',collapsed?'false':'true');});lbl();});
+    toc.querySelector('#printrep').addEventListener('click',function(){window.print();});
+  }
 })();
 </script>
 </body>
