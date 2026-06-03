@@ -418,14 +418,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <!-- ROI CALCULATOR -->
 <section>
+  <style>
+  #roi-calc label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+  #roi-calc input{width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:13px 15px;color:var(--text);font-family:inherit;font-size:1.05rem;transition:border-color .15s ease}
+  #roi-calc input:focus{outline:none;border-color:var(--gold)}
+  #roi-calc input[type=number]{-moz-appearance:textfield}
+  #roi-calc input::-webkit-outer-spin-button,#roi-calc input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  </style>
   <div class="container">
     <div class="center" style="margin-bottom:40px"><span class="eyebrow">Run the numbers</span><h2>What does sick leave cost you?</h2><p class="lead">A quick estimate, adjust the figures to your leadership team.</p></div>
     <div class="split">
       <div class="panel">
-        <div style="display:grid;gap:16px">
-          <div><label for="roi-n">Number of key employees</label><input id="roi-n" type="number" min="1" value="12"></div>
-          <div><label for="roi-loen">Avg. annual salary per employee (DKK)</label><input id="roi-loen" type="number" min="0" step="10000" value="900000"></div>
-          <div><label for="roi-dage">Sick days per employee per year</label><input id="roi-dage" type="number" min="0" value="8"></div>
+        <div id="roi-calc" style="display:grid;gap:18px">
+          <div><label for="roi-n">Number of key employees</label><input id="roi-n" type="number" min="1" value="12" inputmode="numeric"></div>
+          <div><label for="roi-loen">Avg. annual salary per employee (DKK)</label><input id="roi-loen" type="text" inputmode="numeric" value="900,000"></div>
+          <div><label for="roi-dage">Sick days per employee per year</label><input id="roi-dage" type="number" min="0" value="8" inputmode="numeric"></div>
         </div>
       </div>
       <div class="panel" style="background:linear-gradient(160deg,var(--navy-3),var(--navy));display:flex;flex-direction:column;justify-content:center">
@@ -440,9 +447,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 <script>
 (function(){var n=document.getElementById('roi-n'),l=document.getElementById('roi-loen'),d=document.getElementById('roi-dage'),out=document.getElementById('roi-out'),note=document.getElementById('roi-note');if(!n)return;
-function fmt(x){return new Intl.NumberFormat('da-DK').format(Math.round(x))+' kr.';}
-function calc(){var N=+n.value||0,L=+l.value||0,D=+d.value||0,day=L/220,cost=N*D*day;out.textContent=fmt(cost);var days=day>0?Math.round(180000/day):0;note.innerHTML='An annual agreement (DKK 180,000) equals about '+days+' sick days. Even a small reduction in absence can cover it.';}
-[n,l,d].forEach(function(e){e.addEventListener('input',calc);});calc();})();
+var nf=new Intl.NumberFormat('en');
+function fmt(x){return 'DKK '+nf.format(Math.round(x));}
+function num(v){return +(String(v).replace(/\D/g,''))||0;}
+function calc(){var N=num(n.value),L=num(l.value),D=num(d.value),day=L/220,cost=N*D*day;out.textContent=fmt(cost);var days=day>0?Math.round(180000/day):0;note.innerHTML='An annual agreement (DKK 180,000) equals about '+days+' sick days. Even a small reduction in absence can cover it.';}
+l.addEventListener('input',function(){var v=num(l.value);l.value=v?nf.format(v):'';calc();});
+[n,d].forEach(function(e){e.addEventListener('input',calc);});calc();})();
 </script>
 
 <!-- FOR EMPLOYEES -->
