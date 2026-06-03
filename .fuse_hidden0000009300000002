@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pakker &amp; priser | Aevia Health, Executive helbredstjek fra 8.900 DKK</title>
-<meta name="description" content="Aevia Core, Executive og Elite samt virksomhedspakker. Se hvad der indgår, leveringstid og priser fra 8.900 til 180.000 DKK. Køb online med kort eller betal på faktura.">
+<title>Aevia Health | Avanceret helbredsdiagnostik, kend din biologiske alder</title>
+<meta name="description" content="Aevia Health koordinerer avancerede helbredstjek for private og virksomheder i Danmark. Kend din biologiske alder, og handl i tide. Book dit helbredstjek.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://aevia.dk/pakker.html">
+<link rel="canonical" href="https://aevia.dk/">
+<link rel="alternate" hreflang="da" href="https://aevia.dk/">
+<link rel="alternate" hreflang="en" href="https://aevia.dk/en/">
+<link rel="alternate" hreflang="x-default" href="https://aevia.dk/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="Aevia Health">
-<meta property="og:title" content="Pakker & priser | Aevia Health">
-<meta property="og:description" content="Executive helbredstjek fra 8.900 DKK. Core, Executive, Elite og virksomhedsaftaler.">
-<meta property="og:url" content="https://aevia.dk/pakker.html">
+<meta property="og:title" content="Aevia Health | Avanceret helbredsdiagnostik, kend din biologiske alder">
+<meta property="og:description" content="Avancerede helbredstjek for private og virksomheder. Kend din biologiske alder. Optimér din fremtid.">
+<meta property="og:url" content="https://aevia.dk/">
 <meta property="og:image" content="https://aevia.dk/og-image.png">
 <meta name="theme-color" content="#0a1628">
 <meta name="twitter:card" content="summary_large_image">
@@ -20,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Forside","item":"https://aevia.dk/"},{"@type":"ListItem","position":2,"name":"Pakker & priser","item":"https://aevia.dk/pakker.html"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Aevia Core", "description": "Biologisk alder, fuldt blodpanel (70+ markører inkl. mangeltjek) og personlig rapport.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "8900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Aevia Executive", "description": "Alt i Core plus VO2max, hormonpanel og personlig protokol.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "14900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Aevia Elite", "description": "Alt i Executive plus helkrops-MRI, genetisk profil og 3 måneders opfølgning.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "29900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["HealthAndBeautyBusiness","LocalBusiness"],"@id":"https://aevia.dk/#organization","name":"Aevia Health","image":"https://aevia.dk/og-image.png","url":"https://aevia.dk","telephone":"+4528303933","email":"kontakt@aevia.dk","priceRange":"DKK 8.900 – 180.000","description":"Aevia Health koordinerer og pakketerer avanceret helbredsdiagnostik for private og virksomheder i Danmark.","areaServed":[{"@type":"Country","name":"Danmark"}],"address":{"@type":"PostalAddress","streetAddress":"Bredgade 11","postalCode":"7400","addressLocality":"Herning","addressCountry":"DK"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],"sameAs":[]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad indgår i et helbredstjek?","acceptedAnswer":{"@type":"Answer","text":"Det afhænger af pakken. Alle pakker indeholder beregning af din biologiske alder, fuldt blodpanel og en personlig rapport. Executive og Elite tilføjer bl.a. VO2max, hormonpanel, MRI og genetisk profil."}},{"@type":"Question","name":"Hvem udfører selve diagnostikken?","acceptedAnswer":{"@type":"Answer","text":"Aevia Health driver ikke egen klinik. Vi koordinerer din diagnostik gennem et udvalgt netværk af akkrediterede laboratorier, billeddiagnostiske centre og speciallæger i Danmark, og samler resultaterne i én rapport."}},{"@type":"Question","name":"Hvordan håndteres mine helbredsdata?","acceptedAnswer":{"@type":"Answer","text":"Dine helbredsdata er følsomme personoplysninger og behandles efter GDPR artikel 9. Data opbevares krypteret, deles aldrig med din arbejdsgiver uden samtykke, og virksomhedsrapporter er altid anonymiserede og aggregerede."}},{"@type":"Question","name":"Hvor hurtigt modtager jeg min rapport?","acceptedAnswer":{"@type":"Answer","text":"Du modtager din personlige rapport inden for 10 arbejdsdage efter sidste prøve. Rapporten gennemgås altid med dig i en opfølgende samtale."}},{"@type":"Question","name":"Kan virksomheden betale uden at se mine resultater?","acceptedAnswer":{"@type":"Answer","text":"Ja. Ved virksomhedsaftaler betaler arbejdsgiveren, men ser aldrig individuelle resultater. Virksomheden modtager udelukkende en anonymiseret, aggregeret teamrapport."}}]}</script>
 <style>:root{
   --navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;
   --text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;
@@ -63,6 +66,12 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.85);back
 .nav-links a.active{color:var(--text)}
 .nav-cta{padding:11px 20px!important;background:var(--gold)!important;border-radius:999px;color:var(--navy)!important;font-weight:600}
 .nav-cta:hover{background:var(--gold-deep);color:var(--navy)!important}
+.lang-li{display:flex;align-items:center;gap:5px;padding:0 6px 0 10px;font-size:.85rem;white-space:nowrap}
+.lang-li a{color:var(--muted-2);padding:4px 2px}
+.lang-li a:hover{color:var(--text)}
+.lang-li a.lang-active{color:var(--gold);font-weight:600}
+.lang-li .sep{color:var(--line-2)}
+@media(max-width:680px){.lang-li{padding:14px 6px;border-top:1px solid var(--line)}}
 .hamburger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;color:var(--text)}
 .hamburger svg{width:26px;height:26px}
 
@@ -290,20 +299,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
 .skiplink{position:absolute;left:-9999px;top:0;z-index:400;background:#c9a437;color:#0a1628;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;font-family:var(--sans)}.skiplink:focus{left:0}
-
-/* markør-chips (blodpanel-oversigt) */
-.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.trust-row .chip{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted);background:var(--navy);line-height:1.2;white-space:nowrap}
 @media(max-width:1140px){.hamburger{display:flex;align-items:center;justify-content:center}.nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);border-bottom:1px solid var(--line);padding:10px 16px 22px;display:none}.nav-links.open{display:flex}.nav-links > li > a{padding:14px 6px;width:100%;font-size:1rem}.nav-cta{display:inline-block;margin-top:8px;text-align:center}.lang-li{padding:14px 6px;border-top:1px solid var(--line);justify-content:flex-start}}
-.lang-li{display:flex;align-items:center;gap:5px;padding:0 6px 0 10px;font-size:.85rem;white-space:nowrap}
-.lang-li a{color:var(--muted-2);padding:4px 2px}
-.lang-li a:hover{color:var(--text)}
-.lang-li a.lang-active{color:var(--gold);font-weight:600}
-.lang-li .sep{color:var(--line-2)}
 </style>
 </head>
 <body>
 <a class="skiplink" href="#main">Spring til indhold</a>
+
 <header class="site">
   <div class="container">
     <nav class="nav" aria-label="Hovedmenu">
@@ -312,7 +313,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links" id="navlinks">
-        <li><a class="active" href="pakker.html">Pakker &amp; priser</a></li>
+        <li><a href="pakker.html">Pakker &amp; priser</a></li>
         <li><a href="ydelser.html">Ydelser</a></li>
         <li><a href="privat.html">Private</a></li>
         <li><a href="virksomheder.html">Virksomheder</a></li>
@@ -320,261 +321,282 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <li><a href="indsigter.html">Indsigter</a></li>
         <li><a href="om-os.html">Om Aevia</a></li>
         <li><a class="nav-cta" href="book.html">Book dit check</a></li>
-      
-        <li class="lang-li"><a href="pakker.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/pakker.html" hreflang="en" aria-label="Switch to English">EN</a></li>
+        <li class="lang-li"><a href="index.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/index.html" hreflang="en" aria-label="Switch to English">EN</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <a id="main" tabindex="-1"></a>
 
-<section class="page-hero">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=66&fit=crop&auto=format&w=1280&h=720" srcset="https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=66&fit=crop&auto=format&w=800&h=450 800w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=66&fit=crop&auto=format&w=1280&h=720 1280w, https://images.unsplash.com/photo-1769002240965-7cc4b129d81a?fm=webp&q=66&fit=crop&auto=format&w=1600&h=900 1600w" sizes="100vw" width="1600" height="900" fetchpriority="high" decoding="async" alt="Roligt executive-kontor med skrivebord ved stort vindue i naturligt lys"></div>
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Forside</a> / Pakker &amp; priser</div>
-    <span class="eyebrow">Pakker &amp; priser</span>
-    <h1>Vælg, hvor dybt du vil se.</h1>
-    <p class="lead" style="margin-top:18px">Fem niveauer, fra grundlæggende biomarkører til fuld billeddiagnostik, genetik og virksomhedsaftaler. Alle priser er ekskl. moms. Book din tid direkte, eller skriv til os for et tilbud.</p>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Executive helbredsdiagnostik</span>
+        <h1>Din krop fortæller dig alt. Hvis du måler det i tide.</h1>
+        <p class="lead">Aevia samler avanceret diagnostik i ét forløb og oversætter dine tal til en konkret plan. Du opdager risici, før de bliver til diagnoser, og du ved præcis, hvad du skal gøre.</p>
+        <div class="btn-row">
+          <a href="book.html" class="btn btn-primary">Book dit helbredstjek
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="pakker.html" class="btn btn-ghost">Se pakker &amp; priser</a>
+        </div>
+        <p style="margin-top:16px;font-size:.9rem;color:var(--muted-2)">Fra <strong style="color:var(--gold);font-weight:600">8.900 kr.</strong> · Ingen binding · Fortroligt · Svar inden for 24 timer</p>
+      </div>
+      <div class="hero-panel">
+        <div class="bioage">
+          <span class="lab">Biologisk alder · eksempel</span>
+          <div class="row"><span class="big">41,2</span><span class="vs">kronologisk: 49 år</span></div>
+          <div class="bar"><i></i></div>
+          <div class="metrics">
+            <div class="metric"><div class="m">52,4</div><div class="l">VO2max (ml/kg/min)</div></div>
+            <div class="metric"><div class="m">0,82</div><div class="l">Inflammation (hs-CRP)</div></div>
+            <div class="metric"><div class="m">A+</div><div class="l">Metabolisk profil</div></div>
+            <div class="metric"><div class="m">Optimal</div><div class="l">Vitamin- &amp; mineralstatus</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<style>
-.addons{margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--line);text-align:left}
-.addons-title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
-.addon{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--text);padding:11px 13px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .15s ease}.addon:hover{border-color:var(--line-2);background:rgba(255,255,255,.02)}.addon:active{transform:scale(.99)}.addon:has(input:checked){border-color:var(--gold);background:var(--gold-soft)}
-.addon input{appearance:none;-webkit-appearance:none;width:22px;height:22px;flex:none;margin:0;border:1.5px solid var(--line-2);border-radius:6px;background:var(--navy);cursor:pointer;position:relative;transition:background .2s ease,border-color .2s ease}.addon input:checked{background:var(--gold);border-color:var(--gold)}.addon input:checked::after{content:"";position:absolute;left:50%;top:47%;width:6px;height:11px;border:solid var(--navy);border-width:0 2.5px 2.5px 0;transform:translate(-50%,-50%) rotate(45deg)}.addon input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.addon .addon-name{flex:1;line-height:1.35}.addon:has(input:checked) .addon-name{color:var(--text)}
-.addon .addon-price{color:var(--gold);font-weight:600;white-space:nowrap}
-</style>
+<!-- SOCIAL PROOF -->
+<div class="trustbar">
+  <div class="container">
+    <p class="k">Til dig, der vil leve længere og bedre, privat, via din arbejdsplads eller for hele teamet</p>
+    <div class="trust-logos">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg> Privatpersoner</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5-9 5-9-5 9-5zM3 14l9 5 9-5"/></svg> Par &amp; familier</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87"/></svg> Virksomheder &amp; teams</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Akkrediteret diagnostik</span>
+    </div>
+  </div>
+</div>
 
-<!-- INDIVIDUAL PACKAGES -->
+<!-- AUDIENCE SPLIT -->
 <section>
   <div class="container">
-    <div class="grid grid-3">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow">Vælg din indgang</span>
+      <h2>Til dig. Og til hele ledergruppen.</h2>
+      <p class="lead">Samme forløb, uanset hvem du booker for: koordineret, fortroligt og målbart, fra første prøve til færdig plan.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg></div>
+        <h3>For private</h3>
+        <p style="margin-bottom:18px">Til dig, der vil kende dit helbred og handle i tide. Kend din biologiske alder, fang de tidlige signaler, og få en konkret plan, tolket af læger, ikke en app.</p>
+        <ul style="list-style:none;margin:0 0 24px">
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Personlig rapport &amp; protokol</li>
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Fuld fortrolighed, GDPR artikel 9</li>
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Fra 8.900 DKK</li>
+        </ul>
+        <a href="privat.html" class="btn btn-primary" style="margin-top:auto;width:100%">Se for private<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>For virksomheder</h3>
+        <p style="margin-bottom:18px">Til HR og C-suite, og trygt for den enkelte medarbejder. I ser sundhed som en målbar del af risikostyringen via en anonymiseret teamrapport; arbejdsgiveren ser aldrig individuelle målinger.</p>
+        <ul style="list-style:none;margin:0 0 24px">
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Anonymiseret, aggregeret teamrapport</li>
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Lavere sygefravær, stærkere fastholdelse</li>
+          <li style="position:relative;padding-left:28px;margin-bottom:10px;color:var(--muted);font-size:.95rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Pakker &amp; årsaftaler fra 120.000 DKK</li>
+        </ul>
+        <a href="virksomheder.html" class="btn btn-ghost" style="margin-top:auto;width:100%">Se for virksomheder<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- PROCESS 3 STEPS -->
+<section>
+  <div class="container">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow">Sådan virker det</span>
+      <h2>Tre trin. Ti arbejdsdage. Ét klart svar.</h2>
+      <p class="lead">Du bruger under to timer af din tid. Vi håndterer resten.</p>
+    </div>
+    <div class="grid grid-3 steps">
+      <div class="step"><div class="n"></div><h3>Book</h3><p>Vælg dato og tid direkte i kalenderen. Ingen ventetid, ingen henvisning, ingen salgssamtale.</p></div>
+      <div class="step"><div class="n"></div><h3>Diagnostik koordineres</h3><p>Vi booker laboratorier, billeddiagnostik og speciallæger for dig, samlet i færrest mulige aftaler.</p></div>
+      <div class="step"><div class="n"></div><h3>Modtag rapport</h3><p>Din personlige rapport og protokol gennemgås 1:1. Du ved præcis, hvad du skal gøre.</p></div>
+    </div>
+    <div class="btn-row" style="justify-content:center"><a href="proces.html" class="btn btn-ghost">Se hele forløbet</a></div>
+  </div>
+</section>
+
+<!-- PACKAGES OVERVIEW -->
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow">Pakker</span>
+      <h2>Tre niveauer af indsigt</h2>
+      <p class="lead">Fra grundlæggende biomarkører til fuld billeddiagnostik og genetik. Vælg dybden, der matcher dit ansvar.</p>
+    </div>
+    <div class="grid grid-3">
       <div class="card pkg">
         <div class="pname">Aevia Core</div>
-        <div class="who">Til dig, der vil have et præcist udgangspunkt</div>
+        <div class="who">Det fokuserede udgangspunkt</div>
         <div class="price">8.900 <small>DKK</small></div>
         <div class="delivery">Rapport inden for 10 arbejdsdage</div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Beregning af biologisk alder</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fuldt blodpanel (70+ markører, inkl. mangeltjek)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Metabolisk &amp; kardiovaskulær risikoprofil</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personlig rapport + 1:1 lægegennemgang</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Biologisk alder</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fuldt blodpanel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personlig rapport</li>
         </ul>
-        <div class="addons" data-base="8900">
-          <p class="addons-title">Tilføj til din pakke</p>
-          <label class="addon"><input type="checkbox" data-addon="vo2max" data-price="1500"><span class="addon-name">VO2max-test</span><span class="addon-price">+1.500 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="hormon" data-price="1800"><span class="addon-name">Fuldt hormonpanel</span><span class="addon-price">+1.800 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="mri" data-price="9500"><span class="addon-name">Helkrops-MRI (uden kontrast)</span><span class="addon-price">+9.500 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="genetik" data-price="3500"><span class="addon-name">Genetisk profil &amp; risikobærere</span><span class="addon-price">+3.500 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="followup" data-price="2900"><span class="addon-name">3-måneders follow-up med re-test</span><span class="addon-price">+2.900 kr.</span></label>
-        </div>
-        <a href="book.html?pakke=core&total=8900" class="btn btn-primary buy-btn" data-pkg="core" data-base="8900" style="width:100%">Book nu, 8.900 kr.</a>
-        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Eller skriv til os</a>
+        <a href="book.html?pakke=core&total=8900" class="btn btn-primary" style="width:100%">Book nu, 8.900 kr.</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Book en samtale</a>
       </div>
-
       <div class="card pkg feat">
         <span class="tag">Mest valgt</span>
         <div class="pname">Aevia Executive</div>
-        <div class="who">Til lederen, der skal præstere i årevis endnu</div>
+        <div class="who">Til lederen i fuld drift</div>
         <div class="price">14.900 <small>DKK</small></div>
         <div class="delivery">Rapport inden for 10 arbejdsdage</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Alt i Core</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>VO2max, kardiorespiratorisk kapacitet</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fuldt hormonpanel</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personlig protokol med målbare mål (KPI'er), så du kan følge din fremgang sort på hvidt</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>VO2max-test</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Hormonpanel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personlig protokol</li>
         </ul>
-        <div class="addons" data-base="14900">
-          <p class="addons-title">Tilføj til din pakke</p>
-          <label class="addon"><input type="checkbox" data-addon="mri" data-price="9500"><span class="addon-name">Helkrops-MRI (uden kontrast)</span><span class="addon-price">+9.500 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="genetik" data-price="3500"><span class="addon-name">Genetisk profil &amp; risikobærere</span><span class="addon-price">+3.500 kr.</span></label>
-          <label class="addon"><input type="checkbox" data-addon="followup" data-price="2900"><span class="addon-name">3-måneders follow-up med re-test</span><span class="addon-price">+2.900 kr.</span></label>
-        </div>
-        <a href="book.html?pakke=executive&total=14900" class="btn btn-primary buy-btn" data-pkg="executive" data-base="14900" style="width:100%">Book nu, 14.900 kr.</a>
-        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Eller skriv til os</a>
+        <a href="book.html?pakke=executive&total=14900" class="btn btn-primary" style="width:100%">Book nu, 14.900 kr.</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Book en samtale</a>
       </div>
-
       <div class="card pkg">
         <div class="pname">Aevia Elite</div>
-        <div class="who">Til dig, der vil have alt, og vil følge det op</div>
+        <div class="who">Maksimal indsigt, fuld opfølgning</div>
         <div class="price">29.900 <small>DKK</small></div>
         <div class="delivery">Forløb over 3 måneder</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Alt i Executive</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Helkrops-MRI (uden kontrast)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Genetisk profil &amp; risikobærere</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>3-måneders follow-up med re-test</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Helkrops-MRI</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Genetisk profil</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>3-måneders follow-up</li>
         </ul>
-        <a href="book.html?pakke=elite&total=29900" class="btn btn-primary buy-btn" data-pkg="elite" data-base="29900" style="width:100%">Book nu, 29.900 kr.</a>
-        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Eller skriv til os</a>
+        <a href="book.html?pakke=elite&total=29900" class="btn btn-primary" style="width:100%">Book nu, 29.900 kr.</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Book en samtale</a>
       </div>
-
     </div>
+    <div class="btn-row" style="justify-content:center"><a href="pakker.html" class="btn btn-ghost">Se fuld sammenligning &amp; virksomhedspakker</a></div>
   </div>
 </section>
 
-<script>
-/* Tilvalg: opdater pris og checkout-link når kunden vælger til/fra */
-(function(){
-  function fmt(n){return n.toLocaleString('da-DK');}
-  document.querySelectorAll('.buy-btn[data-base]').forEach(function(btn){
-    var card = btn.closest('.pkg');
-    var base = parseInt(btn.getAttribute('data-base'),10);
-    var pkg  = btn.getAttribute('data-pkg');
-    var boxes = card ? card.querySelectorAll('.addon input[type="checkbox"]') : [];
-    function update(){
-      var total = base, keys = [];
-      boxes.forEach(function(b){
-        if(b.checked){ total += parseInt(b.getAttribute('data-price'),10); keys.push(b.getAttribute('data-addon')); }
-      });
-      btn.textContent = 'Book nu, ' + fmt(total) + ' kr.';
-      btn.setAttribute('href', 'book.html?pakke=' + pkg + '&total=' + total + (keys.length ? '&addons=' + keys.join(',') : ''));
-    }
-    boxes.forEach(function(b){ b.addEventListener('change', update); });
-    update();
-  });
-})();
-</script>
-
-<!-- COMPARISON TABLE -->
-<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="container">
-    <div class="center" style="margin-bottom:40px"><span class="eyebrow">Sammenligning</span><h2>Hvad er forskellen?</h2></div>
-    <div style="overflow-x:auto;border:1px solid var(--line);border-radius:14px">
-      <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:.95rem">
-        <thead>
-          <tr style="background:var(--navy-3)">
-            <th style="text-align:left;padding:16px 20px;color:var(--text);font-family:var(--serif);font-weight:600">Indhold</th>
-            <th style="padding:16px 14px;color:var(--muted)">Core</th>
-            <th style="padding:16px 14px;color:var(--gold)">Executive</th>
-            <th style="padding:16px 14px;color:var(--muted)">Elite</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Biologisk alder</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Fuldt blodpanel</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">VO2max</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Hormonpanel</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Personlig protokol</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Helkrops-MRI</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Genetisk profil</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">3-måneders follow-up</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
-          <tr style="border-top:1px solid var(--line);background:var(--navy-3)"><td style="padding:16px 20px;color:var(--text);font-weight:600">Pris (DKK)</td><td style="text-align:center;color:var(--text);font-weight:600">8.900</td><td style="text-align:center;color:var(--gold);font-weight:600">14.900</td><td style="text-align:center;color:var(--text);font-weight:600">29.900</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- BLOOD PANEL OVERVIEW -->
-<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="container">
-    <div class="center" style="margin-bottom:14px"><span class="eyebrow">Inkluderet i alle pakker</span><h2>Din fulde blodprøve, alle dine tal, ét overblik</h2></div>
-    <p class="lead center" style="margin-bottom:44px">Vi måler 70+ markører i én blodprøve og fortæller dig præcis, hvor du ligger, og hvor du mangler noget. Ikke kun "normalt eller ej", men dine optimale niveauer.</p>
-    <div class="grid grid-3">
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s7 4 7 10a7 7 0 0 1-14 0c0-6 7-10 7-10z"/></svg></div>
-        <h3>Vitaminer &amp; mineraler</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Mangeltjek: ser om du mangler noget, der dræner din energi.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">D-vitamin</span><span class="chip" style="font-size:.78rem">B12 &amp; folat</span><span class="chip" style="font-size:.78rem">Jern &amp; ferritin</span><span class="chip" style="font-size:.78rem">Magnesium</span><span class="chip" style="font-size:.78rem">Zink</span></div>
-      </div>
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
-        <h3>Stofskifte &amp; blodsukker</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Energiomsætning og tidlig risiko for type 2-diabetes.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">HbA1c</span><span class="chip" style="font-size:.78rem">Fasteglukose</span><span class="chip" style="font-size:.78rem">Insulin</span><span class="chip" style="font-size:.78rem">TSH / T3 / T4</span></div>
-      </div>
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <h3>Hjerte &amp; kolesterol</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Din reelle kardiovaskulære risiko, ikke kun totalkolesterol.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">LDL &amp; HDL</span><span class="chip" style="font-size:.78rem">Triglycerider</span><span class="chip" style="font-size:.78rem">ApoB</span><span class="chip" style="font-size:.78rem">Lp(a)</span></div>
-      </div>
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
-        <h3>Inflammation</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Skjult, kronisk inflammation, der accelererer din aldring.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">hs-CRP</span><span class="chip" style="font-size:.78rem">Homocystein</span><span class="chip" style="font-size:.78rem">Leukocytter</span></div>
-      </div>
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M9 5l3-3 3 3"/><circle cx="12" cy="15" r="6"/></svg></div>
-        <h3>Hormoner</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Drivkraften bag energi, søvn og restitution. <span class="muted" style="font-size:.85em">(Executive &amp; Elite)</span></p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Testosteron</span><span class="chip" style="font-size:.78rem">Kortisol</span><span class="chip" style="font-size:.78rem">Østradiol</span><span class="chip" style="font-size:.78rem">SHBG</span></div>
-      </div>
-
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14M6 3v7a6 6 0 0 0 12 0V3"/><path d="M8 21h8"/></svg></div>
-        <h3>Lever, nyre &amp; blodtal</h3>
-        <p style="font-size:.93rem;margin-bottom:12px">Organfunktion og det fulde blodbillede som fundament.</p>
-        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">ALAT / ASAT / GGT</span><span class="chip" style="font-size:.78rem">Kreatinin &amp; eGFR</span><span class="chip" style="font-size:.78rem">Hæmoglobin</span></div>
-      </div>
-
-    </div>
-    <p class="form-note center" style="margin-top:22px">Det fulde markørudvalg afhænger af pakken. Hormonpanel indgår fra Executive og opefter.</p>
-    <div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book din blodprøve</a><a href="ydelser.html" class="btn btn-ghost">Læs om blodpanelet</a></div>
-  </div>
-</section>
-
-<!-- BUSINESS PACKAGES -->
+<!-- WHY / VALUE -->
 <section>
   <div class="container">
-    <div class="center" style="margin-bottom:44px"><span class="eyebrow">For virksomheder</span><h2>Aftaler for ledergrupper</h2><p class="lead">Når sundhed bliver en del af jeres risikostyring. Begge aftaler inkluderer en anonymiseret teamrapport.</p></div>
-    <div class="grid grid-2">
-      <div class="card pkg">
-        <div class="pname">Virksomhedspakke</div>
-        <div class="who">Engangsforløb for jeres ledergruppe</div>
-        <div class="price">120.000 <small>DKK</small></div>
-        <div class="delivery">Samlet teamrapport inden for 15 arbejdsdage</div>
+    <div class="split">
+      <div>
+        <span class="eyebrow">Hvorfor Aevia</span>
+        <h2>Du holder styr på alt muligt. Hvornår tjekkede du sidst dig selv?</h2>
+        <p class="lead" style="margin-top:18px">Standard-sundhedstjek fanger sygdom, når den er der. Aevia måler de tidlige signaler, så du kan handle, mens det stadig er et valg og ikke en diagnose.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>10 helbredstjeks</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anonymiseret, aggregeret teamrapport</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedikeret koordinator</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Skattefri sundhedsordning</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Over 80 biomarkører samlet i ét overblik</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tolket af speciallæger, ikke en app</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Konkret protokol med målbare næste skridt</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fortrolighed efter GDPR artikel 9</li>
         </ul>
-        <a href="virksomheder.html" class="btn btn-ghost">Læs mere</a>
       </div>
-      <div class="card pkg feat">
-        <span class="tag">Bedste værdi</span>
-        <div class="pname">Årsaftale</div>
-        <div class="who">Løbende overvågning af jeres nøglemedarbejdere</div>
-        <div class="price">180.000 <small>DKK<span style="font-size:.8rem">/år</span></small></div>
-        <div class="delivery">Kvartalsvise re-tests &amp; rapportering</div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Op til 20 nøglemedarbejdere</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Kvartalsvise re-tests &amp; trendrapport</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anonymiseret udvikling over tid</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Prioriteret booking &amp; fast kontaktperson</li>
-        </ul>
-        <a href="virksomheder.html" class="btn btn-primary">Læs mere</a>
+      <div class="panel">
+        <div class="stats" style="grid-template-columns:1fr 1fr;border:none;padding:0;gap:30px">
+          <div class="stat"><div class="num">&lt; 2t</div><div class="lab">af din tid, samlet</div></div>
+          <div class="stat"><div class="num">10 dage</div><div class="lab">til færdig rapport</div></div>
+          <div class="stat"><div class="num">80+</div><div class="lab">biomarkører målt</div></div>
+          <div class="stat"><div class="num">1:1</div><div class="lab">lægegennemgang</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PAYMENT NOTE + CTA -->
+<!-- B2B SECTION -->
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="split">
+      <div class="panel" style="background:linear-gradient(160deg,var(--navy-3),var(--navy))">
+        <span class="eyebrow">Til virksomheder</span>
+        <h3 style="font-size:1.5rem;margin-bottom:14px">Anonymiseret teamrapport</h3>
+        <p>Få et samlet sundhedsbillede af din ledergruppe, uden at se en eneste individuel måling. Identificér risiko på gruppeniveau, og dokumentér effekten kvartal for kvartal.</p>
+        <div class="metrics" style="grid-template-columns:1fr 1fr;margin-top:24px">
+          <div class="metric"><div class="m">100%</div><div class="l">anonymiseret, nul individuelle data til arbejdsgiver</div></div>
+          <div class="metric"><div class="m">80+</div><div class="l">biomarkører pr. leder</div></div>
+        </div>
+        <p class="form-note" style="margin-top:14px">Aevia er nyetableret i 2024. Tallene beskriver leverancen, ikke lovede resultater.</p>
+      </div>
+      <div>
+        <h2>Investér i jeres nøglemedarbejdere</h2>
+        <p class="lead" style="margin-top:18px">Jeres dyreste ressource er ikke kapital. Det er de få mennesker, hele forretningen hviler på. Aevia gør deres sundhed til en målbar del af jeres risikostyring.</p>
+        <ul class="split-ul" style="list-style:none;margin-top:22px">
+          <li style="position:relative;padding-left:30px;margin-bottom:14px;color:var(--muted)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:4px;width:18px;height:18px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Lavere sygefravær og længere karriereudholdenhed</li>
+          <li style="position:relative;padding-left:30px;margin-bottom:14px;color:var(--muted)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:4px;width:18px;height:18px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Stærkt signal i fastholdelse af topledere</li>
+          <li style="position:relative;padding-left:30px;margin-bottom:14px;color:var(--muted)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position:absolute;left:0;top:4px;width:18px;height:18px;color:var(--gold)"><path d="M20 6L9 17l-5-5"/></svg>Skattefri sundhedsordning, fast årlig ramme</li>
+        </ul>
+        <div class="btn-row"><a href="virksomheder.html" class="btn btn-primary">Læs om virksomhedsaftaler</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="center" style="margin-bottom:44px">
+      <span class="eyebrow">Spørgsmål</span>
+      <h2>Det vil du gerne vide først</h2>
+    </div>
+    <div class="faq" style="max-width:820px;margin:0 auto">
+      <details><summary>Hvad indgår i et helbredstjek?<span class="plus"></span></summary><p>Det afhænger af pakken. Alle pakker indeholder din biologiske alder, fuldt blodpanel og en personlig rapport. Executive og Elite tilføjer bl.a. VO2max, hormonpanel, MRI og genetisk profil.</p></details>
+      <details><summary>Hvem udfører selve diagnostikken?<span class="plus"></span></summary><p>Aevia driver ikke egen klinik. Vi koordinerer din diagnostik gennem et udvalgt netværk af akkrediterede laboratorier, billeddiagnostiske centre og speciallæger, og samler det hele i én rapport.</p></details>
+      <details><summary>Hvordan håndteres mine helbredsdata?<span class="plus"></span></summary><p>Dine data er følsomme personoplysninger efter GDPR artikel 9. De opbevares krypteret, deles aldrig med din arbejdsgiver uden samtykke, og virksomhedsrapporter er altid anonymiserede og aggregerede.</p></details>
+      <details><summary>Hvor hurtigt modtager jeg min rapport?<span class="plus"></span></summary><p>Inden for 10 arbejdsdage efter sidste prøve. Rapporten gennemgås altid med dig i en opfølgende 1:1-samtale.</p></details>
+      <details><summary>Hvad hvis I finder noget alvorligt?<span class="plus"></span></summary><p>Du henvises straks til relevant speciallæge i vores netværk, og vi koordinerer den videre udredning. Du står aldrig alene med et resultat.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- MINI BOOKING -->
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center" style="margin-bottom:32px"><span class="eyebrow">Book direkte</span><h2>Find en tid med det samme</h2><p class="lead">Vælg en ledig tid til en kort, uforpligtende samtale, du får bekræftelse på mail med det samme. Vil du booke hele dit helbredstjek, så gå til book-siden.</p></div>
+    <div class="panel" style="padding:14px;max-width:820px;margin:0 auto">
+      <div id="aevia-cal-mini" style="min-width:300px;height:640px"></div>
+      <p class="form-note" style="margin-top:8px">Kan du ikke se kalenderen? <a class="gold" href="book.html">Gå til book-siden</a>.</p>
+      <script>
+      /* Cal.com inline-kalender, henter ledige tider fra din forbundne kalender.
+         Live på cal.com/aevia. Skift calLink nedenfor hvis du laver et andet event. */
+      (function(C,A,L){var p=function(a,ar){a.q.push(ar);};var d=C.document;C.Cal=C.Cal||function(){var cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){var api=function(){p(api,arguments);},namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
+      var CAL_READY=true; /* Cal.com live: cal.com/aevia */
+      var calmini=document.getElementById("aevia-cal-mini");
+      if(CAL_READY){
+        Cal("init",{origin:"https://cal.com"});
+        Cal("inline",{elementOrSelector:"#aevia-cal-mini",calLink:"aevia/gratis-samtale",config:{theme:"dark",layout:"month_view"}});
+        Cal("ui",{theme:"dark",cssVarsPerTheme:{dark:{"cal-brand":"#c9a437"}},hideEventTypeDetails:false,layout:"month_view"});
+      } else if(calmini){
+        calmini.innerHTML='<div style="padding:44px 20px;text-align:center"><p class="form-note" style="font-size:1rem;margin:0">Online-kalenderen åbner snart. <a class="gold" href="book.html">Gå til book-siden</a> eller ring <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.</p></div>';
+      }
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
 <section style="padding-top:0">
   <div class="container">
     <div class="cta-band">
-      <span class="eyebrow">Book på under et minut</span>
-      <h2>Vælg pakke, vælg tid, færdig</h2>
-      <p class="lead">Vælg en pakke ovenfor og book direkte en ledig dato og tid, du får bekræftelse på mail med det samme. Betaling sker først, når din tid er bekræftet. Virksomhedsaftaler indgås via kontakt.</p>
-      <p class="form-note" style="margin-top:14px">Bekræftelse på mail straks · Betaling efter bekræftet tid · Faktura ved virksomhedskøb</p>
+      <span class="eyebrow">Uforpligtende</span>
+      <h2>Book dit helbredstjek i dag</h2>
+      <p class="lead">Vælg en ledig tid i kalenderen og bekræft. Du får besked på mail med det samme og betaler først, når tiden er bekræftet.</p>
       <div class="btn-row" style="justify-content:center">
-        <a href="#top" class="btn btn-primary">Vælg en pakke ovenfor</a>
-        <a href="book.html" class="btn btn-ghost">Gå til booking</a>
+        <a href="book.html" class="btn btn-primary">Vælg dato og tid
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
         <a href="tel:+4528303933" class="btn btn-ghost">+45 28 30 39 33</a>
       </div>
     </div>
   </div>
 </section>
+
 <footer class="site">
   <div class="container">
     <div class="foot-grid">

@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Longevity for women | Aevia Health</title>
-<meta name="description" content="Women's health follows different curves than men's, particularly around menopause. What's worth measuring, and why data beats guesswork.">
+<title>Packages &amp; pricing | Aevia Health, Executive health check from DKK 8,900</title>
+<meta name="description" content="Aevia Core, Executive and Elite plus company packages. See what's included, delivery time and prices from DKK 8,900 to 180,000. Buy online by card or pay on invoice.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://aevia.dk/en/kvinder-longevity.html">
-<link rel="alternate" hreflang="da" href="https://aevia.dk/kvinder-longevity.html">
-<link rel="alternate" hreflang="en" href="https://aevia.dk/en/kvinder-longevity.html">
-<link rel="alternate" hreflang="x-default" href="https://aevia.dk/kvinder-longevity.html">
-<meta property="og:type" content="article">
+<link rel="canonical" href="https://aevia.dk/en/pakker.html">
+<link rel="alternate" hreflang="da" href="https://aevia.dk/pakker.html">
+<link rel="alternate" hreflang="en" href="https://aevia.dk/en/pakker.html">
+<link rel="alternate" hreflang="x-default" href="https://aevia.dk/pakker.html">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Aevia Health">
-<meta property="og:title" content="Longevity for women | Aevia Health">
-<meta property="og:description" content="Women's health follows different curves than men's, particularly around menopause. What's worth measuring, and why data beats guesswork.">
-<meta property="og:url" content="https://aevia.dk/en/kvinder-longevity.html">
+<meta property="og:title" content="Pakker & priser | Aevia Health">
+<meta property="og:description" content="Executive health check from DKK 8,900. Core, Executive, Elite and company agreements.">
+<meta property="og:url" content="https://aevia.dk/en/pakker.html">
 <meta property="og:image" content="https://aevia.dk/og-image.png">
 <meta name="theme-color" content="#0a1628">
 <meta name="twitter:card" content="summary_large_image">
@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="../assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="../assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Longevity for women: hormones, bones and heart", "description": "Women's health follows different curves than men's, particularly around menopause. What's worth measuring, and why data beats guesswork.", "author": {"@type": "Organization", "name": "Aevia Health"}, "publisher": {"@type": "Organization", "name": "Aevia Health"}, "datePublished": "2026-05-06", "mainEntityOfPage": "https://aevia.dk/kvinder-longevity.html"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aevia.dk/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://aevia.dk/indsigter.html"}, {"@type": "ListItem", "position": 3, "name": "Longevity for kvinder: hormoner, knogler og hjerte", "item": "https://aevia.dk/kvinder-longevity.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aevia.dk/"},{"@type":"ListItem","position":2,"name":"Pakker & priser","item":"https://aevia.dk/pakker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Aevia Core", "description": "Biological age, full blood panel (70+ markers incl. deficiency check) and a personal report.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "8900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Aevia Executive", "description": "Everything in Core plus VO2max, a hormone panel and a personal protocol.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "14900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Aevia Elite", "description": "Everything in Executive plus whole-body MRI, a genetic profile and 3 months of follow-up.", "brand": {"@type": "Brand", "name": "Aevia Health"}, "offers": {"@type": "Offer", "price": "29900", "priceCurrency": "DKK", "availability": "https://schema.org/InStock", "url": "https://aevia.dk/pakker.html"}}}]}</script>
 <style>:root{
   --navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;
   --text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;
@@ -286,7 +286,6 @@ footer.site{border-top:1px solid var(--line);padding:66px 0 36px;background:var(
 /* blog thumbnails */
 .media-thumb{position:relative;margin:-32px -32px 22px;aspect-ratio:16/9;overflow:hidden;background:var(--navy-3);border-bottom:1px solid var(--line)}
 .media-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.media-thumb svg{width:100%;height:100%;display:block}
 .media-thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 50px 8px rgba(10,22,40,.5)}
 @media(max-width:820px){
   .yrow{grid-template-columns:1fr;gap:24px;padding:28px 0}
@@ -299,9 +298,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
 .skiplink{position:absolute;left:-9999px;top:0;z-index:400;background:#c9a437;color:#0a1628;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;font-family:var(--sans)}.skiplink:focus{left:0}
+
+/* markør-chips (blodpanel-oversigt) */
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.trust-row .chip{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted);background:var(--navy);line-height:1.2;white-space:nowrap}
 @media(max-width:1140px){.hamburger{display:flex;align-items:center;justify-content:center}.nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);border-bottom:1px solid var(--line);padding:10px 16px 22px;display:none}.nav-links.open{display:flex}.nav-links > li > a{padding:14px 6px;width:100%;font-size:1rem}.nav-cta{display:inline-block;margin-top:8px;text-align:center}.lang-li{padding:14px 6px;border-top:1px solid var(--line);justify-content:flex-start}}
 </style>
-
 </head>
 <body>
 <a class="skiplink" href="#main">Skip to content</a>
@@ -313,43 +315,268 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links" id="navlinks">
-        <li><a href="pakker.html">Packages &amp; pricing</a></li>
+        <li><a class="active" href="pakker.html">Packages &amp; pricing</a></li>
         <li><a href="ydelser.html">Services</a></li>
         <li><a href="privat.html">Private</a></li>
         <li><a href="virksomheder.html">Companies</a></li>
         <li><a href="proces.html">How it works</a></li>
-        <li><a class="active" href="indsigter.html">Insights</a></li>
+        <li><a href="indsigter.html">Insights</a></li>
         <li><a href="om-os.html">About Aevia</a></li>
         <li><a class="nav-cta" href="book.html">Book your check</a></li>
-        <li class="lang-li"><a href="../kvinder-longevity.html" hreflang="da" aria-label="Skift til dansk">DA</a><span class="sep" aria-hidden="true">/</span><a href="kvinder-longevity.html" class="lang-active" aria-current="true">EN</a></li>
+        <li class="lang-li"><a href="../pakker.html" hreflang="da" aria-label="Skift til dansk">DA</a><span class="sep" aria-hidden="true">/</span><a href="pakker.html" class="lang-active" aria-current="true">EN</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <a id="main" tabindex="-1"></a>
-<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a> / <a href="indsigter.html">Insights</a> / Article</div><span class="eyebrow">Longevity</span><h1 style="max-width:24ch">Longevity for women: hormones, bones and heart</h1></div></section>
-<section style="padding-bottom:0"><div class="container"><div class="banner"><svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration af Venus-symbol, longevity for kvinder" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="bgkvinder" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#142840"/><stop offset="1" stop-color="#0a1628"/></linearGradient><radialGradient id="glkvinder" cx="80%" cy="16%" r="62%"><stop offset="0" stop-color="#c9a437" stop-opacity=".20"/><stop offset="1" stop-color="#c9a437" stop-opacity="0"/></radialGradient></defs><rect width="800" height="450" fill="url(#bgkvinder)"/><rect width="800" height="450" fill="url(#glkvinder)"/><g stroke="#1d2c42" stroke-width="1.5" opacity=".45"><line x1="0" y1="372" x2="800" y2="372"/></g><g transform="translate(400,200)" fill="none" stroke="#c9a437" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-30" r="44"/><line x1="0" y1="14" x2="0" y2="86"/><line x1="-26" y1="50" x2="26" y2="50"/></g><text x="40" y="410" fill="#aab4c2" font-family="Inter,Arial,sans-serif" font-size="21" letter-spacing="4" font-weight="700">KVINDER</text></svg></div></div></section>
-<section><div class="container"><article class="prose" style="margin:0 auto">
-<p class="lead">Most longevity content is written for men. But women's physiology follows different curves, and menopause changes the rules for the heart, bones and metabolism.</p>
-<p class="muted" style="font-size:.85rem;letter-spacing:.03em;margin-bottom:6px">Reading time 6 min · Updated May 2026 · Aevia Insights</p>
-<div class="panel" style="margin:26px 0"><span class="eyebrow" style="margin-bottom:10px">In brief</span><ul style="list-style:none;margin:0"><li>Women's risk profile shifts markedly around menopause.</li><li>Bone health and cardiovascular risk deserve early attention.</li><li>Falling oestrogen affects metabolism, sleep and cognition.</li><li>A baseline before and through menopause is valuable.</li></ul></div>
-<h2>Why women are different</h2>
-<p>Oestrogen protects the heart and bones, among other things. When the level falls around menopause, the risk picture changes, and body composition and metabolism are affected.</p>
-<h2>What's worth measuring</h2>
-<ul>
-<li>Hormone profile</li><li>Bone-relevant markers</li><li>Cardiovascular profile (ApoB, Lp(a))</li><li>Inflammation and blood sugar</li>
-</ul>
-<h2>Why data beats guesswork</h2>
-<p>Menopausal symptoms are easy to misread. A thorough measurement separates "normal" from "worth acting on" and gives a foundation to track over time.</p>
-<h2>Frequently asked questions</h2>
-<div class="faq" style="margin-top:14px">
-<details><summary>Is Aevia relevant before menopause?<span class="plus"></span></summary><p>Yes. An early baseline makes it possible to see changes as they happen, rather than discovering them in hindsight.</p></details>
-<details><summary>Are the results interpreted by sex?<span class="plus"></span></summary><p>Yes, reference values and advice take sex and life stage into account.</p></details>
-</div>
-<p class="muted" style="font-size:.85rem;margin-top:24px">This article is general information and does not replace individual medical advice.</p>
-</article>
-<div class="cta-band" style="margin-top:56px"><span class="eyebrow">Next step</span><h2>Know your own numbers</h2><p class="lead">An article explains the principle. Your report explains you.</p><div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book your health check</a><a href="indsigter.html" class="btn btn-ghost">More insights</a></div></div>
-</div></section>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Packages &amp; pricing</div>
+    <span class="eyebrow">Packages &amp; pricing</span>
+    <h1>Choose the depth your responsibility demands.</h1>
+    <p class="lead" style="margin-top:18px">Five levels, from foundational biomarkers to full imaging, genetics and company agreements. All prices exclude VAT. Buy securely online by card, or book a conversation and receive an invoice.</p>
+  </div>
+</section>
+
+<style>
+.addons{margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--line);text-align:left}
+.addons-title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+.addon{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--text);padding:11px 13px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .15s ease}.addon:hover{border-color:var(--line-2);background:rgba(255,255,255,.02)}.addon:active{transform:scale(.99)}.addon:has(input:checked){border-color:var(--gold);background:var(--gold-soft)}
+.addon input{appearance:none;-webkit-appearance:none;width:22px;height:22px;flex:none;margin:0;border:1.5px solid var(--line-2);border-radius:6px;background:var(--navy);cursor:pointer;position:relative;transition:background .2s ease,border-color .2s ease}.addon input:checked{background:var(--gold);border-color:var(--gold)}.addon input:checked::after{content:"";position:absolute;left:50%;top:47%;width:6px;height:11px;border:solid var(--navy);border-width:0 2.5px 2.5px 0;transform:translate(-50%,-50%) rotate(45deg)}.addon input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.addon .addon-name{flex:1;line-height:1.35}.addon:has(input:checked) .addon-name{color:var(--text)}
+.addon .addon-price{color:var(--gold);font-weight:600;white-space:nowrap}
+</style>
+
+<!-- INDIVIDUAL PACKAGES -->
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+
+      <div class="card pkg">
+        <div class="pname">Aevia Core</div>
+        <div class="who">For you who want a precise starting point</div>
+        <div class="price">8.900 <small>DKK</small></div>
+        <div class="delivery">Report within 10 working days</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Biological age calculation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full blood panel (70+ markers, incl. deficiency check)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Metabolic &amp; cardiovascular risk profile</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personal report + 1:1 physician review</li>
+        </ul>
+        <div class="addons" data-base="8900">
+          <p class="addons-title">Add to your package</p>
+          <label class="addon"><input type="checkbox" data-addon="vo2max" data-price="1500"><span class="addon-name">VO2max test</span><span class="addon-price">+DKK 1,500</span></label>
+          <label class="addon"><input type="checkbox" data-addon="hormon" data-price="1800"><span class="addon-name">Full hormone panel</span><span class="addon-price">+DKK 1,800</span></label>
+          <label class="addon"><input type="checkbox" data-addon="mri" data-price="9500"><span class="addon-name">Whole-body MRI (without contrast)</span><span class="addon-price">+DKK 9,500</span></label>
+          <label class="addon"><input type="checkbox" data-addon="genetik" data-price="3500"><span class="addon-name">Genetic profile &amp; risk carriers</span><span class="addon-price">+DKK 3,500</span></label>
+          <label class="addon"><input type="checkbox" data-addon="followup" data-price="2900"><span class="addon-name">3-month follow-up with re-test</span><span class="addon-price">+DKK 2,900</span></label>
+        </div>
+        <a href="book.html?pakke=core&total=8900" class="btn btn-primary buy-btn" data-pkg="core" data-base="8900" style="width:100%">Book now, DKK 8,900</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Or write to us</a>
+      </div>
+
+      <div class="card pkg feat">
+        <span class="tag">Most chosen</span>
+        <div class="pname">Aevia Executive</div>
+        <div class="who">For the leader who must perform for years to come</div>
+        <div class="price">14.900 <small>DKK</small></div>
+        <div class="delivery">Report within 10 working days</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Core</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>VO2max, cardiorespiratory capacity</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full hormone panel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Personal protocol with measurable KPIs</li>
+        </ul>
+        <div class="addons" data-base="14900">
+          <p class="addons-title">Add to your package</p>
+          <label class="addon"><input type="checkbox" data-addon="mri" data-price="9500"><span class="addon-name">Whole-body MRI (without contrast)</span><span class="addon-price">+DKK 9,500</span></label>
+          <label class="addon"><input type="checkbox" data-addon="genetik" data-price="3500"><span class="addon-name">Genetic profile &amp; risk carriers</span><span class="addon-price">+DKK 3,500</span></label>
+          <label class="addon"><input type="checkbox" data-addon="followup" data-price="2900"><span class="addon-name">3-month follow-up with re-test</span><span class="addon-price">+DKK 2,900</span></label>
+        </div>
+        <a href="book.html?pakke=executive&total=14900" class="btn btn-primary buy-btn" data-pkg="executive" data-base="14900" style="width:100%">Book now, DKK 14,900</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Or write to us</a>
+      </div>
+
+      <div class="card pkg">
+        <div class="pname">Aevia Elite</div>
+        <div class="who">For you who want everything, and want to follow it up</div>
+        <div class="price">29.900 <small>DKK</small></div>
+        <div class="delivery">A pathway over 3 months</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Executive</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Whole-body MRI (without contrast)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Genetic profile &amp; risk carriers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>3-month follow-up with re-test</li>
+        </ul>
+        <a href="book.html?pakke=elite&total=29900" class="btn btn-primary buy-btn" data-pkg="elite" data-base="29900" style="width:100%">Book now, DKK 29,900</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Or write to us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* Tilvalg: opdater pris og checkout-link når kunden vælger til/fra */
+(function(){
+  function fmt(n){return n.toLocaleString('en-US');}
+  document.querySelectorAll('.buy-btn[data-base]').forEach(function(btn){
+    var card = btn.closest('.pkg');
+    var base = parseInt(btn.getAttribute('data-base'),10);
+    var pkg  = btn.getAttribute('data-pkg');
+    var boxes = card ? card.querySelectorAll('.addon input[type="checkbox"]') : [];
+    function update(){
+      var total = base, keys = [];
+      boxes.forEach(function(b){
+        if(b.checked){ total += parseInt(b.getAttribute('data-price'),10); keys.push(b.getAttribute('data-addon')); }
+      });
+      btn.textContent = 'Book now, DKK ' + fmt(total);
+      btn.setAttribute('href', 'book.html?pakke=' + pkg + '&total=' + total + (keys.length ? '&addons=' + keys.join(',') : ''));
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', update); });
+    update();
+  });
+})();
+</script>
+
+<!-- COMPARISON TABLE -->
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center" style="margin-bottom:40px"><span class="eyebrow">Comparison</span><h2>What is the difference?</h2></div>
+    <div style="overflow-x:auto;border:1px solid var(--line);border-radius:14px">
+      <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:.95rem">
+        <thead>
+          <tr style="background:var(--navy-3)">
+            <th style="text-align:left;padding:16px 20px;color:var(--text);font-family:var(--serif);font-weight:600">Content</th>
+            <th style="padding:16px 14px;color:var(--muted)">Core</th>
+            <th style="padding:16px 14px;color:var(--gold)">Executive</th>
+            <th style="padding:16px 14px;color:var(--muted)">Elite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Biological age</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Full blood panel</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">VO2max</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Hormone panel</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Personal protocol</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Whole-body MRI</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">Genetic profile</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:14px 20px;color:var(--muted)">3-month follow-up</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--muted-2)">—</td><td style="text-align:center;color:var(--gold)">✓</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--navy-3)"><td style="padding:16px 20px;color:var(--text);font-weight:600">Price (DKK)</td><td style="text-align:center;color:var(--text);font-weight:600">8.900</td><td style="text-align:center;color:var(--gold);font-weight:600">14.900</td><td style="text-align:center;color:var(--text);font-weight:600">29.900</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BLOOD PANEL OVERVIEW -->
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center" style="margin-bottom:14px"><span class="eyebrow">Included in all packages</span><h2>Your full blood test, all your numbers, one overview</h2></div>
+    <p class="lead center" style="margin-bottom:44px">We measure 70+ markers in a single blood test and tell you exactly where you stand, and where you are short of something. Not just "normal or not", but your optimal levels.</p>
+    <div class="grid grid-3">
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s7 4 7 10a7 7 0 0 1-14 0c0-6 7-10 7-10z"/></svg></div>
+        <h3>Vitamins &amp; minerals</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">Deficiency check: sees whether you are short of something that drains your energy.</p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Vitamin D</span><span class="chip" style="font-size:.78rem">B12 &amp; folate</span><span class="chip" style="font-size:.78rem">Iron &amp; ferritin</span><span class="chip" style="font-size:.78rem">Magnesium</span><span class="chip" style="font-size:.78rem">Zinc</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div>
+        <h3>Metabolism &amp; blood sugar</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">Energy metabolism and early risk of type 2 diabetes.</p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">HbA1c</span><span class="chip" style="font-size:.78rem">Fasting glucose</span><span class="chip" style="font-size:.78rem">Insulin</span><span class="chip" style="font-size:.78rem">TSH / T3 / T4</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Heart &amp; cholesterol</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">Your real cardiovascular risk, not just total cholesterol.</p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">LDL &amp; HDL</span><span class="chip" style="font-size:.78rem">Triglycerider</span><span class="chip" style="font-size:.78rem">ApoB</span><span class="chip" style="font-size:.78rem">Lp(a)</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <h3>Inflammation</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">Hidden, chronic inflammation that accelerates your ageing.</p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">hs-CRP</span><span class="chip" style="font-size:.78rem">Homocystein</span><span class="chip" style="font-size:.78rem">Leukocytes</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M9 5l3-3 3 3"/><circle cx="12" cy="15" r="6"/></svg></div>
+        <h3>Hormones</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">The driver behind energy, sleep and recovery. <span class="muted" style="font-size:.85em">(Executive &amp; Elite)</span></p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">Testosteron</span><span class="chip" style="font-size:.78rem">Cortisol</span><span class="chip" style="font-size:.78rem">Oestradiol</span><span class="chip" style="font-size:.78rem">SHBG</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14M6 3v7a6 6 0 0 0 12 0V3"/><path d="M8 21h8"/></svg></div>
+        <h3>Liver, kidney &amp; blood count</h3>
+        <p style="font-size:.93rem;margin-bottom:12px">Organ function and the full blood picture as a foundation.</p>
+        <div class="trust-row" style="margin:0"><span class="chip" style="font-size:.78rem">ALAT / ASAT / GGT</span><span class="chip" style="font-size:.78rem">Creatinine &amp; eGFR</span><span class="chip" style="font-size:.78rem">Haemoglobin</span></div>
+      </div>
+
+    </div>
+    <p class="form-note center" style="margin-top:22px">The full marker selection depends on the package. The hormone panel is included from Executive upwards.</p>
+    <div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book your blood test</a><a href="ydelser.html" class="btn btn-ghost">Read about the blood panel</a></div>
+  </div>
+</section>
+
+<!-- BUSINESS PACKAGES -->
+<section>
+  <div class="container">
+    <div class="center" style="margin-bottom:44px"><span class="eyebrow">For virksomheder</span><h2>Agreements for leadership teams</h2><p class="lead">When health becomes part of your risk management. Both agreements include an anonymised team report.</p></div>
+    <div class="grid grid-2">
+      <div class="card pkg">
+        <div class="pname">Company package</div>
+        <div class="who">A one-off pathway for your leadership team</div>
+        <div class="price">120.000 <small>DKK</small></div>
+        <div class="delivery">Combined team report within 15 working days</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>10 health checks</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anonymised, aggregated team report</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedicated coordinator</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tax-free health scheme</li>
+        </ul>
+        <a href="virksomheder.html" class="btn btn-ghost">Read more</a>
+      </div>
+      <div class="card pkg feat">
+        <span class="tag">Best value</span>
+        <div class="pname">Annual agreement</div>
+        <div class="who">Ongoing monitoring of your key people</div>
+        <div class="price">180.000 <small>DKK<span style="font-size:.8rem">/yr</span></small></div>
+        <div class="delivery">Quarterly re-tests &amp; reporting</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 20 key employees</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Quarterly re-tests &amp; trend report</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anonymised development over time</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Priority booking &amp; a fixed contact person</li>
+        </ul>
+        <a href="virksomheder.html" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT NOTE + CTA -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="cta-band">
+      <span class="eyebrow">Book in under a minute</span>
+      <h2>Choose a package, choose a time, done</h2>
+      <p class="lead">Choose a package above and book an available date and time directly, you get confirmation by email straight away. Payment only happens once your time is confirmed. Company agreements are arranged via contact.</p>
+      <p class="form-note" style="margin-top:14px">Email confirmation straight away · Payment after a confirmed time · Invoice for company purchases</p>
+      <div class="btn-row" style="justify-content:center">
+        <a href="#top" class="btn btn-primary">Choose a package above</a>
+        <a href="book.html" class="btn btn-ghost">Go to booking</a>
+        <a href="tel:+4528303933" class="btn btn-ghost">+45 28 30 39 33</a>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="site">
   <div class="container">
     <div class="foot-grid">
