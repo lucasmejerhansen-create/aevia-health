@@ -818,7 +818,23 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var AEVC_ENDPOINT="/api/chat";
   var GREET="Hi! I'm Aevia's assistant. Ask me anything, packages, prices, services, confidentiality, health and longevity, or pick a suggestion below.";
   var FALLBACK="Good question. I don't have a precise answer here, but we'll clear it up quickly: <a href='book.html'>book your time directly</a> or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. In the meantime, would you like to hear about our <a href='pakker.html'>packages</a> or <a href='ydelser.html'>services</a>?";
-  var KB=[/*GLOS*/
+  var KB=[/*GLOS2*/
+   {k:["membership","subscription","annual member","longevity basis","longevity plus","retest"],a:"After your first programme you can take an annual membership: Longevity Basis DKK 3,900/year or Plus DKK 6,900/year, with a retest of your core markers and follow-up."},
+   {k:["gift card","present for","gift for"],a:"Yes, you can give an Aevia programme as a gift card, choose a package or any amount. Write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
+   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 1,500 in credit."},
+   {k:["couple","family","several people","together"],a:"You can book several programmes together (couples or family), write to us for a combined quote."},
+   {k:["fasting","fast before","eat before","drink before"],a:"For most blood tests you should fast 8-12 hours beforehand (water is fine). You get a precise preparation guide before your appointment."},
+   {k:["does it hurt","painful","needle","fear of needles"],a:"A blood test is a small prick and quickly over. Tell us on the day if you are nervous about needles."},
+   {k:["how often","how frequently","every year","repeat"],a:"We recommend a check once a year so you can track your progress, which is exactly what the membership covers."},
+   {k:["own doctor","gp ","difference from the doctor","why not just"],a:"Your GP focuses on illness here and now. Aevia is preventive: we measure 70+ markers, calculate biological age and build a plan you follow over time, a complement, not a replacement."},
+   {k:["longevity","live longer","healthy life","ageing","aging"],a:"Longevity is about extending the healthy years, not just living long. We measure where your body stands and give a plan that moves the numbers."},
+   {k:["example","report look","sample report","see a report"],a:"See an anonymised <a href='eksempel-rapport.html'>example report</a> so you know exactly what you get."},
+   {k:["test my age","estimate my age","free test","self-test"],a:"Try our free <a href='biologisk-alder-estimator.html'>biological age test</a>, a quick estimate from your lifestyle."},
+   {k:["cancel","refund","money back","reschedule"],a:"You can cancel or move your appointment, contact us as soon as possible. See terms in our <a href='handelsbetingelser.html'>terms</a>."},
+   {k:["vat"],a:"Prices are shown excl. VAT. Write to us for the price incl. VAT for your situation."},
+   {k:["how long does it take","duration","how quickly","take in total"],a:"The testing itself usually takes under two hours of your time; your report is ready within 10 working days and reviewed 1:1."},
+   {k:["how is it calculated","method behind","how is biological age"],a:"Your biological age is calculated from a combination of biomarkers (inflammation, metabolism, kidneys, lipids, blood count) weighted by their link to ageing. It is a model, not a diagnosis."},
+/*GLOS*/
    {k:["homocystein"],a:"Homocysteine is an amino acid. High levels raise heart and brain risk and can often be lowered with B vitamins. Measured in our blood panel."},
    {k:["apob","apo b"],a:"ApoB is the number of harmful cholesterol particles, one of the most accurate measures of cardiovascular risk."},
    {k:["lp(a)","lipoprotein a","lp a"],a:"Lp(a) is an inherited type of cholesterol that raises cardiovascular risk. Rarely measured normally, but included with us."},

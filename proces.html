@@ -513,7 +513,23 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var AEVC_ENDPOINT="/api/chat";
   var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
   var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
-  var KB=[/*GLOS*/
+  var KB=[/*GLOS2*/
+   {k:["medlemskab","abonnement","årligt medlem","longevity basis","longevity plus","gentest"],a:"Efter dit første forløb kan du tegne et årligt medlemskab: Longevity Basis 3.900 kr./år eller Plus 6.900 kr./år, med gentest af dine kernemarkører og opfølgning. Se <a href='pakker.html'>Pakker</a>."},
+   {k:["gavekort","forære","forær","gave til"],a:"Ja, du kan give et Aevia-forløb som gavekort, vælg en pakke eller et frit beløb. Skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
+   {k:["henvis","henvisning","anbefale en ven","referral"],a:"Henviser du en, der gennemfører sit første forløb, får I begge 1.500 kr. i kredit."},
+   {k:["par ","familie","sammen som","flere personer"],a:"I kan booke flere forløb sammen (par eller familie), skriv til os for et samlet tilbud."},
+   {k:["faste","fastende","spise før","drikke før","tom mave"],a:"Til de fleste blodprøver skal du faste 8-12 timer før (vand er ok). Du får en præcis forberedelsesguide før din tid."},
+   {k:["gør det ondt","smertefuldt","nåle","nåleskræk","bange for nåle"],a:"En blodprøve er et lille stik og hurtigt overstået. Sig til på dagen, hvis du er nervøs for nåle, så tager vi hensyn."},
+   {k:["hvor ofte","hvor tit","gentage","hvert år"],a:"Vi anbefaler et tjek om året, så du kan følge din udvikling, og det er netop, hvad medlemskabet dækker."},
+   {k:["egen læge","praktiserende","sundhed.dk","forskel på lægen","hvorfor ikke bare"],a:"Din egen læge fokuserer på sygdom her og nu. Aevia er forebyggende: vi måler 70+ markører, beregner biologisk alder og laver en plan, du følger over tid, som supplement, ikke erstatning."},
+   {k:["longevity","leve længere","sundt liv","aldring","ældes"],a:"Longevity handler om at forlænge de raske år, ikke bare leve længe. Vi måler, hvor din krop står, og giver en plan, der flytter tallene."},
+   {k:["eksempel","ser rapporten ud","prøverapport","rapport ud","se en rapport"],a:"Se en anonymiseret <a href='eksempel-rapport.html'>eksempel-rapport</a>, så du ved præcis, hvad du får."},
+   {k:["test min alder","beregn min alder","gratis test","estimat","selvtest"],a:"Prøv vores gratis <a href='biologisk-alder-estimator.html'>test af din biologiske alder</a>, et hurtigt estimat ud fra din livsstil."},
+   {k:["fortryd","refusion","penge tilbage","afbestil","annuller","ombook"],a:"Du kan afbestille eller flytte din tid, kontakt os hurtigst muligt. Se vilkår i <a href='handelsbetingelser.html'>handelsbetingelserne</a>."},
+   {k:["moms"],a:"Priserne er angivet ekskl. moms. Skriv til os, hvis du vil have prisen inkl. moms for din situation."},
+   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås 1:1."},
+   {k:["hvordan beregnes","metode bag","udregnes biologisk","model"],a:"Din biologiske alder beregnes ud fra en kombination af biomarkører (inflammation, stofskifte, nyrer, lipider, blodtal) vægtet efter sammenhæng med aldring. Det er en model, ikke en diagnose."},
+/*GLOS*/
    {k:["homocystein"],a:"Homocystein er en aminosyre. Høje niveauer øger risikoen for hjerte og hjerne og kan ofte sænkes med B-vitaminer. Måles i vores blodpanel."},
    {k:["apob","apo b"],a:"ApoB er antallet af skadelige kolesterolpartikler, et af de mest præcise mål for hjerte kar risiko. Indgår i blodpanelet."},
    {k:["lp(a)","lipoprotein a","lp a"],a:"Lp(a) er en arvelig type kolesterol, der øger risikoen for hjerte kar sygdom. Måles sjældent normalt, men indgår hos os."},
