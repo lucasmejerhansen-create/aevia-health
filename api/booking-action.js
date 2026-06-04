@@ -1,0 +1,107 @@
+// Aevia — klinikkens svar på en booking (bekræft tid / kan ikke).
+// Kaldes fra /klinik-bekraeft.html. Verificerer det signerede token fra api/booking.js
+// og sender den endelige bekræftelse + betalingslink til kunden. Ingen database.
+
+import crypto from "node:crypto";
+
+const SITE = process.env.SITE_URL || "https://aevia.dk";
+
+// pakke-label → checkout-nøgle (api/checkout.js)
+const PKG_KEY = [
+  [/core/i, "core"],
+  [/plus|executive/i, "executive"],
+  [/elite/i, "elite"],
+];
+
+function b64urlToBuf(s) {
+  s = s.replace(/-/g, "+").replace(/_/g, "/");
+  while (s.length % 4) s += "=";
+  return Buffer.from(s, "base64");
+}
+function verify(token, secret) {
+  const i = (token || "").lastIndexOf(".");
+  if (i < 1) return null;
+  const p = token.slice(0, i), sig = token.slice(i + 1);
+  const expect = crypto.createHmac("sha256", secret).update(p).digest();
+  const got = b64urlToBuf(sig);
+  if (expect.length !== got.length || !crypto.timingSafeEqual(expect, got)) return null;
+  try { return JSON.parse(b64urlToBuf(p).toString("utf8")); } catch { return null; }
+}
+
+async function sendMail({ to, subject, html, bcc }) {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ from: process.env.MAIL_FROM || "Aevia <kontakt@aevia.dk>", to: [to], bcc: bcc ? [bcc] : undefined, subject, html }),
+  });
+  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+}
+
+const esc = (s) => String(s || "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+
+function shell(inner) {
+  return `<!DOCTYPE html><html lang="da"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif"><div style="max-width:560px;margin:0 auto;padding:36px 24px"><div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div><div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">${inner}</div><p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 45 12 88 02 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p></div></body></html>`;
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+  if (!process.env.RESEND_API_KEY || !process.env.BOOKING_SECRET)
+    return res.status(500).json({ error: "not configured" });
+
+  let b = req.body;
+  if (typeof b === "string") { try { b = JSON.parse(b); } catch { b = {}; } }
+  b = b || {};
+
+  const data = verify(b.t, process.env.BOOKING_SECRET);
+  if (!data) return res.status(400).json({ error: "ugyldigt eller udløbet link" });
+  // links er gyldige i 30 dage
+  if (Date.now() - (data.ts || 0) > 30 * 24 * 3600 * 1000) return res.status(400).json({ error: "linket er udløbet" });
+
+  const action = b.action === "confirm" ? "confirm" : "decline";
+  const dato = (b.dato || "").toString().slice(0, 40);
+  const tid = (b.tid || "").toString().slice(0, 20);
+  const sted = (b.sted || "").toString().slice(0, 200);
+  const besked = (b.besked || "").toString().slice(0, 2000);
+
+  const fornavn = (data.navn || "").split(" ")[0];
+
+  try {
+    if (action === "confirm") {
+      if (!dato || !tid) return res.status(400).json({ error: "dato og tid mangler" });
+      let payLink = "";
+      for (const [re, key] of PKG_KEY) {
+        if (re.test(data.pakke || "")) { payLink = `${SITE}/api/checkout?pkg=${key}`; break; }
+      }
+      await sendMail({
+        to: data.email,
+        bcc: "kontakt@aevia.dk",
+        subject: `Din tid er bekræftet: ${dato} kl. ${tid}`,
+        html: shell(`<h1 style="color:#f5f5f0;font-size:19px;margin:0 0 12px;font-family:Georgia,serif">Din tid er bekræftet${fornavn ? ", " + esc(fornavn) : ""}</h1>
+          <table style="border-collapse:collapse;margin:0 0 16px">
+            <tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Dato</td><td style="color:#f5f5f0;font-size:14px;font-weight:bold">${esc(dato)}</td></tr>
+            <tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Tidspunkt</td><td style="color:#f5f5f0;font-size:14px;font-weight:bold">kl. ${esc(tid)}</td></tr>
+            ${sted ? `<tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Sted</td><td style="color:#f5f5f0;font-size:14px">${esc(sted)}</td></tr>` : ""}
+            ${data.pakke ? `<tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Forløb</td><td style="color:#f5f5f0;font-size:14px">${esc(data.pakke)}</td></tr>` : ""}
+          </table>
+          ${besked ? `<p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0 0 16px"><strong style="color:#f5f5f0">Besked:</strong> ${esc(besked)}</p>` : ""}
+          ${payLink ? `<a href="${payLink}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:15px">Gennemfør betaling</a><p style="color:#94a0b2;font-size:13px;margin:14px 0 0">Din tid er reserveret. Gennemfør betalingen for at fastholde den.</p>` : `<p style="color:#aab4c2;font-size:14px;margin:0">Vi sender dit betalingslink i en separat mail.</p>`}
+          <p style="color:#94a0b2;font-size:13px;margin:16px 0 0">Husk: fast 8-12 timer før blodprøven (vand er ok). Du får den fulde forberedelsesguide et par dage før din tid.</p>`),
+      });
+    } else {
+      await sendMail({
+        to: "kontakt@aevia.dk",
+        subject: `Klinik kan IKKE tage booking — ${data.navn || data.email}`,
+        html: shell(`<h1 style="color:#f5f5f0;font-size:19px;margin:0 0 12px;font-family:Georgia,serif">Klinikken kan ikke tage bookingen</h1>
+          <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0 0 10px">Kunde: ${esc(data.navn)} · ${esc(data.email)} · ${esc(data.telefon)}</p>
+          <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0 0 10px">Forløb: ${esc(data.pakke)} ${esc(data.omraade ? "· " + data.omraade : "")}</p>
+          ${besked ? `<p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0"><strong style="color:#f5f5f0">Klinikkens besked:</strong> ${esc(besked)}</p>` : ""}
+          <p style="color:#94a0b2;font-size:13px;margin:14px 0 0">Find en anden klinik/tid og kontakt kunden manuelt.</p>`),
+      });
+    }
+  } catch (e) {
+    console.error("booking-action mail-fejl:", e.message);
+    return res.status(500).json({ error: "mail failed" });
+  }
+
+  return res.status(200).json({ ok: true });
+}

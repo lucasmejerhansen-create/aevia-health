@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Bekræft booking | Aevia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<style>
+:root{--navy:#0a1628;--navy-2:#0f1f36;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--line:#1d2c42;--line-2:#28394f;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--text);font-family:var(--sans);min-height:100vh;padding:40px 20px;line-height:1.6}
+.wrap{max-width:620px;margin:0 auto}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--text);text-decoration:none}
+.logo span{color:var(--gold)}
+h1{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:26px 0 6px}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+.card{background:var(--navy-2);border:1px solid var(--line-2);border-radius:16px;padding:24px 26px;margin-bottom:18px}
+.card h2{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;font-family:var(--sans)}
+table{border-collapse:collapse;width:100%}
+td{padding:6px 0;font-size:.93rem;vertical-align:top}
+td.k{color:var(--muted-2);width:110px;white-space:nowrap}
+td.v{color:var(--text)}
+label{display:block;font-size:.86rem;color:var(--muted);margin:14px 0 6px;font-weight:500}
+input,select,textarea{width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;color:var(--text);padding:12px 14px;font-family:inherit;font-size:.95rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+textarea{min-height:80px;resize:vertical}
+.row{display:flex;gap:12px}.row>div{flex:1}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+button{font-family:inherit;font-size:.97rem;font-weight:600;padding:14px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:all .2s}
+.b1{background:var(--gold);color:var(--navy)}.b1:hover{background:var(--gold-deep)}
+.b2{background:transparent;border-color:var(--line-2);color:var(--muted)}.b2:hover{border-color:var(--gold);color:var(--text)}
+.msg{display:none;border-radius:12px;padding:16px 18px;margin-top:18px;font-size:.95rem}
+.msg.ok{background:rgba(63,178,127,.12);border:1px solid #3fb27f;color:#7fd4a6}
+.msg.err{background:rgba(224,132,75,.12);border:1px solid #e0844b;color:#e0a06b}
+.foot{color:var(--muted-2);font-size:.82rem;margin-top:26px;text-align:center}
+.foot a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="https://aevia.dk">Aevia<span>.</span></a>
+  <h1>Bekræft booking</h1>
+  <p class="sub">Vælg den konkrete tid for kundens forløb. Kunden får automatisk besked og betalingslink — du skal ikke gøre mere.</p>
+
+  <div class="card" id="info">
+    <h2>Kundens ønskede forløb</h2>
+    <table id="infotbl"><tr><td class="v">Indlæser…</td></tr></table>
+  </div>
+
+  <div class="card">
+    <h2>Din bekræftelse</h2>
+    <div class="row">
+      <div><label for="dato">Dato *</label><input id="dato" type="date" required></div>
+      <div><label for="tid">Tidspunkt *</label><input id="tid" type="time" value="08:00" required></div>
+    </div>
+    <label for="sted">Adresse/sted (vises i kundens bekræftelse)</label>
+    <input id="sted" type="text" placeholder="Fx Klinikvej 1, 8000 Aarhus C">
+    <label for="besked">Besked til kunden (valgfri)</label>
+    <textarea id="besked" placeholder="Fx mødested, parkering eller særlig forberedelse"></textarea>
+    <div class="btns">
+      <button class="b1" id="confirm">Bekræft denne tid</button>
+      <button class="b2" id="decline">Vi kan ikke tage denne booking</button>
+    </div>
+    <div class="msg ok" id="ok">Tak! Kunden har fået besked. Du kan lukke siden.</div>
+    <div class="msg err" id="err">Noget gik galt. Prøv igen, eller kontakt Aevia på +45 28 30 39 33.</div>
+  </div>
+
+  <p class="foot">Spørgsmål? <a href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a> · +45 28 30 39 33</p>
+</div>
+<script>
+(function(){
+  var t=new URLSearchParams(location.search).get('t')||'';
+  var tbl=document.getElementById('infotbl');
+  function row(k,v){return '<tr><td class="k">'+k+'</td><td class="v">'+String(v).replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];})+'</td></tr>';}
+  var data=null;
+  try{
+    var p=t.split('.')[0].replace(/-/g,'+').replace(/_/g,'/');
+    while(p.length%4)p+='=';
+    data=JSON.parse(decodeURIComponent(escape(atob(p))));
+  }catch(e){}
+  if(!t||!data){
+    tbl.innerHTML=row('Fejl','Linket er ugyldigt. Kontakt Aevia på +45 28 30 39 33.');
+  }else{
+    var h='';
+    if(data.navn)h+=row('Navn',data.navn);
+    if(data.telefon)h+=row('Telefon',data.telefon);
+    if(data.pakke)h+=row('Pakke',data.pakke);
+    if(data.omraade)h+=row('Område',data.omraade);
+    if(data.forloeb)h+=row('Forløb',data.forloeb);
+    if(data.besked)h+=row('Besked',data.besked);
+    tbl.innerHTML=h||row('Info','Ingen detaljer');
+  }
+  function send(action){
+    var dato=document.getElementById('dato').value, tid=document.getElementById('tid').value;
+    if(action==='confirm'&&(!dato||!tid)){alert('Vælg dato og tidspunkt først.');return;}
+    var ok=document.getElementById('ok'),err=document.getElementById('err');
+    ok.style.display='none';err.style.display='none';
+    fetch('/api/booking-action',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({t:t,action:action,dato:dato,tid:tid,sted:document.getElementById('sted').value,besked:document.getElementById('besked').value})})
+      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+      .then(function(x){ if(x.s===200){ok.style.display='block';} else {err.textContent=x.j&&x.j.error?('Fejl: '+x.j.error):err.textContent;err.style.display='block';} })
+      .catch(function(){err.style.display='block';});
+  }
+  document.getElementById('confirm').addEventListener('click',function(){send('confirm');});
+  document.getElementById('decline').addEventListener('click',function(){
+    if(window.confirm('Er du sikker? Aevia får besked og finder en anden løsning til kunden.'))send('decline');
+  });
+})();
+</script>
+</body>
+</html>
