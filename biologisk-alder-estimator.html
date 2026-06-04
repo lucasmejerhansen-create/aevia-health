@@ -143,6 +143,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
         <input type="hidden" name="kilde" value="Biologisk alder-estimator">
         <input type="hidden" name="estimat" id="lm-est" value="">
+        <input type="hidden" name="detaljer" id="lm-detaljer" value="">
         <input name="email" type="email" required aria-label="E-mail" placeholder="din@email.dk" style="width:100%;background:#0a1628;border:1px solid #28394f;border-radius:10px;padding:12px 14px;color:#f5f5f0;font-family:inherit;font-size:.95rem">
         <label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:#94a0b2;line-height:1.4"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"> <span>Jeg accepterer, at Aevia må sende mig tjeklisten og relevante indsigter, jf. <a href="privatlivspolitik.html" style="color:#c9a437">privatlivspolitikken</a>.</span></label>
         <button class="btn" type="submit" style="width:100%">Send mig det</button>
@@ -212,6 +213,8 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
     }
     var _lf=document.getElementById('lm-est');
     if(_lf)_lf.value='Estimat '+bio+' år (kronologisk '+age+', delta '+(delta>0?'+':'')+delta+')';
+    var _ld=document.getElementById('lm-detaljer');
+    if(_ld)_ld.value=rows.map(function(rw){return LABELS[rw.g]+': '+rw.txt+' ('+(rw.v<0?'-'+Math.abs(rw.v):(rw.v>0?'+'+rw.v:'0'))+' år)';}).join(' | ');
     var r=document.getElementById('result');
     r.style.display='block';
     r.scrollIntoView({behavior:'smooth',block:'center'});
@@ -373,7 +376,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 </script>
 
 <script>
-function bioLm(e){e.preventDefault();var f=document.getElementById('bioform');try{var _g=f.querySelector('[name=_gotcha]');fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:(f.email&&f.email.value)||'',source:'estimator',lang:'da',gotcha:(_g&&_g.value)||''})});}catch(_){}function d(){f.style.display='none';document.getElementById('lm-ok').style.display='block';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(d).catch(d);return false;}
+function bioLm(e){e.preventDefault();var f=document.getElementById('bioform');try{var _g=f.querySelector('[name=_gotcha]');fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:(f.email&&f.email.value)||'',source:'estimator',lang:'da',gotcha:(_g&&_g.value)||'',estimat:(document.getElementById('lm-est')||{}).value||'',detaljer:(document.getElementById('lm-detaljer')||{}).value||''})});}catch(_){}function d(){f.style.display='none';document.getElementById('lm-ok').style.display='block';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(d).catch(d);return false;}
 </script>
 </body>
 </html>

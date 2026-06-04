@@ -71,7 +71,7 @@ export default async function handler(req, res) {
   if (typeof body === "string") {
     try { body = JSON.parse(body); } catch { body = {}; }
   }
-  const { email, source, lang, gotcha } = body || {};
+  const { email, source, lang, gotcha, estimat, detaljer } = body || {};
 
   // Honeypot: lad bots tro, det lykkedes.
   if (gotcha) return res.status(200).json({ ok: true });
@@ -105,7 +105,12 @@ export default async function handler(req, res) {
   // 2) Send dag 0-mailen (kun til nye kontakter, så gengangere ikke spammes).
   if (isNew) {
     try {
-      const tpl = DRIP[0]({ lang: isEN ? "en" : "da", unsubUrl: unsubUrlFor(cleanEmail) });
+      const tpl = DRIP[0]({
+        lang: isEN ? "en" : "da",
+        unsubUrl: unsubUrlFor(cleanEmail),
+        estimat: estimat ? String(estimat).slice(0, 200) : "",
+        detaljer: detaljer ? String(detaljer).slice(0, 1000) : "",
+      });
       await sendMail({ to: cleanEmail, subject: tpl.subject, html: tpl.html });
     } catch (err) {
       console.error("Dag 0-mailfejl:", err.message);

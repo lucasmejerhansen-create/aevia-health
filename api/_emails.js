@@ -31,20 +31,43 @@ const btn = (href, t) =>
 const li = (t) => `<li style="margin-bottom:8px">${t}</li>`;
 const ul = (items) => `<ul style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 14px;padding-left:20px">${items.join("")}</ul>`;
 
-// dag 0 — tjeklisten
-function day0({ lang, unsubUrl }) {
+// dag 0 — tjeklisten (+ estimat-resultat hvis leadet kom fra estimatoren)
+function day0({ lang, unsubUrl, estimat, detaljer }) {
   const da = lang !== "en";
+  // Resultat-boks: viser estimatet og alle målte faktorer fra quizzen.
+  let resultBox = "";
+  if (estimat) {
+    const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    const lines = (detaljer || "")
+      .split(" | ")
+      .filter(Boolean)
+      .map((l) => li(esc(l)));
+    resultBox =
+      `<div style="background:#142840;border:1px solid #c9a437;border-radius:10px;padding:16px 18px;margin:0 0 18px">` +
+      `<p style="color:#c9a437;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:bold;margin:0 0 6px">${da ? "Dit estimat" : "Your estimate"}</p>` +
+      `<p style="color:#f5f5f0;font-size:16px;font-weight:bold;margin:0 0 10px">${esc(estimat)}</p>` +
+      (lines.length ? ul(lines) : "") +
+      `<p style="color:#94a0b2;font-size:12px;line-height:1.5;margin:0">${
+        da
+          ? "Et livsstils-estimat — ikke en måling. Din reelle biologiske alder beregnes ud fra 70+ biomarkører i dit blod."
+          : "A lifestyle estimate — not a measurement. Your real biological age is calculated from 70+ biomarkers in your blood."
+      }</p></div>`;
+  }
   return {
-    subject: da ? "Din longevity-tjekliste fra Aevia" : "Your longevity checklist from Aevia",
+    subject: estimat
+      ? (da ? "Dit resultat + din longevity-tjekliste fra Aevia" : "Your result + your longevity checklist from Aevia")
+      : (da ? "Din longevity-tjekliste fra Aevia" : "Your longevity checklist from Aevia"),
     html: wrap({
       lang,
       unsubUrl,
       bodyHtml: da
-        ? h1("Her er din tjekliste") +
+        ? h1(estimat ? "Dit resultat og din tjekliste" : "Her er din tjekliste") +
+          resultBox +
           p("Tak for din interesse i Aevia. Her er den lovede <strong style='color:#f5f5f0'>longevity-tjekliste: 10 evidensbaserede vaner</strong>, der flytter din biologiske alder — skrevet til en travl hverdag.") +
           btn(`${SITE}/longevity-tjekliste.pdf`, "Hent tjeklisten (PDF)") +
           p("Et godt sted at starte: vælg <em>én</em> vane fra listen og hold den i 14 dage, før du tilføjer den næste. Små, målbare ændringer slår store forsætter.")
-        : h1("Here is your checklist") +
+        : h1(estimat ? "Your result and your checklist" : "Here is your checklist") +
+          resultBox +
           p("Thanks for your interest in Aevia. Here is the promised <strong style='color:#f5f5f0'>longevity checklist: 10 evidence-based habits</strong> that move your biological age — written for a busy life.") +
           btn(`${SITE}/longevity-tjekliste.pdf`, "Download the checklist (PDF)") +
           p("A good place to start: pick <em>one</em> habit from the list and keep it for 14 days before adding the next. Small, measurable changes beat big resolutions."),
