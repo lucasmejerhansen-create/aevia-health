@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hvilken pakke passer til dig? (1 minut) | Aevia Health</title>
+<meta name="description" content="Svar på 5 hurtige spørgsmål og få en konkret anbefaling: Core, Plus eller Elite — med direkte booking. Gratis og uforpligtende.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aevia.dk/pakkevaelger.html">
+<link rel="alternate" hreflang="da" href="https://aevia.dk/pakkevaelger.html">
+<link rel="alternate" hreflang="en" href="https://aevia.dk/en/pakkevaelger.html">
+<link rel="alternate" hreflang="x-default" href="https://aevia.dk/pakkevaelger.html">
+<meta property="og:title" content="Hvilken pakke passer til dig? | Aevia">
+<meta property="og:description" content="5 hurtige spørgsmål — én konkret anbefaling.">
+<meta property="og:image" content="https://aevia.dk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><meta name="theme-color" content="#0a1628">
+<style>
+:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:24px 20px 80px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 24px}
+.logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--gold);text-decoration:none;font-size:.92rem}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
+.lead{color:var(--muted);margin-bottom:26px}
+.q{background:var(--navy-2);border:1px solid var(--line-2);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.q .qt{display:block;font-weight:600;margin-bottom:12px;font-size:.98rem}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0;width:0;height:0}
+.opts span{display:block;padding:11px 16px;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;color:var(--muted);transition:all .15s ease}
+.opts label:hover span{border-color:var(--gold);color:var(--text)}
+.opts input:checked + span{background:var(--gold-soft);color:var(--text);border-color:var(--gold);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--gold);color:var(--navy);transition:all .2s ease;font-family:inherit}
+.btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
+.result{display:none;background:var(--navy-2);border:1px solid var(--gold);border-radius:16px;padding:28px;margin-top:8px;text-align:center}
+.result .big{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--gold);line-height:1.15}
+.result .price{font-size:1.1rem;color:var(--text);margin:8px 0 4px;font-weight:600}
+.result .msg{margin:14px auto 0;max-width:50ch;color:var(--muted);text-align:left}
+.result ul{text-align:left;max-width:46ch;margin:14px auto 0;color:var(--muted);padding-left:20px}
+.result ul li{margin-bottom:6px}
+.disc{color:var(--muted-2);font-size:.84rem;margin-top:18px}
+.err{color:#e0a06b;font-size:.9rem;margin-top:10px;display:none}
+.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+.foot a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="index.html" class="logo">Aevia<span>.</span></a>
+    <a href="pakker.html" class="back">← Pakker &amp; priser</a>
+  </div>
+
+  <span class="eyebrow">Gratis · 1 minut</span>
+  <h1>Hvilken pakke passer til dig?</h1>
+  <p class="lead">Svar på 5 hurtige spørgsmål og få en konkret anbefaling — uforpligtende, og du kan booke med det samme.</p>
+
+  <form id="pq">
+    <div class="q">
+      <span class="qt">1. Hvad er dit vigtigste mål lige nu?</span>
+      <div class="opts">
+        <label><input type="radio" name="q1" value="c"><span>Et solidt, ærligt overblik over mit helbred</span></label>
+        <label><input type="radio" name="q1" value="p"><span>Mere energi, bedre form og målbar fremgang</span></label>
+        <label><input type="radio" name="q1" value="e"><span>Den dybest mulige indsigt — intet skal overses</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <span class="qt">2. Hvor meget fylder træning og kondition for dig?</span>
+      <div class="opts">
+        <label><input type="radio" name="q2" value="c"><span>Ikke så meget endnu — jeg vil starte med tallene</span></label>
+        <label><input type="radio" name="q2" value="p"><span>Jeg træner fast og vil måle min kondition (VO2max)</span></label>
+        <label><input type="radio" name="q2" value="e"><span>Jeg optimerer alt — kondition er et nøgletal for mig</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <span class="qt">3. Vil du have arvelige risici (genetik) og helkrops-MRI med?</span>
+      <div class="opts">
+        <label><input type="radio" name="q3" value="c"><span>Ikke nu</span></label>
+        <label><input type="radio" name="q3" value="p"><span>Måske senere — det kan tilkøbes</span></label>
+        <label><input type="radio" name="q3" value="e"><span>Ja, det skal med fra start</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <span class="qt">4. Hvordan har din energi, søvn og hormonbalance det?</span>
+      <div class="opts">
+        <label><input type="radio" name="q4" value="c"><span>Fint, så vidt jeg ved</span></label>
+        <label><input type="radio" name="q4" value="p"><span>Svingende — det vil jeg gerne have undersøgt</span></label>
+        <label><input type="radio" name="q4" value="e"><span>Det bekymrer mig — jeg vil hele vejen rundt</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <span class="qt">5. Hvad passer bedst på din ambition?</span>
+      <div class="opts">
+        <label><input type="radio" name="q5" value="c"><span>Start fokuseret — udvid senere, hvis det giver mening</span></label>
+        <label><input type="radio" name="q5" value="p"><span>Det rigtige niveau fra start — uden at tage det hele</span></label>
+        <label><input type="radio" name="q5" value="e"><span>Maksimal indsigt og opfølgning — prisen er sekundær</span></label>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:22px">
+      <button type="submit" class="btn">Se min anbefaling</button>
+      <p class="err" id="err">Besvar alle 5 spørgsmål for at se din anbefaling.</p>
+    </div>
+  </form>
+
+  <div class="result" id="result">
+    <div class="eyebrow" style="margin-bottom:8px">Din anbefaling</div>
+    <div class="big" id="r-name">—</div>
+    <div class="price" id="r-price"></div>
+    <ul id="r-list"></ul>
+    <p class="msg" id="r-msg"></p>
+    <div style="margin-top:22px">
+      <a href="#" class="btn" id="r-book">Book nu</a>
+      <div style="margin-top:12px"><a href="pakker.html" class="btn ghost">Se alle pakker &amp; tilvalg</a></div>
+    </div>
+    <p class="disc">Anbefalingen er vejledende. Er du i tvivl, så <a href="book.html" style="color:var(--gold)">book en gratis samtale</a>, så finder vi det rette niveau sammen.</p>
+  </div>
+
+  <div class="foot">
+    Aevia · <a href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a> · +45 28 30 39 33 · <a href="index.html">aevia.dk</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PKG={
+    c:{name:'Aevia Core',price:'10.995 kr.',url:'book.html?pakke=core&total=10995',
+       list:['Beregning af biologisk alder','Fuldt blodpanel (70+ markører)','Personlig rapport + 1:1 lægegennemgang'],
+       msg:'Det fokuserede udgangspunkt. Du får det fulde billede af dit blod og din biologiske alder — og kan altid tilkøbe VO2max, hormonpanel, MRI eller genetik senere.'},
+    p:{name:'Aevia Plus',price:'18.495 kr.',url:'book.html?pakke=executive&total=18495',
+       list:['Alt i Core','VO2max-test (kondition)','Fuldt hormonpanel','Personlig protokol med målbare mål'],
+       msg:'Det rette niveau for dig, der vil arbejde aktivt med energi, form og fremgang — hormoner og kondition er netop dér, svarene oftest ligger.'},
+    e:{name:'Aevia Elite',price:'36.995 kr.',url:'book.html?pakke=elite&total=36995',
+       list:['Alt i Plus','Helkrops-MRI (uden kontrast)','Genetisk profil & risikobærere','3-måneders follow-up med re-test'],
+       msg:'Maksimal indsigt og fuld opfølgning. Intet overses — og du ser din udvikling sort på hvidt efter tre måneder.'}
+  };
+  document.getElementById('pq').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var score={c:0,p:0,e:0}, ok=true;
+    ['q1','q2','q3','q4','q5'].forEach(function(q){
+      var sel=document.querySelector('input[name="'+q+'"]:checked');
+      if(!sel){ok=false;return;}
+      score[sel.value]+= (q==='q3'||q==='q5') ? 2 : 1;
+    });
+    var err=document.getElementById('err');
+    if(!ok){err.style.display='block';return;}
+    err.style.display='none';
+    var key='c';
+    if(score.p>=score.c&&score.p>=score.e)key='p';
+    if(score.e>score.p&&score.e>=score.c)key='e';
+    if(score.e===score.p&&score.e>score.c)key='e';
+    var P=PKG[key];
+    document.getElementById('r-name').textContent=P.name;
+    document.getElementById('r-price').textContent=P.price+' inkl. moms';
+    document.getElementById('r-msg').textContent=P.msg;
+    document.getElementById('r-book').href=P.url;
+    document.getElementById('r-book').textContent='Book '+P.name;
+    document.getElementById('r-list').innerHTML=P.list.map(function(x){return '<li>'+x+'</li>';}).join('');
+    var r=document.getElementById('result');
+    r.style.display='block';
+    r.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
+</script>
+</body>
+</html>

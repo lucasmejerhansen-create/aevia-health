@@ -419,7 +419,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="foot-bottom">
       <span>© 2026 Aevia Health · CVR 46 52 07 50</span>
-      <span><a href="privatlivspolitik.html">Privatlivs- &amp; fortrolighedspolitik</a> · <a href="proces.html">Datasikkerhed</a></span>
+      <span><a href="privatlivspolitik.html">Privatlivs- &amp; fortrolighedspolitik</a> · <a href="dine-data.html">Datasikkerhed</a></span>
     </div>
   </div>
 </footer>
@@ -635,5 +635,25 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 </script>
 
 <script src="glossary.js"></script>
+<style>
+#aev-mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:140;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,22,40,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line-2);transform:translateY(110%);transition:transform .3s ease}
+#aev-mcta.show{transform:translateY(0)}
+#aev-mcta a{display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);font-weight:600;border-radius:999px;padding:14px;text-decoration:none;font-size:1rem}
+@media(min-width:769px){#aev-mcta{display:none!important}}
+@media(max-width:768px){#aev-mcta{display:block}body.mcta-on #aevc-btn{bottom:88px}}
+</style>
+<div id="aev-mcta"><a href="book.html">Book dit helbredstjek</a></div>
+<script>
+(function(){
+  var bar=document.getElementById('aev-mcta'); if(!bar) return;
+  var on=false;
+  function upd(){
+    var y=window.scrollY||0;
+    var show=y>500;
+    if(show!==on){on=show;bar.classList.toggle('show',show);document.body.classList.toggle('mcta-on',show);}
+  }
+  window.addEventListener('scroll',upd,{passive:true}); upd();
+})();
+</script>
 </body>
 </html>
