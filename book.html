@@ -1133,7 +1133,7 @@ var BOOKING={
       var mb=document.querySelector('.map-block'), kal=document.getElementById('kalender');
       if(mode==='direkte'){
         if(H)H.textContent='Sådan booker du dit forløb';
-        if(SUB)SUB.textContent='Indtast din adresse, vælg klinik og ønsket tid for hver ydelse. Vi bekræfter det hele samlet på mail.';
+        if(SUB)SUB.textContent='Indtast din adresse, vælg dit foretrukne område og ønsket tid for hver ydelse. Vi bekræfter det hele samlet på mail.';
         if(hybrid)hybrid.style.display='block';
         if(mb)mb.style.display='block';
         if(kal)kal.style.display='none';
@@ -1170,6 +1170,43 @@ var BOOKING={
       } else if(tries++<40){ setTimeout(init,300); } else { fail(); }
     })();
   }
+})();
+</script>
+<script>
+/* ── KLINIK-KALENDERE (Cal.com) ─────────────────────────────────────────────
+   Når en partnerklinik har fået sit eget Cal.com-event, indsættes slug'en her
+   (fx 'aevia/proevetagning-aarhus'). Så ser kunden klinikkens LIVE ledige tider
+   og bookingen bekræftes med det samme. Tom streng = mail-bekræftelsesflowet. */
+var CLINIC_EVENTS={
+  'København-området':'',
+  'Aarhus-området':'',
+  'Odense-området':'',
+  'Aalborg-området':'',
+  'Herning-området':''
+};
+(function(){
+  function calFor(loc){loc=loc||'';for(var k in CLINIC_EVENTS){if(CLINIC_EVENTS[k]&&loc.indexOf(k)>-1)return CLINIC_EVENTS[k];}return null;}
+  function updateLive(){
+    Array.prototype.forEach.call(document.querySelectorAll('#bk-journey .bk-svc'),function(svc){
+      var loc=svc.querySelector('.bk-loc'), cal=svc.querySelector('.bk-svccal'); if(!loc||!cal)return;
+      var slug=calFor(loc.value);
+      var live=svc.querySelector('.bk-callive');
+      if(!live){live=document.createElement('div');live.className='bk-callive';live.style.display='none';cal.parentNode.insertBefore(live,cal);}
+      if(slug){
+        if(cal.style.display!=='none'){cal.style.display='none';}
+        var href='https://cal.com/'+slug;
+        if(live.getAttribute('data-slug')!==slug){
+          live.setAttribute('data-slug',slug);
+          live.innerHTML='<a class="btn btn-primary" target="_blank" rel="noopener" href="'+href+'" style="margin:6px 0 2px">Se ledige tider & book med det samme →</a><p style="font-size:.85rem;color:var(--muted-2);margin-top:6px">Klinikkens egen kalender — din tid bekræftes med det samme.</p>';
+        }
+        live.style.display='block';
+      } else { cal.style.display=''; live.style.display='none'; }
+    });
+  }
+  var jl=document.getElementById('bk-journey');
+  if(jl){ new MutationObserver(function(){updateLive();}).observe(jl,{childList:true}); }
+  document.addEventListener('click',function(e){ if(e.target&&e.target.closest&&e.target.closest('.bk-dd-opt,#bk-byform button')) setTimeout(updateLive,60); });
+  setTimeout(updateLive,400);
 })();
 </script>
 </body>
