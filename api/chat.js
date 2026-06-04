@@ -19,7 +19,7 @@ OM AEVIA
 PRISER (inkl. moms)
 - Pakker: Aevia Core 10.995 kr, Aevia Plus 18.495 kr, Aevia Elite 36.995 kr. Virksomhedsaftaler fra 150.000 kr.
 - Årligt medlemskab efter første forløb: Longevity Basis 4.895 kr/år, Longevity Plus 8.595 kr/år.
-- Henvisning: henviser man en, der gennemfører sit første forløb, får begge 1.500 kr. Gavekort kan bestilles.
+- Henvisning: henviser man en, der gennemfører sit første forløb, får begge 500 kr. i kredit. Gavekort kan bestilles.
 
 PRAKTISK
 - Booking sker på book.html. Kontakt: kontakt@aevia.dk, +45 28 30 39 33.

@@ -1,16 +1,18 @@
 // Aevia — lead-endpoint til velkomstserien.
 //
 // POST /api/lead  { email, source?, lang? ("da"|"en"), gotcha? }
-//   1) Gemmer kontakten i en Resend Audience (lead-lagring uden database).
+//   1) Gemmer kontakten i Resend Contacts (lead-lagring uden database).
+//      Bemærk: Resends "Audiences" er udfaset — kontakter ligger nu direkte på
+//      kontoen via POST /contacts, så der kræves IKKE noget audience-ID.
 //   2) Sender dag 0-mailen (longevity-tjeklisten) med det samme.
 //   Dag 2 og dag 5 sendes af /api/drip (Vercel cron — se vercel.json).
 //
 // GET /api/lead?unsub=1&e=<email>&sig=<hmac>
 //   Afmelder kontakten (unsubscribed=true i Resend). Linket står i alle drip-mails.
 //
-// Miljøvariabler (Vercel): RESEND_API_KEY, MAIL_FROM, RESEND_AUDIENCE_ID, BOOKING_SECRET
-// Sproghåndtering: engelske leads gemmes med last_name="EN" (Resend-kontakter har
-// ikke custom-felter); /api/drip bruger feltet til at vælge sprog.
+// Miljøvariabler (Vercel): RESEND_API_KEY, MAIL_FROM, BOOKING_SECRET
+// Sproghåndtering: engelske leads gemmes med last_name="EN"; /api/drip bruger
+// feltet til at vælge sprog. Kilden (estimator/exit-intent) gemmes i first_name.
 
 import crypto from "crypto";
 import { DRIP, sendMail, unsubSig, unsubUrlFor } from "./_emails.js";
@@ -39,8 +41,6 @@ function htmlPage(title, body) {
 }
 
 export default async function handler(req, res) {
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
-
   // ---- Afmeld (GET) ----
   if (req.method === "GET") {
     const { unsub, e, sig } = req.query || {};
@@ -50,9 +50,9 @@ export default async function handler(req, res) {
       expected.length === String(sig).length &&
       crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(String(sig)));
     if (!ok) return res.status(403).send(htmlPage("Ugyldigt link", "Linket er ugyldigt eller udløbet. Skriv til kontakt@aevia.dk, så afmelder vi dig manuelt."));
-    if (audienceId && process.env.RESEND_API_KEY) {
+    if (process.env.RESEND_API_KEY) {
       try {
-        await resendFetch(`/audiences/${audienceId}/contacts/${encodeURIComponent(String(e).toLowerCase())}`, {
+        await resendFetch(`/contacts/${encodeURIComponent(String(e).toLowerCase())}`, {
           method: "PATCH",
           body: JSON.stringify({ unsubscribed: true }),
         });
@@ -82,26 +82,24 @@ export default async function handler(req, res) {
   const cleanEmail = String(email).trim().toLowerCase();
   const isEN = String(lang || "").toLowerCase() === "en";
 
-  // 1) Gem kontakt i Resend Audience (dubletter giver fejl fra Resend — det er ok).
+  // 1) Gem kontakt i Resend Contacts (dubletter giver fejl fra Resend — det er ok).
   let isNew = true;
-  if (audienceId) {
-    try {
-      const r = await resendFetch(`/audiences/${audienceId}/contacts`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: cleanEmail,
-          first_name: source ? String(source).slice(0, 50) : "",
-          last_name: isEN ? "EN" : "",
-          unsubscribed: false,
-        }),
-      });
-      if (!r.ok) {
-        isNew = false; // typisk: kontakten findes allerede
-        console.error("Resend contact:", r.status, await r.text());
-      }
-    } catch (err) {
-      console.error("Kontakt-fejl:", err.message);
+  try {
+    const r = await resendFetch(`/contacts`, {
+      method: "POST",
+      body: JSON.stringify({
+        email: cleanEmail,
+        first_name: source ? String(source).slice(0, 50) : "",
+        last_name: isEN ? "EN" : "",
+        unsubscribed: false,
+      }),
+    });
+    if (!r.ok) {
+      isNew = false; // typisk: kontakten findes allerede
+      console.error("Resend contact:", r.status, await r.text());
     }
+  } catch (err) {
+    console.error("Kontakt-fejl:", err.message);
   }
 
   // 2) Send dag 0-mailen (kun til nye kontakter, så gengangere ikke spammes).

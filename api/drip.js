@@ -1,7 +1,7 @@
 // Aevia — drip-cron til velkomstserien (dag 2 + dag 5).
 //
 // Køres dagligt af Vercel Cron (se "crons" i vercel.json). Henter alle kontakter
-// i Resend-audiencen og sender:
+// fra Resend Contacts (GET /contacts — Audiences er udfaset) og sender:
 //   dag 2: "Sådan læser du dine tal"   (2 ≤ dage siden tilmelding < 3)
 //   dag 5: founding member-tilbud      (5 ≤ dage siden tilmelding < 6)
 // Dag 0 sendes straks af /api/lead. Buckets på hele dage betyder, at hver mail
@@ -10,7 +10,7 @@
 // Sikkerhed: sæt CRON_SECRET i Vercel; Vercel Cron sender automatisk
 // "Authorization: Bearer <CRON_SECRET>" med.
 //
-// Miljøvariabler: RESEND_API_KEY, MAIL_FROM, RESEND_AUDIENCE_ID, BOOKING_SECRET, CRON_SECRET
+// Miljøvariabler: RESEND_API_KEY, MAIL_FROM, BOOKING_SECRET, CRON_SECRET
 
 import { DRIP, sendMail, unsubUrlFor } from "./_emails.js";
 
@@ -20,12 +20,12 @@ export default async function handler(req, res) {
   if (process.env.CRON_SECRET && req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).json({ error: "Unauthorized" });
   }
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (!audienceId || !process.env.RESEND_API_KEY) {
-    return res.status(500).json({ error: "RESEND_AUDIENCE_ID/RESEND_API_KEY mangler" });
+  if (!process.env.RESEND_API_KEY) {
+    return res.status(500).json({ error: "RESEND_API_KEY mangler" });
   }
 
-  const r = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+  // Uden ?limit returnerer Resend alle kontakter i ét svar.
+  const r = await fetch(`https://api.resend.com/contacts`, {
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
   });
   if (!r.ok) return res.status(502).json({ error: `Resend ${r.status}: ${await r.text()}` });
