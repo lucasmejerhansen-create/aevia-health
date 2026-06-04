@@ -72,6 +72,25 @@ Rollen her er en anden end advisory board: en læge, hvis navn og ansigt må st�
 - **Kontaktvej:** Via management/foredragsbureauer eller LinkedIn.
 - **Realisme:** Lav-middel (efterspurgte; kommerciel binding til ét brand kan være en barriere).
 
+### G. Laura Kverneland — aldrings-vinklen (researchet juni 2026)
+- **Hvem:** Læge, kommende speciallæge i geriatri, vært på podcasten "Lægen Laura" (Ældre Sagen) om sund og stærk aldring.
+- **Hvorfor:** Fagligt felt = præcis Aevias kerne (sund aldring), erfaren formidler med eksisterende publikum, og en yngre profil end TV-lægerne. Geriatri-vinklen giver tyngde til "biologisk alder" uden hype.
+- **Kontaktvej:** Via Læger Formidler (laegerformidler.dk) eller LinkedIn ("Laura Kverneland").
+- **Realisme:** Middel-høj.
+
+### H. Læger Formidler — kanalen til mange på én gang
+- **Hvad:** Netværk/platform af læger, der arbejder professionelt med formidling (laegerformidler.dk) — bl.a. folkene bag "Lægen Laura".
+- **Hvorfor:** Én henvendelse kan nå mange formidlingsstærke læger, der allerede har sagt ja til at være offentlige ansigter. Perfekt match til frontperson-rollen.
+- **Kontaktvej:** Kontaktformular/info på laegerformidler.dk.
+- **Realisme:** Høj som kanal (de lever af den slags opgaver — afklar honorarmodel).
+
+### I. Nanna Kirkebjerg — holistisk speciallæge
+- **Hvem:** Speciallæge i almen medicin, der kombinerer klassisk medicin med helhedsorienteret tilgang; aktiv formidler.
+- **Hvorfor:** Speciallæge-titlen + formidlingserfaring; tilgangen appellerer til en del af målgruppen.
+- **Caveat:** Som ved funktionel medicin: afklar at Aevias profil er klassisk evidensbaseret.
+- **Kontaktvej:** LinkedIn / egen hjemmeside.
+- **Realisme:** Middel.
+
 ### F. Den realistiske arbejdshest: en ikke-kendt speciallæge
 Frontpersonen behøver ikke være kendt — bare ægte, kompetent og troværdig på sitet. Realistiske kanaler:
 1. **DSLM's medlemsnetværk** (kontakt@dslm.dk) — spørg om medlemmer, der vil tage konsulentrollen. Det er foreningen for netop livsstils-/forebyggelsesinteresserede læger.
