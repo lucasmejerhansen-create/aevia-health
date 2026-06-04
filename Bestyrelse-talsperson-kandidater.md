@@ -75,13 +75,13 @@ Rollen her er en anden end advisory board: en læge, hvis navn og ansigt må st�
 ### G. Laura Kverneland — aldrings-vinklen (researchet juni 2026)
 - **Hvem:** Læge, kommende speciallæge i geriatri, vært på podcasten "Lægen Laura" (Ældre Sagen) om sund og stærk aldring.
 - **Hvorfor:** Fagligt felt = præcis Aevias kerne (sund aldring), erfaren formidler med eksisterende publikum, og en yngre profil end TV-lægerne. Geriatri-vinklen giver tyngde til "biologisk alder" uden hype.
-- **Kontaktvej:** Via Læger Formidler (laegerformidler.dk) eller LinkedIn ("Laura Kverneland").
+- **Kontaktvej:** Via Læger Formidler: kontakt@laegerformidler.onmicrosoft.com — eller LinkedIn ("Laura Kverneland").
 - **Realisme:** Middel-høj.
 
 ### H. Læger Formidler — kanalen til mange på én gang
 - **Hvad:** Netværk/platform af læger, der arbejder professionelt med formidling (laegerformidler.dk) — bl.a. folkene bag "Lægen Laura".
 - **Hvorfor:** Én henvendelse kan nå mange formidlingsstærke læger, der allerede har sagt ja til at være offentlige ansigter. Perfekt match til frontperson-rollen.
-- **Kontaktvej:** Kontaktformular/info på laegerformidler.dk.
+- **Kontaktvej:** kontakt@laegerformidler.onmicrosoft.com (fra laegerformidler.dk/kontakt).
 - **Realisme:** Høj som kanal (de lever af den slags opgaver — afklar honorarmodel).
 
 ### I. Nanna Kirkebjerg — holistisk speciallæge
