@@ -20,7 +20,7 @@ const PACKAGES = {
       "Biologisk alder, fuld blodpanel (70+ markører), metabolisk & kardiovaskulær risikoprofil + 1:1 lægegennemgang.",
   },
   executive: {
-    name: "Aevia Executive",
+    name: "Aevia Plus",
     amount: 1849500,
     description:
       "Alt i Core + VO2max, fuldt hormonpanel og personlig protokol med målbare KPI'er.",

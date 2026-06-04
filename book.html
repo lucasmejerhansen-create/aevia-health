@@ -802,7 +802,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 <script>
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var an={vo2max:'VO2max-test',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){var dd=sel.closest('.bk-dd'),op=dd?dd.querySelectorAll('.bk-dd-opt'):[];for(var i=0;i<op.length;i++){if(op[i].textContent.indexOf(names[pk])===0){sel.value=op[i].getAttribute('data-val')||op[i].textContent;var cu=dd.querySelector('.bk-dd-cur');if(cu)cu.textContent=op[i].textContent;break;}}}
@@ -868,7 +868,7 @@ var BOOKING={
 };
 (function(){
   var p=new URLSearchParams(location.search);
-  var names={core:'Aevia Core',executive:'Aevia Executive',elite:'Aevia Elite'};
+  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
   var pk=p.get('pakke'),total=p.get('total');
   var label=(names[pk]||'')+(total?(' ('+Number(total).toLocaleString('da-DK')+' kr.)'):'');
   var el=document.getElementById('aevia-calendly');
