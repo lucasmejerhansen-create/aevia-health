@@ -44,3 +44,32 @@ JSON'en, og de bekræfter selv direkte.
 - `api/booking-action.js` — modtager klinikkens svar, sender bekræftelse + betalingslink
 - `klinik-bekraeft.html` — klinikkens bekræftelsesside
 - `book.html` / `en/book.html` — formularen poster nu også til `/api/booking`
+
+---
+
+# Niveau 2: Straks-bekræftelse (Cal.com live-integration)
+
+Når en klinik er koblet på Cal.com (se KLINIK-ONBOARDING-calcom.md), springes
+mail-flowet helt over for det område:
+
+1. **Kunden** ser klinikkens live-kalender **indlejret direkte i booking-rejsen**
+   på book.html (i stedet for ønske-tider). Kun reelt ledige tider vises —
+   klinikkens egen kalender (Google/Outlook) blokerer automatisk optagne tider.
+2. **Kunden vælger en tid** → den er bekræftet med det samme og står i klinikkens
+   kalender. Cal.com sender selv kalenderinvitation til begge parter.
+3. **`api/cal-webhook.js`** modtager Cal.com's `BOOKING_CREATED`-event (HMAC-
+   verificeret) og sender kunden en Aevia-bekræftelse **med Stripe-betalingslink**
+   for den valgte pakke (aflæses fra "Pakke: core/executive/elite" i bookingens
+   noter, sat automatisk af book.html). Kopi går til kontakt@aevia.dk.
+   Aflysninger (`BOOKING_CANCELLED`) giver besked til kontakt@aevia.dk.
+
+## Opsætning (én gang)
+
+| Hvor | Hvad |
+|---|---|
+| Vercel | `CAL_WEBHOOK_SECRET` = lang tilfældig streng |
+| Cal.com (hver konto med klinik-events) | Settings → Developer → Webhooks → New: URL `https://aevia.dk/api/cal-webhook`, events Booking Created + Cancelled, secret = samme streng |
+| book.html | Indsæt klinikkens slug i `CLINIC_EVENTS` (nederst) |
+
+Områder uden slug i `CLINIC_EVENTS` falder automatisk tilbage til niveau 1
+(mail-bekræftelse) — de to systemer kører fint side om side.

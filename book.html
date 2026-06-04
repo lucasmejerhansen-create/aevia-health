@@ -750,13 +750,13 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
-   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 10.995 kr.</strong>, <strong>Executive 18.495 kr.</strong>, <strong>Elite 36.995 kr.</strong> Virksomhedsaftaler fra 150.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Executive tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
+   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 10.995 kr.</strong>, <strong>Plus 18.495 kr.</strong>, <strong>Elite 36.995 kr.</strong> Virksomhedsaftaler fra 150.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
+   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
    {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
-   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Executive og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
+   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
    {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
    {k:["genetisk","genetik","dna","gen ","arvelig"],a:"Den genetiske profil kortlægger arvelige risikofaktorer (indgår i Elite) og kobles altid til en lægefaglig tolkning."},
-   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Executive. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
+   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Plus. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
    {k:["blodpr","blodpanel","markør","mangel","vitamin","jern","b12"],a:"Vores fulde blodpanel måler 70+ markører, inkl. mangeltjek for vitaminer og mineraler (fx D-vitamin, B12, jern). Indgår i alle pakker. Se <a href='pakker.html'>Pakker</a>."},
    {k:["d-vitamin","d vitamin"],a:"Mange danskere mangler D-vitamin, især om vinteren. Vi måler det i blodpanelet, så du kan supplere præcist. Læs <a href='d-vitamin-mangel.html'>artiklen</a>."},
    {k:["søvn","sove","sover"],a:"Søvn er det stærkeste enkeltgreb for energi og longevity: fast rytme, mørkt/køligt rum, skærm og alkohol væk før sengetid. Vi måler effekten via biomarkører. Læs <a href='soevn-ydeevne.html'>artiklen</a>."},
@@ -1194,6 +1194,34 @@ var CLINIC_EVENTS={
 };
 (function(){
   function calFor(loc){loc=loc||'';for(var k in CLINIC_EVENTS){if(CLINIC_EVENTS[k]&&loc.indexOf(k)>-1)return CLINIC_EVENTS[k];}return null;}
+  /* Indlæs Cal.com-embed-scriptet (idempotent, genbruger hvis allerede indlæst). */
+  function ensureCal(cb){
+    if(window.Cal){cb();return;}
+    (function(C,A,L){var p=function(a,ar){a.q.push(ar);};var d=C.document;C.Cal=C.Cal||function(){var cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){var api=function(){p(api,arguments);},namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
+    cb();
+  }
+  function noteFor(svcName){
+    var q=new URLSearchParams(location.search), pk=q.get('pakke');
+    var by=document.getElementById('bk-by');
+    var parts=[svcName];
+    if(pk)parts.push('Pakke: '+pk);
+    if(by&&by.value.trim())parts.push('Adresse: '+by.value.trim());
+    return parts.join(' · ');
+  }
+  /* Indlejret live-kalender: kunden ser klinikkens reelle ledige tider og
+     bookingen bekræftes med det samme (betalingslink sendes af api/cal-webhook.js). */
+  function embedLive(live,slug,svcName){
+    if(live.getAttribute('data-embed')===slug)return;
+    live.setAttribute('data-embed',slug);
+    live.innerHTML='<p style="font-size:.85rem;color:var(--gold);margin:6px 0 8px">Klinikkens live-kalender: vælg en tid, og den er bekræftet med det samme. Du modtager betalingslink på mail.</p><div class="bk-liveembed" style="min-height:480px;border:1px solid var(--line-2);border-radius:12px;overflow:hidden"></div>';
+    var elx=live.querySelector('.bk-liveembed');
+    ensureCal(function(){
+      var ns='c'+slug.replace(/[^a-zA-Z0-9]/g,'_');
+      Cal("init",ns,{origin:"https://cal.com"});
+      Cal.ns[ns]("ui",{theme:"dark",cssVarsPerTheme:{dark:{"cal-brand":"#c9a437"}},hideEventTypeDetails:false,layout:"month_view"});
+      Cal.ns[ns]("inline",{elementOrSelector:elx,calLink:slug,config:{theme:"dark",layout:"month_view",notes:noteFor(svcName)}});
+    });
+  }
   function updateLive(){
     Array.prototype.forEach.call(document.querySelectorAll('#bk-journey .bk-svc'),function(svc){
       var loc=svc.querySelector('.bk-loc'), cal=svc.querySelector('.bk-svccal'); if(!loc||!cal)return;
@@ -1202,11 +1230,7 @@ var CLINIC_EVENTS={
       if(!live){live=document.createElement('div');live.className='bk-callive';live.style.display='none';cal.parentNode.insertBefore(live,cal);}
       if(slug){
         if(cal.style.display!=='none'){cal.style.display='none';}
-        var href='https://cal.com/'+slug;
-        if(live.getAttribute('data-slug')!==slug){
-          live.setAttribute('data-slug',slug);
-          live.innerHTML='<a class="btn btn-primary" target="_blank" rel="noopener" href="'+href+'" style="margin:6px 0 2px">Se ledige tider & book med det samme →</a><p style="font-size:.85rem;color:var(--muted-2);margin-top:6px">Klinikkens egen kalender — din tid bekræftes med det samme.</p>';
-        }
+        embedLive(live,slug,svc.getAttribute('data-svc')||'');
         live.style.display='block';
       } else { cal.style.display=''; live.style.display='none'; }
     });

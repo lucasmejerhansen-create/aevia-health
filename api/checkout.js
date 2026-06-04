@@ -29,7 +29,7 @@ const PACKAGES = {
     name: "Aevia Elite",
     amount: 3699500,
     description:
-      "Alt i Executive + helkrops-MRI (uden kontrast), genetisk profil og 3-måneders follow-up med re-test.",
+      "Alt i Plus + helkrops-MRI (uden kontrast), genetisk profil og 3-måneders follow-up med re-test.",
   },
 };
 

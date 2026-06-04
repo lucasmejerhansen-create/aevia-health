@@ -25,6 +25,14 @@ over; så styrer Availability alene.)
 Under **Event Types** ligger jeres booking-link, fx `cal.com/jeresklinik/aevia`.
 Send det til kontakt@aevia.dk — så kobler vi det på aevia.dk samme dag.
 
+**5. Tilføj Aevias webhook (1 min)**
+Så vi automatisk kan sende kunden bekræftelse og betalingslink, når en tid bookes:
+Gå til **Settings → Developer → Webhooks → New Webhook** og indtast:
+- Subscriber URL: `https://aevia.dk/api/cal-webhook`
+- Event triggers: **Booking Created** og **Booking Cancelled**
+- Secret: *(vi sender jer den sammen med denne guide)*
+Klik Save — færdig. I skal ikke gøre mere ved den.
+
 ## Hvad sker der, når en kunde booker?
 
 - I får straks en mail + kalenderinvitation med kundens navn og det aftalte.
@@ -45,8 +53,17 @@ Aevia · aevia.dk
 ### Internt (Aevia): aktivering af en klinik
 
 1. Modtag klinikkens Cal.com-link, fx `jeresklinik/aevia`.
-2. Åbn `book.html` → find `CLINIC_EVENTS` (nederst) → indsæt slug på området:
+2. Send dem webhook-secret'en (værdien af `CAL_WEBHOOK_SECRET` i Vercel) til trin 5,
+   og tjek at webhooken er oprettet på deres konto (bed evt. om et screenshot).
+3. Åbn `book.html` → find `CLINIC_EVENTS` (nederst) → indsæt slug på området:
    `'Aarhus-området':'jeresklinik/aevia'`.
-3. Commit + push. Kunder i det område ser nu "Se ledige tider & book med det samme"
-   med klinikkens live-kalender. Områder uden slug kører videre på
-   mail-bekræftelsesflowet (KLINIK-SYSTEM.md).
+4. Commit + push. Kunder i det område ser nu klinikkens live-kalender indlejret
+   direkte i booking-rejsen — tiden bekræftes med det samme, og `api/cal-webhook.js`
+   sender automatisk bekræftelse + Stripe-betalingslink til kunden (kopi til
+   kontakt@aevia.dk). Områder uden slug kører videre på mail-bekræftelsesflowet
+   (KLINIK-SYSTEM.md).
+5. Book en testtid i klinikkens kalender og tjek, at mail + betalingslink kommer.
+
+Bemærk: hoster I selv eventet på Aevias egen Cal.com-konto (fx round-robin pr.
+område), skal webhooken kun oprettes dér én gang — så kan trin 5 i kundeguiden
+springes over.

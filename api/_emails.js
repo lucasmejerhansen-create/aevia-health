@@ -120,7 +120,7 @@ function day5({ lang, unsubUrl }) {
 
 export const DRIP = { 0: day0, 2: day2, 5: day5 };
 
-export async function sendMail({ to, subject, html }) {
+export async function sendMail({ to, subject, html, bcc }) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -130,6 +130,7 @@ export async function sendMail({ to, subject, html }) {
     body: JSON.stringify({
       from: process.env.MAIL_FROM || "Aevia <kontakt@aevia.dk>",
       to: [to],
+      bcc: bcc ? [bcc] : undefined,
       subject,
       html,
     }),
