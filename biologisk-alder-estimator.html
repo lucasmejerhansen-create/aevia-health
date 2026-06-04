@@ -130,6 +130,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
     <div class="big" id="bioage">—</div>
     <div class="sub" id="delta"></div>
     <p class="msg" id="msg"></p>
+    <div id="breakdown" style="margin-top:20px;text-align:left;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px"></div>
     <div style="margin-top:22px">
       <a href="book.html" class="btn">Få den målt præcist — book et tjek</a>
       <div style="margin-top:12px"><a href="indsigter.html#brief" class="btn ghost">Få vores gratis longevity-tjekliste</a></div>
@@ -159,29 +160,58 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 <script>
 (function(){
   var form=document.getElementById('quiz');
+  var LABELS={smoke:'Rygning',exercise:'Træning',sleep:'Søvn',diet:'Kost',stress:'Stress',alcohol:'Alkohol'};
+  var TIPS={
+    smoke:'Rygestop er det enkeltgreb, der flytter mest. Effekten på kar og inflammation kan måles allerede efter få måneder.',
+    exercise:'Selv 2-3 ugentlige pas med forhøjet puls flytter kondition (VO2max) og insulinfølsomhed målbart på 8-12 uger.',
+    sleep:'Sigt efter 7-8 timer med nogenlunde fast sengetid. Søvn styrer hormoner, blodsukker og restitution.',
+    diet:'Grøntsager og fibre hver dag sænker inflammation og stabiliserer blodsukkeret. Start med grønt før stivelse.',
+    stress:'Kronisk stress hæver kortisol, som påvirker søvn, blodsukker og hjerte. Faste mikropauser og bevægelse virker målbart.',
+    alcohol:'Færre genstande forbedrer søvnkvalitet, leverværdier og blodtryk hurtigere, end de fleste tror.'};
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var age=parseInt(document.getElementById('age').value,10);
     var groups=['smoke','exercise','sleep','diet','stress','alcohol'];
-    var delta=0, ok=!!age && age>=18 && age<=100;
+    var delta=0, ok=!!age && age>=18 && age<=100, rows=[];
     groups.forEach(function(g){
       var sel=form.querySelector('input[name="'+g+'"]:checked');
-      if(!sel){ok=false;} else {delta+=parseInt(sel.value,10);}
+      if(!sel){ok=false;} else {
+        var v=parseInt(sel.value,10); delta+=v;
+        var span=sel.parentNode.querySelector('span');
+        rows.push({g:g,v:v,txt:span?span.textContent:''});
+      }
     });
     var err=document.getElementById('err');
-    if(!ok){ err.style.display='block';var _lf=document.getElementById('lm-est');if(_lf)_lf.value='Estimat '+bio+' (kronologisk '+age+', delta '+delta+')'; return; }
+    if(!ok){ err.style.display='block'; return; }
     err.style.display='none';
     if(delta>12)delta=12; if(delta<-8)delta=-8;
     var bio=age+delta; if(bio<18)bio=18;
+    var shown=bio-age; /* det reelle viste spænd efter 18-års-grænsen */
     document.getElementById('bioage').textContent=bio+' år';
     var d=document.getElementById('delta');
     var msg=document.getElementById('msg');
-    if(delta<0){ d.textContent='Ca. '+Math.abs(delta)+' år yngre end din alder'; d.style.color='#7fd4a6';
+    if(shown<0){ d.textContent='Ca. '+Math.abs(shown)+' år yngre end din alder'; d.style.color='#7fd4a6';
       msg.textContent='Stærkt udgangspunkt! Din livsstil trækker i den rigtige retning. En præcis måling kan vise, hvor du allerede er stærk — og de få steder, der stadig kan optimeres.'; }
-    else if(delta===0){ d.textContent='Cirka på niveau med din alder'; d.style.color='var(--muted)';
-      msg.textContent='Du ligger nogenlunde, hvor man ville forvente. Små, målrettede ændringer kan rykke det — men kun en måling viser, hvor du skal sætte ind.'; }
-    else { d.textContent='Ca. '+delta+' år ældre end din alder'; d.style.color='#e0a06b';
+    else if(shown===0){ d.textContent='Cirka på niveau med din alder'; d.style.color='var(--muted)';
+      msg.textContent=(delta<0?'Din livsstil trækker i den rigtige retning — estimatet kan bare ikke komme under 18 år. ':'')+'Små, målrettede ændringer kan rykke det — men kun en måling viser, hvor du skal sætte ind.'; }
+    else { d.textContent='Ca. '+shown+' år ældre end din alder'; d.style.color='#e0a06b';
       msg.textContent='Der er et tydeligt potentiale at hente. Den gode nyhed: livsstilsmarkører kan ofte flyttes hurtigt — når du ved præcis, hvor du skal starte.'; }
+    /* Faktor-for-faktor-opdeling */
+    var bd=document.getElementById('breakdown');
+    if(bd){
+      var h='<strong style="display:block;color:#f5f5f0;font-size:.98rem;margin-bottom:10px">Sådan lander dit estimat</strong>';
+      rows.forEach(function(rw){
+        var c=rw.v<0?'#7fd4a6':(rw.v>0?'#e0a06b':'#94a0b2');
+        var b=rw.v<0?('−'+Math.abs(rw.v)+' år'):(rw.v>0?('+'+rw.v+' år'):'±0');
+        h+='<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem"><span style="color:#aab4c2"><strong style="color:#f5f5f0;font-weight:600">'+LABELS[rw.g]+'</strong> · '+rw.txt+'</span><span style="flex:none;font-weight:600;color:'+c+'">'+b+'</span></div>';
+      });
+      var worst=rows.filter(function(rw){return rw.v>0;}).sort(function(a,b){return b.v-a.v;})[0];
+      h+='<p style="font-size:.88rem;color:#aab4c2;margin:12px 0 0;line-height:1.55">'+(worst?('<strong style="color:#f5f5f0">Største gevinst at hente: '+LABELS[worst.g].toLowerCase()+'.</strong> '+TIPS[worst.g]):'<strong style="color:#f5f5f0">Ingen røde felter.</strong> Fortsæt det gode arbejde — en måling kan vise, om blodet er enigt med livsstilen.')+'</p>';
+      h+='<p style="font-size:.78rem;color:#94a0b2;margin:10px 0 0;line-height:1.5">Metode: hver vane lægger år til eller trækker år fra din kronologiske alder ud fra kendte sammenhænge i forskningen (groft vægtet). Estimatet kan ikke komme under 18 år. Det er en pejling — ikke en måling.</p>';
+      bd.innerHTML=h;
+    }
+    var _lf=document.getElementById('lm-est');
+    if(_lf)_lf.value='Estimat '+bio+' år (kronologisk '+age+', delta '+(delta>0?'+':'')+delta+')';
     var r=document.getElementById('result');
     r.style.display='block';
     r.scrollIntoView({behavior:'smooth',block:'center'});

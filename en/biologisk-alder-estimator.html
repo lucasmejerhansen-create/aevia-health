@@ -130,6 +130,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
     <div class="big" id="bioage">—</div>
     <div class="sub" id="delta"></div>
     <p class="msg" id="msg"></p>
+    <div id="breakdown" style="margin-top:20px;text-align:left;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px"></div>
     <div style="margin-top:22px">
       <a href="book.html" class="btn">Get it measured precisely — book a check</a>
       <div style="margin-top:12px"><a href="indsigter.html#brief" class="btn ghost">Get our free longevity checklist</a></div>
@@ -159,29 +160,58 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 <script>
 (function(){
   var form=document.getElementById('quiz');
+  var LABELS={smoke:'Smoking',exercise:'Exercise',sleep:'Sleep',diet:'Diet',stress:'Stress',alcohol:'Alcohol'};
+  var TIPS={
+    smoke:'Quitting smoking is the single biggest lever. Effects on vessels and inflammation are measurable within months.',
+    exercise:'Even 2-3 weekly sessions with an elevated heart rate measurably move fitness (VO2max) and insulin sensitivity in 8-12 weeks.',
+    sleep:'Aim for 7-8 hours with a fairly fixed bedtime. Sleep governs hormones, blood sugar and recovery.',
+    diet:'Vegetables and fibre every day lower inflammation and stabilise blood sugar. Start with greens before starch.',
+    stress:'Chronic stress raises cortisol, affecting sleep, blood sugar and heart. Regular micro-breaks and movement work measurably.',
+    alcohol:'Fewer drinks improve sleep quality, liver values and blood pressure faster than most people think.'};
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var age=parseInt(document.getElementById('age').value,10);
     var groups=['smoke','exercise','sleep','diet','stress','alcohol'];
-    var delta=0, ok=!!age && age>=18 && age<=100;
+    var delta=0, ok=!!age && age>=18 && age<=100, rows=[];
     groups.forEach(function(g){
       var sel=form.querySelector('input[name="'+g+'"]:checked');
-      if(!sel){ok=false;} else {delta+=parseInt(sel.value,10);}
+      if(!sel){ok=false;} else {
+        var v=parseInt(sel.value,10); delta+=v;
+        var span=sel.parentNode.querySelector('span');
+        rows.push({g:g,v:v,txt:span?span.textContent:''});
+      }
     });
     var err=document.getElementById('err');
-    if(!ok){ err.style.display='block';var _lf=document.getElementById('lm-est');if(_lf)_lf.value='Estimat '+bio+' (kronologisk '+age+', delta '+delta+')'; return; }
+    if(!ok){ err.style.display='block'; return; }
     err.style.display='none';
     if(delta>12)delta=12; if(delta<-8)delta=-8;
     var bio=age+delta; if(bio<18)bio=18;
+    var shown=bio-age; /* the real displayed gap after the 18-year floor */
     document.getElementById('bioage').textContent=bio+' years';
     var d=document.getElementById('delta');
     var msg=document.getElementById('msg');
-    if(delta<0){ d.textContent='About '+Math.abs(delta)+' years younger than your age'; d.style.color='#7fd4a6';
+    if(shown<0){ d.textContent='About '+Math.abs(shown)+' years younger than your age'; d.style.color='#7fd4a6';
       msg.textContent='Strong starting point! Your lifestyle pulls in the right direction. A precise measurement can show where you are already strong — and the few areas still to optimise.'; }
-    else if(delta===0){ d.textContent='Roughly in line with your age'; d.style.color='var(--muted)';
-      msg.textContent='You are about where one would expect. Small, targeted changes can move it — but only a measurement shows where to focus.'; }
-    else { d.textContent='About '+delta+' years older than your age'; d.style.color='#e0a06b';
+    else if(shown===0){ d.textContent='Roughly in line with your age'; d.style.color='var(--muted)';
+      msg.textContent=(delta<0?'Your lifestyle pulls in the right direction — the estimate just cannot go below 18 years. ':'')+'Small, targeted changes can move it — but only a measurement shows where to focus.'; }
+    else { d.textContent='About '+shown+' years older than your age'; d.style.color='#e0a06b';
       msg.textContent='There is clear potential to gain. The good news: lifestyle markers can often move fast — once you know exactly where to start.'; }
+    /* Factor-by-factor breakdown */
+    var bd=document.getElementById('breakdown');
+    if(bd){
+      var h='<strong style="display:block;color:#f5f5f0;font-size:.98rem;margin-bottom:10px">How your estimate is made up</strong>';
+      rows.forEach(function(rw){
+        var c=rw.v<0?'#7fd4a6':(rw.v>0?'#e0a06b':'#94a0b2');
+        var b=rw.v<0?('−'+Math.abs(rw.v)+' yrs'):(rw.v>0?('+'+rw.v+' yrs'):'±0');
+        h+='<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem"><span style="color:#aab4c2"><strong style="color:#f5f5f0;font-weight:600">'+LABELS[rw.g]+'</strong> · '+rw.txt+'</span><span style="flex:none;font-weight:600;color:'+c+'">'+b+'</span></div>';
+      });
+      var worst=rows.filter(function(rw){return rw.v>0;}).sort(function(a,b){return b.v-a.v;})[0];
+      h+='<p style="font-size:.88rem;color:#aab4c2;margin:12px 0 0;line-height:1.55">'+(worst?('<strong style="color:#f5f5f0">Biggest gain available: '+LABELS[worst.g].toLowerCase()+'.</strong> '+TIPS[worst.g]):'<strong style="color:#f5f5f0">No red flags.</strong> Keep it up — a measurement can show whether your blood agrees with your lifestyle.')+'</p>';
+      h+='<p style="font-size:.78rem;color:#94a0b2;margin:10px 0 0;line-height:1.5">Method: each habit adds or subtracts years from your chronological age based on known associations in the research (roughly weighted). The estimate cannot go below 18 years. It is a pointer — not a measurement.</p>';
+      bd.innerHTML=h;
+    }
+    var _lf=document.getElementById('lm-est');
+    if(_lf)_lf.value='Estimate '+bio+' yrs (chronological '+age+', delta '+(delta>0?'+':'')+delta+')';
     var r=document.getElementById('result');
     r.style.display='block';
     r.scrollIntoView({behavior:'smooth',block:'center'});
