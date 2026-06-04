@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a43
         <a href="mailto:kontakt@aevia.dk?subject=Referral%20to%20Aevia&body=Hi%20Aevia%2C%0A%0AI%27d%20like%20to%20refer%20someone%20for%20a%20programme.%0A%0AMy%20name%3A%20%0ATheir%20name%3A%20%0ATheir%20email%20or%20phone%3A%20%0A%0ABest%20regards" class="btn">Refer someone</a>
         <button type="button" id="refshare" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:pointer;font-family:inherit">Share with a friend</button>
       </div>
-      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Message copied — paste it into a text or chat.</p>
+      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Message copied. Paste it into a text or chat.</p>
     </div>
 
     <a href="index.html" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line-2)">Back to the homepage</a>
@@ -82,7 +82,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a43
     (function(){
       var btn = document.getElementById("refshare");
       if (!btn) return;
-      var msg = "Hi! I just booked a health check with Aevia (aevia.dk) — biological age, 70+ blood markers and a personal plan. If you book and mention my name, we both get DKK 500 in credit. See more: https://aevia.dk/en/";
+      var msg = "Hi! I just booked a health check with Aevia (aevia.dk): biological age, 70+ blood markers and a personal plan. If you book and mention my name, we both get DKK 500 in credit. See more: https://aevia.dk/en/";
       btn.addEventListener("click", function(){
         if (navigator.share) {
           navigator.share({ text: msg }).catch(function(){});

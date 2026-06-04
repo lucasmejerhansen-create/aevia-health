@@ -69,7 +69,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="mailto:kontakt@aevia.dk?subject=Henvisning%20til%20Aevia&body=Hej%20Aevia%2C%0A%0AJeg%20vil%20gerne%20henvise%20en%20person%20til%20et%20forl%C3%B8b.%0A%0AMit%20navn%3A%20%0ADeres%20navn%3A%20%0ADeres%20e-mail%20eller%20telefon%3A%20%0A%0AVenlig%20hilsen" class="btn">Henvis en person</a>
         <button type="button" id="refshare" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:pointer;font-family:inherit">Del med en ven</button>
       </div>
-      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Besked kopieret — sæt den ind i en SMS eller chat.</p>
+      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Besked kopieret. Sæt den ind i en SMS eller chat.</p>
     </div>
 
     <a href="index.html" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line-2)">Tilbage til forsiden</a>
@@ -87,7 +87,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     (function(){
       var btn = document.getElementById("refshare");
       if (!btn) return;
-      var msg = "Hej! Jeg har lige bestilt et helbredstjek hos Aevia (aevia.dk) — biologisk alder, 70+ blodmarkører og en personlig plan. Hvis du booker og nævner mit navn, får vi begge 500 kr. i kredit. Se mere: https://aevia.dk";
+      var msg = "Hej! Jeg har lige bestilt et helbredstjek hos Aevia (aevia.dk): biologisk alder, 70+ blodmarkører og en personlig plan. Hvis du booker og nævner mit navn, får vi begge 500 kr. i kredit. Se mere: https://aevia.dk";
       btn.addEventListener("click", function(){
         if (navigator.share) {
           navigator.share({ text: msg }).catch(function(){});
