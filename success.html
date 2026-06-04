@@ -63,9 +63,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
 
     <div class="steps" style="border-color:var(--gold);background:var(--gold-soft)">
-      <h2>Giv 1.500 kr. videre, få 1.500 kr. selv</h2>
-      <p style="margin-bottom:16px;font-size:.95rem">Kender du en, der også burde tage sit helbred alvorligt? Henvis dem til Aevia. Når de gennemfører deres første forløb, får I <strong style="color:var(--text)">begge 1.500 kr.</strong> i kredit til jeres næste forløb eller medlemskab.</p>
-      <div style="text-align:center"><a href="mailto:kontakt@aevia.dk?subject=Henvisning%20til%20Aevia&body=Hej%20Aevia%2C%0A%0AJeg%20vil%20gerne%20henvise%20en%20person%20til%20et%20forl%C3%B8b.%0A%0AMit%20navn%3A%20%0ADeres%20navn%3A%20%0ADeres%20e-mail%20eller%20telefon%3A%20%0A%0AVenlig%20hilsen" class="btn">Henvis en person</a></div>
+      <h2>Giv 500 kr. videre, få 500 kr. selv</h2>
+      <p style="margin-bottom:16px;font-size:.95rem">Kender du en, der også burde tage sit helbred alvorligt? Henvis dem til Aevia. Når de gennemfører deres første forløb, får I <strong style="color:var(--text)">begge 500 kr.</strong> i kredit til jeres næste forløb eller medlemskab.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a href="mailto:kontakt@aevia.dk?subject=Henvisning%20til%20Aevia&body=Hej%20Aevia%2C%0A%0AJeg%20vil%20gerne%20henvise%20en%20person%20til%20et%20forl%C3%B8b.%0A%0AMit%20navn%3A%20%0ADeres%20navn%3A%20%0ADeres%20e-mail%20eller%20telefon%3A%20%0A%0AVenlig%20hilsen" class="btn">Henvis en person</a>
+        <button type="button" id="refshare" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:pointer;font-family:inherit">Del med en ven</button>
+      </div>
+      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Besked kopieret — sæt den ind i en SMS eller chat.</p>
     </div>
 
     <a href="index.html" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line-2)">Tilbage til forsiden</a>
@@ -78,6 +82,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     if (id) {
       document.getElementById("ref").textContent = "Ordrereference: " + id;
     }
+
+    // Henvisning: del via Web Share API eller kopiér besked til udklipsholder.
+    (function(){
+      var btn = document.getElementById("refshare");
+      if (!btn) return;
+      var msg = "Hej! Jeg har lige bestilt et helbredstjek hos Aevia (aevia.dk) — biologisk alder, 70+ blodmarkører og en personlig plan. Hvis du booker og nævner mit navn, får vi begge 500 kr. i kredit. Se mere: https://aevia.dk";
+      btn.addEventListener("click", function(){
+        if (navigator.share) {
+          navigator.share({ text: msg }).catch(function(){});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function(){
+            document.getElementById("refshared").style.display = "block";
+          }).catch(function(){});
+        } else {
+          window.location.href = "mailto:?subject=Anbefaling%3A%20Aevia&body=" + encodeURIComponent(msg);
+        }
+      });
+    })();
   </script>
 <!-- Aevia AI-assistent (forbind AEVC_ENDPOINT til backend for fulde LLM-svar; ellers udvidet vidensbase) -->
 <button id="aevc-btn" aria-label="Åbn chat" aria-expanded="false">
@@ -139,7 +161,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   var KB=[/*GLOS2*/
    {k:["medlemskab","abonnement","årligt medlem","longevity basis","longevity plus","gentest"],a:"Efter dit første forløb kan du tegne et årligt medlemskab: Longevity Basis 4.895 kr./år eller Plus 8.595 kr./år, med gentest af dine kernemarkører og opfølgning. Se <a href='pakker.html'>Pakker</a>."},
    {k:["gavekort","forære","forær","gave til"],a:"Ja, du kan give et Aevia-forløb som gavekort, vælg en pakke eller et frit beløb. Skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["henvis","henvisning","anbefale en ven","referral"],a:"Henviser du en, der gennemfører sit første forløb, får I begge 1.500 kr. i kredit."},
+   {k:["henvis","henvisning","anbefale en ven","referral"],a:"Henviser du en, der gennemfører sit første forløb, får I begge 500 kr. i kredit."},
    {k:["par ","familie","sammen som","flere personer"],a:"I kan booke flere forløb sammen (par eller familie), skriv til os for et samlet tilbud."},
    {k:["faste","fastende","spise før","drikke før","tom mave"],a:"Til de fleste blodprøver skal du faste 8-12 timer før (vand er ok). Du får en præcis forberedelsesguide før din tid."},
    {k:["gør det ondt","smertefuldt","nåle","nåleskræk","bange for nåle"],a:"En blodprøve er et lille stik og hurtigt overstået. Sig til på dagen, hvis du er nervøs for nåle, så tager vi hensyn."},

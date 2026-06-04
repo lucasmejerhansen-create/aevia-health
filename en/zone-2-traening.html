@@ -480,7 +480,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[/*GLOS2*/
    {k:["membership","subscription","annual member","longevity basis","longevity plus","retest"],a:"After your first programme you can take an annual membership: Longevity Basis DKK 4,895/year or Plus DKK 8,595/year, with a retest of your core markers and follow-up."},
    {k:["gift card","present for","gift for"],a:"Yes, you can give an Aevia programme as a gift card, choose a package or any amount. Write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 1,500 in credit."},
+   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 500 in credit."},
    {k:["couple","family","several people","together"],a:"You can book several programmes together (couples or family), write to us for a combined quote."},
    {k:["fasting","fast before","eat before","drink before"],a:"For most blood tests you should fast 8-12 hours beforehand (water is fine). You get a precise preparation guide before your appointment."},
    {k:["does it hurt","painful","needle","fear of needles"],a:"A blood test is a small prick and quickly over. Tell us on the day if you are nervous about needles."},
@@ -607,7 +607,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('show');});
   document.addEventListener('mouseout',function(e){if(armed&&!e.relatedTarget&&e.clientY<=0)show();});
   setTimeout(function(){if(armed)show();},30000);
-  window.aevxSubmit=function(ev){ev.preventDefault();var f=document.getElementById('aevx-form');function done(){f.style.display='none';document.getElementById('aevx-ok').style.display='block';}if(f.action.indexOf('your-form-id')>-1){done();return false;}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(done).catch(done);return false;};
+  window.aevxSubmit=function(ev){ev.preventDefault();var f=document.getElementById('aevx-form');try{var _g=f.querySelector('[name=_gotcha]');fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:(f.email&&f.email.value)||'',source:'exit-intent-tjekliste',lang:'en',gotcha:(_g&&_g.value)||''})});}catch(_){}function done(){f.style.display='none';document.getElementById('aevx-ok').style.display='block';}if(f.action.indexOf('your-form-id')>-1){done();return false;}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(done).catch(done);return false;};
 })();
 </script>
 

@@ -59,9 +59,13 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a43
     </div>
 
     <div class="steps" style="border-color:var(--gold);background:var(--gold-soft)">
-      <h2>Give DKK 1,500, get DKK 1,500</h2>
-      <p style="margin-bottom:16px;font-size:.95rem">Know someone who should take their health seriously too? Refer them to Aevia. When they complete their first programme, you <strong style="color:var(--text)">both get DKK 1,500</strong> in credit towards your next programme or membership.</p>
-      <div style="text-align:center"><a href="mailto:kontakt@aevia.dk?subject=Referral%20to%20Aevia&body=Hi%20Aevia%2C%0A%0AI%27d%20like%20to%20refer%20someone%20for%20a%20programme.%0A%0AMy%20name%3A%20%0ATheir%20name%3A%20%0ATheir%20email%20or%20phone%3A%20%0A%0ABest%20regards" class="btn">Refer someone</a></div>
+      <h2>Give DKK 500, get DKK 500</h2>
+      <p style="margin-bottom:16px;font-size:.95rem">Know someone who should take their health seriously too? Refer them to Aevia. When they complete their first programme, you <strong style="color:var(--text)">both get DKK 500</strong> in credit towards your next programme or membership.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a href="mailto:kontakt@aevia.dk?subject=Referral%20to%20Aevia&body=Hi%20Aevia%2C%0A%0AI%27d%20like%20to%20refer%20someone%20for%20a%20programme.%0A%0AMy%20name%3A%20%0ATheir%20name%3A%20%0ATheir%20email%20or%20phone%3A%20%0A%0ABest%20regards" class="btn">Refer someone</a>
+        <button type="button" id="refshare" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:pointer;font-family:inherit">Share with a friend</button>
+      </div>
+      <p id="refshared" style="display:none;font-size:.85rem;color:var(--gold);margin:10px 0 0;text-align:center">Message copied — paste it into a text or chat.</p>
     </div>
 
     <a href="index.html" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line-2)">Back to the homepage</a>
@@ -73,6 +77,24 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a43
     if (id) {
       document.getElementById("ref").textContent = "Order reference: " + id;
     }
+
+    // Referral: share via Web Share API or copy message to clipboard.
+    (function(){
+      var btn = document.getElementById("refshare");
+      if (!btn) return;
+      var msg = "Hi! I just booked a health check with Aevia (aevia.dk) — biological age, 70+ blood markers and a personal plan. If you book and mention my name, we both get DKK 500 in credit. See more: https://aevia.dk/en/";
+      btn.addEventListener("click", function(){
+        if (navigator.share) {
+          navigator.share({ text: msg }).catch(function(){});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function(){
+            document.getElementById("refshared").style.display = "block";
+          }).catch(function(){});
+        } else {
+          window.location.href = "mailto:?subject=Recommendation%3A%20Aevia&body=" + encodeURIComponent(msg);
+        }
+      });
+    })();
   </script>
 <!-- Aevia AI assistant -->
 <button id="aevc-btn" aria-label="Open chat" aria-expanded="false">
@@ -132,7 +154,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid #c9a43
   var KB=[/*GLOS2*/
    {k:["membership","subscription","annual member","longevity basis","longevity plus","retest"],a:"After your first programme you can take an annual membership: Longevity Basis DKK 4,895/year or Plus DKK 8,595/year, with a retest of your core markers and follow-up."},
    {k:["gift card","present for","gift for"],a:"Yes, you can give an Aevia programme as a gift card, choose a package or any amount. Write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 1,500 in credit."},
+   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 500 in credit."},
    {k:["couple","family","several people","together"],a:"You can book several programmes together (couples or family), write to us for a combined quote."},
    {k:["fasting","fast before","eat before","drink before"],a:"For most blood tests you should fast 8-12 hours beforehand (water is fine). You get a precise preparation guide before your appointment."},
    {k:["does it hurt","painful","needle","fear of needles"],a:"A blood test is a small prick and quickly over. Tell us on the day if you are nervous about needles."},

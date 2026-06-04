@@ -371,6 +371,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <p id="bk-sub">Pick an available date and time in the calendar. You'll receive email confirmation right away, available times are shown in your own time zone.</p>
     </div>
 
+    <div id="bk-resume" style="display:none;max-width:820px;margin:0 auto 22px;border:1px solid var(--gold);background:var(--gold-soft);border-radius:14px;padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap">
+      <p style="flex:1;min-width:220px;margin:0;font-size:.95rem;color:var(--muted)">You started a booking last time. Want to pick up where you left off?</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" id="bk-resume-yes" class="btn btn-primary" style="padding:10px 18px;font-size:.9rem">Continue</button>
+        <button type="button" id="bk-resume-no" class="btn" style="padding:10px 18px;font-size:.9rem;background:transparent;color:var(--muted);border:1px solid var(--line-2);cursor:pointer;font-family:inherit;border-radius:999px">Start over</button>
+      </div>
+    </div>
+
     <div class="bktabs" role="tablist" aria-label="Choose booking type" style="max-width:540px;margin:0 auto 22px">
       <button type="button" class="bktab active" id="mode-direkte" role="tab" aria-selected="true">Book your health check</button>
       <button type="button" class="bktab" id="mode-samtale" role="tab" aria-selected="false">Book a free conversation</button>
@@ -589,7 +597,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[/*GLOS2*/
    {k:["membership","subscription","annual member","longevity basis","longevity plus","retest"],a:"After your first programme you can take an annual membership: Longevity Basis DKK 4,895/year or Plus DKK 8,595/year, with a retest of your core markers and follow-up."},
    {k:["gift card","present for","gift for"],a:"Yes, you can give an Aevia programme as a gift card, choose a package or any amount. Write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 1,500 in credit."},
+   {k:["refer","referral","recommend a friend"],a:"Refer someone who completes their first programme and you both get DKK 500 in credit."},
    {k:["couple","family","several people","together"],a:"You can book several programmes together (couples or family), write to us for a combined quote."},
    {k:["fasting","fast before","eat before","drink before"],a:"For most blood tests you should fast 8-12 hours beforehand (water is fine). You get a precise preparation guide before your appointment."},
    {k:["does it hurt","painful","needle","fear of needles"],a:"A blood test is a small prick and quickly over. Tell us on the day if you are nervous about needles."},
@@ -812,6 +820,37 @@ var BOOKING={
       } else if(tries++<40){ setTimeout(init,300); } else { fail(); }
     })();
   }
+})();
+</script>
+<script>
+/* ── "PICK UP WHERE YOU LEFT OFF" ───────────────────────────────────────────
+   Saves enquiry-form input in localStorage and shows a resume bar on the next
+   visit. Cleared on submit and after 7 days. */
+(function(){
+  var KEY='aevia_book_resume_en', MAX_AGE=7*24*60*60*1000;
+  function read(){ try{var s=localStorage.getItem(KEY); if(!s)return null; var d=JSON.parse(s); if(!d.t||Date.now()-d.t>MAX_AGE){localStorage.removeItem(KEY);return null;} return d;}catch(e){return null;} }
+  function clear(){ try{localStorage.removeItem(KEY);}catch(e){} }
+  var f=document.getElementById('bookform'); if(!f)return;
+  function save(){
+    var form={};
+    Array.prototype.forEach.call(f.querySelectorAll('input[type=text],input[type=email],input[type=tel],textarea,select'),function(el){ if(el.name&&el.name!=='_gotcha'&&el.value)form[el.name]=el.value; });
+    if(!Object.keys(form).length)return;
+    try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),form:form}));}catch(e){}
+  }
+  var tmr; function saveSoon(){ clearTimeout(tmr); tmr=setTimeout(save,400); }
+  f.addEventListener('input',saveSoon,true);
+  f.addEventListener('change',saveSoon,true);
+  f.addEventListener('submit',function(){clear();});
+  var saved=read(); if(!saved||!saved.form)return;
+  var bar=document.getElementById('bk-resume'); if(!bar)return;
+  bar.style.display='flex';
+  document.getElementById('bk-resume-no').addEventListener('click',function(){ clear(); bar.style.display='none'; });
+  document.getElementById('bk-resume-yes').addEventListener('click',function(){
+    bar.style.display='none';
+    Object.keys(saved.form).forEach(function(k){ var el=f.querySelector('[name="'+k+'"]'); if(el&&!el.value)el.value=saved.form[k]; });
+    var det=document.querySelector('.bk-fallback');
+    if(det){ det.open=true; det.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
 })();
 </script>
 <script src="../glossary.js"></script>

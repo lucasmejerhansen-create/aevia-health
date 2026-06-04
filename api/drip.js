@@ -1,0 +1,57 @@
+// Aevia — drip-cron til velkomstserien (dag 2 + dag 5).
+//
+// Køres dagligt af Vercel Cron (se "crons" i vercel.json). Henter alle kontakter
+// i Resend-audiencen og sender:
+//   dag 2: "Sådan læser du dine tal"   (2 ≤ dage siden tilmelding < 3)
+//   dag 5: founding member-tilbud      (5 ≤ dage siden tilmelding < 6)
+// Dag 0 sendes straks af /api/lead. Buckets på hele dage betyder, at hver mail
+// kun rammer én cron-kørsel pr. kontakt — ingen database nødvendig.
+//
+// Sikkerhed: sæt CRON_SECRET i Vercel; Vercel Cron sender automatisk
+// "Authorization: Bearer <CRON_SECRET>" med.
+//
+// Miljøvariabler: RESEND_API_KEY, MAIL_FROM, RESEND_AUDIENCE_ID, BOOKING_SECRET, CRON_SECRET
+
+import { DRIP, sendMail, unsubUrlFor } from "./_emails.js";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export default async function handler(req, res) {
+  if (process.env.CRON_SECRET && req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  if (!audienceId || !process.env.RESEND_API_KEY) {
+    return res.status(500).json({ error: "RESEND_AUDIENCE_ID/RESEND_API_KEY mangler" });
+  }
+
+  const r = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
+  });
+  if (!r.ok) return res.status(502).json({ error: `Resend ${r.status}: ${await r.text()}` });
+  const { data: contacts = [] } = await r.json();
+
+  const now = Date.now();
+  let sent = 0;
+  const errors = [];
+
+  for (const c of contacts) {
+    if (c.unsubscribed) continue;
+    const created = Date.parse(c.created_at);
+    if (Number.isNaN(created)) continue;
+    const day = Math.floor((now - created) / DAY_MS);
+    if (day !== 2 && day !== 5) continue;
+
+    const lang = c.last_name === "EN" ? "en" : "da";
+    try {
+      const tpl = DRIP[day]({ lang, unsubUrl: unsubUrlFor(c.email) });
+      await sendMail({ to: c.email, subject: tpl.subject, html: tpl.html });
+      sent++;
+    } catch (err) {
+      errors.push(`${c.email}: ${err.message}`);
+      console.error("Drip-fejl:", c.email, err.message);
+    }
+  }
+
+  return res.status(200).json({ ok: true, contacts: contacts.length, sent, errors: errors.length });
+}
