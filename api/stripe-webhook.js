@@ -45,7 +45,7 @@ function emailHtml({ name, pkg, total }) {
       </ol>
       <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0">Spørgsmål? Svar på denne mail eller skriv til <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.</p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 45 12 88 02 · <a href="https://aevia.dk" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="https://aevia.dk" style="color:#c9a437">aevia.dk</a></p>
   </div>
 </body></html>`;
 }

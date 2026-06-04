@@ -35,7 +35,7 @@ async function sendMail({ to, subject, html, bcc }) {
 const esc = (s) => String(s || "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 
 function shell(inner) {
-  return `<!DOCTYPE html><html lang="da"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif"><div style="max-width:560px;margin:0 auto;padding:36px 24px"><div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div><div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">${inner}</div><p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 45 12 88 02 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p></div></body></html>`;
+  return `<!DOCTYPE html><html lang="da"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif"><div style="max-width:560px;margin:0 auto;padding:36px 24px"><div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div><div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">${inner}</div><p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p></div></body></html>`;
 }
 
 export default async function handler(req, res) {
