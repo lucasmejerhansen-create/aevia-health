@@ -131,6 +131,20 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
       <a href="book.html" class="btn">Get it measured precisely — book a check</a>
       <div style="margin-top:12px"><a href="indsigter.html#brief" class="btn ghost">Get our free longevity checklist</a></div>
     </div>
+    
+    <div style="margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;text-align:left">
+      <strong style="display:block;color:#f5f5f0;font-size:1rem;margin-bottom:4px">Get your result + free longevity checklist by email</strong>
+      <p style="font-size:.88rem;color:#94a0b2;margin:0 0 14px">We will send your estimate and a concrete checklist to move it.</p>
+      <form id="bioform" action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return bioLm(event)" style="display:flex;flex-direction:column;gap:10px;background:none;border:none;padding:0;margin:0">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
+        <input type="hidden" name="kilde" value="Biologisk alder-estimator EN">
+        <input type="hidden" name="estimat" id="lm-est" value="">
+        <input name="email" type="email" required aria-label="E-mail" placeholder="you@email.com" style="width:100%;background:#0a1628;border:1px solid #28394f;border-radius:10px;padding:12px 14px;color:#f5f5f0;font-family:inherit;font-size:.95rem">
+        <label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:#94a0b2;line-height:1.4"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"> <span>I agree that Aevia may send me the checklist and relevant insights, see the <a href="privatlivspolitik.html" style="color:#c9a437">privacy policy</a>.</span></label>
+        <button class="btn" type="submit" style="width:100%">Send it to me</button>
+      </form>
+      <div id="lm-ok" style="display:none;background:#142840;border:1px solid #c9a437;border-radius:10px;padding:14px;color:#f5f5f0;font-size:.92rem;margin-top:10px">Thanks! It is on its way to your inbox.</div>
+    </div>
     <p class="disc">This is a rough, non-binding estimate based on lifestyle — not a measurement. Your real biological age is calculated from 70+ biomarkers in your blood and approved by a physician.</p>
   </div>
 
@@ -152,7 +166,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
       if(!sel){ok=false;} else {delta+=parseInt(sel.value,10);}
     });
     var err=document.getElementById('err');
-    if(!ok){ err.style.display='block'; return; }
+    if(!ok){ err.style.display='block';var _lf=document.getElementById('lm-est');if(_lf)_lf.value='Estimat '+bio+' (kronologisk '+age+', delta '+delta+')'; return; }
     err.style.display='none';
     if(delta>12)delta=12; if(delta<-8)delta=-8;
     var bio=age+delta; if(bio<18)bio=18;
@@ -321,6 +335,10 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
   form.addEventListener('submit',function(e){e.preventDefault();var v=input.value.trim();if(!v)return;input.value='';ask(v);});
   Array.prototype.forEach.call(document.querySelectorAll('.aevc-chip'),function(c){c.addEventListener('click',function(){ask(c.textContent);});});
 })();
+</script>
+
+<script>
+function bioLm(e){e.preventDefault();var f=document.getElementById('bioform');function d(){f.style.display='none';document.getElementById('lm-ok').style.display='block';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(d).catch(d);return false;}
 </script>
 </body>
 </html>

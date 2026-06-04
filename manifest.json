@@ -1,0 +1,16 @@
+{
+  "name": "Aevia Health",
+  "short_name": "Aevia",
+  "description": "Avanceret helbredsdiagnostik for private og virksomheder. Kend din biologiske alder og handl i tide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "lang": "da",
+  "icons": [
+    { "src": "/assets/logo/aevia-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/logo/aevia-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/logo/aevia-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
