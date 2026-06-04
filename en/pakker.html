@@ -341,7 +341,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <style>
 .addons{margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--line);text-align:left}
-.addons-title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+.addons-title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;user-select:none}.addons-title .achev{font-size:.95rem;line-height:1;transition:transform .25s ease}.addons.open .addons-title{margin-bottom:12px}.addons .addon{display:none}.addons.open .addon{display:flex}.addons.open .addons-title .achev{transform:rotate(180deg)}
 .addon{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--text);padding:11px 13px;margin-bottom:8px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .15s ease}.addon:hover{border-color:var(--line-2);background:rgba(255,255,255,.02)}.addon:active{transform:scale(.99)}.addon:has(input:checked){border-color:var(--gold);background:var(--gold-soft)}
 .addon input{appearance:none;-webkit-appearance:none;width:22px;height:22px;flex:none;margin:0;border:1.5px solid var(--line-2);border-radius:6px;background:var(--navy);cursor:pointer;position:relative;transition:background .2s ease,border-color .2s ease}.addon input:checked{background:var(--gold);border-color:var(--gold)}.addon input:checked::after{content:"";position:absolute;left:50%;top:47%;width:6px;height:11px;border:solid var(--navy);border-width:0 2.5px 2.5px 0;transform:translate(-50%,-50%) rotate(45deg)}.addon input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .addon .addon-name{flex:1;line-height:1.35}.addon:has(input:checked) .addon-name{color:var(--text)}
@@ -953,5 +953,19 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 </script>
 
 <script src="../glossary.js"></script>
+<script>
+(function(){
+  [].slice.call(document.querySelectorAll('.addons')).forEach(function(box){
+    var t=box.querySelector('.addons-title'); if(!t) return;
+    var chev=document.createElement('span'); chev.className='achev'; chev.setAttribute('aria-hidden','true'); chev.textContent='▾';
+    t.appendChild(chev);
+    t.setAttribute('role','button'); t.setAttribute('tabindex','0'); t.setAttribute('aria-expanded','false');
+    function tg(){var o=box.classList.toggle('open'); t.setAttribute('aria-expanded',o?'true':'false');}
+    t.addEventListener('click',tg);
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});
+    if(box.querySelector('input:checked')) box.classList.add('open');
+  });
+})();
+</script>
 </body>
 </html>
