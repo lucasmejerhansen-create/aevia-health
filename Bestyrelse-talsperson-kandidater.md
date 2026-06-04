@@ -38,6 +38,123 @@ Flere af de tungeste navne har offentligt været kritiske over for kommercielle 
 
 ---
 
+## Frontperson-kandidater: LÆGER der kan være Aevias lægefaglige ansigt (researchet juni 2026)
+
+Rollen her er en anden end advisory board: en læge, hvis navn og ansigt må stå på sitet ("lægefaglig ansvarlig" / "din rapport gennemgås af..."), og som evt. tager 1:1-gennemgangene. Sorteret efter realisme:
+
+### A. Pia Norup — bedste kommercielle match
+- **Hvem:** Læge, en af Danmarks mest profilerede inden for funktionel medicin. 20 års erfaring, 4 bøger, foredragsholder, egen klinik (Omnia Clinic / Roots). Uddannet ved Institute for Functional Medicine.
+- **Hvorfor:** Vant til kommercielt samarbejde, stærk formidler, arbejder allerede forebyggende og datadrevet. Målgruppen kender typen.
+- **Caveat:** "Funktionel medicin" deler vandene fagligt — afklar at Aevias profil er klassisk evidensbaseret diagnostik.
+- **Kontaktvej:** omniaclinic.dk (kontaktformular) eller LinkedIn.
+- **Realisme:** Middel-høj.
+
+### B. Tobias Schmidt Hansen — bedste faglige match blandt praktiserende
+- **Hvem:** Læge (alm. medicin), formand for Dansk Selskab for Livsstilsmedicin, skribent og foredragsholder om kost og livsstilsmedicin.
+- **Hvorfor:** Ung, evidensbaseret, organisatorisk troværdighed — præcis profilen til "lægefaglig ansvarlig" uden hype.
+- **Kontaktvej:** Via DSLM: kontakt@dslm.dk / +45 61 66 71 80, eller LinkedIn.
+- **Realisme:** Middel-høj.
+
+### C. Jerk W. Langer — størst folkelig gennemslagskraft blandt læger
+- **Hvem:** Læge, videnskabsjournalist og forfatter; har gjort antiinflammatorisk livsstil til et kendt begreb i DK. Booker fast foredrag landet over.
+- **Hvorfor:** Enorm folkelig troværdighed på forebyggelse; vant til kommercielle samarbejder (foredrag, bøger).
+- **Kontaktvej:** jerk.dk (egen side med kontakt) eller via foredragsbureauer (Athenas, bookforedrag.dk).
+- **Realisme:** Middel — vil formentlig hellere være ambassadør/foredragspartner end fast lægefagligt ansvarlig.
+
+### D. Imran Rashid — iværksætter-lægen
+- **Hvem:** Læge, IT-iværksætter og forfatter ("SLUK"), kendt foredragsholder om sundhed og digital adfærd.
+- **Hvorfor:** Forstår både lægefaglighed og startup-virkelighed; vant til at lægge navn til kommercielle projekter.
+- **Kontaktvej:** LinkedIn (aktiv profil).
+- **Realisme:** Middel.
+
+### E. TV-lægerne — lange skud, men maksimal effekt
+- **Charlotte Bøving** (læge, kendt fra TV-sundhedsprogrammer) og **Thomas Breinholt** (læge, TV-sundhedsekspert). Begge vant til at formidle bredt — matcher "alle, ikke kun executives"-målgruppen perfekt.
+- **Kontaktvej:** Via management/foredragsbureauer eller LinkedIn.
+- **Realisme:** Lav-middel (efterspurgte; kommerciel binding til ét brand kan være en barriere).
+
+### F. Den realistiske arbejdshest: en ikke-kendt speciallæge
+Frontpersonen behøver ikke være kendt — bare ægte, kompetent og troværdig på sitet. Realistiske kanaler:
+1. **DSLM's medlemsnetværk** (kontakt@dslm.dk) — spørg om medlemmer, der vil tage konsulentrollen. Det er foreningen for netop livsstils-/forebyggelsesinteresserede læger.
+2. **Yngre/deltids-speciallæger i almen medicin** der ønsker bibeskæftigelse — opslag via Lægeforeningens jobunivers eller LinkedIn-opslag ("lægefaglig konsulent, 2-5 timer/uge, remote rapportgennemgang").
+3. **Pensionerede speciallæger** (intern medicin/kardiologi) — høj troværdighed, fleksibel tid, lavere honorar.
+
+**Honorar-benchmark til samtalen:** konsulentaftale pr. rapportgennemgang (typisk 500-1.500 kr./stk.) eller fast md.-honorar + evt. lille equity ved frontperson-rolle. Husk: skriftligt samtykke til navn/billede på sitet, og afklar at vedkommende har ansvarsforsikring, der dækker rådgivningsrollen.
+
+---
+
+## Afsendelsesklare mails — frontperson-kandidater (juni 2026)
+
+*Send fra kontakt@aevia.dk. Hold dem som de er — korte. Ét "ask" pr. mail: et uforpligtende møde.*
+
+### 1) Tobias Schmidt Hansen (via DSLM: kontakt@dslm.dk)
+
+**Emne:** Lægefaglig rolle i dansk forebyggelses-startup — kort forespørgsel
+
+Kære Tobias
+
+Jeg hedder Lucas Mejer Hansen og står bag Aevia Health — en ny dansk virksomhed, der samler akkrediteret, forebyggende diagnostik (blodpanel med 70+ markører, VO2max, billeddiagnostik) i ét forløb med lægefaglig gennemgang. Ingen kosttilskud, ingen løfter om evig ungdom — bare reelle tal, folk kan handle på i tide.
+
+Jeg skriver til dig, fordi dit arbejde i Dansk Selskab for Livsstilsmedicin rammer præcis den evidensbaserede tilgang, vi bygger på. Vi søger en læge, der vil være vores lægefaglige ansvarlige — i første omgang få timer om ugen med gennemgang af kunderapporter (kan klares remote), og med mulighed for at vokse med os.
+
+Kunne du være åben for et kort videomøde (15 min), hvor jeg fortæller mere? Det forpligter ikke til noget. Og rammer rollen ikke dig, er jeg taknemmelig for et peg mod et DSLM-medlem, den kunne passe til.
+
+Venlig hilsen
+Lucas Mejer Hansen
+Aevia Health · aevia.dk · +45 28 30 39 33
+
+### 2) Pia Norup (kontaktformular på omniaclinic.dk eller LinkedIn)
+
+**Emne:** Samarbejde om forebyggende diagnostik — kort forespørgsel
+
+Kære Pia
+
+Jeg hedder Lucas Mejer Hansen og står bag Aevia Health — vi samler akkrediteret diagnostik (70+ blodmarkører, VO2max, helkrops-MR) i ét forløb og kobler det til en personlig rapport og lægefaglig 1:1-gennemgang. Vores mission ligner din: at folk skal kende deres tal, før symptomerne kommer.
+
+Du er en af de få danske læger, der både har den faglige dybde i forebyggelse og erfaringen med at formidle den bredt. Jeg vil gerne høre, om et samarbejde kunne være interessant — fra lægefaglig gennemgang af rapporter til en mere synlig faglig rolle, alt efter hvad der passer din praksis.
+
+Har du 15 minutter til en uforpligtende snak over video eller kaffe?
+
+Venlig hilsen
+Lucas Mejer Hansen
+Aevia Health · aevia.dk · +45 28 30 39 33
+
+### 3) Jerk W. Langer (via jerk.dk)
+
+**Emne:** Forebyggelse med tal i stedet for fornemmelser — kort forespørgsel
+
+Kære Jerk
+
+Jeg hedder Lucas Mejer Hansen og står bag Aevia Health. Vi måler det, du har talt om i årevis: inflammation (hs-CRP), blodsukker, lipider og kondition — 70+ markører samlet i én rapport med lægefaglig gennemgang, så folk kan se sort på hvidt, hvad deres livsstil gør ved kroppen.
+
+Dit arbejde har gjort antiinflammatorisk livsstil til et begreb i Danmark, og jeg tror, vores målinger og din formidling kunne løfte hinanden — fx som fagligt samarbejde, fælles indhold eller en ambassadørrolle, hvis det skulle give mening for dig.
+
+Må jeg byde på 15 minutters uforpligtende videomøde, hvor jeg viser, hvad vi laver?
+
+Venlig hilsen
+Lucas Mejer Hansen
+Aevia Health · aevia.dk · +45 28 30 39 33
+
+### 4) Imran Rashid (LinkedIn-besked — kortere format)
+
+Hej Imran. Jeg bygger Aevia Health: forebyggende helbredstjek (70+ blodmarkører, biologisk alder, VO2max) med lægefaglig gennemgang — ingen hype, bare tal folk kan handle på. Vi søger en læge med startup-forståelse til en lægefaglig rolle (fleksibel, remote). Din profil er oplagt. Har du 15 min til en uforpligtende snak? Mvh Lucas, aevia.dk
+
+### 5) LinkedIn-opslag (til at finde "arbejdshesten")
+
+**Læge søges: lægefaglig konsulent til forebyggende helbredstjek (2-5 t/uge, remote)**
+
+Aevia Health samler akkrediteret diagnostik — blodpanel (70+ markører), biologisk alder, VO2max og billeddiagnostik — i én personlig rapport. Vi søger en læge (gerne speciallæge i almen eller intern medicin, også gerne deltid/pensioneret), der vil:
+
+• Gennemgå og godkende kunderapporter (remote, fleksibelt)
+• Tage 1:1-videogennemgange med kunder
+• Være vores lægefaglige ansvarlige i takt med at vi vokser
+
+Honorar pr. rapport eller fast aftale — det finder vi ud af sammen. Skriv til kontakt@aevia.dk eller PM. Aevia.dk
+
+---
+
+*Opfølgning: intet svar efter 7 dage → én venlig rykker ("Jeg ved, indbakken er lang — skal jeg lukke forespørgslen, eller vil du have 15 min i næste uge?"). Derefter videre til næste kandidat.*
+
+
 ## Næste skridt
 1. Start med Nicklas Brendborg (højest sandsynlighed for svar).
 2. Send den korte mail nedenfor.
