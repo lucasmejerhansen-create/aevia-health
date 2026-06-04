@@ -4,6 +4,7 @@
   "private": true,
   "description": "Aevia Health — statisk site med Stripe Checkout via Vercel serverless-funktion.",
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "stripe": "^16.12.0"
   }
 }
