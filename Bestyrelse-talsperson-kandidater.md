@@ -46,7 +46,7 @@ Rollen her er en anden end advisory board: en læge, hvis navn og ansigt må st�
 - **Hvem:** Læge, en af Danmarks mest profilerede inden for funktionel medicin. 20 års erfaring, 4 bøger, foredragsholder, egen klinik (Omnia Clinic / Roots). Uddannet ved Institute for Functional Medicine.
 - **Hvorfor:** Vant til kommercielt samarbejde, stærk formidler, arbejder allerede forebyggende og datadrevet. Målgruppen kender typen.
 - **Caveat:** "Funktionel medicin" deler vandene fagligt — afklar at Aevias profil er klassisk evidensbaseret diagnostik.
-- **Kontaktvej:** omniaclinic.dk (kontaktformular) eller LinkedIn.
+- **Kontaktvej:** info@omniaclinic.dk (att. Pia Norup) · +45 29 92 73 79 · eller LinkedIn.
 - **Realisme:** Middel-høj.
 
 ### B. Tobias Schmidt Hansen — bedste faglige match blandt praktiserende
@@ -58,7 +58,7 @@ Rollen her er en anden end advisory board: en læge, hvis navn og ansigt må st�
 ### C. Jerk W. Langer — størst folkelig gennemslagskraft blandt læger
 - **Hvem:** Læge, videnskabsjournalist og forfatter; har gjort antiinflammatorisk livsstil til et kendt begreb i DK. Booker fast foredrag landet over.
 - **Hvorfor:** Enorm folkelig troværdighed på forebyggelse; vant til kommercielle samarbejder (foredrag, bøger).
-- **Kontaktvej:** jerk.dk (egen side med kontakt) eller via foredragsbureauer (Athenas, bookforedrag.dk).
+- **Kontaktvej:** post@langer.dk (fra jerk.dk) eller via foredragsbureauer (Athenas, bookforedrag.dk).
 - **Realisme:** Middel — vil formentlig hellere være ambassadør/foredragspartner end fast lægefagligt ansvarlig.
 
 ### D. Imran Rashid — iværksætter-lægen
