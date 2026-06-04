@@ -33,6 +33,15 @@ const PACKAGES = {
   },
 };
 
+// Gavekort — beløb i øre (inkl. moms). Købes via /api/checkout?pkg=gavekort&beloeb=<nøgle>
+const GIFTCARDS = {
+  "1000":  { name: "Gavekort til Aevia — 1.000 kr.",  amount: 100000 },
+  "2500":  { name: "Gavekort til Aevia — 2.500 kr.",  amount: 250000 },
+  "5000":  { name: "Gavekort til Aevia — 5.000 kr.",  amount: 500000 },
+  "core":  { name: "Gavekort til Aevia — Core-forløb", amount: 1099500, description: "Et komplet Aevia Core-helbredstjek i gave: biologisk alder, fuldt blodpanel (70+ markører) og 1:1 lægegennemgang." },
+  "plus":  { name: "Gavekort til Aevia — Plus-forløb", amount: 1849500, description: "Et komplet Aevia Plus-forløb i gave: alt i Core + VO2max og fuldt hormonpanel." },
+};
+
 // Valgfrie tilvalg — beløb i øre (inkl. moms). Skal matche priserne på pakker.html.
 const ADDONS = {
   vo2max:   { name: "Tilvalg: VO2max-test",                        amount: 189500 },
@@ -45,7 +54,19 @@ const ADDONS = {
 export default async function handler(req, res) {
   try {
     const pkg = String(req.query.pkg || "").toLowerCase();
-    const item = PACKAGES[pkg];
+
+    // Gavekort: /api/checkout?pkg=gavekort&beloeb=1000|2500|5000|core|plus
+    let item = PACKAGES[pkg];
+    let isGift = false;
+    if (pkg === "gavekort") {
+      const beloeb = String(req.query.beloeb || "").toLowerCase();
+      item = GIFTCARDS[beloeb];
+      isGift = true;
+      if (!item) {
+        res.status(400).send("Ukendt gavekortbeløb. Gå tilbage og vælg igen.");
+        return;
+      }
+    }
 
     if (!item) {
       res.status(400).send("Ukendt pakke. Gå tilbage og vælg en pakke.");
@@ -97,13 +118,19 @@ export default async function handler(req, res) {
       billing_address_collection: "required",
       phone_number_collection: { enabled: true },
       custom_fields: [
-        {
-          key: "navn_paa_testperson",
-          label: { type: "custom", custom: "Fulde navn på personen der testes" },
-          type: "text",
-        },
+        isGift
+          ? {
+              key: "modtager_navn",
+              label: { type: "custom", custom: lang === "en" ? "Recipient's name (for the gift card)" : "Modtagerens navn (til gavekortet)" },
+              type: "text",
+            }
+          : {
+              key: "navn_paa_testperson",
+              label: { type: "custom", custom: "Fulde navn på personen der testes" },
+              type: "text",
+            },
       ],
-      metadata: { pakke: pkg, tilvalg: valgteTilvalg.join(",") },
+      metadata: { pakke: pkg, tilvalg: valgteTilvalg.join(","), ...(isGift ? { gavekort: String(req.query.beloeb || "") } : {}) },
       success_url: `${origin}/${lang === "en" ? "en/" : ""}success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/${lang === "en" ? "en/" : ""}pakker.html`,
     });
