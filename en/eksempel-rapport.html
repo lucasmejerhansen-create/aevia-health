@@ -76,6 +76,8 @@ svg .grid{stroke:var(--line)}
 .timeline .tc{color:var(--muted);font-size:.93rem;border-left:2px solid var(--line-2);padding-left:16px}
 </style>
 <style>
+#print-cover{display:none}
+#cats .catrow{cursor:pointer}#cats .catrow:hover .cl{color:var(--gold)}
 .cl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;user-select:none}
 .cl-head .chev{color:var(--gold);font-size:.72em;flex:none;transition:transform .25s ease;line-height:1}
 .cl-head:hover{opacity:.82}
@@ -104,10 +106,18 @@ svg .grid{stroke:var(--line)}
   #aevc-btn,#aevc-panel,.toc-btns,.back,.cta{display:none!important}
   .card.collapsed .cbody,.mgroup.collapsed .gbody{display:block!important}
   .card{break-inside:avoid}
+  #print-cover{display:flex;flex-direction:column;align-items:center;justify-content:center;height:95vh;page-break-after:always;text-align:center}
+  #print-cover .pc-logo{font-family:var(--serif);font-size:3.2rem;font-weight:700;color:var(--text)}
+  #print-cover .pc-title{font-family:var(--serif);font-size:1.7rem;margin-top:16px;color:var(--text)}
+  #print-cover .pc-sub{color:var(--muted);margin-top:8px}
+  #print-cover .pc-date{color:var(--muted-2);margin-top:4px;font-size:.9rem}
+
 }
 </style>
 </head>
 <body>
+<div id="print-cover" aria-hidden="true"><div class="pc-logo">Aevia<span style="color:var(--gold)">.</span></div><div class="pc-title">Confidential health report</div><div class="pc-sub">Anonymous participant · Fictional example</div><div class="pc-date" id="pc-date"></div></div>
+
 <div class="wrap">
   <div class="top">
     <a href="index.html" class="logo">Aevia<span>.</span></a>
@@ -209,6 +219,24 @@ svg .grid{stroke:var(--line)}
     <div id="markers"></div>
   </div>
 
+  <!-- VO2MAX-PERCENTIL -->
+  <div class="card">
+    <h2>Your fitness in perspective</h2>
+    <p class="csub">VO2max 48 ml/kg/min — compared with men your age.</p>
+    <svg viewBox="0 0 640 120" width="100%" role="img" aria-label="VO2max percentile: better than 79 percent of men your age">
+      <rect x="40" y="50" width="168" height="12" rx="6" fill="#e0844b" opacity=".55"/>
+      <rect x="208" y="50" width="168" height="12" fill="#c9a437" opacity=".55"/>
+      <rect x="376" y="50" width="224" height="12" rx="6" fill="#3fb27f" opacity=".55"/>
+      <line x1="320" y1="44" x2="320" y2="68" stroke="#4a5a72" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <text x="320" y="84" fill="#7d8aa0" font-size="11" text-anchor="middle">Average</text>
+      <rect x="480" y="44" width="4" height="24" rx="2" fill="#fff"/>
+      <text x="482" y="34" fill="#c9a437" font-size="13" font-weight="600" text-anchor="middle">79th percentile</text>
+      <text x="40" y="84" fill="#94a0b2" font-size="11">0</text>
+      <text x="600" y="84" fill="#94a0b2" font-size="11" text-anchor="end">100</text>
+    </svg>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:8px">Your oxygen uptake is better than about <b>79%</b> of men your age. VO2max is one of the strongest single predictors of a long life — and it can be trained at any age.</p>
+  </div>
+
   <!-- GENETICS -->
   <div class="card">
     <h2>Genetic profile</h2>
@@ -223,10 +251,17 @@ svg .grid{stroke:var(--line)}
     <p style="color:var(--muted-2);font-size:.85rem;margin-top:16px">The genetic profile is included in Elite. All findings are interpreted by a physician and are never a diagnosis.</p>
   </div>
 
+    <!-- LIVSSTIL -->
+  <div class="card">
+    <h2>Lifestyle & habits</h2>
+    <p class="csub">Self-reported at your test — part of the physician's overall assessment, because numbers must always be read alongside the life behind them.</p>
+    <div class="mgroup" style="margin-top:4px"><div class="mrow"><div class="mtop"><span class="mn">Sleep — 6.5 hours/night</span><span class="mbadge warn">Attention</span></div><p class="mnote">Below the recommended 7-8 hours. Affects both insulin sensitivity and recovery — the easiest win in your plan.</p></div><div class="mrow"><div class="mtop"><span class="mn">Exercise — 3 sessions/week</span><span class="mbadge ok">Optimal</span></div><p class="mnote">A good balance of cardio and strength. Keep it up.</p></div><div class="mrow"><div class="mtop"><span class="mn">Alcohol — approx. 4 drinks/week</span><span class="mbadge ok">Optimal</span></div><p class="mnote">Below the low-risk threshold.</p></div><div class="mrow"><div class="mtop"><span class="mn">Smoking — never</span><span class="mbadge ok">Optimal</span></div><p class="mnote">The most important single decision is already made.</p></div><div class="mrow"><div class="mtop"><span class="mn">Stress — moderate</span><span class="mbadge warn">Attention</span></div><p class="mnote">Periods of high workload. Watch sleep and resting heart rate in those periods.</p></div></div>
+  </div>
+
   <div class="card">
     <h2>How your biological age is calculated</h2>
     <p class="csub">A short note on the method behind the number.</p>
-    <p style="color:var(--muted)">Your biological age is a model, not a diagnosis. It is calculated from a combination of your biomarkers — including inflammation (hs-CRP), metabolism (HbA1c, albumin), kidney function (eGFR), lipids and blood count — weighted by how strongly each marker relates to ageing in the research. The number is compared with your chronological age, so you can see whether your body ages faster or slower than the calendar — and most importantly, whether it moves over time.</p>
+    <p style="color:var(--muted)">Your biological age is a model, not a diagnosis. It is calculated from a combination of your biomarkers — including inflammation (hs-CRP), metabolism (HbA1c, albumin), kidney function (eGFR), lipids and blood count — weighted by how strongly each marker relates to ageing in the research. The approach builds on published ageing research, including the methods known as PhenoAge. The number is compared with your chronological age, so you can see whether your body ages faster or slower than the calendar — and most importantly, whether it moves over time.</p>
   </div>
 
   <div class="card">
@@ -258,6 +293,14 @@ svg .grid{stroke:var(--line)}
     </ul>
   </div>
 
+    <!-- MÅL -->
+  <div class="card">
+    <h2>Your targets for the next test</h2>
+    <p class="csub">What we measure your progress against at the 12-month re-test.</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.93rem"><tr><th style="text-align:left;padding:4px 8px;color:var(--muted-2);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600">Marker</th><th style="text-align:left;padding:4px 8px;color:var(--muted-2);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600">Now</th><th style="text-align:left;padding:4px 8px;color:var(--muted-2);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600">Target in 12 mo.</th></tr><tr><td style="padding:10px 8px;color:var(--text);border-top:1px solid var(--line)">ApoB</td><td style="padding:10px 8px;color:var(--muted);border-top:1px solid var(--line)">1.15 g/L</td><td style="padding:10px 8px;color:var(--gold);font-weight:600;border-top:1px solid var(--line)">Below 0.9</td></tr><tr><td style="padding:10px 8px;color:var(--text);border-top:1px solid var(--line)">Fasting insulin</td><td style="padding:10px 8px;color:var(--muted);border-top:1px solid var(--line)">11 mIU/L</td><td style="padding:10px 8px;color:var(--gold);font-weight:600;border-top:1px solid var(--line)">Below 7</td></tr><tr><td style="padding:10px 8px;color:var(--text);border-top:1px solid var(--line)">Vitamin D</td><td style="padding:10px 8px;color:var(--muted);border-top:1px solid var(--line)">42 nmol/L</td><td style="padding:10px 8px;color:var(--gold);font-weight:600;border-top:1px solid var(--line)">75-120</td></tr><tr><td style="padding:10px 8px;color:var(--text);border-top:1px solid var(--line)">LDL cholesterol</td><td style="padding:10px 8px;color:var(--muted);border-top:1px solid var(--line)">3.4 mmol/L</td><td style="padding:10px 8px;color:var(--gold);font-weight:600;border-top:1px solid var(--line)">Below 3.0</td></tr><tr><td style="padding:10px 8px;color:var(--text);border-top:1px solid var(--line)">VO2max</td><td style="padding:10px 8px;color:var(--muted);border-top:1px solid var(--line)">48 ml/kg/min</td><td style="padding:10px 8px;color:var(--gold);font-weight:600;border-top:1px solid var(--line)">At least 48 — maintain</td></tr></table>
+    <p style="color:var(--muted-2);font-size:.85rem;margin-top:12px">Targets are set by the physician based on your overall profile — not generic reference values.</p>
+  </div>
+
   <div class="card">
     <h2>The next 12 months</h2>
     <p class="csub">How we follow up on your plan.</p>
@@ -266,6 +309,7 @@ svg .grid{stroke:var(--line)}
       <div class="ti"><div class="td">3 mo.</div><div class="tc">Short follow-up (optional): adjust the plan, possibly a mini re-test of ApoB and insulin.</div></div>
       <div class="ti"><div class="td">12 mo.</div><div class="tc">Full re-test of core markers — we measure progress in black and white (included in membership).</div></div>
     </div>
+      <div style="margin-top:18px"><button type="button" id="ics-btn" class="toc-btn">Add follow-ups to your calendar</button><p style="color:var(--muted-2);font-size:.82rem;margin-top:8px">Adds the 3-month check and the annual re-test to your calendar.</p></div>
   </div>
 
   <!-- WHAT NOW -->
@@ -295,12 +339,12 @@ svg .grid{stroke:var(--line)}
 (function(){
   var C={ok:'#3fb27f',warn:'#c9a437',low:'#e0844b'};
   var EX={
-   'ApoB':{pc:'41%',d:'▼ 0.08',g:1},'LDL cholesterol':{pc:'45%',d:'▼ 0.2',g:1},'Lp(a)':{pc:'88%',d:'stable'},
-   'HbA1c':{pc:'72%',d:'▼ 1',g:1},'Fasting insulin':{pc:'35%',d:'▲ 0.8',g:0},
-   'hs-CRP':{pc:'84%',d:'▼ 0.2',g:1},'Homocysteine':{pc:'60%',d:'stable'},
-   'Vitamin D':{pc:'22%',d:'▼ 6',g:0},'Ferritin':{pc:'66%',d:'stable'},
-   'VO2max':{pc:'79%',d:'▲ 3',g:1},'Testosterone':{pc:'55%',d:'stable'},
-   'ALT':{pc:'70%',d:'▼ 4',g:1},'GGT':{pc:'74%',d:'▼ 3',g:1},'eGFR':{pc:'68%',d:'stable'},
+   'ApoB':{pc:'41%',d:'▼ 0.08',g:1,pv:'1.23 g/L'},'LDL cholesterol':{pc:'45%',d:'▼ 0.2',g:1,pv:'3.6 mmol/L'},'Lp(a)':{pc:'88%',d:'stable'},
+   'HbA1c':{pc:'72%',d:'▼ 1',g:1,pv:'34 mmol/mol'},'Fasting insulin':{pc:'35%',d:'▲ 0.8',g:0,pv:'10.2 mIU/L'},
+   'hs-CRP':{pc:'84%',d:'▼ 0.2',g:1,pv:'0.8 mg/L'},'Homocysteine':{pc:'60%',d:'stable'},
+   'Vitamin D':{pc:'22%',d:'▼ 6',g:0,pv:'48 nmol/L'},'Ferritin':{pc:'66%',d:'stable'},
+   'VO2max':{pc:'79%',d:'▲ 3',g:1,pv:'45 ml/kg/min'},'Testosterone':{pc:'55%',d:'stable'},
+   'ALT':{pc:'70%',d:'▼ 4',g:1,pv:'32 U/L'},'GGT':{pc:'74%',d:'▼ 3',g:1,pv:'25 U/L'},'eGFR':{pc:'68%',d:'stable'},
    'Hemoglobin':{pc:'58%',d:'stable'},'White blood cells':{pc:'60%',d:'stable'},'TSH':{pc:'62%',d:'stable'}};
 
   var cats=[['Heart & circulation',68,'warn'],['Metabolism & blood sugar',74,'warn'],['Inflammation',94,'ok'],['Vitamins & minerals',58,'low'],['Fitness',90,'ok'],['Hormones',86,'ok']];
@@ -349,7 +393,7 @@ svg .grid{stroke:var(--line)}
     var bench=ex.pc?'<div class="bench">Benchmark: better than <b>'+ex.pc+'</b> for your age</div>':'';
     return '<div class="mrow"><div class="mtop"><span class="mn">'+m.n+'</span><span class="mtags">'+dl+'<span class="mbadge '+m.s+'">'+m.sl+'</span></span></div>'+
       '<div class="track">'+segs+'<span class="needle" style="left:'+pos+'%"></span></div>'+
-      '<div class="mmeta"><span class="val">'+m.disp+'</span><span>'+m.opt+'</span></div>'+
+      '<div class="mmeta"><span class="val">'+m.disp+'</span>'+(ex.pv?'<span style="color:var(--muted-2)">Last test: '+ex.pv+'</span>':'')+'<span>'+m.opt+'</span></div>'+
       '<div class="mnote">'+m.note+'</div>'+bench+'</div>';
   }
   document.getElementById('markers').innerHTML=groups.map(function(g){
@@ -541,6 +585,31 @@ svg .grid{stroke:var(--line)}
     h.addEventListener('click',tg);
     h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});
   });
+  [].slice.call(document.querySelectorAll('#cats .catrow')).forEach(function(row){
+    row.addEventListener('click',function(){
+      var name=((row.querySelector('.cl')||{}).textContent||'').toLowerCase();
+      var gs=[].slice.call(document.querySelectorAll('.mgroup'));
+      for(var i=0;i<gs.length;i++){
+        var h=gs[i].querySelector('h3'); if(!h)continue;
+        var t=h.textContent.replace('▾','').trim().toLowerCase();
+        if(t.indexOf(name)>-1||name.indexOf(t)>-1||t.split(' ')[0]===name.split(' ')[0]&&name.length>3){
+          gs[i].classList.remove('collapsed');
+          var card=gs[i].closest('.card'); if(card)card.classList.remove('collapsed');
+          gs[i].scrollIntoView({behavior:'smooth',block:'start'}); return;
+        }
+      }
+    });
+  });
+  var icsBtn=document.getElementById('ics-btn');
+  if(icsBtn){icsBtn.addEventListener('click',function(){
+    function dd(days){var t=new Date();t.setDate(t.getDate()+days);return t.toISOString().slice(0,10).replace(/-/g,'');}
+    var ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Aevia//Report//DA\r\n'
+     +'BEGIN:VEVENT\r\nUID:aevia-3m-'+Date.now()+'@aevia.dk\r\nDTSTART;VALUE=DATE:'+dd(90)+'\r\nSUMMARY:Aevia: 3-month follow-up\r\nDESCRIPTION:Book at aevia.dk/book.html\r\nEND:VEVENT\r\n'
+     +'BEGIN:VEVENT\r\nUID:aevia-12m-'+Date.now()+'@aevia.dk\r\nDTSTART;VALUE=DATE:'+dd(365)+'\r\nSUMMARY:Aevia: annual re-test\r\nDESCRIPTION:Book at aevia.dk/book.html\r\nEND:VEVENT\r\nEND:VCALENDAR';
+    var a=document.createElement('a');a.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);a.download='aevia-opfoelgning.ics';document.body.appendChild(a);a.click();a.remove();
+  });}
+  var pcd=document.getElementById('pc-date');
+  if(pcd)pcd.textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
   if(items.length>1){
     var toc=document.createElement('div'); toc.className='card toc-card';
     toc.innerHTML='<div class="toc-top" style="margin:0;justify-content:flex-end"><div class="toc-btns"><button type="button" class="toc-btn" id="foldall"></button><button type="button" class="toc-btn" id="printrep">'+T.print+'</button></div></div>';
