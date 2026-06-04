@@ -10,36 +10,36 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Pakkerne — beløb i øre (ekskl. moms), i danske kroner.
-// 8.900 kr = 890000 øre osv. Skal matche priserne på pakker.html.
+// Pakkerne — beløb i øre (inkl. moms), i danske kroner.
+// 10.995 kr = 1099500 øre osv. Skal matche priserne på pakker.html.
 const PACKAGES = {
   core: {
     name: "Aevia Core",
-    amount: 890000,
+    amount: 1099500,
     description:
       "Biologisk alder, fuld blodpanel (70+ markører), metabolisk & kardiovaskulær risikoprofil + 1:1 lægegennemgang.",
   },
   executive: {
     name: "Aevia Executive",
-    amount: 1490000,
+    amount: 1849500,
     description:
       "Alt i Core + VO2max, fuldt hormonpanel og personlig protokol med målbare KPI'er.",
   },
   elite: {
     name: "Aevia Elite",
-    amount: 2990000,
+    amount: 3699500,
     description:
       "Alt i Executive + helkrops-MRI (uden kontrast), genetisk profil og 3-måneders follow-up med re-test.",
   },
 };
 
-// Valgfrie tilvalg — beløb i øre (ekskl. moms). Skal matche priserne på pakker.html.
+// Valgfrie tilvalg — beløb i øre (inkl. moms). Skal matche priserne på pakker.html.
 const ADDONS = {
-  vo2max:   { name: "Tilvalg: VO2max-test",                        amount: 150000 },
-  hormon:   { name: "Tilvalg: Fuldt hormonpanel",                  amount: 180000 },
-  mri:      { name: "Tilvalg: Helkrops-MRI (uden kontrast)",       amount: 950000 },
-  genetik:  { name: "Tilvalg: Genetisk profil & risikobærere",     amount: 350000 },
-  followup: { name: "Tilvalg: 3-måneders follow-up med re-test",   amount: 290000 },
+  vo2max:   { name: "Tilvalg: VO2max-test",                        amount: 189500 },
+  hormon:   { name: "Tilvalg: Fuldt hormonpanel",                  amount: 229500 },
+  mri:      { name: "Tilvalg: Helkrops-MRI (uden kontrast)",       amount: 1189500 },
+  genetik:  { name: "Tilvalg: Genetisk profil & risikobærere",     amount: 439500 },
+  followup: { name: "Tilvalg: 3-måneders follow-up med re-test",   amount: 359500 },
 };
 
 export default async function handler(req, res) {
@@ -62,7 +62,7 @@ export default async function handler(req, res) {
     // så betalingen virker med det samme i testfasen.
     const enableTax = process.env.STRIPE_ENABLE_TAX === "true";
 
-    // Byg et line item ud fra navn + beløb (ekskl. moms).
+    // Byg et line item ud fra navn + beløb (inkl. moms).
     const lineItem = (name, amount, description) => ({
       quantity: 1,
       price_data: {

@@ -16,9 +16,9 @@ OM AEVIA
 - Vi driver IKKE egen klinik. Vi koordinerer gennem akkrediterede laboratorier, billeddiagnostiske centre og læger. Lov aldrig konkrete navngivne partnere, der ikke er bekræftet.
 - Vi måler 70+ biomarkører, beregner biologisk alder, og tilbyder VO2max og hormonpanel (fra Plus) samt helkrops-MRI og genetisk profil (Elite).
 
-PRISER (ekskl. moms)
-- Pakker: Aevia Core 8.900 kr, Aevia Plus 14.900 kr, Aevia Elite 29.900 kr. Virksomhedsaftaler fra 120.000 kr.
-- Årligt medlemskab efter første forløb: Longevity Basis 3.900 kr/år, Longevity Plus 6.900 kr/år.
+PRISER (inkl. moms)
+- Pakker: Aevia Core 10.995 kr, Aevia Plus 18.495 kr, Aevia Elite 36.995 kr. Virksomhedsaftaler fra 150.000 kr.
+- Årligt medlemskab efter første forløb: Longevity Basis 4.895 kr/år, Longevity Plus 8.595 kr/år.
 - Henvisning: henviser man en, der gennemfører sit første forløb, får begge 1.500 kr. Gavekort kan bestilles.
 
 PRAKTISK
