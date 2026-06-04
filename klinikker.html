@@ -3,25 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D-vitamin-mangel | Aevia Health</title>
-<meta name="description" content="En stor del af danskerne har lavt D-vitamin, især om vinteren. Hvad det betyder for energi, immunforsvar og knogler, og hvorfor du bør måle frem for at gætte.">
+<title>Klinikker | Aevia Health, se hvad der er tæt på dig</title>
+<meta name="description" content="Aevia koordinerer hele dit forløb ved færrest mulige fremmøder. Se på kortet, hvilke akkrediterede klinikker vi samarbejder med i hele Danmark, tæt på dig.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://aevia.dk/d-vitamin-mangel.html">
-<meta property="og:type" content="article">
+<link rel="canonical" href="https://aevia.dk/klinikker.html">
+<link rel="alternate" hreflang="da" href="https://aevia.dk/klinikker.html">
+<link rel="alternate" hreflang="en" href="https://aevia.dk/en/klinikker.html">
+<link rel="alternate" hreflang="x-default" href="https://aevia.dk/klinikker.html">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="Aevia Health">
-<meta property="og:title" content="D-vitamin-mangel | Aevia Health">
-<meta property="og:description" content="En stor del af danskerne har lavt D-vitamin, især om vinteren. Hvad det betyder for energi, immunforsvar og knogler, og hvorfor du bør måle frem for at gætte.">
-<meta property="og:url" content="https://aevia.dk/d-vitamin-mangel.html">
+<meta property="og:title" content="Klinikker | Aevia Health, se hvad der er tæt på dig">
+<meta property="og:description" content="Aevia koordinerer hele dit forløb ved færrest mulige fremmøder. Se på kortet, hvilke akkrediterede klinikker vi samarbejder med i hele Danmark.">
+<meta property="og:url" content="https://aevia.dk/klinikker.html">
 <meta property="og:image" content="https://aevia.dk/og-image.png">
 <meta name="theme-color" content="#0a1628">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><link rel="manifest" href="manifest.json">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "D-vitamin: Danmarks mest udbredte mangel", "description": "En stor del af danskerne har lavt D-vitamin, især om vinteren. Hvad det betyder for energi, immunforsvar og knogler, og hvorfor du bør måle frem for at gætte.", "author": {"@type": "Organization", "name": "Aevia Health"}, "publisher": {"@type": "Organization", "name": "Aevia Health"}, "datePublished": "2026-05-02", "mainEntityOfPage": "https://aevia.dk/d-vitamin-mangel.html"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Forside", "item": "https://aevia.dk/"}, {"@type": "ListItem", "position": 2, "name": "Indsigter", "item": "https://aevia.dk/indsigter.html"}, {"@type": "ListItem", "position": 3, "name": "D-vitamin: Danmarks mest udbredte mangel", "item": "https://aevia.dk/d-vitamin-mangel.html"}]}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css">
+<script src="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js"></script>
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0a1628">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Forside","item":"https://aevia.dk/"},{"@type":"ListItem","position":2,"name":"Klinikker","item":"https://aevia.dk/klinikker.html"}]}</script>
 <style>:root{
   --navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;
   --text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;
@@ -278,7 +284,6 @@ footer.site{border-top:1px solid var(--line);padding:66px 0 36px;background:var(
 /* blog thumbnails */
 .media-thumb{position:relative;margin:-32px -32px 22px;aspect-ratio:16/9;overflow:hidden;background:var(--navy-3);border-bottom:1px solid var(--line)}
 .media-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.media-thumb svg{width:100%;height:100%;display:block}
 .media-thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 50px 8px rgba(10,22,40,.5)}
 @media(max-width:820px){
   .yrow{grid-template-columns:1fr;gap:24px;padding:28px 0}
@@ -297,8 +302,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lang-li a:hover{color:var(--text)}
 .lang-li a.lang-active{color:var(--gold);font-weight:600}
 .lang-li .sep{color:var(--line-2)}
+/* Klinik-kort */
+.map-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--navy-3)}
+#aevia-map{height:480px;width:100%;background:var(--navy-3)}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+.map-legend .leg{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.map-legend .leg i{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.35)}
+.clinic{padding:18px}
+.clinic .ctop{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.clinic .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.clinic .cat{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+.clinic h3{font-size:.95rem;margin-bottom:1px;line-height:1.25}
+.clinic .city{color:var(--gold);font-size:.8rem;margin-bottom:6px}
+.clinic p{font-size:.84rem;line-height:1.45}
+.clinic{cursor:pointer}
+.clinic:hover{border-color:var(--gold)}
+.clinic:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.leaflet-popup-content-wrapper{background:var(--navy-2);color:var(--text);border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.leaflet-popup-content{font-family:var(--sans);margin:15px 18px 16px;line-height:1.5}
+.leaflet-popup-tip{background:var(--navy-2)}
+.leaflet-popup-close-button{color:var(--muted-2)!important;top:9px!important;right:10px!important;font-size:20px!important;font-weight:400!important}
+.leaflet-popup-close-button:hover{color:var(--text)!important;background:transparent!important}
+.pop-t{display:block;font-family:var(--serif);font-size:1.05rem;color:var(--text);font-weight:600;margin-bottom:4px;padding-right:14px}
+.pop-s{display:block;color:var(--muted);font-size:.9rem}
+.pop-a{display:block;color:var(--muted-2);font-size:.8rem;margin-top:5px}
+.pop-cta{display:inline-block;margin-top:11px;font-size:.82rem;font-weight:600;color:var(--gold)}
+.pop-cta:hover{color:var(--gold-deep)}
+.leaflet-popup-content a.pop-cta{color:var(--gold)}
 .foot-social{display:flex;gap:10px;margin-top:18px}.foot-social a{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s,border-color .2s}.foot-social a:hover{color:var(--gold);border-color:var(--gold)}.foot-social svg{width:18px;height:18px}</style>
-
 </head>
 <body>
 <a class="skiplink" href="#main">Spring til indhold</a>
@@ -315,37 +346,92 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <li><a href="privat.html">Private</a></li>
         <li><a href="virksomheder.html">Virksomheder</a></li>
         <li><a href="proces.html">Sådan virker det</a></li>
-        <li><a class="active" href="indsigter.html">Indsigter</a></li>
+        <li><a class="active" href="klinikker.html">Klinikker</a></li>
+        <li><a href="indsigter.html">Indsigter</a></li>
         <li><a href="om-os.html">Om Aevia</a></li>
         <li><a class="nav-cta" href="book.html">Book dit check</a></li>
       
-        <li class="lang-li"><a href="d-vitamin-mangel.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/d-vitamin-mangel.html" hreflang="en" aria-label="Switch to English">EN</a></li>
+        <li class="lang-li"><a href="klinikker.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/klinikker.html" hreflang="en" aria-label="Switch to English">EN</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <a id="main" tabindex="-1"></a>
-<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Forside</a> / <a href="indsigter.html">Indsigter</a> / Artikel</div><span class="eyebrow">Mangeltjek</span><h1 style="max-width:24ch">D-vitamin: Danmarks mest udbredte mangel</h1></div></section>
-<section style="padding-bottom:0"><div class="container"><div class="banner"><svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration af sol, D-vitamin" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="bgdvit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#142840"/><stop offset="1" stop-color="#0a1628"/></linearGradient><radialGradient id="gldvit" cx="80%" cy="16%" r="62%"><stop offset="0" stop-color="#c9a437" stop-opacity=".20"/><stop offset="1" stop-color="#c9a437" stop-opacity="0"/></radialGradient></defs><rect width="800" height="450" fill="url(#bgdvit)"/><rect width="800" height="450" fill="url(#gldvit)"/><g stroke="#1d2c42" stroke-width="1.5" opacity=".45"><line x1="0" y1="372" x2="800" y2="372"/></g><g transform="translate(400,200)" fill="none" stroke="#c9a437" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle r="38"/><g stroke-width="6"><line x1="0" y1="-58" x2="0" y2="-86"/><line x1="0" y1="58" x2="0" y2="86"/><line x1="-58" y1="0" x2="-86" y2="0"/><line x1="58" y1="0" x2="86" y2="0"/><line x1="-41" y1="-41" x2="-61" y2="-61"/><line x1="41" y1="-41" x2="61" y2="-61"/><line x1="-41" y1="41" x2="-61" y2="61"/><line x1="41" y1="41" x2="61" y2="61"/></g></g><text x="40" y="410" fill="#aab4c2" font-family="Inter,Arial,sans-serif" font-size="21" letter-spacing="4" font-weight="700">MANGEL</text></svg></div></div></section>
-<section><div class="container"><article class="prose" style="margin:0 auto">
-<p class="lead">Vi bor for langt mod nord til at få nok D-vitamin fra solen halvdelen af året. Resultatet er en mangel, der er udbredt, symptomfattig, og let at rette, når man kender sit tal.</p>
-<p class="muted" style="font-size:.85rem;letter-spacing:.03em;margin-bottom:6px">Læsetid 4 min · Opdateret maj 2026 · Aevia Indsigter</p>
-<div class="panel" style="margin:26px 0"><span class="eyebrow" style="margin-bottom:10px">Kort fortalt</span><ul style="list-style:none;margin:0"><li>En stor andel af danskerne har lavt D-vitamin, særligt oktober–marts.</li><li>Mangel kan påvirke energi, immunforsvar, humør og knogler.</li><li>Symptomerne er vage, måling er den eneste pålidelige vej.</li><li>Tilskud er billigt og effektivt, men dosis bør tilpasses dit niveau.</li></ul></div>
-<h2>Hvorfor mangler så mange?</h2>
-<p>D-vitamin dannes i huden ved sollys. På danske breddegrader er solen for svag fra efterår til forår, og indendørs arbejde forstærker problemet.</p>
-<h2>Hvad mangel betyder</h2>
-<p>Lavt D-vitamin er forbundet med træthed, svækket immunforsvar, dårligere knoglesundhed og muligvis humørpåvirkning. Det er sjældent dramatisk, men det tærer.</p>
-<h2>Mål frem for at gætte</h2>
-<p>Behovet for tilskud afhænger af dit aktuelle niveau. En blodprøve fortæller, om du mangler, og hvor meget du bør supplere, i stedet for at tage en tilfældig dosis.</p>
-<h2>Ofte stillede spørgsmål</h2>
-<div class="faq" style="margin-top:14px">
-<details><summary>Kan jeg bare tage et tilskud for en sikkerheds skyld?<span class="plus"></span></summary><p>Et moderat tilskud er sikkert for de fleste om vinteren, men en måling sikrer, at du rammer rigtigt, hverken for lidt eller for meget.</p></details>
-<details><summary>Indgår D-vitamin i Aevia?<span class="plus"></span></summary><p>Ja, som en del af vitamin- og mineralpanelet (mangeltjek).</p></details>
-</div>
-<p class="muted" style="font-size:.85rem;margin-top:24px">Denne artikel er generel information og erstatter ikke individuel lægefaglig rådgivning.</p>
-</article>
-<div class="cta-band" style="margin-top:56px"><span class="eyebrow">Næste skridt</span><h2>Kend dine egne tal</h2><p class="lead">En artikel forklarer princippet. Din rapport forklarer dig.</p><div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book dit helbredstjek</a><a href="indsigter.html" class="btn btn-ghost">Flere indsigter</a></div></div>
-</div></section>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Forside</a> / Klinikker</div>
+    <span class="eyebrow">Klinikker</span>
+    <h1>Alt samlet. Færrest mulige fremmøder.</h1>
+    <p class="lead" style="margin-top:18px">Du booker ét sted, så koordinerer vi resten. Det meste af dit forløb klares på én klinik tæt på dig, og kun de specialiserede trin (VO2max, MR, genetik) foregår separat. Se på kortet, hvad der ligger i nærheden af dig.</p>
+  </div>
+</section>
+
+<section style="padding-top:40px">
+  <div class="container">
+    <div class="map-card"><div id="aevia-map" aria-label="Kort over klinikker i Danmark"></div></div>
+    <div class="map-legend" id="map-legend"></div>
+    <p class="muted" style="font-size:.84rem;margin-top:16px;max-width:70ch">Klinikkerne er udvalgte, akkrediterede udbydere, vi koordinerer diagnostikken hos. Placeringer på kortet er vejledende, vi bekræfter altid den nærmeste mulighed for dig, når du booker.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="grid grid-4" id="clinic-grid"></div>
+  </div>
+</section>
+
+<section style="background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center" style="margin-bottom:44px"><span class="eyebrow">Færrest mulige fremmøder</span><h2>Du booker én gang, vi binder forløbet sammen</h2><p class="lead">I stedet for at jagte tider fem forskellige steder samler vi det hele i så få besøg som muligt, så tæt på dig som muligt.</p></div>
+    <div class="grid grid-3 steps" style="display:grid;gap:18px">
+      <div class="step"><div class="n"></div><h3>Ét blodbesøg dækker det meste</h3><p>Core og Executive bygger på blod, biomarkører og hormoner, der typisk tages på én klinik på under to timer.</p></div>
+      <div class="step"><div class="n"></div><h3>Specialtrin lægges oven på</h3><p>VO2max, helkrops-MR og genetik foregår hos specialiserede partnere, og vi vælger dem, der ligger tættest på dig.</p></div>
+      <div class="step"><div class="n"></div><h3>Vi booker det hele for dig</h3><p>Du skal ikke koordinere noget selv. Vi finder tider, samler svar og leverer én rapport.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container"><div class="cta-band">
+    <span class="eyebrow">Klar?</span>
+    <h2>Find ud af, hvad der er tæt på dig</h2>
+    <p class="lead">Book en uforpligtende samtale, så koordinerer vi dit forløb ved de nærmeste klinikker.</p>
+    <div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book dit check<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="pakker.html" class="btn btn-ghost">Se pakker</a></div>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  var cats={net:{c:'#c9a437',navn:'Kommende partnerklinik-område'}};
+  var clinics=[{navn:'København-området',by:'Hovedstaden',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:55.6761,lng:12.5683},{navn:'Aarhus-området',by:'Østjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:56.1572,lng:10.2107},{navn:'Odense-området',by:'Fyn',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:55.4038,lng:10.4024},{navn:'Aalborg-området',by:'Nordjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:57.0488,lng:9.9217},{navn:'Herning-området',by:'Midt- og Vestjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:56.1389,lng:8.9742}];
+  var leg=document.getElementById('map-legend');
+  Object.keys(cats).forEach(function(k){var s=document.createElement('span');s.className='leg';s.innerHTML='<i style="background:'+cats[k].c+'"></i>'+cats[k].navn;leg.appendChild(s);});
+  var map=null,markers=[];
+  if(window.L){
+    map=L.map('aevia-map',{gestureHandling:true,gestureHandlingOptions:{text:{touch:"Brug to fingre for at flytte kortet",scroll:"Brug Ctrl + scroll for at zoome",scrollMac:"Brug \u2318 + scroll for at zoome"},duration:1200}}).setView([55.9,11.3],6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap, &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+  }
+  var grid=document.getElementById('clinic-grid');
+  clinics.forEach(function(c,idx){
+    var d=document.createElement('div');d.className='card clinic';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','Vis '+c.navn+' p\u00e5 kortet');
+    d.innerHTML='<div class="ctop"><span class="dot" style="background:'+cats[c.kat].c+'"></span><span class="cat">'+cats[c.kat].navn+'</span></div>'+
+      '<h3>'+c.navn+'</h3><p class="city">'+c.by+'</p><p>'+c.ydelse+'</p>'+
+      '<p class="muted" style="font-size:.75rem;margin-top:5px">'+c.adr+'</p>';
+    grid.appendChild(d);
+    if(map){
+      var m=L.circleMarker([c.lat,c.lng],{radius:9,weight:2,color:'#0a1628',fillColor:cats[c.kat].c,fillOpacity:1}).addTo(map);
+      m.bindPopup('<div class="pop"><strong class="pop-t">'+c.navn+'</strong><span class="pop-s">'+c.ydelse+'</span><span class="pop-a">'+c.adr+'</span><a class="pop-cta" href="book.html">Book her \u2192</a></div>');
+      markers[idx]=m;
+      var go=function(){map.flyTo([c.lat,c.lng],12,{duration:.8});m.openPopup();var mc=document.querySelector('.map-card');if(mc)mc.scrollIntoView({behavior:'smooth',block:'center'});};
+      d.addEventListener('click',go);
+      d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+    }
+  });
+  if(map){var pts=clinics.map(function(c){return [c.lat,c.lng];});try{map.fitBounds(pts,{padding:[40,40]});}catch(e){}}
+})();
+</script>
+
 <footer class="site">
   <div class="container">
     <div class="foot-grid">
@@ -360,7 +446,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <h4>Ydelser</h4>
         <ul>
           <li><a href="pakker.html">Aevia Core</a></li>
-          <li><a href="pakker.html">Aevia Plus</a></li>
+          <li><a href="pakker.html">Aevia Executive</a></li>
           <li><a href="pakker.html">Aevia Elite</a></li>
           <li><a href="virksomheder.html">Virksomhedsaftaler</a></li>
         </ul>
@@ -373,6 +459,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <li><a href="indsigter.html">Indsigter</a></li>
           <li><a href="book.html">Book dit check</a></li>
           <li><a href="sammenlign.html">Sammenlign</a></li>
+          <li><a href="klinikker.html">Klinikker</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
@@ -467,56 +554,19 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 (function(){
   /* ── For FULDE AI-svar på alle spørgsmål: deploy backend (se chatbot-backend/README.md)
         og indsæt dens URL her. Uden den bruges den lokale vidensbase nedenfor som fallback. ── */
-  var AEVC_ENDPOINT="/api/chat";
+  var AEVC_ENDPOINT="";
   var GREET="Hej! Jeg er Aevias assistent. Spørg mig om alt, pakker, priser, ydelser, fortrolighed, sundhed og longevity, eller vælg et forslag nedenfor.";
   var FALLBACK="Godt spørgsmål. Det har jeg ikke et præcist svar på her, men det afklarer vi hurtigt: <a href='book.html'>book din tid direkte</a> eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>. Vil du i mellemtiden høre om vores <a href='pakker.html'>pakker</a> eller <a href='ydelser.html'>ydelser</a>?";
-  var KB=[/*GLOS2*/
-   {k:["medlemskab","abonnement","årligt medlem","longevity basis","longevity plus","gentest"],a:"Efter dit første forløb kan du tegne et årligt medlemskab: Longevity Basis 3.900 kr./år eller Plus 6.900 kr./år, med gentest af dine kernemarkører og opfølgning. Se <a href='pakker.html'>Pakker</a>."},
-   {k:["gavekort","forære","forær","gave til"],a:"Ja, du kan give et Aevia-forløb som gavekort, vælg en pakke eller et frit beløb. Skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
-   {k:["henvis","henvisning","anbefale en ven","referral"],a:"Henviser du en, der gennemfører sit første forløb, får I begge 1.500 kr. i kredit."},
-   {k:["par ","familie","sammen som","flere personer"],a:"I kan booke flere forløb sammen (par eller familie), skriv til os for et samlet tilbud."},
-   {k:["faste","fastende","spise før","drikke før","tom mave"],a:"Til de fleste blodprøver skal du faste 8-12 timer før (vand er ok). Du får en præcis forberedelsesguide før din tid."},
-   {k:["gør det ondt","smertefuldt","nåle","nåleskræk","bange for nåle"],a:"En blodprøve er et lille stik og hurtigt overstået. Sig til på dagen, hvis du er nervøs for nåle, så tager vi hensyn."},
-   {k:["hvor ofte","hvor tit","gentage","hvert år"],a:"Vi anbefaler et tjek om året, så du kan følge din udvikling, og det er netop, hvad medlemskabet dækker."},
-   {k:["egen læge","praktiserende","sundhed.dk","forskel på lægen","hvorfor ikke bare"],a:"Din egen læge fokuserer på sygdom her og nu. Aevia er forebyggende: vi måler 70+ markører, beregner biologisk alder og laver en plan, du følger over tid, som supplement, ikke erstatning."},
-   {k:["longevity","leve længere","sundt liv","aldring","ældes"],a:"Longevity handler om at forlænge de raske år, ikke bare leve længe. Vi måler, hvor din krop står, og giver en plan, der flytter tallene."},
-   {k:["eksempel","ser rapporten ud","prøverapport","rapport ud","se en rapport"],a:"Se en anonymiseret <a href='eksempel-rapport.html'>eksempel-rapport</a>, så du ved præcis, hvad du får."},
-   {k:["test min alder","beregn min alder","gratis test","estimat","selvtest"],a:"Prøv vores gratis <a href='biologisk-alder-estimator.html'>test af din biologiske alder</a>, et hurtigt estimat ud fra din livsstil."},
-   {k:["fortryd","refusion","penge tilbage","afbestil","annuller","ombook"],a:"Du kan afbestille eller flytte din tid, kontakt os hurtigst muligt. Se vilkår i <a href='handelsbetingelser.html'>handelsbetingelserne</a>."},
-   {k:["moms"],a:"Priserne er angivet ekskl. moms. Skriv til os, hvis du vil have prisen inkl. moms for din situation."},
-   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås 1:1."},
-   {k:["hvordan beregnes","metode bag","udregnes biologisk","model"],a:"Din biologiske alder beregnes ud fra en kombination af biomarkører (inflammation, stofskifte, nyrer, lipider, blodtal) vægtet efter sammenhæng med aldring. Det er en model, ikke en diagnose."},
-/*GLOS*/
-   {k:["homocystein"],a:"Homocystein er en aminosyre. Høje niveauer øger risikoen for hjerte og hjerne og kan ofte sænkes med B-vitaminer. Måles i vores blodpanel."},
-   {k:["apob","apo b"],a:"ApoB er antallet af skadelige kolesterolpartikler, et af de mest præcise mål for hjerte kar risiko. Indgår i blodpanelet."},
-   {k:["lp(a)","lipoprotein a","lp a"],a:"Lp(a) er en arvelig type kolesterol, der øger risikoen for hjerte kar sygdom. Måles sjældent normalt, men indgår hos os."},
-   {k:["apoa1","apo a1"],a:"ApoA1 er proteinet i det gode kolesterol og afspejler din beskyttelse mod åreforkalkning."},
-   {k:["ldl"],a:"LDL er det skadelige kolesterol, der kan aflejre sig i blodårerne. Indgår i blodpanelet."},
-   {k:["hdl"],a:"HDL er det beskyttende kolesterol, der hjælper med at fjerne overskydende fedt fra blodet."},
-   {k:["triglycerid"],a:"Triglycerider er fedtstoffer i blodet, knyttet til kost, vægt og hjerte kar risiko."},
-   {k:["hba1c","langtidsblodsukker"],a:"HbA1c er dit gennemsnitlige blodsukker over 2-3 måneder, et vigtigt mål for diabetes-risiko."},
-   {k:["insulinresistens","fasteinsulin","faste-insulin"],a:"Insulinresistens betyder, at cellerne reagerer dårligere på insulin, ofte et tidligt tegn år før blodsukkeret stiger. Vi måler faste-insulin."},
-   {k:["hs-crp","hscrp"," crp"],a:"hs-CRP er en følsom markør for skjult, kronisk inflammation, som fremskynder aldring og hjerte kar risiko."},
-   {k:["egfr","nyrefunktion","kreatinin"],a:"eGFR og kreatinin viser, hvor godt dine nyrer renser blodet."},
-   {k:["ferritin","jernlager"],a:"Ferritin er kroppens jernlager og bruges til at vurdere jernstatus."},
-   {k:["shbg"],a:"SHBG er et protein, der binder kønshormoner og påvirker, hvor meget der er aktivt i kroppen."},
-   {k:["tsh","stofskifte","skjoldbrusk","thyreoidea"],a:"TSH er hjernens signal til skjoldbruskkirtlen og det primære mål for dit stofskifte."},
-   {k:["igf-1","igf1","væksthormon"],a:"IGF-1 er et væksthormon-relateret signal, der knyttes til aldring og muskelmasse."},
-   {k:["albumin"],a:"Albumin er det vigtigste protein i blodet; lavt niveau kan tyde på sygdom eller dårlig ernæring."},
-   {k:["alat","asat","ggt","leverenzym"],a:"ALAT, ASAT og GGT er leverenzymer, der viser, om leveren er belastet (fx af alkohol, medicin eller fedtlever)."},
-   {k:["epigenetik","epigenetisk"],a:"Epigenetik handler om, hvordan livsstil tænder og slukker for dine gener, og bruges til at måle biologisk alder."},
-   {k:["omega-3","omega 3"],a:"Omega-3-indekset måler dine omega-3-fedtsyrer, som hænger sammen med hjerte og hjerne."},
-   {k:["nt-probnp","probnp"],a:"NT-proBNP er et tidligt mål for, om hjertet er belastet."},
-
+  var KB=[
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
-   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Plus 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
+   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 8.900 kr.</strong>, <strong>Executive 14.900 kr.</strong>, <strong>Elite 29.900 kr.</strong> Virksomhedsaftaler fra 120.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
+   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Executive tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik og 3 mdr. opfølgning. Se <a href='ydelser.html'>Ydelser</a>."},
    {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
-   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
+   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Executive og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
    {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
    {k:["genetisk","genetik","dna","gen ","arvelig"],a:"Den genetiske profil kortlægger arvelige risikofaktorer (indgår i Elite) og kobles altid til en lægefaglig tolkning."},
-   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Plus. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
+   {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Executive. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
    {k:["blodpr","blodpanel","markør","mangel","vitamin","jern","b12"],a:"Vores fulde blodpanel måler 70+ markører, inkl. mangeltjek for vitaminer og mineraler (fx D-vitamin, B12, jern). Indgår i alle pakker. Se <a href='pakker.html'>Pakker</a>."},
    {k:["d-vitamin","d vitamin"],a:"Mange danskere mangler D-vitamin, især om vinteren. Vi måler det i blodpanelet, så du kan supplere præcist. Læs <a href='d-vitamin-mangel.html'>artiklen</a>."},
    {k:["søvn","sove","sover"],a:"Søvn er det stærkeste enkeltgreb for energi og longevity: fast rytme, mørkt/køligt rum, skærm og alkohol væk før sengetid. Vi måler effekten via biomarkører. Læs <a href='soevn-ydeevne.html'>artiklen</a>."},
@@ -573,11 +623,12 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
     <button class="aevx-close" id="aevx-close" aria-label="Luk">&times;</button>
     <span class="eyebrow">Inden du går</span>
     <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--text);margin:6px 0 10px">Få vores gratis longevity-tjekliste</h3>
-    <p style="color:var(--muted);font-size:.95rem;margin:0">10 evidensbaserede vaner, der flytter din biologiske alder, skrevet til en travl hverdag.</p>
-    <form id="aevx-form" action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return aevxSubmit(event)" style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
+    <p style="color:var(--muted);font-size:.95rem;margin:0">10 evidensbaserede vaner, der flytter din biologiske alder, skrevet til travle ledere.</p>
+    <form id="aevx-form" action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return aevxSubmit(event)" style="margin-top:18px;display:flex;flex-direction:column;gap:10px;background:none;border:none;padding:0"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
       <input type="hidden" name="kilde" value="Exit-intent">
-      <input id="aevx-email" name="email" type="email" required aria-label="E-mail" placeholder="din@email.dk" style="flex:1;min-width:180px;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.95rem"><label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:var(--muted-2);text-align:left;line-height:1.4;margin-top:2px"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"><span>Jeg accepterer, at Aevia må sende mig materialet og relevante indsigter, jf. <a class="gold" href="privatlivspolitik.html">privatlivspolitikken</a>.</span></label>
-      <button class="btn btn-primary" type="submit">Send mig den</button>
+      <input id="aevx-email" name="email" type="email" required aria-label="E-mail" placeholder="din@email.dk" style="width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:13px 15px;color:var(--text);font-family:inherit;font-size:.97rem"><label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:var(--muted-2);text-align:left;line-height:1.4;margin-top:2px"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"><span>Jeg accepterer, at Aevia må sende mig materialet og relevante indsigter, jf. <a class="gold" href="privatlivspolitik.html">privatlivspolitikken</a>.</span></label>
+      <button class="btn btn-primary" type="submit" style="width:100%">Send mig den</button>
+      <span style="display:block;font-size:.78rem;color:var(--muted-2);text-align:center;margin-top:2px">Ingen spam. Afmeld når som helst.</span>
     </form>
     <p class="form-note" id="aevx-ok" style="display:none;margin-top:10px">Tak! <a class="gold" href="longevity-tjekliste.pdf" download>Hent tjeklisten her.</a></p>
     <p class="form-note" style="margin-top:10px"><a class="gold" href="longevity-tjekliste.pdf" download>Eller hent direkte som PDF</a></p>
@@ -604,6 +655,5 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 })();
 </script>
 
-<script src="glossary.js"></script>
 </body>
 </html>

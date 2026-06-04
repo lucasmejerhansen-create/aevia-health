@@ -54,4 +54,22 @@
   <url><loc>https://aevia.dk/en/eksempel-rapport.html</loc><xhtml:link rel="alternate" hreflang="da" href="https://aevia.dk/eksempel-rapport.html"/><xhtml:link rel="alternate" hreflang="en" href="https://aevia.dk/en/eksempel-rapport.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://aevia.dk/eksempel-rapport.html"/><priority>0.7</priority></url>
   <url><loc>https://aevia.dk/biologisk-alder-estimator.html</loc><xhtml:link rel="alternate" hreflang="da" href="https://aevia.dk/biologisk-alder-estimator.html"/><xhtml:link rel="alternate" hreflang="en" href="https://aevia.dk/en/biologisk-alder-estimator.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://aevia.dk/biologisk-alder-estimator.html"/><priority>0.7</priority></url>
   <url><loc>https://aevia.dk/en/biologisk-alder-estimator.html</loc><xhtml:link rel="alternate" hreflang="da" href="https://aevia.dk/biologisk-alder-estimator.html"/><xhtml:link rel="alternate" hreflang="en" href="https://aevia.dk/en/biologisk-alder-estimator.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://aevia.dk/biologisk-alder-estimator.html"/><priority>0.7</priority></url>
+  <url>
+    <loc>https://aevia.dk/genetik.html</loc>
+    <xhtml:link rel="alternate" hreflang="da" href="https://aevia.dk/genetik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aevia.dk/en/genetik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aevia.dk/genetik.html"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aevia.dk/en/genetik.html</loc>
+    <xhtml:link rel="alternate" hreflang="da" href="https://aevia.dk/genetik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aevia.dk/en/genetik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aevia.dk/genetik.html"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
