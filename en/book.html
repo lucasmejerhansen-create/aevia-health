@@ -386,16 +386,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div id="abk-pkgs" class="abk-times"></div>
           <div id="abk-svc" style="display:none;margin-top:12px;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:13px 15px"></div>
         </div>
-        <div id="abk-daysbox" class="abk-step" style="display:none">
-          <span class="abk-lbl">3 · Choose date</span>
-          <div id="abk-days" class="abk-days"></div>
-        </div>
-        <div id="abk-timesbox" class="abk-step" style="display:none">
-          <span class="abk-lbl">4 · Choose time</span>
-          <div id="abk-times" class="abk-times"></div>
+        <div id="abk-partsbox" class="abk-step" style="display:none">
+          <span class="abk-lbl">3 · Choose your times</span>
+          <div id="abk-parts"></div>
         </div>
         <form id="abk-form" class="abk-step" style="display:none" autocomplete="on">
-          <span class="abk-lbl">5 · Your details</span>
+          <span class="abk-lbl">4 · Your details</span>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="abk-grid">
             <input id="abk-name" class="abk-input" type="text" required autocomplete="name" placeholder="Full name">
@@ -433,6 +429,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     .abk-consent{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:var(--muted-2);line-height:1.4;margin-bottom:6px}
     .abk-consent input{width:auto;margin-top:3px;flex:none}
     .abk-note{font-size:.78rem;color:var(--muted-2);text-align:center;margin-top:10px}
+    .abk-part{background:var(--navy);border:1px solid var(--line-2);border-radius:12px;padding:14px 15px;margin-bottom:10px}
+    .abk-part.done{border-color:rgba(63,178,127,.5)}
+    .abk-part-h{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:10px}
+    .abk-part-h strong{font-size:.95rem;color:var(--text)}
+    .abk-part-h span{font-size:.78rem;color:var(--muted-2);text-align:right}
+    .abk-part .sel-when{color:#3fb27f;font-size:.85rem;font-weight:600}
     </style>
 
     <div id="bk-resume" style="display:none;max-width:820px;margin:0 auto 22px;border:1px solid var(--gold);background:var(--gold-soft);border-radius:14px;padding:16px 20px;align-items:center;gap:14px;flex-wrap:wrap">

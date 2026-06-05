@@ -6,7 +6,7 @@
 // ikke kan gættes. "Flyt" = aflys + book ny tid (tiden frigives med det samme).
 // Ved aflysning notificeres klinik/kontakt@ og ventelisten for området mailes.
 
-import { getBooking, cancel, verifyBookingSig, waitlistPop, AREAS } from "./_booking-store.js";
+import { getBooking, cancel, verifyBookingSig, waitlistPop, AREAS, SVC_LABELS } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -55,7 +55,12 @@ export default async function handler(req, res) {
       `<h1>${da ? "Bookingen blev ikke fundet" : "Booking not found"}</h1><p>${da ? "Den kan være udløbet eller allerede aflyst. Skriv til kontakt@aevia.dk." : "It may have expired or been cancelled. Write to kontakt@aevia.dk."}</p>` }));
   }
 
-  const when = fmt(b.date, b.time, lang);
+  const parts = b.parts || (b.date ? [{ svc: "blod", date: b.date, time: b.time }] : []);
+  const whenHtml = parts.map((p) => {
+    const l = SVC_LABELS[p.svc];
+    return `<div style="margin-bottom:6px"><span style="color:#aab4c2;font-size:.85rem">${l ? (da ? l.da : l.en) : p.svc}</span><br>${fmt(p.date, p.time, lang)}</div>`;
+  }).join("");
+  const when = parts.map((p) => fmt(p.date, p.time, lang)).join(" · ");
   const bookUrl = `${SITE}/${da ? "" : "en/"}book.html`;
 
   // ── POST: aflys ──
@@ -91,7 +96,7 @@ export default async function handler(req, res) {
     } catch (e) { console.error("Aflysningsnotifikation-fejl:", e.message); }
 
     return res.status(200).send(page({ lang, title: da ? "Aflyst" : "Cancelled", body:
-      `<h1>${da ? "Din tid er aflyst" : "Your appointment is cancelled"}</h1><p>${da ? "Tiden er frigivet. Vil du vælge en ny?" : "The slot has been released. Want to pick a new one?"}</p><a class="btn" href="${bookUrl}">${da ? "Book en ny tid" : "Book a new time"}</a>` }));
+      `<h1>${da ? "Din booking er aflyst" : "Your booking is cancelled"}</h1><p>${da ? "Alle tider er frigivet. Vil du vælge nye?" : "All slots have been released. Want to pick new ones?"}</p><a class="btn" href="${bookUrl}">${da ? "Book en ny tid" : "Book a new time"}</a>` }));
   }
 
   // ── GET: vis booking + handlinger ──
@@ -101,7 +106,7 @@ export default async function handler(req, res) {
   }
   return res.status(200).send(page({ lang, title: da ? "Din booking" : "Your booking", body:
     `<h1>${da ? "Din booking" : "Your booking"}</h1>
-     <p class="when">${when}<br><span style="color:#aab4c2;font-weight:400;font-size:.9rem">${b.area}</span></p>
+     <div class="when">${whenHtml}<span style="color:#aab4c2;font-weight:400;font-size:.9rem">${b.area}</span></div>
      <p>${da ? "Vil du flytte tiden, så aflys den her og book en ny — tiden frigives med det samme." : "To reschedule, cancel here and book a new time — the slot is released immediately."}</p>
      <form method="POST" action="${SITE}/api/min-booking?id=${id}&sig=${sig}&lang=${lang}" onsubmit="return confirm('${da ? "Er du sikker på, at du vil aflyse?" : "Are you sure you want to cancel?"}')">
        <button type="submit" class="btn ghost">${da ? "Aflys min tid" : "Cancel my appointment"}</button>

@@ -46,6 +46,7 @@ th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing
 
   <div class="bar">
     <div><label for="tok">Jeres adgangsnøgle</label><input id="tok" type="password" placeholder="Indsæt nøglen fra Aevia" style="width:200px"></div>
+    <div><label for="svc">Ydelse</label><select id="svc" style="background:var(--navy);border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.92rem"></select></div>
     <div><label for="date">Dato</label><input id="date" type="date"></div>
     <button class="btn" onclick="load()">Vis dag</button>
     <button class="btn ghost" onclick="day('blockday')">Blokér hele dagen</button>
@@ -63,15 +64,19 @@ th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing
 
 <script>
 document.getElementById('date').value=new Date().toISOString().slice(0,10);
+document.getElementById('svc').addEventListener('change',function(){if(tok())load();});
 function tok(){return document.getElementById('tok').value.trim();}
 function dt(){return document.getElementById('date').value;}
+function svcSel(){var el=document.getElementById('svc');return el.value||'';}
 function load(){
   if(!tok()){alert('Indsæt jeres adgangsnøgle');return;}
-  fetch('/api/clinic-portal?token='+encodeURIComponent(tok())+'&date='+dt())
+  fetch('/api/clinic-portal?token='+encodeURIComponent(tok())+'&date='+dt()+(svcSel()?'&svc='+encodeURIComponent(svcSel()):''))
     .then(function(r){return r.json();})
     .then(function(d){
       if(d.error){alert(d.error);return;}
-      var at=document.getElementById('areatag'); at.textContent='Område: '+d.area+' · '+dt(); at.style.display='block';
+      var at=document.getElementById('areatag'); at.textContent='Område: '+d.area+(d.svc?' · '+d.svc:'')+' · '+dt(); at.style.display='block';
+      if(d.svcs){var sel=document.getElementById('svc');var cur=d.svc||'';
+        sel.innerHTML=d.svcs.map(function(x){return '<option value="'+x.key+'"'+(x.key===cur?' selected':'')+'>'+x.label+'</option>';}).join('');}
       var g=document.getElementById('slots');
       if(!d.configured){g.innerHTML='<p class="empty">Systemet er ikke aktiveret endnu.</p>';return;}
       if(!d.slots||!d.slots.length){g.innerHTML='<p class="empty">Ingen Aevia-tider denne dag (uden for jeres faste dage).</p>';}
@@ -89,7 +94,7 @@ function load(){
         });
       }
       var list=document.getElementById('list');
-      var conf=(d.bookings||[]).filter(function(b){return b.status==='confirmed';});
+      var conf=d.bookings||[];
       if(!conf.length){list.innerHTML='<p class="empty">Ingen bookinger denne dag.</p>';}
       else{
         list.innerHTML='<table><thead><tr><th>Tid</th><th>Navn</th><th>Pakke</th><th>Kontakt</th></tr></thead><tbody>'+conf.map(function(b){
@@ -99,7 +104,7 @@ function load(){
     }).catch(function(){alert('Netværksfejl');});
 }
 function act(action,time){
-  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok(),action:action,date:dt(),time:time})})
+  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok(),action:action,date:dt(),time:time,svc:svcSel()})})
     .then(function(r){return r.json();}).then(function(d){if(d.error)alert(d.error);load();});
 }
 function day(action){
