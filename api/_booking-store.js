@@ -20,12 +20,19 @@ import crypto from "crypto";
 // ready=false → området vises som "åbner snart" (ingen booking endnu).
 // Tilpas i takt med at partnerklinikker kommer på — det er den eneste fil,
 // I normalt skal røre.
+// clinics = offentlige visningsnavne pr. ydelse (vises for kunden i booking-flowet).
+// Tomt navn → "Partnerklinik i området (bekræftes i din mail)".
 export const AREAS = {
-  "København-området": { lat: 55.6761, lng: 12.5683, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "" },
-  "Aarhus-området":     { lat: 56.1572, lng: 10.2107, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "" },
-  "Odense-området":     { lat: 55.4038, lng: 10.4024, ready: false, wd: [3],    open: "08:00", close: "11:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "" },
-  "Aalborg-området":    { lat: 57.0488, lng:  9.9217, ready: false, wd: [3],    open: "08:00", close: "11:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "" },
-  "Herning-området":    { lat: 56.1389, lng:  8.9742, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "" },
+  "København-området": { lat: 55.6761, lng: 12.5683, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "",
+    clinics: { blod: "", kondition: "", mr: "", genetik: "" } },
+  "Aarhus-området":     { lat: 56.1572, lng: 10.2107, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "",
+    clinics: { blod: "", kondition: "", mr: "", genetik: "" } },
+  "Odense-området":     { lat: 55.4038, lng: 10.4024, ready: false, wd: [3],    open: "08:00", close: "11:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "",
+    clinics: { blod: "", kondition: "", mr: "", genetik: "" } },
+  "Aalborg-området":    { lat: 57.0488, lng:  9.9217, ready: false, wd: [3],    open: "08:00", close: "11:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "",
+    clinics: { blod: "", kondition: "", mr: "", genetik: "" } },
+  "Herning-området":    { lat: 56.1389, lng:  8.9742, ready: false, wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, lead: 2, horizon: 42, clinic: "",
+    clinics: { blod: "", kondition: "", mr: "", genetik: "" } },
 };
 // lead = min. antal dage frem før første bookbare dag. horizon = hvor mange dage frem vises.
 
@@ -71,6 +78,7 @@ function slotsForDate(area, dateStr) {
 export async function availability(area) {
   const a = AREAS[area];
   if (!a || !a.ready) return { ready: false, days: [] };
+  const clinics = a.clinics || {};
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const days = [];
@@ -98,7 +106,7 @@ export async function availability(area) {
     const free = all.filter((t) => !full.has(t));
     if (free.length) days.push({ date: ds, times: free });
   }
-  return { ready: true, days };
+  return { ready: true, days, clinics };
 }
 
 // ── Atomisk reservation ──────────────────────────────────────────────────────
