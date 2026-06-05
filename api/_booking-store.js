@@ -58,16 +58,19 @@ export const AREAS = {
   } },
 };
 
+// Understøt begge navne-varianter fra Vercel/Upstash-integrationen.
+function kvUrl() { return process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || ""; }
+function kvToken() { return process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || ""; }
 export function isConfigured() {
-  return !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+  return !!(kvUrl() && kvToken());
 }
 
 // ── Redis-kommando via Upstash REST ──────────────────────────────────────────
 async function redis(cmd) {
-  const res = await fetch(process.env.KV_REST_API_URL, {
+  const res = await fetch(kvUrl(), {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+      Authorization: `Bearer ${kvToken()}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(cmd),
