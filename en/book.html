@@ -376,8 +376,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div style="background:var(--navy-2);border:1px solid var(--line-2);border-radius:16px;padding:22px">
         <div class="abk-step">
           <label class="abk-lbl" for="abk-addr">1 · Your address or postcode</label>
-          <input id="abk-addr" class="abk-input" type="text" list="abk-suggest" autocomplete="off">
-          <datalist id="abk-suggest"></datalist>
+          <div class="abk-addrwrap">
+            <input id="abk-addr" class="abk-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+            <div id="abk-suggest" class="abk-sug" role="listbox"></div>
+          </div>
           <button type="button" id="abk-geo" style="background:none;border:1px solid var(--line-2);color:var(--gold);border-radius:999px;padding:7px 14px;font-size:.8rem;cursor:pointer;font-family:inherit;margin-top:9px">⌖ Use my location</button>
           <p id="abk-match" style="display:none;font-size:.85rem;color:var(--muted);margin:8px 0 0"></p>
         </div>
@@ -416,6 +418,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     .abk-lbl{display:block;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:9px}
     .abk-input{width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);font:inherit;font-size:.95rem}
     .abk-input:focus{outline:none;border-color:var(--gold)}
+    .abk-addrwrap{position:relative}
+    .abk-sug{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--navy-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;z-index:40;box-shadow:0 16px 38px rgba(0,0,0,.5)}
+    .abk-sug div{padding:11px 14px;font-size:.92rem;color:var(--text);cursor:pointer;border-bottom:1px solid var(--line-2)}
+    .abk-sug div:last-child{border-bottom:none}
+    .abk-sug div:hover,.abk-sug div.on{background:var(--gold-soft);color:var(--gold)}
+    .abk-sug div span{color:var(--muted-2)}
     .abk-days{display:flex;gap:8px;flex-wrap:wrap}
     .abk-day{background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:9px 13px;font-size:.85rem;color:var(--muted);cursor:pointer;font-family:inherit;text-align:center;line-height:1.3}
     .abk-day:hover{border-color:var(--gold);color:var(--text)}
@@ -995,16 +1003,42 @@ function aevWait(f,e){e.preventDefault();
     var kal=document.getElementById('kalender'); if(kal)kal.style.display='none';
   }).catch(function(){});
 
-  var sgTmr, autoTmr;
+  var sgTmr, autoTmr, sugItems=[], sugIdx=-1;
+  function escTxt(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function hideSug(){sugEl.style.display='none';sugEl.innerHTML='';sugItems=[];sugIdx=-1;}
+  function markSug(){Array.prototype.forEach.call(sugEl.children,function(el,i){el.className=i===sugIdx?'on':'';});}
+  function pickSug(i){var it=sugItems[i];if(!it)return;addrIn.value=it.tekst;hideSug();onAddr();}
+  function renderSug(list){
+    sugItems=list||[]; sugIdx=-1;
+    if(!sugItems.length||document.activeElement!==addrIn){hideSug();return;}
+    sugEl.innerHTML=sugItems.map(function(it,i){
+      var t=it.tekst||'', ci=t.lastIndexOf(', ');
+      var main=ci>-1?t.slice(0,ci):t, rest=ci>-1?t.slice(ci):'';
+      return '<div role="option" data-i="'+i+'">'+escTxt(main)+(rest?'<span>'+escTxt(rest)+'</span>':'')+'</div>';
+    }).join('');
+    sugEl.style.display='block';
+    Array.prototype.forEach.call(sugEl.children,function(el){
+      el.addEventListener('mousedown',function(e){e.preventDefault();pickSug(+el.getAttribute('data-i'));});
+    });
+  }
+  function knownPlace(q){
+    if(/\d{4}/.test(q))return true;
+    var ql=q.toLowerCase();
+    for(var c in CITY){ if(ql.indexOf(c)>-1)return true; }
+    return false;
+  }
   addrIn.addEventListener('input',function(){
     clearTimeout(sgTmr); clearTimeout(autoTmr);
     var q=addrIn.value.trim();
     if(q.length>=3){ sgTmr=setTimeout(function(){
       fetch('https://api.dataforsyningen.dk/adresser/autocomplete?per_side=5&q='+encodeURIComponent(q))
-        .then(function(r){return r.json();}).then(function(list){ sugEl.innerHTML=(list||[]).map(function(it){return '<option value="'+it.tekst.replace(/"/g,'&quot;')+'">';}).join(''); }).catch(function(){});
-    },200); }
-    if(q.length>=4)autoTmr=setTimeout(onAddr,650);
+        .then(function(r){return r.json();}).then(function(list){renderSug(list||[]);}).catch(function(){});
+    },200); } else hideSug();
+    if(!q){matchEl.style.display='none';return;}
+    if(knownPlace(q)&&q.length>=4)autoTmr=setTimeout(onAddr,650);
+    else matchEl.style.display='none';
   });
+  addrIn.addEventListener('blur',function(){setTimeout(hideSug,150);});
   var geoBtn=document.getElementById('abk-geo');
   if(geoBtn&&navigator.geolocation){
     geoBtn.addEventListener('click',function(){
@@ -1018,6 +1052,7 @@ function aevWait(f,e){e.preventDefault();
   } else if(geoBtn){ geoBtn.style.display='none'; }
 
   function onAddr(){
+    clearTimeout(sgTmr); clearTimeout(autoTmr); hideSug();
     var v=addrIn.value;
     partsBox.style.display='none'; form.style.display='none'; okEl.style.display='none'; err('');
     if(!v.trim()){matchEl.style.display='none';return;}
@@ -1037,8 +1072,13 @@ function aevWait(f,e){e.preventDefault();
       }).catch(function(){});
     });
   }
-  addrIn.addEventListener('change',onAddr);
-  addrIn.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();onAddr();} });
+  addrIn.addEventListener('keydown',function(e){
+    var open=sugEl.style.display==='block'&&sugItems.length;
+    if(e.key==='ArrowDown'&&open){e.preventDefault();sugIdx=(sugIdx+1)%sugItems.length;markSug();}
+    else if(e.key==='ArrowUp'&&open){e.preventDefault();sugIdx=(sugIdx-1+sugItems.length)%sugItems.length;markSug();}
+    else if(e.key==='Escape'&&open){hideSug();}
+    else if(e.key==='Enter'){e.preventDefault(); if(open)pickSug(sugIdx>=0?sugIdx:0); else onAddr();}
+  });
 
   function clinicName(svc){ var s=SERVICES[svc]; return (s&&s.clinic)||'Partner clinic in '+(chosen.area||'the area')+' — confirmed in your email'; }
   function renderSvc(){
