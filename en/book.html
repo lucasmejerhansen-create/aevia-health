@@ -399,7 +399,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <input id="abk-phone" class="abk-input" type="tel" autocomplete="tel" placeholder="Phone (optional)">
           </div>
           <label class="abk-consent"><input type="checkbox" id="abk-consent" required> <span>I agree that Aevia may contact me about my booking, see the <a href="privatlivspolitik.html" class="gold">privacy policy</a>.</span></label>
-          <button type="submit" id="abk-submit" class="btn btn-primary" style="width:100%;margin-top:6px">Confirm my time</button>
+          <button type="submit" id="abk-submit" class="btn btn-primary" style="width:100%;margin-top:6px">Confirm my times</button>
           <p class="abk-note">You only pay after the time is confirmed. Confirmation is sent by email right away.</p>
         </form>
         <div id="abk-ok" style="display:none;text-align:center;padding:18px 4px">
@@ -542,7 +542,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <p>Advanced health diagnostics for individuals and companies in Denmark. We coordinate, you optimise.</p>
         <p style="margin-top:14px;font-size:.9rem"><a class="gold" href="indsigter.html#brief">Get our free longevity checklist →</a></p>
       
-        <div class="foot-social"><a href="https://www.instagram.com/aeviahealth/" target="_blank" rel="noopener" aria-label="Aevia on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61590547142554" target="_blank" rel="noopener" aria-label="Aevia on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a></div>
+        <div class="foot-social"><a href="https://www.instagram.com/aeviahealth/" target="_blank" rel="noopener" aria-label="Aevia on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61590547142554" target="_blank" rel="noopener" aria-label="Aevia on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.trustpilot.com/review/aevia.dk" target="_blank" rel="noopener" aria-label="Aevia on Trustpilot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6 7.4.5-5.7 4.6 1.9 7.1L12 16.9 5.8 20.8l1.9-7.1L2 9.1l7.4-.5z"/></svg></a></div>
       </div>
       <div>
         <h4>Services</h4>
@@ -932,76 +932,34 @@ function aevWait(f,e){e.preventDefault();
   return false;}
 </script>
 <script>
-/* ══ INTEGRATED BOOKING WIDGET (Aevia's own system) ══ */
+/* ══ INTEGRATED BOOKING WIDGET (Aevia's own system) — multi-service ══ */
 (function(){
   var box=document.getElementById('aev-booking'); if(!box)return;
   var addrIn=document.getElementById('abk-addr'), matchEl=document.getElementById('abk-match'),
       sugEl=document.getElementById('abk-suggest'),
-      daysBox=document.getElementById('abk-daysbox'), daysEl=document.getElementById('abk-days'),
-      timesBox=document.getElementById('abk-timesbox'), timesEl=document.getElementById('abk-times'),
+      partsBox=document.getElementById('abk-partsbox'), partsEl=document.getElementById('abk-parts'),
       form=document.getElementById('abk-form'), okEl=document.getElementById('abk-ok'),
       errEl=document.getElementById('abk-err');
-  var chosen={area:'',date:'',time:'',pkg:''}, READY=[], CLINICS={};
-  var PKGS={
-    core:{name:'Aevia Core',price:'DKK 10,995',sv:['blod','rapport']},
-    executive:{name:'Aevia Plus',price:'DKK 18,495',sv:['blod','hormon','kondition','rapport']},
-    elite:{name:'Aevia Elite',price:'DKK 36,995',sv:['blod','hormon','kondition','mr','genetik','rapport']}
-  };
-  var SVC={
-    blod:{lbl:'Blood panel (70+ markers)',key:'blod'},
-    hormon:{lbl:'Full hormone panel',key:'blod',note:'same visit as the blood draw'},
-    kondition:{lbl:'VO2max test',key:'kondition'},
-    mr:{lbl:'Whole-body MRI (no contrast)',key:'mr'},
-    genetik:{lbl:'Genetic profile',key:'genetik'},
-    rapport:{lbl:'Report & 1:1 physician review',key:null,fixed:'Aevia · online or phone'}
-  };
-  function clinicName(key){
-    if(!key)return '';
-    return (CLINICS&&CLINICS[key])||('Partner clinic in '+(chosen.area||'the area')+' — confirmed in your email');
-  }
-  function renderSvc(){
-    var box=document.getElementById('abk-svc');
-    if(!chosen.pkg||!PKGS[chosen.pkg]){box.style.display='none';return;}
-    var p=PKGS[chosen.pkg];
-    var rows=p.sv.map(function(k){
-      var sv=SVC[k];
-      var who=sv.fixed||clinicName(sv.key);
-      return '<div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem"><span style="color:var(--text)">'+sv.lbl+(sv.note?' <span style=\"color:var(--muted-2);font-size:.78rem\">('+sv.note+')</span>':'')+'</span><span style="color:var(--muted-2);text-align:right;flex:none;max-width:55%">'+who+'</span></div>';
-    }).join('');
-    box.innerHTML='<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><strong style="color:var(--text);font-size:.95rem">'+p.name+'</strong><span style="color:var(--gold);font-weight:600;font-size:.9rem">'+p.price+'</span></div>'+rows+'<p style="font-size:.76rem;color:var(--muted-2);margin:9px 0 0">The time you choose below is for the blood draw (start of your programme). Remaining services are coordinated afterwards — everything is confirmed by email.</p>';
-    box.style.display='block';
-  }
-  function renderPkgs(){
-    var el=document.getElementById('abk-pkgs');
-    el.innerHTML=Object.keys(PKGS).map(function(k){
-      return '<button type="button" class="abk-time'+(chosen.pkg===k?' sel':'')+'" data-pkg="'+k+'">'+PKGS[k].name+' · '+PKGS[k].price+'</button>';
-    }).join('');
-  }
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('#abk-pkgs .abk-time'); if(!b)return;
-    chosen.pkg=b.getAttribute('data-pkg');
-    renderPkgs(); renderSvc(); err('');
-    track('booking_pkg_selected',{pkg:chosen.pkg});
-  });
+  var chosen={area:'',pkg:'',parts:{}}, READY=[], SERVICES={}, AVAIL={};
   var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var DAY=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var PKGS={
+    core:{name:'Aevia Core',price:'DKK 10,995',book:['blod'],info:['blod','rapport']},
+    executive:{name:'Aevia Plus',price:'DKK 18,495',book:['blod','kondition'],info:['blod','hormon','kondition','rapport']},
+    elite:{name:'Aevia Elite',price:'DKK 36,995',book:['blod','kondition','mr','genetik'],info:['blod','hormon','kondition','mr','genetik','rapport']}
+  };
+  var SVC={
+    blod:{lbl:'Blood draw (70+ markers)'},
+    hormon:{lbl:'Full hormone panel',note:'same visit as the blood draw'},
+    kondition:{lbl:'VO2max test'},
+    mr:{lbl:'Whole-body MRI (no contrast)'},
+    genetik:{lbl:'Genetic profile'},
+    rapport:{lbl:'Report & 1:1 physician review',fixed:'Aevia · online or phone'}
+  };
   function fmtDay(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return '<strong>'+DAY[d.getDay()]+'</strong><br>'+d.getDate()+' '+MON[d.getMonth()];}
+  function fmtDayTxt(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return DAY[d.getDay()]+' '+d.getDate()+' '+MON[d.getMonth()];}
   function err(m){errEl.textContent=m;errEl.style.display=m?'block':'none';}
   function track(ev,params){ try{ if(window.gtag)gtag('event',ev,params||{}); }catch(_){ } }
-  function waitlistUI(area){
-    return '<p style="color:var(--muted-2);font-size:.9rem;margin-bottom:10px">No available times right now. Sign up and we will email you the moment a slot opens:</p>'+
-      '<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap"><input type="email" required placeholder=\"your@email.com\" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Sign me up</button></form><p id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">You are on the list — we will email you when a slot opens.</p>';
-  }
-  function bindWaitlist(area){
-    var f=document.getElementById('abk-wl'); if(!f)return;
-    f.addEventListener('submit',function(e){
-      e.preventDefault();
-      var em=f.querySelector('input').value;
-      fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({area:area,email:em})})
-        .then(function(){ f.style.display='none'; document.getElementById('abk-wl-ok').style.display='block'; track('waitlist_signup',{area:area}); })
-        .catch(function(){});
-    });
-  }
   function preselectPkg(){var p=new URLSearchParams(location.search);return p.get('pakke')||'';}
 
   var PNR={'1':'København-området','2':'København-området','3':'København-området','4':'København-området','5':'Odense-området','6':'Herning-området','7':'Herning-området','8':'Aarhus-området','9':'Aalborg-området'};
@@ -1016,6 +974,18 @@ function aevWait(f,e){e.preventDefault();
       .then(function(list){ var pn=list&&list[0]&&list[0].adresse&&list[0].adresse.postnr; cb(pn?(PNR[pn.charAt(0)]||null):null); })
       .catch(function(){cb(null);});
   }
+  function waitlistUI(area){
+    return '<p style="color:var(--muted-2);font-size:.9rem;margin-bottom:10px">No available times right now. Sign up and we will email you the moment a slot opens:</p>'+
+      '<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap"><input type="email" required placeholder="your@email.com" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Sign me up</button></form><p id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">You are on the list — we will email you when a slot opens.</p>';
+  }
+  function bindWaitlist(area){
+    var f=document.getElementById('abk-wl'); if(!f)return;
+    f.addEventListener('submit',function(e){ e.preventDefault();
+      var em=f.querySelector('input').value;
+      fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({area:area,email:em})})
+        .then(function(){ f.style.display='none'; document.getElementById('abk-wl-ok').style.display='block'; track('waitlist_signup',{area:area}); }).catch(function(){});
+    });
+  }
 
   fetch('/api/slots',{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){
     if(!d.configured)return;
@@ -1025,109 +995,149 @@ function aevWait(f,e){e.preventDefault();
     var kal=document.getElementById('kalender'); if(kal)kal.style.display='none';
   }).catch(function(){});
 
-  var sgTmr;
+  var sgTmr, autoTmr;
   addrIn.addEventListener('input',function(){
-    clearTimeout(sgTmr); var q=addrIn.value.trim();
-    if(q.length<3)return;
-    sgTmr=setTimeout(function(){
-      fetch('https://api.dataforsyningen.dk/adresser/autocomplete?per_side=5&q='+encodeURIComponent(q))
-        .then(function(r){return r.json();})
-        .then(function(list){ sugEl.innerHTML=(list||[]).map(function(it){return '<option value="'+it.tekst.replace(/"/g,'&quot;')+'">';}).join(''); })
-        .catch(function(){});
-    },200);
-  });
-
-  function onAddr(){
-    var v=addrIn.value;
-    timesBox.style.display='none'; form.style.display='none'; okEl.style.display='none'; err('');
-    if(!v.trim()){daysBox.style.display='none';matchEl.style.display='none';return;}
-    matchEl.style.display='block'; matchEl.innerHTML='Finding your nearest area…';
-    resolveArea(v,function(area){
-      if(!area){ matchEl.innerHTML='We could not recognise the address — type your postcode (e.g. 7400).'; daysBox.style.display='none'; return; }
-      if(READY.indexOf(area)===-1){ matchEl.innerHTML='Your nearest area is <strong style="color:var(--text)">'+area+'</strong> — online booking opens there soon. Join the waitlist below, or call <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'; daysBox.style.display='none'; return; }
-      chosen.area=area; chosen.date=''; chosen.time='';
-      matchEl.innerHTML='Your nearest area: <strong style="color:var(--text)">'+area+'</strong>';
-      if(!chosen.pkg)chosen.pkg=PKGS[preselectPkg()]?preselectPkg():'';
-      renderPkgs(); renderSvc();
-      document.getElementById('abk-pkgbox').style.display='block';
-      daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Loading available days…</p>'; daysBox.style.display='block';
-      fetch('/api/slots?area='+encodeURIComponent(area),{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){
-        CLINICS=d.clinics||{}; renderSvc();
-        if(!d.days||!d.days.length){daysEl.innerHTML=waitlistUI(area);bindWaitlist(area);return;}
-        var lim=new Date(); lim.setDate(lim.getDate()+7);
-        var tot7=0; d.days.forEach(function(x){ if(new Date(x.date+'T00:00:00')<=lim) tot7+=x.times.length; });
-        var scar=(tot7>0&&tot7<6)?'<p style="color:var(--gold);font-size:.85rem;margin:0 0 10px">Only '+tot7+' available times in the next 7 days — more open continuously.</p>':'';
-        daysEl.innerHTML=scar+d.days.map(function(x){return '<button type="button" class="abk-day" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
-        track('booking_area_resolved',{area:area,slots_next7:tot7});
-      }).catch(function(){daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Could not load times. Try again.</p>';});
-    });
-  }
-  addrIn.addEventListener('change',onAddr);
-  addrIn.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();onAddr();} });
-  // Auto-opslag mens man taster (uden Enter)
-  var autoTmr;
-  addrIn.addEventListener('input',function(){
-    clearTimeout(autoTmr);
+    clearTimeout(sgTmr); clearTimeout(autoTmr);
     var q=addrIn.value.trim();
-    if(q.length<4)return;
-    autoTmr=setTimeout(onAddr,650);
+    if(q.length>=3){ sgTmr=setTimeout(function(){
+      fetch('https://api.dataforsyningen.dk/adresser/autocomplete?per_side=5&q='+encodeURIComponent(q))
+        .then(function(r){return r.json();}).then(function(list){ sugEl.innerHTML=(list||[]).map(function(it){return '<option value="'+it.tekst.replace(/"/g,'&quot;')+'">';}).join(''); }).catch(function(){});
+    },200); }
+    if(q.length>=4)autoTmr=setTimeout(onAddr,650);
   });
-  // GPS: find adressen helt automatisk
   var geoBtn=document.getElementById('abk-geo');
   if(geoBtn&&navigator.geolocation){
     geoBtn.addEventListener('click',function(){
       geoBtn.textContent='Finding your location…';
       navigator.geolocation.getCurrentPosition(function(pos){
         fetch('https://api.dataforsyningen.dk/adgangsadresser/reverse?x='+pos.coords.longitude+'&y='+pos.coords.latitude+'&struktur=mini')
-          .then(function(r){return r.json();})
-          .then(function(a){
-            geoBtn.style.display='none';
-            if(a&&a.betegnelse){ addrIn.value=a.betegnelse; onAddr(); }
-            else if(a&&a.postnr){ addrIn.value=a.postnr; onAddr(); }
-          })
+          .then(function(r){return r.json();}).then(function(a){ geoBtn.style.display='none'; if(a&&a.betegnelse){addrIn.value=a.betegnelse;onAddr();} else if(a&&a.postnr){addrIn.value=a.postnr;onAddr();} })
           .catch(function(){ geoBtn.textContent='Could not get your location — type the address instead.'; });
       },function(){ geoBtn.textContent='Could not get your location — type the address instead.'; },{timeout:8000});
     });
   } else if(geoBtn){ geoBtn.style.display='none'; }
 
-  daysEl.addEventListener('click',function(e){
-    var b=e.target.closest('.abk-day'); if(!b)return;
-    Array.prototype.forEach.call(daysEl.querySelectorAll('.abk-day'),function(x){x.classList.remove('sel');}); b.classList.add('sel');
-    chosen.date=b.getAttribute('data-date'); chosen.time=''; form.style.display='none'; okEl.style.display='none'; err('');
-    var times=JSON.parse(b.getAttribute('data-times'));
-    timesEl.innerHTML=times.map(function(t){return '<button type="button" class="abk-time" data-time="'+t+'">'+t+'</button>';}).join('');
-    timesBox.style.display='block';
+  function onAddr(){
+    var v=addrIn.value;
+    partsBox.style.display='none'; form.style.display='none'; okEl.style.display='none'; err('');
+    if(!v.trim()){matchEl.style.display='none';return;}
+    matchEl.style.display='block'; matchEl.innerHTML='Finding your nearest area…';
+    resolveArea(v,function(area){
+      if(!area){ matchEl.innerHTML='We could not recognise the address — type your postcode (e.g. 7400).'; return; }
+      if(READY.indexOf(area)===-1){ matchEl.innerHTML='Your nearest area is <strong style="color:var(--text)">'+area+'</strong> — online booking opens there soon. Join the waitlist below, or call <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'; return; }
+      chosen.area=area; chosen.parts={}; AVAIL={};
+      matchEl.innerHTML='Your nearest area: <strong style="color:var(--text)">'+area+'</strong>';
+      fetch('/api/slots?area='+encodeURIComponent(area),{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){
+        SERVICES=d.services||{};
+        if(!chosen.pkg)chosen.pkg=PKGS[preselectPkg()]?preselectPkg():'';
+        renderPkgs(); renderSvc();
+        document.getElementById('abk-pkgbox').style.display='block';
+        if(chosen.pkg)loadParts();
+        track('booking_area_resolved',{area:area});
+      }).catch(function(){});
+    });
+  }
+  addrIn.addEventListener('change',onAddr);
+  addrIn.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();onAddr();} });
+
+  function clinicName(svc){ var s=SERVICES[svc]; return (s&&s.clinic)||'Partner clinic in '+(chosen.area||'the area')+' — confirmed in your email'; }
+  function renderSvc(){
+    var sbox=document.getElementById('abk-svc');
+    if(!chosen.pkg||!PKGS[chosen.pkg]){sbox.style.display='none';return;}
+    var p=PKGS[chosen.pkg];
+    var rows=p.info.map(function(k){
+      var sv=SVC[k]; var who=sv.fixed||(k==='hormon'?clinicName('blod'):clinicName(k));
+      return '<div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem"><span style="color:var(--text)">'+sv.lbl+(sv.note?' <span style=\"color:var(--muted-2);font-size:.78rem\">('+sv.note+')</span>':'')+'</span><span style="color:var(--muted-2);text-align:right;flex:none;max-width:55%">'+who+'</span></div>';
+    }).join('');
+    sbox.innerHTML='<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><strong style="color:var(--text);font-size:.95rem">'+p.name+'</strong><span style="color:var(--gold);font-weight:600;font-size:.9rem">'+p.price+'</span></div>'+rows;
+    sbox.style.display='block';
+  }
+  function renderPkgs(){
+    var el=document.getElementById('abk-pkgs');
+    el.innerHTML=Object.keys(PKGS).map(function(k){ return '<button type="button" class="abk-time'+(chosen.pkg===k?' sel':'')+'" data-pkg="'+k+'">'+PKGS[k].name+' · '+PKGS[k].price+'</button>'; }).join('');
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('#abk-pkgs .abk-time'); if(!b)return;
+    chosen.pkg=b.getAttribute('data-pkg'); chosen.parts={};
+    renderPkgs(); renderSvc(); err('');
+    if(chosen.area)loadParts();
+    track('booking_pkg_selected',{pkg:chosen.pkg});
   });
 
-  timesEl.addEventListener('click',function(e){
-    var b=e.target.closest('.abk-time'); if(!b)return;
-    Array.prototype.forEach.call(timesEl.querySelectorAll('.abk-time'),function(x){x.classList.remove('sel');}); b.classList.add('sel');
-    chosen.time=b.getAttribute('data-time'); form.style.display='block'; err('');
-    track('booking_slot_selected',{area:chosen.area});
-    form.scrollIntoView({behavior:'smooth',block:'nearest'});
+  function bookableSvcs(){ if(!chosen.pkg)return []; return PKGS[chosen.pkg].book.filter(function(k){return SERVICES[k]&&SERVICES[k].bookable;}); }
+  function manualSvcs(){ if(!chosen.pkg)return []; return PKGS[chosen.pkg].book.filter(function(k){return !(SERVICES[k]&&SERVICES[k].bookable);}); }
+  function loadParts(){
+    var svcs=bookableSvcs();
+    partsEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Loading available times…</p>';
+    partsBox.style.display='block'; form.style.display='none'; okEl.style.display='none';
+    if(!svcs.length){ partsEl.innerHTML=waitlistUI(chosen.area); bindWaitlist(chosen.area); return; }
+    Promise.all(svcs.map(function(svc){
+      return fetch('/api/slots?area='+encodeURIComponent(chosen.area)+'&svc='+svc,{headers:{'Cache-Control':'no-store'}})
+        .then(function(r){return r.json();}).then(function(d){AVAIL[svc]=d;}).catch(function(){AVAIL[svc]={days:[]};});
+    })).then(renderParts);
+  }
+  function renderParts(){
+    var svcs=bookableSvcs(), manual=manualSvcs(), anyAvail=false;
+    var h=svcs.map(function(svc){
+      var d=AVAIL[svc]||{days:[]}; var part=chosen.parts[svc];
+      var head='<div class="abk-part-h"><strong>'+SVC[svc].lbl+'</strong><span>'+clinicName(svc)+'</span></div>';
+      if(part){ anyAvail=true; return '<div class="abk-part done" data-svc="'+svc+'">'+head+'<p class="sel-when">✓ '+fmtDayTxt(part.date)+' · '+part.time+' <button type="button" class="abk-repick" data-svc="'+svc+'" style="background:none;border:none;color:var(--muted-2);font-size:.78rem;cursor:pointer;text-decoration:underline;font-family:inherit">change</button></p></div>'; }
+      if(!d.days||!d.days.length){ return '<div class="abk-part" data-svc="'+svc+'">'+head+'<p style="color:var(--muted-2);font-size:.85rem;margin:0">No available times right now — we coordinate this service with you after booking.</p></div>'; }
+      anyAvail=true;
+      var lim=new Date(); lim.setDate(lim.getDate()+7);
+      var tot7=0; d.days.forEach(function(x){ if(new Date(x.date+'T00:00:00')<=lim) tot7+=x.times.length; });
+      var scar=(tot7>0&&tot7<6)?'<p style="color:var(--gold);font-size:.8rem;margin:0 0 8px">Only '+tot7+' times in the next 7 days</p>':'';
+      var days=d.days.slice(0,8).map(function(x){return '<button type="button" class="abk-day" data-svc="'+svc+'" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
+      return '<div class="abk-part" data-svc="'+svc+'">'+head+scar+'<div class="abk-days" style="margin-bottom:8px">'+days+'</div><div class="abk-times" data-times-for="'+svc+'"></div></div>';
+    }).join('');
+    if(manual.length){ h+='<p style="color:var(--muted-2);font-size:.8rem;margin:4px 0 0">'+manual.map(function(k){return SVC[k].lbl;}).join(' · ')+': coordinated personally by Aevia after your booking — you do not pick a time here.</p>'; }
+    partsEl.innerHTML=h;
+    if(!anyAvail&&svcs.length){ partsEl.innerHTML=waitlistUI(chosen.area); bindWaitlist(chosen.area); return; }
+    updateForm();
+  }
+  partsEl.addEventListener('click',function(e){
+    var rp=e.target.closest('.abk-repick'); if(rp){ delete chosen.parts[rp.getAttribute('data-svc')]; renderParts(); return; }
+    var db=e.target.closest('.abk-day');
+    if(db){
+      var svc=db.getAttribute('data-svc'); var wrap=db.closest('.abk-part');
+      Array.prototype.forEach.call(wrap.querySelectorAll('.abk-day'),function(x){x.classList.remove('sel');}); db.classList.add('sel');
+      var times=JSON.parse(db.getAttribute('data-times'));
+      wrap.querySelector('[data-times-for="'+svc+'"]').innerHTML=times.map(function(t){return '<button type="button" class="abk-time" data-svc="'+svc+'" data-date="'+db.getAttribute('data-date')+'" data-time="'+t+'">'+t+'</button>';}).join('');
+      return;
+    }
+    var tb=e.target.closest('.abk-time[data-time]');
+    if(tb){ var svc2=tb.getAttribute('data-svc'); chosen.parts[svc2]={date:tb.getAttribute('data-date'),time:tb.getAttribute('data-time')}; track('booking_slot_selected',{area:chosen.area,svc:svc2}); renderParts(); return; }
   });
-
+  function updateForm(){
+    var svcs=bookableSvcs();
+    var withAvail=svcs.filter(function(k){var d=AVAIL[k];return d&&d.days&&d.days.length;});
+    var done=withAvail.every(function(k){return !!chosen.parts[k];});
+    form.style.display=(withAvail.length&&done)?'block':'none';
+    if(withAvail.length&&done)form.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
   form.addEventListener('submit',function(e){
     e.preventDefault(); err('');
-    if(!chosen.area||!chosen.date||!chosen.time){err('Choose area, date and time.');return;}
+    if(!chosen.area){err('Enter your address (step 1).');return;}
     if(!chosen.pkg){err('Choose a package (step 2).');document.getElementById('abk-pkgbox').scrollIntoView({behavior:'smooth',block:'center'});return;}
+    var parts=Object.keys(chosen.parts).map(function(k){return {svc:k,date:chosen.parts[k].date,time:chosen.parts[k].time};});
+    if(!parts.length){err('Choose your times (step 3).');return;}
     var sub=document.getElementById('abk-submit'); sub.disabled=true; sub.textContent='Confirming…';
     fetch('/api/book-slot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      area:chosen.area,date:chosen.date,time:chosen.time,
+      area:chosen.area,parts:parts,
       name:document.getElementById('abk-name').value,
       email:document.getElementById('abk-email').value,
       phone:document.getElementById('abk-phone').value,
       pkg:chosen.pkg, lang:'en',
       gotcha:(form.querySelector('[name=company]')||{}).value||''
     })}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
-      sub.disabled=false; sub.textContent='Confirm my time';
-      if(!res.ok){err(res.j.error||'Could not book. Try another time.'); if(res.j.error&&res.j.error.indexOf('booked')>-1)addrIn.dispatchEvent(new Event('change')); return;}
-      form.style.display='none'; daysBox.style.display='none'; timesBox.style.display='none'; addrIn.parentNode.style.display='none'; document.getElementById('abk-pkgbox').style.display='none';
-      document.getElementById('abk-ok-when').textContent=res.j.when+' · '+chosen.area;
+      sub.disabled=false; sub.textContent='Confirm my times';
+      if(!res.ok){ err(res.j.error||'Could not book. Try another time.'); if(res.j.failedSvc){ delete chosen.parts[res.j.failedSvc]; loadParts(); } return; }
+      form.style.display='none'; partsBox.style.display='none'; addrIn.parentNode.style.display='none'; document.getElementById('abk-pkgbox').style.display='none';
+      document.getElementById('abk-ok-when').innerHTML=(res.j.whenList||[]).join('<br>')+'<br><span style="color:var(--muted-2)">'+chosen.area+'</span>';
       if(res.j.payUrl){var pay=document.getElementById('abk-ok-pay');pay.href=res.j.payUrl;pay.style.display='inline-flex';}
       okEl.style.display='block'; okEl.scrollIntoView({behavior:'smooth',block:'center'});
-      track('booking_completed',{area:chosen.area,pkg:chosen.pkg});
-    }).catch(function(){sub.disabled=false;sub.textContent='Confirm my time';err('Network error. Try again.');});
+      track('booking_completed',{area:chosen.area,pkg:chosen.pkg,parts:parts.length});
+    }).catch(function(){sub.disabled=false;sub.textContent='Confirm my times';err('Network error. Try again.');});
   });
 })();
 </script>
