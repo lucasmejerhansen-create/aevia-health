@@ -73,7 +73,7 @@ function load(){
       if(!b.length){out.innerHTML='<p class="empty">Ingen bookinger '+date+' i '+area+'.</p>';return;}
       var rows=b.map(function(x){
         var cancelled=x.status==='cancelled';
-        return '<tr><td>'+x.time+'</td><td><strong>'+esc(x.customer&&x.customer.name||'')+'</strong><br><span style="color:var(--muted-2)">'+esc(x.customer&&x.customer.email||'')+(x.customer&&x.customer.phone?' · '+esc(x.customer.phone):'')+'</span></td><td>'+esc(x.customer&&x.customer.pkg||'—')+'</td><td>'+(cancelled?'<span class="tag cancelled">Aflyst</span>':'<span class="tag">Bekræftet</span>')+'</td><td>'+(cancelled?'':'<button class="x" onclick="cancelBk(\\''+x.id+'\\')">Aflys</button>')+'</td></tr>';
+        return '<tr><td>'+x.time+'</td><td><strong>'+esc(x.customer&&x.customer.name||'')+'</strong><br><span style="color:var(--muted-2)">'+esc(x.customer&&x.customer.email||'')+(x.customer&&x.customer.phone?' · '+esc(x.customer.phone):'')+'</span></td><td>'+esc(x.customer&&x.customer.pkg||'—')+'</td><td>'+(cancelled?'<span class="tag cancelled">Aflyst</span>':'<span class="tag">Bekræftet</span>')+'</td><td>'+(cancelled?'':'<button class="x" onclick="cancelBk(\''+x.id+'\')">Aflys</button>')+'</td></tr>';
       }).join('');
       out.innerHTML='<table><thead><tr><th>Tid</th><th>Kunde</th><th>Pakke</th><th>Status</th><th></th></tr></thead><tbody>'+rows+'</tbody></table>';
     }).catch(function(){out.innerHTML='<p class="empty">Netværksfejl.</p>';});

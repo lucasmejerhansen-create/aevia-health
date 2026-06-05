@@ -979,11 +979,27 @@ function aevWait(f,e){e.preventDefault();
     var b=e.target.closest('#abk-pkgs .abk-time'); if(!b)return;
     chosen.pkg=b.getAttribute('data-pkg');
     renderPkgs(); renderSvc(); err('');
+    track('booking_pkg_selected',{pkg:chosen.pkg});
   });
   var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var DAY=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   function fmtDay(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return '<strong>'+DAY[d.getDay()]+'</strong><br>'+d.getDate()+' '+MON[d.getMonth()];}
   function err(m){errEl.textContent=m;errEl.style.display=m?'block':'none';}
+  function track(ev,params){ try{ if(window.gtag)gtag('event',ev,params||{}); }catch(_){ } }
+  function waitlistUI(area){
+    return '<p style="color:var(--muted-2);font-size:.9rem;margin-bottom:10px">No available times right now. Sign up and we will email you the moment a slot opens:</p>'+
+      '<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap"><input type="email" required placeholder=\"your@email.com\" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Sign me up</button></form><p id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">You are on the list — we will email you when a slot opens.</p>';
+  }
+  function bindWaitlist(area){
+    var f=document.getElementById('abk-wl'); if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var em=f.querySelector('input').value;
+      fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({area:area,email:em})})
+        .then(function(){ f.style.display='none'; document.getElementById('abk-wl-ok').style.display='block'; track('waitlist_signup',{area:area}); })
+        .catch(function(){});
+    });
+  }
   function preselectPkg(){var p=new URLSearchParams(location.search);return p.get('pakke')||'';}
 
   var PNR={'1':'København-området','2':'København-området','3':'København-området','4':'København-området','5':'Odense-området','6':'Herning-området','7':'Herning-området','8':'Aarhus-området','9':'Aalborg-området'};
@@ -1035,8 +1051,12 @@ function aevWait(f,e){e.preventDefault();
       daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Loading available days…</p>'; daysBox.style.display='block';
       fetch('/api/slots?area='+encodeURIComponent(area),{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){
         CLINICS=d.clinics||{}; renderSvc();
-        if(!d.days||!d.days.length){daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">No available times right now. Call <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a> or use the form below.</p>';return;}
-        daysEl.innerHTML=d.days.map(function(x){return '<button type="button" class="abk-day" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
+        if(!d.days||!d.days.length){daysEl.innerHTML=waitlistUI(area);bindWaitlist(area);return;}
+        var lim=new Date(); lim.setDate(lim.getDate()+7);
+        var tot7=0; d.days.forEach(function(x){ if(new Date(x.date+'T00:00:00')<=lim) tot7+=x.times.length; });
+        var scar=(tot7>0&&tot7<6)?'<p style="color:var(--gold);font-size:.85rem;margin:0 0 10px">Only '+tot7+' available times in the next 7 days — more open continuously.</p>':'';
+        daysEl.innerHTML=scar+d.days.map(function(x){return '<button type="button" class="abk-day" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
+        track('booking_area_resolved',{area:area,slots_next7:tot7});
       }).catch(function(){daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Could not load times. Try again.</p>';});
     });
   }
@@ -1081,6 +1101,7 @@ function aevWait(f,e){e.preventDefault();
     var b=e.target.closest('.abk-time'); if(!b)return;
     Array.prototype.forEach.call(timesEl.querySelectorAll('.abk-time'),function(x){x.classList.remove('sel');}); b.classList.add('sel');
     chosen.time=b.getAttribute('data-time'); form.style.display='block'; err('');
+    track('booking_slot_selected',{area:chosen.area});
     form.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 
@@ -1103,6 +1124,7 @@ function aevWait(f,e){e.preventDefault();
       document.getElementById('abk-ok-when').textContent=res.j.when+' · '+chosen.area;
       if(res.j.payUrl){var pay=document.getElementById('abk-ok-pay');pay.href=res.j.payUrl;pay.style.display='inline-flex';}
       okEl.style.display='block'; okEl.scrollIntoView({behavior:'smooth',block:'center'});
+      track('booking_completed',{area:chosen.area,pkg:chosen.pkg});
     }).catch(function(){sub.disabled=false;sub.textContent='Confirm my time';err('Network error. Try again.');});
   });
 })();

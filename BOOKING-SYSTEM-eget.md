@@ -51,6 +51,32 @@ De to systemer udelukker ikke hinanden. Områder uden `ready:true` her bruger fo
 Cal.com-/mailflowet (se KLINIK-SYSTEM.md). I kan rulle det egne system ud område for
 område og beholde Cal.com som fallback, indtil I er trygge.
 
+## Fuldt funktionssæt (bygget juni 2026)
+
+| Funktion | Hvordan |
+|---|---|
+| Kalenderfil (.ics) i bekræftelsesmail | Automatisk vedhæftet — tiden lander i kundens kalender med 12-timers faste-alarm |
+| Flyt/aflys-selvbetjening | Signeret link i alle mails → `api/min-booking.js`; aflysning frigiver tiden med det samme |
+| Påmindelse dagen før | Cron `api/booking-remind.js` (kl. 5 UTC) — fasteguide + flyt/aflys-link |
+| Dagsrapport til klinik | Samme cron: morgenmail med dagens bookinger (tid, navn, pakke, kontakt) |
+| Venteliste | Ingen ledige tider → skriv-mig-op-form; ved enhver aflysning mailes hele listen (først til mølle) og tømmes |
+| Knaphedsvisning | "Kun X ledige tider de næste 7 dage" vises automatisk ved < 6 tider |
+| Klinik-portal | `klinik-portal.html` + `CLINIC_TOKENS` — klinikken ser dagens bookinger og blokerer/frigiver tider selv |
+| Betaling koblet til booking | Stripe-checkout får `booking_id` i metadata (`?bid=`) |
+| GA4-events | `booking_area_resolved`, `booking_pkg_selected`, `booking_slot_selected`, `booking_completed`, `waitlist_signup` |
+
+### Klinik-portal — opsætning pr. klinik
+1. Generér en nøgle: `openssl rand -hex 24`
+2. Vercel → `CLINIC_TOKENS` = JSON: `{"<nøglen>":"Herning-området"}` (tilføj flere par for flere klinikker)
+3. Send klinikken linket `https://aevia.dk/klinik-portal.html` + deres nøgle (sikker kanal)
+4. De kan nu: se dagens bookinger, blokere enkelt-tider og hele dage (ferie/sygdom)
+
+## Ikke bygget endnu (kræver eksterne valg)
+
+- **SMS-påmindelser** — kræver dansk SMS-gateway-konto (fx GatewayAPI/Inmobile, ~0,30 kr./SMS). Krogen er klar: tilføj SMS-kald i `booking-remind.js`.
+- **Google/Outlook kalender-sync pr. klinik** — kræver OAuth-opsætning pr. klinik; byg når 2-3 klinikker er live. Indtil da dækker klinik-portalens blokering behovet.
+- **No-show-gebyr (Stripe Setup Intent)** — forretningsbeslutning + opdatering af handelsbetingelser først.
+
 ## Begrænsninger (bevidste, for at holde det simpelt)
 
 - Tilgængelighed er regelbaseret (faste ugedage/tider), ikke synkroniseret med
@@ -64,7 +90,10 @@ område og beholde Cal.com som fallback, indtil I er trygge.
 
 - `api/_booking-store.js` — config + datalager + slot-logik (rør `AREAS` her)
 - `api/slots.js` — ledige tider (GET)
-- `api/book-slot.js` — reservation + mails (POST)
-- `api/admin-bookings.js` — admin-API (token)
-- `admin-bookinger.html` — admin-side (noindex)
+- `api/book-slot.js` — reservation + mails m. .ics + flyt/aflys-link (POST)
+- `api/min-booking.js` — kundens selvbetjening (signeret link)
+- `api/waitlist.js` — venteliste-tilmelding
+- `api/booking-remind.js` — cron: påmindelser + klinik-dagsrapport
+- `api/clinic-portal.js` + `klinik-portal.html` — klinikkens egen side
+- `api/admin-bookings.js` + `admin-bookinger.html` — jeres admin
 - `book.html` / `en/book.html` — widget `#aev-booking`

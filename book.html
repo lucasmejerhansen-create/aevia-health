@@ -1447,11 +1447,27 @@ function aevWait(f,e){e.preventDefault();
     var b=e.target.closest('#abk-pkgs .abk-time'); if(!b)return;
     chosen.pkg=b.getAttribute('data-pkg');
     renderPkgs(); renderSvc(); err('');
+    track('booking_pkg_selected',{pkg:chosen.pkg});
   });
   var MON=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
   var DAY=['søn','man','tir','ons','tor','fre','lør'];
   function fmtDay(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return '<strong>'+DAY[d.getDay()]+'</strong><br>'+d.getDate()+'. '+MON[d.getMonth()];}
   function err(m){errEl.textContent=m;errEl.style.display=m?'block':'none';}
+  function track(ev,params){ try{ if(window.gtag)gtag('event',ev,params||{}); }catch(_){ } }
+  function waitlistUI(area){
+    return '<p style="color:var(--muted-2);font-size:.9rem;margin-bottom:10px">Ingen ledige tider lige nu. Skriv dig op, så mailer vi dig, i samme sekund en tid bliver ledig:</p>'+
+      '<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap"><input type="email" required placeholder=\"din@email.dk\" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Skriv mig op</button></form><p id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">Du er skrevet op — vi mailer dig, når en tid frigives.</p>';
+  }
+  function bindWaitlist(area){
+    var f=document.getElementById('abk-wl'); if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var em=f.querySelector('input').value;
+      fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({area:area,email:em})})
+        .then(function(){ f.style.display='none'; document.getElementById('abk-wl-ok').style.display='block'; track('waitlist_signup',{area:area}); })
+        .catch(function(){});
+    });
+  }
   function preselectPkg(){var p=new URLSearchParams(location.search);return p.get('pakke')||'';}
 
   // Postnummerets første ciffer → område (samme logik som resten af siden).
@@ -1510,8 +1526,12 @@ function aevWait(f,e){e.preventDefault();
       daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Henter ledige dage…</p>'; daysBox.style.display='block';
       fetch('/api/slots?area='+encodeURIComponent(area),{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){
         CLINICS=d.clinics||{}; renderSvc();
-        if(!d.days||!d.days.length){daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Ingen ledige tider lige nu. Ring <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a> eller brug formularen nederst.</p>';return;}
-        daysEl.innerHTML=d.days.map(function(x){return '<button type="button" class="abk-day" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
+        if(!d.days||!d.days.length){daysEl.innerHTML=waitlistUI(area);bindWaitlist(area);return;}
+        var lim=new Date(); lim.setDate(lim.getDate()+7);
+        var tot7=0; d.days.forEach(function(x){ if(new Date(x.date+'T00:00:00')<=lim) tot7+=x.times.length; });
+        var scar=(tot7>0&&tot7<6)?'<p style="color:var(--gold);font-size:.85rem;margin:0 0 10px">Kun '+tot7+' ledige tider de næste 7 dage — flere åbnes løbende.</p>':'';
+        daysEl.innerHTML=scar+d.days.map(function(x){return '<button type="button" class="abk-day" data-date="'+x.date+'" data-times=\''+JSON.stringify(x.times)+'\'>'+fmtDay(x.date)+'</button>';}).join('');
+        track('booking_area_resolved',{area:area,slots_next7:tot7});
       }).catch(function(){daysEl.innerHTML='<p style="color:var(--muted-2);font-size:.9rem">Kunne ikke hente tider. Prøv igen.</p>';});
     });
   }
@@ -1556,6 +1576,7 @@ function aevWait(f,e){e.preventDefault();
     var b=e.target.closest('.abk-time'); if(!b)return;
     Array.prototype.forEach.call(timesEl.querySelectorAll('.abk-time'),function(x){x.classList.remove('sel');}); b.classList.add('sel');
     chosen.time=b.getAttribute('data-time'); form.style.display='block'; err('');
+    track('booking_slot_selected',{area:chosen.area});
     form.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 
@@ -1578,6 +1599,7 @@ function aevWait(f,e){e.preventDefault();
       document.getElementById('abk-ok-when').textContent=res.j.when+' · '+chosen.area;
       if(res.j.payUrl){var pay=document.getElementById('abk-ok-pay');pay.href=res.j.payUrl;pay.style.display='inline-flex';}
       okEl.style.display='block'; okEl.scrollIntoView({behavior:'smooth',block:'center'});
+      track('booking_completed',{area:chosen.area,pkg:chosen.pkg});
     }).catch(function(){sub.disabled=false;sub.textContent='Bekræft min tid';err('Netværksfejl. Prøv igen.');});
   });
 })();
