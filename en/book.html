@@ -1071,7 +1071,12 @@ function aevWait(f,e){e.preventDefault();
     matchEl.style.display='block'; matchEl.innerHTML='Finding your nearest area…';
     resolveArea(v,function(area){
       if(!area){ matchEl.innerHTML='We could not recognise the address — type your postcode (e.g. 7400).'; return; }
-      if(READY.indexOf(area)===-1){ matchEl.innerHTML='Your nearest area is <strong style="color:var(--text)">'+area+'</strong> — online booking opens there soon. Join the waitlist below, or call <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'; return; }
+      if(READY.indexOf(area)===-1){
+        matchEl.innerHTML='Your nearest area is <strong style="color:var(--text)">'+area+'</strong> — online booking opens there soon. Sign up and we will notify you the moment we open — or call <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'
+          +'<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><input type="email" required placeholder="your@email.com" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Notify me</button></form>'
+          +'<span id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">You are on the list — we will email you as soon as we open in your area.</span>';
+        bindWaitlist(area);
+        return; }
       chosen.area=area; chosen.parts={}; AVAIL={};
       matchEl.innerHTML='Your nearest area: <strong style="color:var(--text)">'+area+'</strong>';
       fetch('/api/slots?area='+encodeURIComponent(area),{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();}).then(function(d){

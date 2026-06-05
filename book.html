@@ -1554,7 +1554,12 @@ function aevWait(f,e){e.preventDefault();
     matchEl.style.display='block'; matchEl.innerHTML='Finder dit nærmeste område…';
     resolveArea(v,function(area){
       if(!area){ matchEl.innerHTML='Vi kunne ikke genkende adressen — skriv dit postnummer (fx 7400).'; return; }
-      if(READY.indexOf(area)===-1){ matchEl.innerHTML='Dit nærmeste område er <strong style="color:var(--text)">'+area+'</strong> — online-booking åbner dér snart. Skriv dig på ventelisten nederst, eller ring <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'; return; }
+      if(READY.indexOf(area)===-1){
+        matchEl.innerHTML='Dit nærmeste område er <strong style="color:var(--text)">'+area+'</strong> — online-booking åbner dér snart. Skriv dig op, så får du besked, så snart vi åbner — eller ring <a class="gold" href="tel:+4528303933">+45 28 30 39 33</a>.'
+          +'<form id="abk-wl" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><input type="email" required placeholder="din@email.dk" class="abk-input" style="flex:1;min-width:180px"><button type="submit" class="btn btn-primary" style="padding:11px 18px;flex:none">Giv mig besked</button></form>'
+          +'<span id="abk-wl-ok" style="display:none;color:var(--gold);font-size:.85rem;margin-top:8px">Du er skrevet op — vi giver dig besked, så snart vi åbner i dit område.</span>';
+        bindWaitlist(area);
+        return; }
       chosen.area=area; chosen.parts={}; AVAIL={};
       matchEl.innerHTML='Dit nærmeste område: <strong style="color:var(--text)">'+area+'</strong>';
       // Hent områdets ydelser (bookbar/klinik) og vis pakketrin

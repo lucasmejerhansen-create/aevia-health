@@ -56,7 +56,7 @@ function reminderMail({ b, partsTomorrow, lang }) {
         ? `Kan du alligevel ikke komme? <a href="${manageUrl}" style="color:#c9a437">Aflys eller flyt her</a> — så kan en anden få tiden.`
         : `Can't make it after all? <a href="${manageUrl}" style="color:#c9a437">Cancel or reschedule here</a> — so someone else can have the slot.`}</p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
   </div></body></html>`,
   };
 }

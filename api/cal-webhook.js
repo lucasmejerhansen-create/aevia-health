@@ -72,7 +72,7 @@ function mailHtml({ lang, name, title, when, payUrl }) {
           : 'You will receive a preparation guide before your appointment (incl. 8-12 hours of fasting — water is fine). Need to reschedule? Just use the link in the calendar invitation. Questions? Reply to this email or write to <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.'
       }</p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
   </div>
 </body></html>`;
 }

@@ -25,7 +25,7 @@ function wrap({ lang, bodyHtml, unsubUrl }) {
         <p style="margin:0;color:#94a0b2;font-size:13px">${q}</p>
       </div>
     </div>
-    <p style="color:#5a6b80;font-size:12px;margin-top:22px;text-align:center;line-height:1.7">Aevia Health ApS &middot; CVR 46 52 07 50 &middot; <a href="${SITE}" style="color:#94a0b2;text-decoration:none">aevia.dk</a><br>
+    <p style="color:#5a6b80;font-size:12px;margin-top:22px;text-align:center;line-height:1.7">Aevia &middot; CVR 46 52 07 50 &middot; <a href="${SITE}" style="color:#94a0b2;text-decoration:none">aevia.dk</a><br>
     <a href="${unsubUrl}" style="color:#5a6b80">${da ? "Afmeld disse mails" : "Unsubscribe from these emails"}</a></p>
   </div></div></body></html>`;
 }

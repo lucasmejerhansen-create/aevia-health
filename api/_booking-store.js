@@ -309,3 +309,39 @@ export async function setBookingPaid(id) {
   await redis(["SET", `bk:${id}`, JSON.stringify(b), "KEEPTTL"]);
   return { ok: true, booking: b };
 }
+
+// ── Ubekræftede bookinger (mail-flowet, niveau 1): til rykker-cron ───────────
+// Registreres af api/booking.js, fjernes af api/booking-action.js, og
+// api/booking-remind.js rykker kontakt@ hvis en booking er ubesvaret i 20+ timer.
+export async function pendingAdd(id, payload) {
+  if (!isConfigured()) return { ok: false };
+  await redis(["SET", `pend:${id}`, JSON.stringify({ ...payload, reminded: false }), "EX", 60 * 60 * 24 * 7]);
+  await redis(["SADD", "pend:idx", String(id)]);
+  return { ok: true };
+}
+export async function pendingRemove(id) {
+  if (!isConfigured()) return { ok: false };
+  await redis(["DEL", `pend:${id}`]);
+  await redis(["SREM", "pend:idx", String(id)]);
+  return { ok: true };
+}
+export async function pendingList() {
+  if (!isConfigured()) return [];
+  const ids = (await redis(["SMEMBERS", "pend:idx"])) || [];
+  if (!ids.length) return [];
+  const rows = await Promise.all(ids.map((id) => redis(["GET", `pend:${id}`])));
+  const out = [];
+  ids.forEach((id, i) => {
+    if (rows[i]) out.push({ id, ...JSON.parse(rows[i]) });
+    else redis(["SREM", "pend:idx", id]).catch(() => {});
+  });
+  return out;
+}
+export async function pendingMarkReminded(id) {
+  if (!isConfigured()) return;
+  const raw = await redis(["GET", `pend:${id}`]);
+  if (!raw) return;
+  const b = JSON.parse(raw);
+  b.reminded = true;
+  await redis(["SET", `pend:${id}`, JSON.stringify(b), "EX", 60 * 60 * 24 * 7]);
+}
