@@ -11,6 +11,7 @@
 //   Miljøvariabler: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, RESEND_API_KEY, MAIL_FROM
 
 import Stripe from "stripe";
+import { markPaid, setBookingPaid, getBooking, SVC_LABELS } from "./_booking-store.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -52,16 +53,38 @@ const step = (n, title, body) => `<table role="presentation" style="border-colla
   <td style="vertical-align:top;padding-right:16px"><div style="width:32px;height:32px;border-radius:50%;background:#142840;border:1px solid #c9a437;color:#c9a437;font-weight:bold;font-size:14px;text-align:center;line-height:32px;font-family:Georgia,serif">${n}</div></td>
   <td style="vertical-align:top"><p style="margin:4px 0 3px;color:#f5f5f0;font-size:15px;font-weight:bold">${title}</p><p style="margin:0;color:#aab4c2;font-size:14px;line-height:1.6">${body}</p></td></tr></table>`;
 
-function confirmedHtml({ name, pkg, total }) {
+function fmtPartDate(date, time) {
+  try {
+    return new Intl.DateTimeFormat("da-DK", {
+      weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Copenhagen",
+    }).format(new Date(date + "T00:00:00")) + " · " + time;
+  } catch { return date + " · " + time; }
+}
+
+// `booking` (valgfri): kunden har allerede booket sine tider via widgetten —
+// så viser vi tiderne i stedet for "vi kontakter dig".
+function confirmedHtml({ name, pkg, total, booking }) {
+  const timesRows = booking && Array.isArray(booking.parts)
+    ? booking.parts.map((p) => {
+        const l = SVC_LABELS[p.svc];
+        return `<tr><td style="color:#f5f5f0;font-size:14px;padding:6px 0;border-bottom:1px solid #1d2c42">${l ? l.da : p.svc}</td><td style="color:#c9a437;font-size:14px;font-weight:bold;text-align:right;border-bottom:1px solid #1d2c42">${fmtPartDate(p.date, p.time)}</td></tr>`;
+      }).join("")
+    : "";
+  const stepsBlock = timesRows
+    ? `<p style="margin:0 0 10px;color:#f5f5f0;font-size:15px;font-weight:bold">Dine bookede tider</p>
+       <table style="width:100%;border-collapse:collapse;margin:0 0 22px">${timesRows}</table>
+       ${step(1, "Du får din forberedelsesguide", "Bl.a. 8-12 timers faste før blodprøven — vand er ok. Vi minder dig også om tiden dagen før.")}
+       ${step(2, "Din rapport gennemgås 1:1", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`
+    : `${step(1, "Vi kontakter dig", "Inden for 1 arbejdsdag aftaler vi tid og sted for din prøvetagning.")}
+       ${step(2, "Du får din forberedelsesguide", "Bl.a. 8-12 timers faste før blodprøven — vand er ok.")}
+       ${step(3, "Din rapport gennemgås 1:1", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`;
   return shell("Betaling modtaget", `<h1 style="color:#f5f5f0;font-size:24px;margin:0 0 14px;font-family:Georgia,serif;font-weight:normal">Tak for din booking${name ? ", " + name : ""}</h1>
     <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 24px">Vi har modtaget din betaling, og dit forløb er bekræftet.</p>
     <div style="background:#0c1830;border:1px solid #1d2c42;border-left:3px solid #c9a437;border-radius:10px;padding:14px 18px;margin:0 0 26px">
       <p style="margin:0;color:#f5f5f0;font-size:15px;font-weight:bold">${pkg}</p>
       <p style="margin:4px 0 0;color:#c9a437;font-size:14px;font-weight:bold">${total}</p>
     </div>
-    ${step(1, "Vi kontakter dig", "Inden for 1 arbejdsdag aftaler vi tid og sted for din prøvetagning.")}
-    ${step(2, "Du får din forberedelsesguide", "Bl.a. 8-12 timers faste før blodprøven — vand er ok.")}
-    ${step(3, "Din rapport gennemgås 1:1", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`);
+    ${stepsBlock}`);
 }
 
 function expiredHtml({ name, pkg, payLink }) {
@@ -125,12 +148,22 @@ export default async function handler(req, res) {
   const pkg = s.metadata?.package_name || (s.metadata?.pakke ? "Aevia-forløb" : "Aevia-forløb");
 
   if (event.type === "checkout.session.completed" && to && process.env.RESEND_API_KEY) {
+    // Registrér betalingen, så book-slot ikke beder kunden betale igen,
+    // og markér en evt. tilknyttet booking (?bid=) som betalt.
+    let booking = null;
+    try {
+      await markPaid(to, { pkg: s.metadata?.pakke || "", sid: s.id });
+      if (s.metadata?.booking_id) {
+        await setBookingPaid(s.metadata.booking_id);
+        booking = await getBooking(s.metadata.booking_id);
+      }
+    } catch (e) { console.error("Betalingsstatus-fejl:", e.message); }
     try {
       await sendMail({
         to,
         bcc: "kontakt@aevia.dk",
         subject: "Din booking hos Aevia er bekræftet",
-        html: confirmedHtml({ name, pkg, total: kr(s.amount_total || 0) }),
+        html: confirmedHtml({ name, pkg, total: kr(s.amount_total || 0), booking }),
       });
     } catch (e) {
       console.error("Mail-fejl (completed):", e.message);

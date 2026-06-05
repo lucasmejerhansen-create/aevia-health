@@ -1172,9 +1172,11 @@ function aevWait(f,e){e.preventDefault();
     })}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
       sub.disabled=false; sub.textContent='Confirm my times';
       if(!res.ok){ err(res.j.error||'Could not book. Try another time.'); if(res.j.failedSvc){ delete chosen.parts[res.j.failedSvc]; loadParts(); } return; }
-      form.style.display='none'; partsBox.style.display='none'; addrIn.parentNode.style.display='none'; document.getElementById('abk-pkgbox').style.display='none';
+      form.style.display='none'; partsBox.style.display='none'; document.getElementById('abk-pkgbox').style.display='none';
+      var addrStep=addrIn.closest?addrIn.closest('.abk-step'):addrIn.parentNode; if(addrStep)addrStep.style.display='none';
       document.getElementById('abk-ok-when').innerHTML=(res.j.whenList||[]).join('<br>')+'<br><span style="color:var(--muted-2)">'+chosen.area+'</span>';
-      if(res.j.payUrl){var pay=document.getElementById('abk-ok-pay');pay.href=res.j.payUrl;pay.style.display='inline-flex';}
+      if(res.j.paid){document.getElementById('abk-ok-when').innerHTML+='<br><span style="color:var(--gold);font-weight:600">Your programme is already paid for — nothing more to do.</span>';}
+      else if(res.j.payUrl){var pay=document.getElementById('abk-ok-pay');pay.href=res.j.payUrl;pay.style.display='inline-flex';}
       okEl.style.display='block'; okEl.scrollIntoView({behavior:'smooth',block:'center'});
       track('booking_completed',{area:chosen.area,pkg:chosen.pkg,parts:parts.length});
     }).catch(function(){sub.disabled=false;sub.textContent='Confirm my times';err('Network error. Try again.');});

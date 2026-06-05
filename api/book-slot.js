@@ -7,7 +7,7 @@
 //
 // Miljøvariabler: KV_REST_API_URL, KV_REST_API_TOKEN, RESEND_API_KEY, MAIL_FROM, SITE_URL
 
-import { reserveMulti, AREAS, SVC_LABELS, bookingSig } from "./_booking-store.js";
+import { reserveMulti, AREAS, SVC_LABELS, bookingSig, isPaid, setBookingPaid } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -72,11 +72,16 @@ function partsTable(area, parts, lang) {
   }).join("");
 }
 
-function customerMail({ lang, name, area, parts, payUrl, manageUrl }) {
+function customerMail({ lang, name, area, parts, payUrl, manageUrl, paid }) {
   const da = lang !== "en";
-  const btn = payUrl
-    ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
-    : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`;
+  // Allerede betalt → ingen betalingsopfordring; alt er på plads.
+  const payBlock = paid
+    ? `<p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Alle tider er reserveret, og dit forløb er allerede betalt — du skal ikke gøre mere." : "All times are reserved, and your programme is already paid for — nothing more to do."}</p>
+       <div style="background:#0c1830;border:1px solid #1d2c42;border-left:3px solid #3fb27f;border-radius:10px;padding:12px 16px;margin:14px 0 6px"><p style="margin:0;color:#3fb27f;font-size:14px;font-weight:bold">${da ? "✓ Betaling registreret" : "✓ Payment registered"}</p></div>`
+    : `<p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Alle tider er reserveret. Sidste skridt er betalingen af dit forløb:" : "All times are reserved. The final step is paying for your programme:"}</p>` +
+      (payUrl
+        ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
+        : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`);
   return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif">
   <div style="max-width:560px;margin:0 auto;padding:36px 24px">
     <div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
@@ -84,8 +89,7 @@ function customerMail({ lang, name, area, parts, payUrl, manageUrl }) {
       <h1 style="color:#f5f5f0;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${da ? `Dine tider er bekræftet${name ? ", " + name : ""}` : `Your appointments are confirmed${name ? ", " + name : ""}`}</h1>
       <p style="color:#94a0b2;font-size:13px;margin:0 0 6px">${area}</p>
       <table style="width:100%;border-collapse:collapse;margin:0 0 16px">${partsTable(area, parts, lang)}</table>
-      <p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Alle tider er reserveret. Sidste skridt er betalingen af dit forløb:" : "All times are reserved. The final step is paying for your programme:"}</p>
-      ${btn}
+      ${payBlock}
       <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:16px 0 0">${da
         ? `Tiderne ligger som kalenderfil i denne mail (én aftale pr. ydelse). Husk 8-12 timers faste før blodprøven — vand er ok. Skal noget flyttes eller aflyses? <a href="${manageUrl}" style="color:#c9a437">Administrér din booking her</a>.`
         : `The appointments are attached as a calendar file (one event per service). Remember to fast 8-12 hours before the blood draw — water is fine. Need to reschedule or cancel? <a href="${manageUrl}" style="color:#c9a437">Manage your booking here</a>.`}</p>
@@ -125,8 +129,13 @@ export default async function handler(req, res) {
   const r = await reserveMulti({ area, parts: cleanParts, customer });
   if (!r.ok) return res.status(409).json({ error: r.reason, failedSvc: r.failedSvc });
 
+  // Har kunden allerede betalt (fx pakke købt via pakker.html før booking)?
+  let alreadyPaid = false;
+  try { alreadyPaid = !!(await isPaid(customer.email)); } catch (e) { console.error("isPaid-fejl:", e.message); }
+  if (alreadyPaid) { try { await setBookingPaid(r.id); } catch (_) {} }
+
   const pkgKey = PKG_MAP[String(pkg || "").toLowerCase()];
-  const payUrl = pkgKey ? `${SITE}/api/checkout?pkg=${pkgKey}&bid=${r.id}${isEN ? "&lang=en" : ""}` : null;
+  const payUrl = !alreadyPaid && pkgKey ? `${SITE}/api/checkout?pkg=${pkgKey}&bid=${r.id}${isEN ? "&lang=en" : ""}` : null;
   const manageUrl = `${SITE}/api/min-booking?id=${r.id}&sig=${bookingSig(r.id)}${isEN ? "&lang=en" : ""}`;
   const whenList = cleanParts.map((p) => `${svcLabel(p.svc, customer.lang)}: ${fmtDate(p.date, p.time, customer.lang)}`);
 
@@ -137,7 +146,7 @@ export default async function handler(req, res) {
         to: customer.email,
         bcc: "kontakt@aevia.dk",
         subject: isEN ? "Your appointments with Aevia are confirmed" : "Dine tider hos Aevia er bekræftet",
-        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, parts: cleanParts, payUrl, manageUrl }),
+        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, parts: cleanParts, payUrl, manageUrl, paid: alreadyPaid }),
         attachments: [{ filename: "aevia-booking.ics", content: icsFor({ id: r.id, area, parts: cleanParts, lang: customer.lang }) }],
       });
     }
@@ -156,12 +165,12 @@ export default async function handler(req, res) {
           html: `<div style="font-family:Arial,sans-serif;font-size:15px;color:#0a1628">
             <h2 style="font-family:Georgia,serif">Ny Aevia-booking</h2>
             <p><b>${svcLabel(p.svc, "da")}</b><br>${fmtDate(p.date, p.time, "da")}<br>Område: ${area}</p>
-            <p>Navn: ${customer.name}<br>E-mail: ${customer.email}<br>Telefon: ${customer.phone || "—"}<br>Pakke: ${customer.pkg || "—"}</p>
+            <p>Navn: ${customer.name}<br>E-mail: ${customer.email}<br>Telefon: ${customer.phone || "—"}<br>Pakke: ${customer.pkg || "—"}${alreadyPaid ? "<br><b>Betaling: allerede betalt</b>" : ""}</p>
             <p style="color:#667">Booking-id: ${r.id}</p></div>`,
         });
       }
     }
   } catch (e) { console.error("Kliniknotifikation-fejl:", e.message); }
 
-  return res.status(200).json({ ok: true, id: r.id, whenList, payUrl, manageUrl });
+  return res.status(200).json({ ok: true, id: r.id, whenList, payUrl, manageUrl, paid: alreadyPaid });
 }

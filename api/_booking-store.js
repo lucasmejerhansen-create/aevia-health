@@ -282,3 +282,30 @@ export async function waitlistPop(area) {
   if (emails.length) await redis(["DEL", `wait:${area}`]);
   return emails;
 }
+
+// ── Betalingsstatus (sættes af stripe-webhook) ───────────────────────────────
+// paid:<email> = kunden har betalt et forløb. Bruges af book-slot, så
+// bekræftelsesmailen ikke beder en allerede-betalende kunde om at betale igen.
+export async function markPaid(email, info) {
+  if (!isConfigured() || !email) return { ok: false };
+  await redis(["SET", `paid:${String(email).trim().toLowerCase()}`,
+    JSON.stringify({ at: new Date().toISOString(), ...(info || {}) }), "EX", 60 * 60 * 24 * 365]);
+  return { ok: true };
+}
+export async function isPaid(email) {
+  if (!isConfigured() || !email) return null;
+  const raw = await redis(["GET", `paid:${String(email).trim().toLowerCase()}`]);
+  return raw ? JSON.parse(raw) : null;
+}
+// Markér en konkret booking som betalt (vises i admin; sættes når Stripe-
+// betalingen har booking_id i metadata, eller når kunden var betalt på forhånd).
+export async function setBookingPaid(id) {
+  if (!isConfigured() || !id) return { ok: false };
+  const raw = await redis(["GET", `bk:${id}`]);
+  if (!raw) return { ok: false };
+  const b = JSON.parse(raw);
+  if (b.paid) return { ok: true, booking: b };
+  b.paid = true;
+  await redis(["SET", `bk:${id}`, JSON.stringify(b), "KEEPTTL"]);
+  return { ok: true, booking: b };
+}
