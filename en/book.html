@@ -412,6 +412,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
         <p id="abk-err" style="display:none;color:#e0a06b;font-size:.9rem;margin-top:10px;text-align:center"></p>
       </div>
+      <p id="abk-talk" style="text-align:center;font-size:.9rem;color:var(--muted-2);margin:14px 0 0">Not sure which package fits you? <a href="#" id="abk-talk-link" class="gold">Book a free 15-minute conversation</a></p>
     </div>
     <style>
     .abk-step{margin-bottom:16px}
@@ -1001,6 +1002,17 @@ function aevWait(f,e){e.preventDefault();
     if(!READY.length)return;
     box.style.display='block';
     var kal=document.getElementById('kalender'); if(kal)kal.style.display='none';
+    // The old "Book your health check" flow (tabs) is fully replaced by the widget.
+    var md=document.getElementById('mode-direkte'); if(md&&md.parentNode)md.parentNode.style.display='none';
+    var hh=document.getElementById('bk-h'); if(hh)hh.textContent='Book your programme';
+    var ss=document.getElementById('bk-sub'); if(ss)ss.textContent='Enter your address, choose your package and a time for each service. You get an email confirmation right away.';
+    var talk=document.getElementById('abk-talk-link');
+    if(talk)talk.addEventListener('click',function(e){
+      e.preventDefault();
+      var ts=document.getElementById('mode-samtale'); if(ts)ts.click();
+      var k=document.getElementById('kalender');
+      if(k)setTimeout(function(){k.scrollIntoView({behavior:'smooth',block:'start'});},120);
+    });
   }).catch(function(){});
 
   var sgTmr, autoTmr, sugItems=[], sugIdx=-1;
