@@ -7,7 +7,7 @@
 // Erstatter Cal.com-flowet for områder, der er sat ready=true i _booking-store.js.
 // Miljøvariabler: KV_REST_API_URL, KV_REST_API_TOKEN, RESEND_API_KEY, MAIL_FROM, SITE_URL
 
-import { reserve, AREAS } from "./_booking-store.js";
+import { reserve, AREAS, bookingSig } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -22,7 +22,32 @@ function fmtDate(date, time, lang) {
   } catch { return date + " · " + time; }
 }
 
-function customerMail({ lang, name, area, when, payUrl }) {
+// Kalenderfil (.ics) til bekræftelsesmailen — tiden lander i kundens kalender.
+function icsFor({ id, area, date, time, slotMin, lang }) {
+  const [h, m] = time.split(":").map(Number);
+  const start = date.replace(/-/g, "") + "T" + String(h).padStart(2, "0") + String(m).padStart(2, "0") + "00";
+  const endMin = h * 60 + m + (slotMin || 30);
+  const end = date.replace(/-/g, "") + "T" + String(Math.floor(endMin / 60)).padStart(2, "0") + String(endMin % 60).padStart(2, "0") + "00";
+  const da = lang !== "en";
+  const lines = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Aevia Health//Booking//DA", "METHOD:PUBLISH",
+    "BEGIN:VEVENT",
+    "UID:" + id + "@aevia.dk",
+    "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z",
+    "DTSTART;TZID=Europe/Copenhagen:" + start,
+    "DTEND;TZID=Europe/Copenhagen:" + end,
+    "SUMMARY:" + (da ? "Aevia helbredstjek — blodprøve" : "Aevia health check — blood draw"),
+    "LOCATION:" + area,
+    "DESCRIPTION:" + (da ? "Husk 8-12 timers faste før blodprøven (vand er ok). Detaljer i din bekræftelsesmail." : "Remember to fast 8-12 hours before the blood draw (water is fine). Details in your confirmation email."),
+    "BEGIN:VALARM", "TRIGGER:-PT12H", "ACTION:DISPLAY",
+    "DESCRIPTION:" + (da ? "Aevia i morgen — start din faste" : "Aevia tomorrow — start fasting"),
+    "END:VALARM",
+    "END:VEVENT", "END:VCALENDAR",
+  ];
+  return Buffer.from(lines.join("\r\n")).toString("base64");
+}
+
+function customerMail({ lang, name, area, when, payUrl, manageUrl }) {
   const da = lang !== "en";
   const btn = payUrl
     ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
@@ -39,8 +64,8 @@ function customerMail({ lang, name, area, when, payUrl }) {
       <p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Din tid er reserveret. Sidste skridt er betalingen af dit forløb:" : "Your time is reserved. The final step is paying for your programme:"}</p>
       ${btn}
       <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:16px 0 0">${da
-        ? 'Du modtager en forberedelsesguide før din tid (bl.a. 8-12 timers faste — vand er ok). Skal tiden flyttes? Svar på denne mail eller skriv til <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.'
-        : 'You will receive a preparation guide before your appointment (incl. 8-12 hours of fasting — water is fine). Need to reschedule? Reply to this email or write to <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.'}</p>
+        ? `Du modtager en forberedelsesguide før din tid (bl.a. 8-12 timers faste — vand er ok). Tiden ligger også som kalenderfil i denne mail. Skal tiden flyttes eller aflyses? <a href="${manageUrl}" style="color:#c9a437">Administrér din booking her</a>.`
+        : `You will receive a preparation guide before your appointment (incl. 8-12 hours of fasting — water is fine). The appointment is attached as a calendar file. Need to reschedule or cancel? <a href="${manageUrl}" style="color:#c9a437">Manage your booking here</a>.`}</p>
     </div>
     <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
   </div></body></html>`;
@@ -74,16 +99,19 @@ export default async function handler(req, res) {
 
   const when = fmtDate(date, time, customer.lang);
   const pkgKey = PKG_MAP[String(pkg || "").toLowerCase()];
-  const payUrl = pkgKey ? `${SITE}/api/checkout?pkg=${pkgKey}${isEN ? "&lang=en" : ""}` : null;
+  // bid = booking-id i Stripe-metadata, så betaling og booking kan kobles.
+  const payUrl = pkgKey ? `${SITE}/api/checkout?pkg=${pkgKey}&bid=${r.id}${isEN ? "&lang=en" : ""}` : null;
+  const manageUrl = `${SITE}/api/min-booking?id=${r.id}&sig=${bookingSig(r.id)}${isEN ? "&lang=en" : ""}`;
 
-  // Kunde-bekræftelse
+  // Kunde-bekræftelse (med .ics-kalenderfil vedhæftet)
   try {
     if (process.env.RESEND_API_KEY) {
       await sendMail({
         to: customer.email,
         bcc: "kontakt@aevia.dk",
         subject: isEN ? "Your appointment with Aevia is confirmed" : "Din tid hos Aevia er bekræftet",
-        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, when, payUrl }),
+        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, when, payUrl, manageUrl }),
+        attachments: [{ filename: "aevia-booking.ics", content: icsFor({ id: r.id, area, date, time, slotMin: AREAS[area].slot, lang: customer.lang }) }],
       });
     }
   } catch (e) { console.error("Kundemail-fejl:", e.message); }
@@ -106,5 +134,5 @@ export default async function handler(req, res) {
     }
   } catch (e) { console.error("Kliniknotifikation-fejl:", e.message); }
 
-  return res.status(200).json({ ok: true, id: r.id, when, payUrl });
+  return res.status(200).json({ ok: true, id: r.id, when, payUrl, manageUrl });
 }

@@ -6,7 +6,8 @@
 //
 // Beskyttes af ADMIN_TOKEN i Vercel. Bruges af admin-bookinger.html.
 
-import { listDay, cancel, AREAS, isConfigured } from "./_booking-store.js";
+import { listDay, cancel, AREAS, isConfigured, waitlistPop } from "./_booking-store.js";
+import { sendMail } from "./_emails.js";
 import crypto from "crypto";
 
 function authed(token) {
@@ -42,6 +43,18 @@ export default async function handler(req, res) {
     if (action === "cancel" && id) {
       try {
         const r = await cancel(String(id));
+        // Frigivet tid → mail ventelisten (først til mølle).
+        if (r.ok && process.env.RESEND_API_KEY) {
+          try {
+            const b = r.booking;
+            const waiters = await waitlistPop(b.area);
+            const SITE = process.env.SITE_URL || "https://aevia.dk";
+            for (const em of waiters) {
+              await sendMail({ to: em, subject: `En tid er blevet ledig i ${b.area}`,
+                html: `<div style="font-family:Arial,sans-serif"><p>God nyhed — en tid er netop blevet ledig i ${b.area} (${b.date} kl. ${b.time}). Først til mølle:</p><p><a href="${SITE}/book.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px">Book tiden nu</a></p></div>` });
+            }
+          } catch (e) { console.error("Venteliste-notifikation:", e.message); }
+        }
         return res.status(r.ok ? 200 : 400).json(r);
       } catch (e) {
         console.error("admin cancel-fejl:", e.message);

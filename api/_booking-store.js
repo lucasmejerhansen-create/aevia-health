@@ -161,3 +161,61 @@ export async function listDay(area, date) {
   const rows = await Promise.all(ids.map((id) => redis(["GET", `bk:${id}`])));
   return rows.filter(Boolean).map((r) => JSON.parse(r));
 }
+
+export async function getBooking(id) {
+  if (!isConfigured()) return null;
+  const raw = await redis(["GET", `bk:${id}`]);
+  return raw ? JSON.parse(raw) : null;
+}
+
+// ── Signerede kundelinks (flyt/aflys) — HMAC med BOOKING_SECRET ──────────────
+export function bookingSig(id) {
+  return crypto
+    .createHmac("sha256", process.env.BOOKING_SECRET || "")
+    .update("bk:" + id)
+    .digest("hex")
+    .slice(0, 32);
+}
+export function verifyBookingSig(id, sig) {
+  const expected = bookingSig(id);
+  try {
+    return expected.length === String(sig).length &&
+      crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(String(sig)));
+  } catch { return false; }
+}
+
+// ── Blokering (klinik-portal/admin): markér tider som utilgængelige ─────────
+export async function blockTime(area, date, time) {
+  if (!isConfigured()) return { ok: false };
+  await redis(["SADD", `full:${area}:${date}`, time]);
+  await redis(["SADD", `blk:${area}:${date}`, time]);
+  return { ok: true };
+}
+export async function unblockTime(area, date, time) {
+  if (!isConfigured()) return { ok: false };
+  await redis(["SREM", `blk:${area}:${date}`, time]);
+  // Frigiv kun i full-settet hvis tiden ikke samtidig er fuldt booket.
+  const a = AREAS[area];
+  const n = parseInt((await redis(["GET", `cnt:${area}:${date}:${time}`])) || "0", 10);
+  if (!a || n < a.cap) await redis(["SREM", `full:${area}:${date}`, time]);
+  return { ok: true };
+}
+export async function blockedTimes(area, date) {
+  if (!isConfigured()) return [];
+  return (await redis(["SMEMBERS", `blk:${area}:${date}`])) || [];
+}
+export { slotsForDate };
+
+// ── Venteliste pr. område ────────────────────────────────────────────────────
+export async function waitlistAdd(area, email) {
+  if (!isConfigured()) return { ok: false };
+  await redis(["SADD", `wait:${area}`, String(email).trim().toLowerCase()]);
+  return { ok: true };
+}
+export async function waitlistPop(area) {
+  // Hent OG ryd ventelisten (kaldes når en tid frigives).
+  if (!isConfigured()) return [];
+  const emails = (await redis(["SMEMBERS", `wait:${area}`])) || [];
+  if (emails.length) await redis(["DEL", `wait:${area}`]);
+  return emails;
+}

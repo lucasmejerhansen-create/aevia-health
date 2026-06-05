@@ -149,7 +149,7 @@ function day5({ lang, unsubUrl }) {
 
 export const DRIP = { 0: day0, 2: day2, 5: day5 };
 
-export async function sendMail({ to, subject, html, bcc }) {
+export async function sendMail({ to, subject, html, bcc, attachments }) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -162,6 +162,7 @@ export async function sendMail({ to, subject, html, bcc }) {
       bcc: bcc ? [bcc] : undefined,
       subject,
       html,
+      attachments: attachments && attachments.length ? attachments : undefined,
     }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);

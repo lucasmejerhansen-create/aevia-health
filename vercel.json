@@ -1,6 +1,7 @@
 {
   "crons": [
-    { "path": "/api/drip", "schedule": "0 8 * * *" }
+    { "path": "/api/drip", "schedule": "0 8 * * *" },
+    { "path": "/api/booking-remind", "schedule": "0 5 * * *" }
   ],
   "headers": [
     {
