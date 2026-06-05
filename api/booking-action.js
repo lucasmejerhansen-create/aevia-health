@@ -39,8 +39,25 @@ async function sendMail({ to, subject, html, bcc }) {
 
 const esc = (s) => String(s || "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 
-function shell(inner) {
-  return `<!DOCTYPE html><html lang="da"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif"><div style="max-width:560px;margin:0 auto;padding:36px 24px"><div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div><div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">${inner}</div><p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia Health ApS · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p></div></body></html>`;
+function shell(inner, eyebrow) {
+  return `<!DOCTYPE html><html lang="da"><body style="margin:0;padding:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif">
+  <div style="background:#0a1628;padding:44px 16px">
+  <div style="max-width:600px;margin:0 auto">
+    <div style="text-align:center;padding-bottom:28px">
+      <span style="font-size:32px;font-weight:bold;color:#f5f5f0;font-family:Georgia,'Times New Roman',serif;letter-spacing:-.5px">Aevia</span><span style="font-size:32px;font-weight:bold;color:#c9a437;font-family:Georgia,serif">.</span>
+    </div>
+    <div style="background:#0f1f36;border:1px solid #28394f;border-radius:18px;overflow:hidden">
+      <div style="height:3px;background:#c9a437;font-size:0;line-height:0">&nbsp;</div>
+      <div style="padding:36px 38px 30px">
+        ${eyebrow ? `<p style="margin:0 0 12px;font-size:11px;letter-spacing:3px;color:#c9a437;font-weight:bold;text-transform:uppercase;font-family:Arial,sans-serif">${eyebrow}</p>` : ""}
+        ${inner}
+      </div>
+      <div style="border-top:1px solid #1d2c42;padding:18px 38px;background:#0d1b31">
+        <p style="margin:0;color:#94a0b2;font-size:13px">Sp&oslash;rgsm&aring;l? <a href="mailto:kontakt@aevia.dk" style="color:#c9a437;text-decoration:none">kontakt@aevia.dk</a> &nbsp;&middot;&nbsp; <a href="tel:+4528303933" style="color:#c9a437;text-decoration:none">+45 28 30 39 33</a></p>
+      </div>
+    </div>
+    <p style="color:#5a6b80;font-size:12px;margin-top:22px;text-align:center;line-height:1.7">Aevia Health ApS &middot; CVR 46 52 07 50<br><a href="${SITE}" style="color:#94a0b2;text-decoration:none">aevia.dk</a></p>
+  </div></div></body></html>`;
 }
 
 export default async function handler(req, res) {
@@ -76,7 +93,7 @@ export default async function handler(req, res) {
         to: data.email,
         bcc: "kontakt@aevia.dk",
         subject: `Din tid er bekræftet: ${dato} kl. ${tid}`,
-        html: shell(`<h1 style="color:#f5f5f0;font-size:19px;margin:0 0 12px;font-family:Georgia,serif">Din tid er bekræftet${fornavn ? ", " + esc(fornavn) : ""}</h1>
+        html: shell(`<h1 style="color:#f5f5f0;font-size:24px;margin:0 0 16px;font-family:Georgia,serif;font-weight:normal">Din tid er bekræftet${fornavn ? ", " + esc(fornavn) : ""}</h1>
           <table style="border-collapse:collapse;margin:0 0 16px">
             <tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Dato</td><td style="color:#f5f5f0;font-size:14px;font-weight:bold">${esc(dato)}</td></tr>
             <tr><td style="color:#94a0b2;font-size:14px;padding:5px 12px 5px 0">Tidspunkt</td><td style="color:#f5f5f0;font-size:14px;font-weight:bold">kl. ${esc(tid)}</td></tr>
@@ -85,7 +102,7 @@ export default async function handler(req, res) {
           </table>
           ${besked ? `<p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0 0 16px"><strong style="color:#f5f5f0">Besked:</strong> ${esc(besked)}</p>` : ""}
           ${payLink ? `<a href="${payLink}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:15px">Gennemfør betaling</a><p style="color:#94a0b2;font-size:13px;margin:14px 0 0">Din tid er reserveret. Gennemfør betalingen for at fastholde den.</p>` : `<p style="color:#aab4c2;font-size:14px;margin:0">Vi sender dit betalingslink i en separat mail.</p>`}
-          <p style="color:#94a0b2;font-size:13px;margin:16px 0 0">Husk: fast 8-12 timer før blodprøven (vand er ok). Du får den fulde forberedelsesguide et par dage før din tid.</p>`),
+          <p style="color:#94a0b2;font-size:13px;margin:16px 0 0">Husk: fast 8-12 timer før blodprøven (vand er ok). Du får den fulde forberedelsesguide et par dage før din tid.</p>`, "Bekræftet tid"),
       });
     } else {
       await sendMail({
