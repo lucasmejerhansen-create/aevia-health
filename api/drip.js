@@ -12,7 +12,7 @@
 //
 // Miljøvariabler: RESEND_API_KEY, MAIL_FROM, BOOKING_SECRET, CRON_SECRET
 
-import { DRIP, sendMail, unsubUrlFor } from "./_emails.js";
+import { DRIP, KUNDEDRIP, sendMail, unsubUrlFor } from "./_emails.js";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -37,6 +37,25 @@ export default async function handler(req, res) {
 
   for (const c of contacts) {
     if (c.unsubscribed) continue;
+
+    // Kunder (last_name = "KUNDE[-EN]:YYYY-MM-DD", sat af stripe-webhook):
+    // ingen velkomstserie — i stedet Trustpilot (dag 17) og feedback (dag 21)
+    // regnet fra købsdatoen (rapporten leveres senest ~14 dage efter køb).
+    const kunde = /^KUNDE(-EN)?:(\d{4}-\d{2}-\d{2})$/.exec(c.last_name || "");
+    if (kunde) {
+      const kday = Math.floor((now - Date.parse(kunde[2])) / DAY_MS);
+      if (kday !== 17 && kday !== 21) continue;
+      const lang = kunde[1] ? "en" : "da";
+      try {
+        const tpl = KUNDEDRIP[kday]({ lang, unsubUrl: unsubUrlFor(c.email), email: c.email });
+        await sendMail({ to: c.email, subject: tpl.subject, html: tpl.html });
+        sent++;
+      } catch (err) {
+        errors.push(`${c.email}: ${err.message}`);
+      }
+      continue;
+    }
+
     const created = Date.parse(c.created_at);
     if (Number.isNaN(created)) continue;
     const day = Math.floor((now - created) / DAY_MS);

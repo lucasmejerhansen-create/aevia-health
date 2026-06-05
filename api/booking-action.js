@@ -3,6 +3,7 @@
 // og sender den endelige bekræftelse + betalingslink til kunden. Ingen database.
 
 import crypto from "node:crypto";
+import { pendingRemove } from "./_booking-store.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
 
@@ -28,13 +29,33 @@ function verify(token, secret) {
   try { return JSON.parse(b64urlToBuf(p).toString("utf8")); } catch { return null; }
 }
 
-async function sendMail({ to, subject, html, bcc }) {
+async function sendMail({ to, subject, html, bcc, attachments }) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: process.env.MAIL_FROM || "Aevia <kontakt@aevia.dk>", to: [to], bcc: bcc ? [bcc] : undefined, subject, html }),
+    body: JSON.stringify({ from: process.env.MAIL_FROM || "Aevia <kontakt@aevia.dk>", to: [to], bcc: bcc ? [bcc] : undefined, subject, html, attachments }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+}
+
+// Kalenderfil (.ics) for den bekræftede tid — 1 times varighed, lokal dansk tid.
+function icsFor({ dato, tid, sted }) {
+  const [y, mo, da] = dato.split("-").map(Number);
+  const [hh, mi] = tid.split(":").map(Number);
+  if (!y || !mo || !da || isNaN(hh)) return null;
+  const p = (n) => (n < 10 ? "0" + n : "" + n);
+  const start = `${y}${p(mo)}${p(da)}T${p(hh)}${p(mi || 0)}00`;
+  const endH = hh + 1;
+  const end = `${y}${p(mo)}${p(da)}T${p(endH)}${p(mi || 0)}00`;
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
+  const escIcs = (s) => String(s || "").replace(/\\/g, "\\\\").replace(/[,;]/g, (c) => "\\" + c).replace(/\n/g, "\\n");
+  return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Aevia//Booking//DA", "METHOD:PUBLISH",
+    "BEGIN:VEVENT", `UID:${stamp}-${Math.random().toString(36).slice(2, 10)}@aevia.dk`, `DTSTAMP:${stamp}`,
+    `DTSTART:${start}`, `DTEND:${end}`, "SUMMARY:Aevia helbredstjek — prøvetagning",
+    sted ? `LOCATION:${escIcs(sted)}` : null,
+    "DESCRIPTION:Husk: fast 8-12 timer før blodprøven (vand er ok). Spørgsmål: kontakt@aevia.dk / +45 28 30 39 33",
+    "BEGIN:VALARM", "TRIGGER:-PT12H", "ACTION:DISPLAY", "DESCRIPTION:Aevia i morgen — husk at faste (vand er ok)", "END:VALARM",
+    "END:VEVENT", "END:VCALENDAR"].filter(Boolean).join("\r\n");
 }
 
 const esc = (s) => String(s || "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -85,6 +106,8 @@ export default async function handler(req, res) {
   try {
     if (action === "confirm") {
       if (!dato || !tid) return res.status(400).json({ error: "dato og tid mangler" });
+      const ics = icsFor({ dato, tid, sted });
+      const attachments = ics ? [{ filename: "aevia-tid.ics", content: Buffer.from(ics).toString("base64") }] : undefined;
       let payLink = "";
       for (const [re, key] of PKG_KEY) {
         if (re.test(data.pakke || "")) { payLink = `${SITE}/api/checkout?pkg=${key}`; break; }
@@ -92,6 +115,7 @@ export default async function handler(req, res) {
       await sendMail({
         to: data.email,
         bcc: "kontakt@aevia.dk",
+        attachments,
         subject: `Din tid er bekræftet: ${dato} kl. ${tid}`,
         html: shell(`<h1 style="color:#f5f5f0;font-size:24px;margin:0 0 16px;font-family:Georgia,serif;font-weight:normal">Din tid er bekræftet${fornavn ? ", " + esc(fornavn) : ""}</h1>
           <table style="border-collapse:collapse;margin:0 0 16px">
@@ -102,7 +126,7 @@ export default async function handler(req, res) {
           </table>
           ${besked ? `<p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0 0 16px"><strong style="color:#f5f5f0">Besked:</strong> ${esc(besked)}</p>` : ""}
           ${payLink ? `<a href="${payLink}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:15px">Gennemfør betaling</a><p style="color:#94a0b2;font-size:13px;margin:14px 0 0">Din tid er reserveret. Gennemfør betalingen for at fastholde den.</p>` : `<p style="color:#aab4c2;font-size:14px;margin:0">Vi sender dit betalingslink i en separat mail.</p>`}
-          <p style="color:#94a0b2;font-size:13px;margin:16px 0 0">Husk: fast 8-12 timer før blodprøven (vand er ok). Du får den fulde forberedelsesguide et par dage før din tid.</p>`, "Bekræftet tid"),
+          <p style="color:#94a0b2;font-size:13px;margin:16px 0 0">Kalenderinvitation er vedhæftet — føj tiden til din kalender med ét klik. Husk: fast 8-12 timer før blodprøven (vand er ok). Du får den fulde forberedelsesguide et par dage før din tid.</p>`, "Bekræftet tid"),
       });
     } else {
       await sendMail({
@@ -119,6 +143,9 @@ export default async function handler(req, res) {
     console.error("booking-action mail-fejl:", e.message);
     return res.status(500).json({ error: "mail failed" });
   }
+
+  // Fjern fra ubekræftet-listen (rykker-cron). Fejler stille uden Redis.
+  try { await pendingRemove(String(data.ts)); } catch {}
 
   return res.status(200).json({ ok: true });
 }

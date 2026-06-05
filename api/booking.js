@@ -11,6 +11,7 @@
 //   CLINIC_CONTACTS (valgfri JSON, fx {"Aarhus-området":"lab@klinik.dk","_default":"kontakt@aevia.dk"})
 
 import crypto from "node:crypto";
+import { pendingAdd } from "./_booking-store.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
 
@@ -118,6 +119,9 @@ export default async function handler(req, res) {
     console.error("booking mail-fejl:", e.message);
     return res.status(500).json({ error: "mail failed" });
   }
+
+  // Registrér som ubekræftet (til rykker-cron). Fejler stille uden Redis.
+  try { await pendingAdd(String(payload.ts), { ts: payload.ts, navn, email, pakke, omraade }); } catch {}
 
   return res.status(200).json({ ok: true });
 }

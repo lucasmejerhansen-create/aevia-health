@@ -130,7 +130,7 @@ export default async function handler(req, res) {
               type: "text",
             },
       ],
-      metadata: { pakke: pkg, tilvalg: valgteTilvalg.join(","), ...(isGift ? { gavekort: String(req.query.beloeb || "") } : {}), ...(req.query.bid ? { booking_id: String(req.query.bid).slice(0, 40) } : {}) },
+      metadata: { pakke: pkg, package_name: item.name, tilvalg: valgteTilvalg.join(","), ...(isGift ? { gavekort: String(req.query.beloeb || "") } : {}), ...(req.query.bid ? { booking_id: String(req.query.bid).slice(0, 40) } : {}) },
       success_url: `${origin}/${lang === "en" ? "en/" : ""}success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/${lang === "en" ? "en/" : ""}pakker.html`,
     });

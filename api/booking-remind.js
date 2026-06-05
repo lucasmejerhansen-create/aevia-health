@@ -1,11 +1,12 @@
 // Aevia — daglig booking-cron (se "crons" i vercel.json, kører hver morgen):
 //   1) PÅMINDELSE til kunder med tid I MORGEN (inkl. fasteguide + flyt/aflys-link).
 //   2) DAGSRAPPORT til klinikken (eller kontakt@) med DAGENS bookinger.
+//   3) RYKKER til kontakt@ ved mail-flow-bookinger uden svar i 20+ timer.
 //
 // Sikkerhed: Vercel Cron sender "Authorization: Bearer <CRON_SECRET>".
 // Miljøvariabler: CRON_SECRET, KV_REST_API_URL, KV_REST_API_TOKEN, RESEND_API_KEY, MAIL_FROM
 
-import { AREAS, listDay, bookingSig, isConfigured } from "./_booking-store.js";
+import { AREAS, listDay, bookingSig, isConfigured, pendingList, pendingMarkReminded } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -97,5 +98,31 @@ export default async function handler(req, res) {
     } catch (e) { errors.push(`rapport ${area}: ${e.message}`); }
   }
 
-  return res.status(200).json({ ok: true, reminders, reports, errors: errors.length ? errors : undefined });
+  // 3) Rykker: ubekræftede bookinger fra mail-flowet (api/booking.js)
+  let rushed = 0;
+  try {
+    const pending = await pendingList();
+    const now = Date.now();
+    for (const p of pending) {
+      if (p.reminded) continue;
+      const ageH = (now - (p.ts || 0)) / 3600000;
+      if (ageH < 20) continue;
+      try {
+        await sendMail({
+          to: "kontakt@aevia.dk",
+          subject: `\u23f0 RYKKER: Ubekr\u00e6ftet booking \u2014 ${p.navn || p.email} (${Math.floor(ageH)} timer)`,
+          html: `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.7;color:#222">
+            <p><strong>${p.navn || "?"}</strong> sendte en booking-foresp\u00f8rgsel for <strong>${Math.floor(ageH)} timer</strong> siden \u2014 og ingen har bekr\u00e6ftet en tid endnu.</p>
+            <p>Pakke: ${p.pakke || "?"}<br>Omr\u00e5de: ${p.omraade || "?"}<br>E-mail: ${p.email || "?"}</p>
+            <p>Find mailen "Ny booking venter p\u00e5 en tid" i indbakken og bekr\u00e6ft via knappen \u2014 eller ring til kunden. L\u00f8ftet er svar inden for 1 arbejdsdag.</p>
+            <p style="color:#888;font-size:13px">Denne rykker sendes kun \u00e9n gang pr. booking.</p>
+          </div>`,
+        });
+        await pendingMarkReminded(p.id);
+        rushed++;
+      } catch (e) { errors.push(`rykker ${p.id}: ${e.message}`); }
+    }
+  } catch (e) { errors.push(`pendingList: ${e.message}`); }
+
+  return res.status(200).json({ ok: true, reminders, reports, rushed, errors: errors.length ? errors : undefined });
 }

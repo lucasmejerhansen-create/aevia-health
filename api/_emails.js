@@ -179,3 +179,43 @@ export function unsubSig(email) {
 export function unsubUrlFor(email) {
   return `${SITE}/api/lead?unsub=1&e=${encodeURIComponent(email)}&sig=${unsubSig(email)}`;
 }
+
+// ── Kunde-drip (efter køb): Trustpilot-invitation + 1-kliks feedback ─────────
+const npsBtns = (email, da) => {
+  const e = Buffer.from(String(email).toLowerCase()).toString("base64url");
+  let out = '<table role="presentation" style="border-collapse:separate;border-spacing:5px;margin:0 auto"><tr>';
+  for (let s = 0; s <= 10; s++) {
+    out += `<td><a href="${SITE}/api/nps?s=${s}&e=${e}" style="display:inline-block;width:34px;height:34px;line-height:34px;text-align:center;background:${s >= 9 ? "#c9a437" : "#142840"};border:1px solid ${s >= 9 ? "#c9a437" : "#28394f"};border-radius:8px;color:${s >= 9 ? "#0a1628" : "#aab4c2"};font-weight:bold;font-size:14px;text-decoration:none">${s}</a></td>`;
+  }
+  out += "</tr></table>";
+  out += `<table role="presentation" style="border-collapse:collapse;width:100%;max-width:430px;margin:6px auto 0"><tr><td style="color:#5a6b80;font-size:11px;text-align:left">${da ? "Slet ikke sandsynligt" : "Not at all likely"}</td><td style="color:#5a6b80;font-size:11px;text-align:right">${da ? "Meget sandsynligt" : "Extremely likely"}</td></tr></table>`;
+  return out;
+};
+
+export const KUNDEDRIP = {
+  17: ({ lang, unsubUrl }) => {
+    const da = lang !== "en";
+    return {
+      subject: da ? "Vil du hjælpe andre med at finde os?" : "Would you help others find us?",
+      html: wrap({ lang, unsubUrl, bodyHtml: `
+        <p style="margin:0 0 12px;font-size:11px;letter-spacing:3px;color:#c9a437;font-weight:bold;text-transform:uppercase">${da ? "En lille tjeneste" : "A small favour"}</p>
+        <h1 style="color:#f5f5f0;font-size:24px;margin:0 0 14px;font-family:Georgia,serif;font-weight:normal">${da ? "Din mening betyder mere, end du tror" : "Your opinion matters more than you think"}</h1>
+        <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 18px">${da
+          ? "Vi er en ny dansk virksomhed, og hver eneste anmeldelse hjælper andre med at turde tage hånd om deres helbred. Hvis du fik noget ud af dit forløb, ville det betyde alt, hvis du delte din oplevelse — det tager 2 minutter."
+          : "We are a young Danish company, and every single review helps others take charge of their health. If your programme gave you value, sharing your experience would mean the world — it takes 2 minutes."}</p>
+        <div style="text-align:center;margin:0 0 8px"><a href="https://dk.trustpilot.com/evaluate/aevia.dk" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:15px 34px;font-size:15px">${da ? "Skriv en anmeldelse på Trustpilot" : "Write a review on Trustpilot"}</a></div>
+        <p style="color:#94a0b2;font-size:13px;line-height:1.6;margin:14px 0 0;text-align:center">${da ? "Var noget ikke som forventet? Svar på denne mail i stedet — så retter vi det." : "Something not as expected? Reply to this email instead — we will fix it."}</p>` }),
+    };
+  },
+  21: ({ lang, unsubUrl, email }) => {
+    const da = lang !== "en";
+    return {
+      subject: da ? "Ét spørgsmål — ét klik" : "One question — one click",
+      html: wrap({ lang, unsubUrl, bodyHtml: `
+        <p style="margin:0 0 12px;font-size:11px;letter-spacing:3px;color:#c9a437;font-weight:bold;text-transform:uppercase">${da ? "Hurtig feedback" : "Quick feedback"}</p>
+        <h1 style="color:#f5f5f0;font-size:24px;margin:0 0 14px;font-family:Georgia,serif;font-weight:normal">${da ? "Hvor sandsynligt er det, at du vil anbefale Aevia?" : "How likely are you to recommend Aevia?"}</h1>
+        <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 22px">${da ? "Klik på et tal — det er det hele. Dit svar går direkte til grundlæggeren." : "Click a number — that is all. Your answer goes straight to the founder."}</p>
+        ${npsBtns(email, da)}` }),
+    };
+  },
+};
