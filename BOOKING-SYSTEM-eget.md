@@ -18,6 +18,26 @@ kontakt@aevia.dk får besked. Alt sker på aevia.dk.
 - **Datalager:** Upstash Redis via REST (serverless-venligt, gratis tier).
 - **Tilgængelighed:** styres ét sted — `AREAS`-objektet i `api/_booking-store.js`.
 
+## Multi-ydelse (vigtigt)
+
+En pakke kan indeholde ydelser hos FORSKELLIGE klinikker (blodprøve ét sted,
+VO2max et andet, MR et tredje). Kunden vælger derfor **én tid pr. bookbar ydelse**,
+og alle reserveres alt-eller-intet (fejler én, rulles de øvrige tilbage). Hver
+ydelse har sit eget skema i `AREAS[område].svcs`:
+
+```
+"Herning-området": { ready: true, lead: 2, horizon: 42, svcs: {
+  blod:      { wd:[2,4], open:"08:00", close:"12:00", slot:30, cap:1, clinic:"Lægehuset Midtby", email:"lab@..." },
+  kondition: { wd:[1,3], open:"16:00", close:"19:00", slot:60, cap:1, clinic:"SportsLab Vest",  email:"vo2@..." },
+} }
+```
+
+- Udelad en ydelse (fx `mr`) hvis området ikke har en partner endnu → kunden ser
+  "koordineres personligt af Aevia efter booking" og vælger ikke tid for den.
+- Ydelser i pakken: Core booker `blod`; Plus booker `blod`+`kondition`; Elite
+  booker `blod`+`kondition`+`mr`+`genetik`. Hormonpanel tages ved blodbesøget
+  (bookes ikke separat); rapport er online.
+
 ## Opsætning (engangs, ~10 min)
 
 1. **Opret Redis-database**
@@ -67,7 +87,7 @@ område og beholde Cal.com som fallback, indtil I er trygge.
 
 ### Klinik-portal — opsætning pr. klinik
 1. Generér en nøgle: `openssl rand -hex 24`
-2. Vercel → `CLINIC_TOKENS` = JSON: `{"<nøglen>":"Herning-området"}` (tilføj flere par for flere klinikker)
+2. Vercel → `CLINIC_TOKENS` = JSON. Hele området: `{"<nøglen>":"Herning-området"}`. Kun én ydelse (fx et VO2max-lab): `{"<nøglen>":"Herning-området:kondition"}`
 3. Send klinikken linket `https://aevia.dk/klinik-portal.html` + deres nøgle (sikker kanal)
 4. De kan nu: se dagens bookinger, blokere enkelt-tider og hele dage (ferie/sygdom)
 
