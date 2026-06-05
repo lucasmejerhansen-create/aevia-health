@@ -110,7 +110,7 @@ export default async function handler(req, res) {
       html: shell("Din booking", `<h1 style="color:#f5f5f0;font-size:24px;margin:0 0 14px;font-family:Georgia,serif;font-weight:normal">Tak${navn ? ", " + esc(navn.split(" ")[0]) : ""} \u2014 vi er i gang</h1>
         <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 24px">Vi har modtaget dit \u00f8nskede forl\u00f8b. Her er, hvad der sker nu:</p>
         ${pakke || omraade ? `<div style="background:#0c1830;border:1px solid #1d2c42;border-left:3px solid #c9a437;border-radius:10px;padding:14px 18px;margin:0 0 26px">${pakke ? `<p style="margin:0;color:#f5f5f0;font-size:15px;font-weight:bold">${esc(pakke)}</p>` : ""}${omraade ? `<p style="margin:${pakke ? "4px" : "0"} 0 0;color:#94a0b2;font-size:13px">${esc(omraade)}</p>` : ""}</div>` : ""}
-        ${step(1, "Vi koordinerer din tid", "Vi finder en konkret tid hos laboratoriet i dit omr\u00e5de \u2014 du h\u00f8rer fra os inden for <strong style=\\"color:#f5f5f0\\">1 arbejdsdag</strong>.")}
+        ${step(1, "Vi koordinerer din tid", "Vi finder en konkret tid hos laboratoriet i dit omr\u00e5de \u2014 du h\u00f8rer fra os inden for <strong style='color:#f5f5f0'>1 arbejdsdag</strong>.")}
         ${step(2, "Du bekr\u00e6fter og betaler", "N\u00e5r tiden er bekr\u00e6ftet, f\u00e5r du en mail med et sikkert betalingslink. Du betaler f\u00f8rst, n\u00e5r tiden er p\u00e5 plads.")}
         ${step(3, "Du f\u00e5r din forberedelsesguide", "Et par dage f\u00f8r din tid sender vi en pr\u00e6cis guide \u2014 fx 8-12 timers faste f\u00f8r blodpr\u00f8ven (vand er ok).")}`),
     });
