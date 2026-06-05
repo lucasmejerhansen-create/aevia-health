@@ -14,7 +14,7 @@ OM AEVIA
 - Aevia er en dansk longevity- og forebyggende helbredstjeneste for private og virksomheder. Nyetableret (2024).
 - Vi samler avanceret diagnostik i ét koordineret forløb og oversætter det til en lægefagligt tolket plan. En AI samler resultaterne i en rapport, og en læge gennemgår og godkender den, før kunden får den.
 - Vi driver IKKE egen klinik. Vi koordinerer gennem akkrediterede laboratorier, billeddiagnostiske centre og læger. Lov aldrig konkrete navngivne partnere, der ikke er bekræftet.
-- Vi måler 70+ biomarkører, beregner biologisk alder, og tilbyder VO2max og hormonpanel (fra Plus) samt helkrops-MRI og genetisk profil (Elite).
+- Vi måler 70+ biomarkører, beregner biologisk alder, og tilbyder konditionstest (VO2max) og hormonpanel (fra Plus) samt helkrops-MRI og genetisk profil (Elite).
 
 PRISER (inkl. moms)
 - Pakker: Aevia Core 10.995 kr, Aevia Plus 18.495 kr, Aevia Elite 36.995 kr. Virksomhedsaftaler fra 150.000 kr.

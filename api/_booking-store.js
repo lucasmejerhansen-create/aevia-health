@@ -25,7 +25,7 @@ import crypto from "crypto";
 // hormon bookes IKKE separat (samme besøg som blod); rapport er online.
 export const SVC_LABELS = {
   blod:      { da: "Blodprøve (70+ markører)", en: "Blood draw (70+ markers)" },
-  kondition: { da: "VO2max-test",              en: "VO2max test" },
+  kondition: { da: "Konditionstest (VO2max)",  en: "Cardio fitness test (VO2max)" },
   mr:        { da: "Helkrops-MRI",             en: "Whole-body MRI" },
   genetik:   { da: "Genetisk profil",          en: "Genetic profile" },
 };

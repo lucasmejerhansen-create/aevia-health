@@ -23,7 +23,7 @@ const PACKAGES = {
     name: "Aevia Plus",
     amount: 1849500,
     description:
-      "Alt i Core + VO2max, fuldt hormonpanel og personlig protokol med målbare KPI'er.",
+      "Alt i Core + konditionstest (VO2max), fuldt hormonpanel og personlig protokol med målbare KPI'er.",
   },
   elite: {
     name: "Aevia Elite",
@@ -39,12 +39,12 @@ const GIFTCARDS = {
   "2500":  { name: "Gavekort til Aevia — 2.500 kr.",  amount: 250000 },
   "5000":  { name: "Gavekort til Aevia — 5.000 kr.",  amount: 500000 },
   "core":  { name: "Gavekort til Aevia — Core-forløb", amount: 1099500, description: "Et komplet Aevia Core-helbredstjek i gave: biologisk alder, fuldt blodpanel (70+ markører) og 1:1 lægegennemgang." },
-  "plus":  { name: "Gavekort til Aevia — Plus-forløb", amount: 1849500, description: "Et komplet Aevia Plus-forløb i gave: alt i Core + VO2max og fuldt hormonpanel." },
+  "plus":  { name: "Gavekort til Aevia — Plus-forløb", amount: 1849500, description: "Et komplet Aevia Plus-forløb i gave: alt i Core + konditionstest (VO2max) og fuldt hormonpanel." },
 };
 
 // Valgfrie tilvalg — beløb i øre (inkl. moms). Skal matche priserne på pakker.html.
 const ADDONS = {
-  vo2max:   { name: "Tilvalg: VO2max-test",                        amount: 189500 },
+  vo2max:   { name: "Tilvalg: Konditionstest (VO2max)",                        amount: 189500 },
   hormon:   { name: "Tilvalg: Fuldt hormonpanel",                  amount: 229500 },
   mri:      { name: "Tilvalg: Helkrops-MRI (uden kontrast)",       amount: 1189500 },
   genetik:  { name: "Tilvalg: Genetisk profil & risikobærere",     amount: 439500 },

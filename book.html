@@ -597,7 +597,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     (function(){
       if(!window.L)return;
       var cats={net:{c:'#c9a437',navn:'Kommende partnerklinik-område'}};
-      var clinics=[{navn:'København-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:55.6761,lng:12.5683},{navn:'Aarhus-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:56.1572,lng:10.2107},{navn:'Odense-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:55.4038,lng:10.4024},{navn:'Aalborg-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:57.0488,lng:9.9217},{navn:'Herning-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, VO2max, MR & genetik',kat:'net',lat:56.1389,lng:8.9742}];
+      var clinics=[{navn:'København-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.6761,lng:12.5683},{navn:'Aarhus-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1572,lng:10.2107},{navn:'Odense-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.4038,lng:10.4024},{navn:'Aalborg-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:57.0488,lng:9.9217},{navn:'Herning-området',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1389,lng:8.9742}];
       var leg=document.getElementById('map-legend');
       Object.keys(cats).forEach(function(k){var s=document.createElement('span');s.className='leg';s.innerHTML='<i style="background:'+cats[k].c+'"></i>'+cats[k].navn;leg.appendChild(s);});
       var map=L.map('aevia-map',{gestureHandling:true,gestureHandlingOptions:{text:{touch:"Brug to fingre for at flytte kortet",scroll:"Brug Ctrl + scroll for at zoome",scrollMac:"Brug \u2318 + scroll for at zoome"},duration:1200}}).setView([55.9,11.3],6);
@@ -833,9 +833,9 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
    {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 10.995 kr.</strong>, <strong>Plus 18.495 kr.</strong>, <strong>Elite 36.995 kr.</strong> Virksomhedsaftaler fra 150.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer VO2max og hormonpanel; Elite tilføjer helkrops-MRI, genetik, 3 mdr. opfølgning og en trykt premium-rapport. Se <a href='ydelser.html'>Ydelser</a>."},
+   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer konditionstest (VO2max) og hormonpanel; Elite tilføjer helkrops-MRI, genetik, 3 mdr. opfølgning og en trykt premium-rapport. Se <a href='ydelser.html'>Ydelser</a>."},
    {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
-   {k:["vo2","kondition","iltoptag"],a:"VO2max måler din kondition og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
+   {k:["vo2","kondition","iltoptag"],a:"Konditionstesten (VO2max) måler dit kondital og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
    {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
    {k:["genetisk","genetik","dna","gen ","arvelig"],a:"Den genetiske profil kortlægger arvelige risikofaktorer (indgår i Elite) og kobles altid til en lægefaglig tolkning."},
    {k:["hormon","testosteron","kortisol","østrogen"],a:"Hormonpanelet måler bl.a. testosteron, kortisol og stofskiftehormoner; indgår fra Plus. Læs <a href='testosteron-performance.html'>om hormoner</a>."},
@@ -852,7 +852,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
    {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået 1:1 med en sundhedsspecialist."},
    {k:["book","booking","tid","samtale","ring","kontakt","mail","telefon"],a:"Book din tid direkte på <a href='book.html'>book-siden</a>, ring +45 28 30 39 33 eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
    {k:["køb","betaling","betale","online","faktura","kort","afdrag"],a:"De tre private pakker kan købes online med kort eller på faktura. Virksomhedsaftaler indgås via kontakt. Gå til <a href='pakker.html'>Pakker</a>."},
-   {k:["virksomhed","medarbejder","team","ansat","arbejdsplads","erhverv","hr"],a:"For virksomheder samler vi ledergruppens resultater i en anonymiseret teamrapport, arbejdsgiver ser aldrig individuelle tal, og deltagelse er frivillig. Læs <a href='virksomheder.html'>For virksomheder</a>."},
+   {k:["virksomhed","medarbejder","team","ansat","arbejdsplads","erhverv","hr"],a:"For virksomheder samler vi teamets resultater i en anonymiseret teamrapport, arbejdsgiver ser aldrig individuelle tal, og deltagelse er frivillig. Læs <a href='virksomheder.html'>For virksomheder</a>."},
    {k:["gratis","guide","tjekliste","nyhedsbrev","download"],a:"Hent vores gratis <strong>Longevity-tjekliste: 10 evidensbaserede vaner</strong> på <a href='indsigter.html#brief'>Indsigter</a>."},
    {k:["hvor","adresse","beliggende","københavn","ligger"],a:"Aevia har adresse på Bredgade 11, 7400 Herning. Vi koordinerer prøvetagning så tæt på dig som muligt."},
    {k:["hvem egner","passer","for hvem","relevant","for mig"],a:"Aevia er til alle voksne, der vil kende deres reelle helbred og handle tidligt, uanset titel. Du booker privat, via din arbejdsplads eller for hele teamet."},
@@ -893,7 +893,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
   var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
-  var an={vo2max:'VO2max-test',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
+  var an={vo2max:'Konditionstest (VO2max)',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){var dd=sel.closest('.bk-dd'),op=dd?dd.querySelectorAll('.bk-dd-opt'):[];for(var i=0;i<op.length;i++){if(op[i].textContent.indexOf(names[pk])===0){sel.value=op[i].getAttribute('data-val')||op[i].textContent;var cu=dd.querySelector('.bk-dd-cur');if(cu)cu.textContent=op[i].textContent;break;}}}
   var addons=(p.get('addons')||'').split(',').filter(Boolean).map(function(k){return an[k]||k;});
@@ -991,15 +991,15 @@ var BOOKING={
     var FULL=[
       ['Blodpanel · 70+ markører','Vælg sted og tid herunder, så bekræfter vi med det samme.','self','blod'],
       ['Hormonpanel','Vælg sted og din ønskede tid · vi bekræfter.','self','blod'],
-      ['VO2max-test','Vælg sted og din ønskede tid · vi bekræfter.','coord','kondition'],
+      ['Konditionstest (VO2max)','Vælg sted og din ønskede tid · vi bekræfter.','coord','kondition'],
       ['Helkrops-MRI','Vælg sted og din ønskede tid · vi bekræfter.','coord','mr'],
       ['Genetisk profil','Vælg sted og din ønskede tid · vi bekræfter.','self','genetik'],
       ['Rapport & 1:1 lægegennemgang','Vi samler dine resultater og gennemgår dem med dig.','coord',null]
     ];
     var PKG_INCL={
       core:['Blodpanel · 70+ markører','Rapport & 1:1 lægegennemgang'],
-      executive:['Blodpanel · 70+ markører','Hormonpanel','VO2max-test','Rapport & 1:1 lægegennemgang'],
-      elite:['Blodpanel · 70+ markører','Hormonpanel','VO2max-test','Helkrops-MRI','Genetisk profil','Rapport & 1:1 lægegennemgang']
+      executive:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Rapport & 1:1 lægegennemgang'],
+      elite:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Helkrops-MRI','Genetisk profil','Rapport & 1:1 lægegennemgang']
     };
     var calLoaded=false;
     function loadCal(){ if(calLoaded)return; calLoaded=true;
@@ -1429,7 +1429,7 @@ function aevWait(f,e){e.preventDefault();
   var SVC={
     blod:{lbl:'Blodprøve (70+ markører)'},
     hormon:{lbl:'Fuldt hormonpanel',note:'samme besøg som blodprøven'},
-    kondition:{lbl:'VO2max-test'},
+    kondition:{lbl:'Konditionstest (VO2max)'},
     mr:{lbl:'Helkrops-MRI (uden kontrast)'},
     genetik:{lbl:'Genetisk profil'},
     rapport:{lbl:'Rapport & 1:1 lægegennemgang',fixed:'Aevia · online eller telefon'}
