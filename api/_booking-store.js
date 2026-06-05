@@ -50,11 +50,11 @@ export const AREAS = {
   "Aalborg-området": { lat: 57.0488, lng: 9.9217, ready: false, lead: 2, horizon: 42, svcs: {
     blod: { wd: [3], open: "08:00", close: "11:00", slot: 30, cap: 1, clinic: "", email: "" },
   } },
-  "Herning-området": { lat: 56.1389, lng: 8.9742, ready: false, lead: 2, horizon: 42, svcs: {
-    blod: { wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, clinic: "", email: "" },
-    // Eksempel når flere partnere er på plads:
-    // kondition: { wd: [1, 3], open: "16:00", close: "19:00", slot: 60, cap: 1, clinic: "SportsLab Vest", email: "lab@..." },
-    // mr:        { wd: [5],    open: "09:00", close: "14:00", slot: 60, cap: 1, clinic: "Privathospital X", email: "mr@..." },
+  // TEST ÅBEN (sat 2026-06-05 til ende-til-ende-test — sæt ready:false igen,
+  // hvis testen er slut og ingen klinik-aftale er på plads endnu):
+  "Herning-området": { lat: 56.1389, lng: 8.9742, ready: true, lead: 2, horizon: 42, svcs: {
+    blod:      { wd: [2, 4], open: "08:00", close: "12:00", slot: 30, cap: 1, clinic: "Partnerklinik Herning (bekræftes)", email: "" },
+    kondition: { wd: [1, 3], open: "16:00", close: "19:00", slot: 60, cap: 1, clinic: "Partnertestcenter (bekræftes)", email: "" },
   } },
 };
 
