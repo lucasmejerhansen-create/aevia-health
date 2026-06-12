@@ -278,8 +278,42 @@ function toNum(v){var n=parseFloat(String(v).trim().replace(/\s/g,'').replace(',
 function parseSex(v){return /^(k|f|w)/.test(String(v).trim().toLowerCase())?'female':'male';}
 function fieldOf(h){return FIELD[normId(h)];}
 function markerOf(h){return LOOKUP[normId(h)];}
+// Synonymer (dansk-varianter + tysk + engelsk) for rapporter på andre sprog.
+// Sammensatte navne (fx "ldlcholesterin") skal være med, så længste match vinder
+// over generiske ("cholesterin"), ellers ville LDL-linjer matche totalkolesterol.
+var ALIASES={
+  totalkolesterol:['Cholesterin','Cholesterol','Gesamtcholesterin','Total Cholesterol','Kolesterol total'],
+  ldl:['LDL','LDL-Cholesterin','LDL Cholesterol','LDL-C'],
+  hdl:['HDL','HDL-Cholesterin','HDL Cholesterol','HDL-C'],
+  triglycerid:['Triglyceride','Triglycerides','Triglyzeride'],
+  apob:['ApoB','Apolipoprotein B'], apoa1:['ApoA1','Apolipoprotein A1'], lpa:['Lipoprotein a','Lp(a)'],
+  glukose:['Glucose','Glukose','Nüchternglukose','Blutzucker','Fasting glucose'],
+  insulin:['Insulin'], cpeptid:['C-Peptid','C-peptide'],
+  hscrp:['CRP','hsCRP','C-reaktives Protein','C-reactive protein'],
+  homocystein:['Homocystein','Homocysteine'], fibrinogen:['Fibrinogen'],
+  alat:['ALAT','ALT','GPT'], asat:['ASAT','AST','GOT'], ggt:['GGT','Gamma-GT','Gamma GT'],
+  basiskfosfatase:['Alkalische Phosphatase','Alkaline phosphatase'],
+  kreatinin:['Kreatinin','Creatinine','Creatinin'], egfr:['eGFR','GFR'],
+  urat:['Harnsäure','Uric acid','Urinsäure'], karbamid:['Harnstoff','Urea'],
+  natrium:['Natrium','Sodium'], kalium:['Kalium','Potassium'], calcium:['Calcium','Kalzium'],
+  vitd:['Vitamin D','25-OH-Vitamin D','25-Hydroxyvitamin D','Vitamin D3'],
+  b12:['Vitamin B12','Cobalamin'], folat:['Folsäure','Folate','Folic acid'],
+  magnesium:['Magnesium'], zink:['Zink','Zinc'], jern:['Eisen','Iron'], ferritin:['Ferritin'],
+  transferrin:['Transferrinsättigung','Transferrin saturation'],
+  tsh:['TSH'], ft4:['freies T4','free T4','fT4'], ft3:['freies T3','free T3','fT3'],
+  antitpo:['Anti-TPO','TPO-AK','TPO antibodies'],
+  haemoglobin:['Hämoglobin','Hemoglobin','Haemoglobin'], haematokrit:['Hämatokrit','Hematocrit'],
+  erytrocytter:['Erythrozyten','Erythrocytes'], leukocytter:['Leukozyten','Leukocytes','White blood cells'],
+  trombocytter:['Thrombozyten','Platelets'], mcv:['MCV'],
+  testosteron:['Testosteron','Testosterone'], shbg:['SHBG'],
+  oestradiol:['Östradiol','Estradiol','Oestradiol'], kortisol:['Kortisol','Cortisol'],
+  dheas:['DHEA-S','DHEAS','DHEA-Sulfat'], igf1:['IGF-1','IGF1'], prolaktin:['Prolaktin','Prolactin']
+};
+Object.keys(ALIASES).forEach(function(mid){ALIASES[mid].forEach(function(a){var k=normId(a); if(k && !LOOKUP[k]) LOOKUP[k]=mid;});});
+
 // Fritekst-matchning (PDF): find markør nævnt et sted i en linje, længste match vinder.
 var MARKER_KEYS=[]; M.markers.forEach(function(m){MARKER_KEYS.push({mid:m.id,key:normId(m.id)},{mid:m.id,key:normId(m.name)});});
+Object.keys(ALIASES).forEach(function(mid){ALIASES[mid].forEach(function(a){MARKER_KEYS.push({mid:mid,key:normId(a)});});});
 MARKER_KEYS.sort(function(a,b){return b.key.length-a.key.length;});
 function findMarkerInText(t){var nt=normId(t);for(var i=0;i<MARKER_KEYS.length;i++){if(MARKER_KEYS[i].key.length>=3 && nt.indexOf(MARKER_KEYS[i].key)>=0)return MARKER_KEYS[i].mid;}return null;}
 // Første frittstående tal (ikke cifre inde i navne som HbA1c, VO2, B12).
@@ -395,11 +429,13 @@ function handleFiles(files){
     var entries=[], names=[], perFile=[], anyPdf=false;
     docs.forEach(function(doc){
       if(doc.isPdf) anyPdf=true;
-      var pts = doc.err ? [] : textToPatients(doc.text, doc.name);
-      pts.forEach(function(p){ entries.push(p.entry); names.push(p.name); });
-      perFile.push({name:doc.name, count:pts.length, isPdf:doc.isPdf, err:doc.err});
+      var noText = !doc.err && !String(doc.text).trim();
+      var pts = (doc.err||noText) ? [] : textToPatients(doc.text, doc.name);
+      var withMk = pts.filter(function(p){return p.entry.patient.markers.length>0;});
+      var mtotal = pts.reduce(function(a,p){return a+p.entry.patient.markers.length;},0);
+      withMk.forEach(function(p){ entries.push(p.entry); names.push(p.name); });
+      perFile.push({name:doc.name, isPdf:doc.isPdf, err:doc.err, noText:noText, markers:mtotal, patients:withMk.length, text:doc.text||''});
     });
-    if(!entries.length){ el('bulkstatus').textContent='Ingen patientdata fundet i dokumenterne.'; return; }
     stageBatch(entries, names, perFile, anyPdf);
   });
 }
@@ -435,20 +471,40 @@ function rowsToPatients(lines,delim){ var b=buildBatchRows(lines,delim); return 
 
 // Staging: vis hvad der blev fundet pr. dokument før analyse (PDF kræver klik).
 function stageBatch(entries,names,perFile,anyPdf){
-  window._staged={rows:entries,names:names};
-  var fileRows=perFile.map(function(f){
-    return '<tr><td>'+esc(f.name)+(f.isPdf?' <span class="mini" style="color:var(--watch)">PDF</span>':'')+'</td><td class="r">'+(f.err?'<span class="muted">fejl: '+esc(f.err)+'</span>':(f.count+' patient(er)'))+'</td></tr>';
+  window._staged={rows:entries,names:names,docs:perFile};
+  var fileRows=perFile.map(function(f,i){
+    var found = f.err ? '<span class="muted">fejl: '+esc(f.err)+'</span>'
+      : f.noText ? '<span style="color:var(--watch)">ingen tekst (scanning?)</span>'
+      : f.markers===0 ? '<span style="color:var(--watch)">0 markører genkendt</span>'
+      : f.markers+' markører'+(f.patients>1?(' · '+f.patients+' patienter'):'');
+    var link = (!f.err && !f.noText) ? ' · <a href="#" onclick="showDocText('+i+');return false" style="color:var(--gold)">vis/ret tekst</a>' : '';
+    return '<tr><td>'+esc(f.name)+(f.isPdf?' <span class="mini" style="color:var(--watch)">PDF</span>':'')+link+'</td><td class="r">'+found+'</td></tr>';
   }).join('');
+  var canRun = entries.length>0;
   el('result').innerHTML=
-    '<h2>'+entries.length+' patienter fra '+perFile.length+' dokumenter</h2>'+
+    '<h2>'+entries.length+' patient'+(entries.length===1?'':'er')+' klar · '+perFile.length+' dokumenter</h2>'+
     '<div class="card"><table><thead><tr><th>Dokument</th><th class="r">Fundet</th></tr></thead><tbody>'+fileRows+'</tbody></table>'+
-    (anyPdf?'<div class="warn">Mindst ét dokument er en PDF — spotcheck de udtrukne værdier, og analysér først når de er bekræftet.</div>':'')+
-    '<div class="bar" style="margin-top:12px"><button class="btn" onclick="runStaged()">Analysér alle ('+entries.length+')</button></div></div>';
+    (anyPdf?'<div class="warn">PDF: spotcheck de udtrukne værdier (klik "vis/ret tekst"), og analysér først når de er bekræftet.</div>':'')+
+    (canRun
+      ? '<div class="bar" style="margin-top:12px"><button class="btn" onclick="runStaged()">Analysér alle ('+entries.length+')</button> <span class="note" id="stageStatus"></span></div>'
+      : '<div class="warn">Ingen genkendelige markører fundet. Scannede PDF-billeder har ingen tekst, og rapporter på andre sprog end dansk matcher ikke navnene endnu. Klik "vis/ret tekst" for at se det udlæste og rette markørnavnene — eller indtast manuelt nedenfor.</div>')+
+    '</div>';
   el('result').classList.remove('hide'); el('result').scrollIntoView({behavior:'smooth'});
-  el('bulkstatus').textContent='Læste '+perFile.length+' dokumenter → '+entries.length+' patienter.';
-  if(!anyPdf && autorun()) runStaged();
+  el('bulkstatus').textContent='Læste '+perFile.length+' dokumenter → '+entries.length+' patient(er) med markører.';
+  if(canRun && !anyPdf && autorun()) runStaged();
 }
-function runStaged(){ var s=window._staged; if(s&&s.rows.length) batchClassify(s.rows,s.names); }
+function runStaged(){
+  var s=window._staged; if(!s||!s.rows.length) return;
+  if(!el('tok').value.trim()){ var ss=el('stageStatus'); if(ss)ss.textContent='Angiv admin-token øverst først.'; return; }
+  batchClassify(s.rows,s.names);
+}
+// Vis et dokuments udtrukne tekst i feltet, så navne/værdier kan rettes manuelt.
+function showDocText(i){
+  var d=(window._staged&&window._staged.docs||[])[i]; if(!d) return;
+  el('bulk').value=String(d.text||'').trim();
+  el('bulkstatus').innerHTML='Tekst fra <strong>'+esc(d.name)+'</strong> indlæst i feltet — ret markørnavne/værdier og tryk "Indlæs &amp; analysér".';
+  el('bulk').scrollIntoView({behavior:'smooth'});
+}
 
 function parseBulk(){
   var txt=el('bulk').value.replace(/\r/g,'');
