@@ -1,0 +1,22 @@
+{
+  "name": "@aevia/engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aevias deterministiske klassificerings- og scoremotor. AI klassificerer aldrig; den formulerer kun. Læge godkender altid sidst.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "build:api": "tsc && node build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.1",
+    "typescript": "~5.9.2"
+  }
+}

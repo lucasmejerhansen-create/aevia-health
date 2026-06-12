@@ -373,13 +373,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="map-legend" id="map-legend"></div>
 <div class="aev-wait" style="max-width:820px;margin:26px auto 0;background:var(--navy-2);border:1px solid var(--gold);border-radius:16px;padding:24px 26px"><strong style="display:block;font-family:var(--serif);font-size:1.15rem;color:var(--text);margin-bottom:4px">Vi er ikke i dit område endnu?</strong><p style="color:var(--muted);font-size:.93rem;margin:0 0 14px">Skriv dig op, så får du besked, så snart vi åbner en partnerklinik nær dig — og du står forrest i køen.</p><form action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return aevWait(this,event)" style="display:flex;flex-wrap:wrap;gap:10px"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0"><input type="hidden" name="kilde" value="Venteliste (område)"><input type="hidden" name="_subject" value="Ny ventelistetilmelding — Aevia"><input name="email" type="email" required aria-label="E-mail" placeholder="din@email.dk" style="flex:2;min-width:180px;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.95rem"><input name="postnummer" type="text" required inputmode="numeric" pattern="[0-9]{3,4}" aria-label="Postnummer" placeholder="Postnr." style="flex:1;min-width:90px;max-width:130px;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.95rem"><button type="submit" class="btn btn-primary" style="flex:none;padding:12px 22px">Skriv mig op</button><label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:var(--muted-2);line-height:1.4;width:100%"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"> <span>Jeg accepterer, at Aevia må kontakte mig om åbning i mit område og relevante nyheder, jf. <a href="privatlivspolitik.html" style="color:var(--gold)">privatlivspolitikken</a>.</span></label></form><div class="aev-wait-ok" style="display:none;background:var(--navy-3);border:1px solid var(--gold);border-radius:10px;padding:13px 16px;color:var(--text);font-size:.93rem;margin-top:10px">Tak! Du hører fra os, så snart vi åbner i dit område.</div></div>
 
-    <p class="muted" style="font-size:.84rem;margin-top:16px;max-width:70ch">Vi er i dialog med udvalgte, akkrediterede udbydere i hele landet. Partnerklinikker er endnu ikke offentliggjort, navne og adresser annonceres snart, og vi bekræfter altid den nærmeste mulighed for dig, når du booker.</p>
+    <p class="muted" style="font-size:.84rem;margin-top:16px;max-width:70ch">Vi er i dialog med udvalgte, akkrediterede udbydere i hele landet. Vi offentliggør vores partnere løbende, og vi bekræfter altid den nærmeste mulighed for dig, når du booker.</p>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="container">
     <div class="grid grid-4" id="clinic-grid"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="center" style="margin-bottom:40px"><span class="eyebrow">Vores partnere</span><h2>Klinikker, vi samarbejder med</h2><p class="lead">Vi udvider løbende vores netværk af akkrediterede partnere. Flere annonceres snart.</p></div>
+    <div style="max-width:760px;margin:0 auto">
+      <article style="background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:16px;padding:26px 28px">
+        <!-- LOGO: læg heartfit-logoet i assets/partnere/heartfit.svg og indsæt her: <img src="assets/partnere/heartfit.svg" alt="Heartfit" style="height:34px;margin-bottom:14px"> -->
+        <div style="font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px">Konditionstest (VO₂max)</div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--text);margin:0 0 4px">Heartfit</h3>
+        <p style="color:var(--muted-2);font-size:.9rem;margin:0 0 12px">Viborg · Midtjylland</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.6;margin:0 0 16px">Professionel konditionstest med måling af VO₂max, EKG, blodtryk og iltmætning samt gennemgang af dine resultater.</p>
+        <a href="https://www.heartfit.dk" target="_blank" rel="noopener" style="color:var(--gold);font-size:.93rem;font-weight:600">heartfit.dk →</a>
+      </article>
+    </div>
   </div>
 </section>
 

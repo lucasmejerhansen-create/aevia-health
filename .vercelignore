@@ -1,3 +1,10 @@
 # Interne dokumenter - skal ikke deployes offentligt
 *.md
 .env.example
+
+# Motorens kildekode + dev-værktøj — kun api/_engine.mjs (bundle) og
+# assets/markers-manifest.js deployes; selve TS-kilden gør ikke.
+lib/
+
+# Eksempel-/demodata med patient-lignende felter — ikke offentligt
+eksempel-patienter.csv

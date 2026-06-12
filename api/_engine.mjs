@@ -1,0 +1,563 @@
+// AUTO-GENERERET fra lib/aevia-engine — rediger IKKE direkte. Kør `npm run build:api`.
+
+// src/reference-data.ts
+var RANGE_MODEL = {
+  /**
+   * MULTIPLIKATIV udvidelse i forhold til optimal-grænsens MAGNITUDE (ikke span).
+   * Additiv span-udvidelse gav klinisk meningsløse bånd for brede markører
+   * (fx testosteron 15-30 → negativt watch-gulv). Procent af grænseværdien
+   * skalerer korrekt på tværs af alle 74 markører.
+   *
+   *   reference = optimal-grænse ± 25%
+   *   watch     = optimal-grænse ± 60%   (uden for = action)
+   */
+  referenceWiden: 0.25,
+  watchWiden: 0.6,
+  /** Valideret reference udvides dette × grænseværdi for at danne watch-båndet. */
+  watchBeyondReference: 0.25
+};
+var FEMALE_OPTIMAL = {
+  testosteron: [0.7, 2],
+  frittestosteron: [15, 40],
+  shbg: [40, 110],
+  oestradiol: [100, 600],
+  // varierer med cyklus — tolkes m. cyklusdag
+  dheas: [2.5, 8],
+  haemoglobin: [7.3, 9.5],
+  haematokrit: [36, 46],
+  erytrocytter: [3.9, 5.2],
+  ferritin: [40, 120],
+  jern: [10, 26],
+  kreatinin: [50, 90],
+  urat: [0.15, 0.34],
+  vo2max: [36, 52],
+  gribestyrke: [26, 42],
+  fedtprocent: [18, 28],
+  taljemaal: [65, 80]
+};
+var MARKERS = [
+  // ---- 1. Lipider & hjerte-kar (10) ----------------------------------------
+  { id: "totalkolesterol", name: "Totalkolesterol", unit: "mmol/L", category: "hjerte", optimalLow: 3.5, optimalHigh: 5, explainer: "Den samlede m\xE6ngde kolesterol i blodet. Et groft overbliksm\xE5l \u2014 de enkelte dele (LDL, HDL, ApoB) fort\xE6ller mere pr\xE6cist hvor du st\xE5r." },
+  { id: "ldl", name: "LDL-kolesterol", unit: "mmol/L", category: "hjerte", optimalLow: 1, optimalHigh: 2.6, lowerIsBetter: true, explainer: "Det kolesterol der kan s\xE6tte sig i \xE5rev\xE6ggene. Jo lavere over et helt liv, jo lavere risiko for hjerte-kar-sygdom." },
+  { id: "hdl", name: "HDL-kolesterol", unit: "mmol/L", category: "hjerte", optimalLow: 1.2, optimalHigh: 2.5, higherIsBetter: true, explainer: "Ofte kaldt 'det gode kolesterol' \u2014 det hj\xE6lper med at transportere kolesterol v\xE6k fra \xE5rerne. Motion og normalv\xE6gt l\xF8fter det." },
+  { id: "triglycerid", name: "Triglycerider", unit: "mmol/L", category: "hjerte", optimalLow: 0.4, optimalHigh: 1, lowerIsBetter: true, explainer: "Fedt i blodet. H\xF8je v\xE6rdier h\xE6nger ofte sammen med sukker, alkohol og lavt aktivitetsniveau \u2014 og falder hurtigt n\xE5r vanerne \xE6ndres." },
+  { id: "apob", name: "ApoB", unit: "g/L", category: "hjerte", optimalLow: 0.4, optimalHigh: 0.8, lowerIsBetter: true, explainer: "T\xE6ller antallet af de partikler der kan s\xE6tte sig i dine \xE5rev\xE6gge \u2014 en bedre risikomark\xF8r for hjerte-kar-sygdom end almindeligt kolesterol.", decimals: 2 },
+  { id: "apoa1", name: "ApoA1", unit: "g/L", category: "hjerte", optimalLow: 1.4, optimalHigh: 2, higherIsBetter: true, explainer: "Proteinet i det 'gode' HDL-kolesterol. H\xF8jere niveauer afspejler bedre transport af kolesterol v\xE6k fra \xE5rerne.", decimals: 2 },
+  { id: "apobratio", name: "ApoB/ApoA1-ratio", unit: "ratio", category: "hjerte", optimalLow: 0.3, optimalHigh: 0.6, lowerIsBetter: true, explainer: "Balancen mellem de partikler der belaster \xE5rerne, og dem der beskytter. Et af de st\xE6rkeste samlede m\xE5l for hjerte-kar-risiko.", decimals: 2 },
+  { id: "lpa", name: "Lipoprotein(a)", unit: "nmol/L", category: "hjerte", optimalLow: 0, optimalHigh: 75, lowerIsBetter: true, explainer: "En arvelig risikofaktor for hjerte-kar-sygdom. Den \xE6ndrer sig stort set ikke med livsstil \u2014 men er den h\xF8j, skal de \xF8vrige risikofaktorer holdes ekstra lave.", decimals: 0 },
+  { id: "nonhdl", name: "Non-HDL-kolesterol", unit: "mmol/L", category: "hjerte", optimalLow: 1.5, optimalHigh: 3, lowerIsBetter: true, explainer: "Alt det kolesterol der kan belaste \xE5rerne, samlet i \xE9t tal. Et godt supplement til ApoB." },
+  { id: "omega3", name: "Omega-3-indeks", unit: "%", category: "hjerte", optimalLow: 8, optimalHigh: 12, higherIsBetter: true, explainer: "Hvor stor en andel af dine cellemembraner der best\xE5r af omega-3-fedtsyrer. Over 8% h\xE6nger sammen med lavere hjerte-kar-risiko." },
+  // ---- 2. Metabolisme & blodsukker (5) -------------------------------------
+  { id: "hba1c", name: "HbA1c (langtidsblodsukker)", unit: "mmol/mol", category: "blodsukker", optimalLow: 28, optimalHigh: 35, lowerIsBetter: true, explainer: "Dit gennemsnitlige blodsukker over de seneste ca. 3 m\xE5neder. Lavt og stabilt beskytter mod metabolisk aldring og type 2-diabetes.", decimals: 0 },
+  { id: "glukose", name: "Fasteglukose", unit: "mmol/L", category: "blodsukker", optimalLow: 4.2, optimalHigh: 5.4, lowerIsBetter: true, explainer: "Dit blodsukker m\xE5lt p\xE5 tom mave. Et \xF8jebliksbillede der supplerer HbA1c \u2014 kryber det opad \xE5r for \xE5r, er det et tidligt advarselstegn." },
+  { id: "insulin", name: "Fasteinsulin", unit: "pmol/L", category: "blodsukker", optimalLow: 20, optimalHigh: 60, lowerIsBetter: true, explainer: "Hvor h\xE5rdt din bugspytkirtel skal arbejde for at holde blodsukkeret nede. Stiger ofte mange \xE5r f\xF8r blodsukkeret selv g\xF8r \u2014 et tidligt signal.", decimals: 0 },
+  { id: "homair", name: "HOMA-IR (insulinf\xF8lsomhed)", unit: "indeks", category: "blodsukker", optimalLow: 0.5, optimalHigh: 1.5, lowerIsBetter: true, explainer: "Et beregnet m\xE5l for hvor f\xF8lsomme dine celler er over for insulin. Lavere betyder at kroppen klarer sukker og stivelse uden at slide p\xE5 systemet." },
+  { id: "cpeptid", name: "C-peptid", unit: "pmol/L", category: "blodsukker", optimalLow: 300, optimalHigh: 700, lowerIsBetter: true, explainer: "Viser hvor meget insulin din krop selv producerer. Bruges sammen med fasteinsulin til at vurdere belastningen p\xE5 dit stofskifte.", decimals: 0 },
+  // ---- 3. Inflammation (4) -------------------------------------------------
+  { id: "hscrp", name: "hs-CRP", unit: "mg/L", category: "inflammation", optimalLow: 0, optimalHigh: 1, lowerIsBetter: true, explainer: "Et m\xE5l for lavgradig inflammation i kroppen. Lave, stabile niveauer h\xE6nger sammen med lavere risiko for hjerte-kar-sygdom over tid." },
+  { id: "homocystein", name: "Homocystein", unit: "\xB5mol/L", category: "inflammation", optimalLow: 5, optimalHigh: 9, lowerIsBetter: true, explainer: "Et stofskifteprodukt der belaster \xE5rev\xE6ggene n\xE5r det er h\xF8jt. H\xE6nger ofte sammen med lav B12 eller folat \u2014 og kan rettes med netop dem." },
+  { id: "fibrinogen", name: "Fibrinogen", unit: "g/L", category: "inflammation", optimalLow: 1.8, optimalHigh: 3, lowerIsBetter: true, explainer: "Et protein der f\xE5r blodet til at st\xF8rkne. H\xF8je niveauer afspejler inflammation og \xF8ger tendensen til blodpropper." },
+  { id: "sr", name: "S\xE6nkning (SR)", unit: "mm/t", category: "inflammation", optimalLow: 0, optimalHigh: 10, lowerIsBetter: true, explainer: "En klassisk, bred mark\xF8r for inflammation i kroppen. Bruges sammen med hs-CRP til at fange noget der ulmer.", decimals: 0 },
+  // ---- 4. Lever (6) --------------------------------------------------------
+  { id: "alat", name: "ALAT", unit: "U/L", category: "lever", optimalLow: 10, optimalHigh: 35, lowerIsBetter: true, explainer: "Det vigtigste leverenzym at f\xF8lge. Let forh\xF8jet ALAT er ofte f\xF8rste tegn p\xE5 fedtlever \u2014 og falder typisk hurtigt med v\xE6gttab og mindre alkohol.", decimals: 0 },
+  { id: "asat", name: "ASAT", unit: "U/L", category: "lever", optimalLow: 10, optimalHigh: 35, lowerIsBetter: true, explainer: "Et leverenzym der ogs\xE5 findes i muskler. Tolkes sammen med ALAT \u2014 h\xE5rd tr\xE6ning dagen f\xF8r pr\xF8ven kan give midlertidigt h\xF8je tal.", decimals: 0 },
+  { id: "ggt", name: "GGT", unit: "U/L", category: "lever", optimalLow: 10, optimalHigh: 40, lowerIsBetter: true, explainer: "Et leverenzym der er f\xF8lsomt over for alkohol og fedtophobning i leveren. Et godt '\xE6rligheds-barometer' for leverens belastning.", decimals: 0 },
+  { id: "basiskfosfatase", name: "Basisk fosfatase", unit: "U/L", category: "lever", optimalLow: 35, optimalHigh: 105, explainer: "Et enzym fra lever og knogler. Bruges som kontrolmark\xF8r \u2014 afvigelser peger p\xE5 noget der skal unders\xF8ges n\xE6rmere.", decimals: 0 },
+  { id: "bilirubin", name: "Bilirubin", unit: "\xB5mol/L", category: "lever", optimalLow: 5, optimalHigh: 20, explainer: "Et affaldsstof fra r\xF8de blodlegemer som leveren rydder op. Let forh\xF8jede v\xE6rdier er ofte harml\xF8se (Gilberts syndrom) \u2014 men skal kendes.", decimals: 0 },
+  { id: "albumin", name: "Albumin", unit: "g/L", category: "lever", optimalLow: 40, optimalHigh: 48, explainer: "Blodets vigtigste transportprotein, lavet i leveren. Et solidt m\xE5l for generel ern\xE6ringstilstand og leverfunktion.", decimals: 0 },
+  // ---- 5. Nyrer & væskebalance (7) -----------------------------------------
+  { id: "kreatinin", name: "Kreatinin", unit: "\xB5mol/L", category: "nyrer", optimalLow: 60, optimalHigh: 100, explainer: "Et affaldsstof fra musklerne som nyrerne udskiller. Bruges til at beregne din nyrefunktion \u2014 meget muskelmasse giver naturligt h\xF8jere tal.", decimals: 0 },
+  { id: "egfr", name: "eGFR (nyrefunktion)", unit: "mL/min", category: "nyrer", optimalLow: 90, optimalHigh: 130, higherIsBetter: true, explainer: "Et beregnet m\xE5l for hvor godt dine nyrer renser blodet. Over 90 er godt \u2014 og det falder naturligt en smule med alderen.", decimals: 0 },
+  { id: "cystatinc", name: "Cystatin C", unit: "mg/L", category: "nyrer", optimalLow: 0.6, optimalHigh: 1, lowerIsBetter: true, explainer: "Et mere pr\xE6cist m\xE5l for nyrefunktion end kreatinin, fordi det ikke p\xE5virkes af muskelmasse. God til at fange tidlige \xE6ndringer.", decimals: 2 },
+  { id: "urat", name: "Urat (urinsyre)", unit: "mmol/L", category: "nyrer", optimalLow: 0.2, optimalHigh: 0.4, lowerIsBetter: true, explainer: "H\xF8j urinsyre kan give podagra og h\xE6nger sammen med h\xF8jt blodtryk og metabolisk belastning. Falder med mindre fruktose og alkohol.", decimals: 2 },
+  { id: "karbamid", name: "Karbamid", unit: "mmol/L", category: "nyrer", optimalLow: 3, optimalHigh: 8, explainer: "Et affaldsstof fra proteinoms\xE6tningen. Tolkes sammen med kreatinin \u2014 h\xF8j proteinindtagelse eller v\xE6skemangel kan give h\xF8jere tal." },
+  { id: "natrium", name: "Natrium", unit: "mmol/L", category: "nyrer", optimalLow: 137, optimalHigh: 144, explainer: "Kroppens vigtigste salt for v\xE6skebalance og nervefunktion. Holdes normalt meget stramt af kroppen selv.", decimals: 0 },
+  { id: "kalium", name: "Kalium", unit: "mmol/L", category: "nyrer", optimalLow: 3.7, optimalHigh: 4.6, explainer: "Vigtig for hjerterytme og muskelfunktion. Skal ligge i et sn\xE6vert interval \u2014 gr\xF8ntsager og frugt er de bedste kilder." },
+  // ---- 6. Vitaminer & mineraler (10) ---------------------------------------
+  { id: "vitd", name: "D-vitamin (25-OH-D)", unit: "nmol/L", category: "vitaminer", optimalLow: 75, optimalHigh: 120, explainer: "Vigtig for immunforsvar, knogler og muskelfunktion. M\xE5let er at lande i det optimale interval \u2014 ikke bare over manglegr\xE6nsen.", decimals: 0 },
+  { id: "b12", name: "B12-vitamin", unit: "pmol/L", category: "vitaminer", optimalLow: 350, optimalHigh: 650, explainer: "Afg\xF8rende for nerver, energi og bloddannelse. V\xE6rdier i den lave 'normale' ende kan stadig give tr\xE6thed \u2014 derfor sigter vi h\xF8jere.", decimals: 0 },
+  { id: "folat", name: "Folat", unit: "nmol/L", category: "vitaminer", optimalLow: 15, optimalHigh: 35, explainer: "B-vitamin der arbejder sammen med B12, bl.a. om at holde homocystein nede. Gr\xF8nne gr\xF8ntsager og b\xE6lgfrugter er de bedste kilder.", decimals: 0 },
+  { id: "magnesium", name: "Magnesium", unit: "mmol/L", category: "vitaminer", optimalLow: 0.85, optimalHigh: 1, explainer: "Indg\xE5r i hundredvis af processer \u2014 s\xF8vn, muskler, blodsukker. Blodpr\xF8ven fanger kun st\xF8rre mangler, s\xE5 vi sigter mod den \xF8vre halvdel.", decimals: 2 },
+  { id: "zink", name: "Zink", unit: "\xB5mol/L", category: "vitaminer", optimalLow: 12, optimalHigh: 18, explainer: "Vigtig for immunforsvar, hud og testosteronproduktion. Lave v\xE6rdier ses ofte ved ensidig kost eller h\xE5rd tr\xE6ning." },
+  { id: "jern", name: "Jern", unit: "\xB5mol/L", category: "vitaminer", optimalLow: 12, optimalHigh: 28, explainer: "Selve jernet i blodet lige nu. Svinger fra dag til dag \u2014 derfor tolkes det altid sammen med ferritin og transferrinm\xE6tning.", decimals: 0 },
+  { id: "ferritin", name: "Ferritin (jerndepot)", unit: "\xB5g/L", category: "vitaminer", optimalLow: 50, optimalHigh: 150, explainer: "Dine jerndepoter. Lave depoter giver tr\xE6thed l\xE6nge f\xF8r egentlig blodmangel \u2014 men ferritin stiger ogs\xE5 ved inflammation, s\xE5 den tolkes i sammenh\xE6ng.", decimals: 0 },
+  { id: "transferrin", name: "Transferrinm\xE6tning", unit: "%", category: "vitaminer", optimalLow: 25, optimalHigh: 40, explainer: "Hvor stor en del af blodets jerntransport der er i brug. Hj\xE6lper med at skelne \xE6gte jernmangel fra andre \xE5rsager.", decimals: 0 },
+  { id: "calcium", name: "Calcium", unit: "mmol/L", category: "vitaminer", optimalLow: 2.2, optimalHigh: 2.5, explainer: "Vigtig for knogler, nerver og muskler. Holdes stramt af kroppen \u2014 afvigelser skal altid unders\xF8ges n\xE6rmere.", decimals: 2 },
+  { id: "selen", name: "Selen", unit: "\xB5mol/L", category: "vitaminer", optimalLow: 1, optimalHigh: 1.5, explainer: "Et sporstof der beskytter cellerne og underst\xF8tter stofskiftet. Danske jorde er selenfattige, s\xE5 lave v\xE6rdier er almindelige." },
+  // ---- 7. Hormoner (8, kønsspecifikke) -------------------------------------
+  { id: "testosteron", name: "Testosteron (total)", unit: "nmol/L", category: "hormoner", optimalLow: 15, optimalHigh: 30, explainer: "Vigtig for muskelmasse, energi, hum\xF8r og sexlyst. S\xF8vn, styrketr\xE6ning og normalv\xE6gt er de st\xE6rkeste naturlige h\xE5ndtag." },
+  { id: "frittestosteron", name: "Frit testosteron", unit: "pmol/L", category: "hormoner", optimalLow: 250, optimalHigh: 600, explainer: "Den del af testosteronet der faktisk er aktivt i kroppen. Ofte mere sigende end totaltallet, is\xE6r hvis SHBG er h\xF8jt eller lavt.", decimals: 0 },
+  { id: "shbg", name: "SHBG", unit: "nmol/L", category: "hormoner", optimalLow: 20, optimalHigh: 55, explainer: "Et protein der binder k\xF8nshormoner i blodet. Bruges til at beregne hvor meget aktivt hormon du reelt har til r\xE5dighed.", decimals: 0 },
+  { id: "oestradiol", name: "\xD8stradiol", unit: "pmol/L", category: "hormoner", optimalLow: 60, optimalHigh: 150, explainer: "Vigtig for knogler, hjerne og kar \u2014 hos alle k\xF8n. Balancen i forhold til testosteron betyder mere end tallet alene.", decimals: 0 },
+  { id: "kortisol", name: "Kortisol (morgen)", unit: "nmol/L", category: "hormoner", optimalLow: 250, optimalHigh: 550, explainer: "Dit vigtigste stresshormon, m\xE5lt om morgenen hvor det naturligt topper. Vedvarende h\xF8je niveauer slider p\xE5 s\xF8vn, blodsukker og immunforsvar.", decimals: 0 },
+  { id: "dheas", name: "DHEA-S", unit: "\xB5mol/L", category: "hormoner", optimalLow: 4, optimalHigh: 10, explainer: "Et 'moder-hormon' som kroppen bygger andre hormoner af. Falder naturligt med alderen \u2014 gode niveauer h\xE6nger sammen med vitalitet." },
+  { id: "igf1", name: "IGF-1", unit: "nmol/L", category: "hormoner", optimalLow: 18, optimalHigh: 30, explainer: "Kroppens v\xE6kstsignal \u2014 vigtigt for muskler og restitution. Hverken for lavt eller for h\xF8jt er m\xE5let; midten af intervallet er sweet spot.", decimals: 0 },
+  { id: "prolaktin", name: "Prolaktin", unit: "mIU/L", category: "hormoner", optimalLow: 80, optimalHigh: 320, explainer: "Et hypofysehormon der bl.a. p\xE5virker k\xF8nshormonerne. Stress og d\xE5rlig s\xF8vn kan l\xF8fte det midlertidigt.", decimals: 0 },
+  // ---- 8. Skjoldbruskkirtel / thyroidea (4) --------------------------------
+  { id: "tsh", name: "TSH", unit: "mIU/L", category: "thyroidea", optimalLow: 0.5, optimalHigh: 2.5, lowerIsBetter: true, explainer: "Hjernens signal til skjoldbruskkirtlen. Et TSH i den \xF8vre 'normale' ende kan allerede give tr\xE6thed og tunghed \u2014 derfor sigter vi under 2,5." },
+  { id: "ft4", name: "Frit T4", unit: "pmol/L", category: "thyroidea", optimalLow: 12, optimalHigh: 20, explainer: "Skjoldbruskkirtlens lagerhormon. Tolkes sammen med TSH og frit T3 for at se om dit stofskifte k\xF8rer som det skal.", decimals: 0 },
+  { id: "ft3", name: "Frit T3", unit: "pmol/L", category: "thyroidea", optimalLow: 4, optimalHigh: 6, explainer: "Det aktive stofskiftehormon \u2014 det der faktisk s\xE6tter fart p\xE5 cellerne. Lavt frit T3 kan give kuldsk\xE6rhed, tr\xE6thed og lav puls." },
+  { id: "antitpo", name: "Anti-TPO", unit: "kIU/L", category: "thyroidea", optimalLow: 0, optimalHigh: 35, lowerIsBetter: true, explainer: "Antistoffer mod skjoldbruskkirtlen. Forh\xF8jede v\xE6rdier kan varsle stofskiftesygdom \xE5r i forvejen \u2014 vigtigt at kende og f\xF8lge.", decimals: 0 },
+  // ---- 9. Blod & jernstatus (13) -------------------------------------------
+  { id: "haemoglobin", name: "H\xE6moglobin", unit: "mmol/L", category: "blodstatus", optimalLow: 8.5, optimalHigh: 10.5, explainer: "Blodets iltb\xE6rer. For lavt giver tr\xE6thed og forpustethed; for h\xF8jt kan skyldes v\xE6skemangel eller andet der skal tjekkes." },
+  { id: "haematokrit", name: "H\xE6matokrit", unit: "%", category: "blodstatus", optimalLow: 40, optimalHigh: 50, explainer: "Hvor stor en del af blodet der best\xE5r af r\xF8de blodlegemer. Tolkes sammen med h\xE6moglobin.", decimals: 0 },
+  { id: "erytrocytter", name: "Erytrocytter", unit: "\xD710\xB9\xB2/L", category: "blodstatus", optimalLow: 4.5, optimalHigh: 5.7, explainer: "Antallet af r\xF8de blodlegemer \u2014 dem der b\xE6rer ilten rundt i kroppen." },
+  { id: "mcv", name: "MCV", unit: "fL", category: "blodstatus", optimalLow: 85, optimalHigh: 95, explainer: "St\xF8rrelsen p\xE5 dine r\xF8de blodlegemer. For sm\xE5 peger ofte p\xE5 jernmangel; for store p\xE5 B12-/folatmangel eller alkohol.", decimals: 0 },
+  { id: "mch", name: "MCH", unit: "pg", category: "blodstatus", optimalLow: 27, optimalHigh: 33, explainer: "Hvor meget h\xE6moglobin hvert r\xF8dt blodlegeme b\xE6rer. Endnu en brik i jern- og vitaminstatus.", decimals: 0 },
+  { id: "rdw", name: "RDW", unit: "%", category: "blodstatus", optimalLow: 11.5, optimalHigh: 14, lowerIsBetter: true, explainer: "Hvor ens dine r\xF8de blodlegemer er i st\xF8rrelse. Stor variation er et tidligt og undervurderet tegn p\xE5 at noget mangler." },
+  { id: "leukocytter", name: "Leukocytter", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 4, optimalHigh: 8, explainer: "Dine hvide blodlegemer \u2014 immunforsvarets samlede styrke. Roligt og lavt-normalt er det sunde leje." },
+  { id: "neutrofile", name: "Neutrofile", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 2, optimalHigh: 6, explainer: "Immunforsvarets 'f\xF8rstehj\xE6lpere' mod bakterier. Den st\xF8rste gruppe af hvide blodlegemer." },
+  { id: "lymfocytter", name: "Lymfocytter", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 1, optimalHigh: 3.5, explainer: "De hvide blodlegemer der husker infektioner og bek\xE6mper virus." },
+  { id: "monocytter", name: "Monocytter", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 0.2, optimalHigh: 0.8, explainer: "Immunceller der rydder op og reparerer. Let forh\xF8jede ved kronisk inflammation.", decimals: 2 },
+  { id: "eosinofile", name: "Eosinofile", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 0, optimalHigh: 0.4, lowerIsBetter: true, explainer: "Immunceller der reagerer ved allergi og parasitter. H\xF8je tal peger ofte p\xE5 allergi.", decimals: 2 },
+  { id: "basofile", name: "Basofile", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 0, optimalHigh: 0.1, lowerIsBetter: true, explainer: "Den mindste gruppe immunceller \u2014 indg\xE5r i allergiske reaktioner.", decimals: 2 },
+  { id: "trombocytter", name: "Trombocytter", unit: "\xD710\u2079/L", category: "blodstatus", optimalLow: 150, optimalHigh: 350, explainer: "Blodpladerne der standser bl\xF8dning. Skal hverken v\xE6re for f\xE5 eller for mange.", decimals: 0 },
+  // ---- 10. Kondition & kropskomposition (7) --------------------------------
+  { id: "vo2max", name: "VO2-max", unit: "ml/kg/min", category: "fysiologi", optimalLow: 42, optimalHigh: 60, higherIsBetter: true, explainer: "Din konditionsm\xE6ssige kapacitet \u2014 og en af de st\xE6rkeste enkeltpr\xE6diktorer for l\xE6ngere levetid. H\xF8jere er bedre, og den kan tr\xE6nes hele livet.", decimals: 0 },
+  { id: "hvilepuls", name: "Hvilepuls", unit: "slag/min", category: "fysiologi", optimalLow: 48, optimalHigh: 62, lowerIsBetter: true, explainer: "Et simpelt vindue ind til dit hjertes kondition. Falder st\xF8t n\xE5r konditionen forbedres \u2014 en af de mest motiverende kurver at f\xF8lge.", decimals: 0 },
+  { id: "blodtryksys", name: "Blodtryk (systolisk)", unit: "mmHg", category: "fysiologi", optimalLow: 105, optimalHigh: 125, lowerIsBetter: true, explainer: "Trykket n\xE5r hjertet pumper. En af de allervigtigste mark\xF8rer at holde i optimalt leje \u2014 hvert point t\xE6ller over et helt liv.", decimals: 0 },
+  { id: "blodtrykdia", name: "Blodtryk (diastolisk)", unit: "mmHg", category: "fysiologi", optimalLow: 65, optimalHigh: 80, lowerIsBetter: true, explainer: "Trykket mellem hjerteslagene. Tolkes altid sammen med det systoliske tryk.", decimals: 0 },
+  { id: "fedtprocent", name: "Fedtprocent", unit: "%", category: "fysiologi", optimalLow: 12, optimalHigh: 20, lowerIsBetter: true, explainer: "Andelen af kropsfedt. Vigtigere end v\xE6gten alene \u2014 is\xE6r det indre bugfedt belaster stofskiftet." },
+  { id: "taljemaal", name: "Taljem\xE5l", unit: "cm", category: "fysiologi", optimalLow: 80, optimalHigh: 94, lowerIsBetter: true, explainer: "Det enkleste m\xE5l for det farlige bugfedt. Centimeter her flytter mere for dit helbred end kilo p\xE5 v\xE6gten.", decimals: 0 },
+  { id: "gribestyrke", name: "Gribestyrke", unit: "kg", category: "fysiologi", optimalLow: 42, optimalHigh: 60, higherIsBetter: true, explainer: "Et overraskende st\xE6rkt m\xE5l for din samlede muskelstyrke og robusthed \u2014 og dermed for hvordan du \xE6ldes.", decimals: 0 }
+];
+var MARKER_INDEX = new Map(MARKERS.map((m) => [m.id, m]));
+function markerById(id) {
+  return MARKER_INDEX.get(id);
+}
+function markerForSex(def, sex) {
+  if (sex !== "female") return def;
+  const o = FEMALE_OPTIMAL[def.id];
+  return o ? { ...def, optimalLow: o[0], optimalHigh: o[1] } : def;
+}
+function markerByIdForSex(id, sex) {
+  const def = markerById(id);
+  return def ? markerForSex(def, sex) : void 0;
+}
+function bandsFor(def, sex) {
+  const m = markerForSex(def, sex);
+  const NEG_INF = Number.NEGATIVE_INFINITY;
+  const POS_INF = Number.POSITIVE_INFINITY;
+  const optimal = [
+    m.lowerIsBetter ? NEG_INF : m.optimalLow,
+    m.higherIsBetter ? POS_INF : m.optimalHigh
+  ];
+  if (m.reference) {
+    const [rLow, rHigh] = m.reference;
+    const w = RANGE_MODEL.watchBeyondReference;
+    return {
+      optimal,
+      reference: [rLow, rHigh],
+      watch: [rLow * (1 - w), rHigh * (1 + w)],
+      validated: true
+    };
+  }
+  const ref = RANGE_MODEL.referenceWiden;
+  const watch = RANGE_MODEL.watchWiden;
+  const refLow = m.lowerIsBetter ? NEG_INF : m.optimalLow * (1 - ref);
+  const refHigh = m.higherIsBetter ? POS_INF : m.optimalHigh * (1 + ref);
+  const watchLow = m.lowerIsBetter ? NEG_INF : m.optimalLow * (1 - watch);
+  const watchHigh = m.higherIsBetter ? POS_INF : m.optimalHigh * (1 + watch);
+  return {
+    optimal,
+    reference: [refLow, refHigh],
+    watch: [watchLow, watchHigh],
+    validated: false
+  };
+}
+
+// src/classify.ts
+function inRange(value, low, high) {
+  return value >= low && value <= high;
+}
+function deviationFromOptimalMid(value, low, high) {
+  const mid = (low + high) / 2;
+  const half = (high - low) / 2 || Math.abs(mid) || 1;
+  return Math.round((value - mid) / half * 100);
+}
+function classifyMarker(input) {
+  const issues = [];
+  const base = markerById(input.id);
+  if (!base) {
+    return {
+      id: input.id,
+      value: input.value,
+      status: "action",
+      category: "fysiologi",
+      deviation: 0,
+      explanation: "Ukendt mark\xF8r \u2014 ikke i Aevias validerede panel. Skal afklares manuelt.",
+      issues: [{ code: "unknown_marker", message: `Mark\xF8r-id '${input.id}' findes ikke i panelet.` }]
+    };
+  }
+  const def = markerForSex(base, input.sex);
+  if (!Number.isFinite(input.value)) {
+    issues.push({ code: "non_finite_value", message: "V\xE6rdien er ikke et endeligt tal." });
+  }
+  if (input.unit && input.unit !== def.unit) {
+    issues.push({
+      code: "unit_mismatch",
+      message: `Forventet enhed '${def.unit}', modtog '${input.unit}'.`
+    });
+  }
+  const bands = bandsFor(def, input.sex);
+  if (!bands.validated) {
+    issues.push({
+      code: "unvalidated_range",
+      message: "Referenceinterval er udledt, ikke l\xE6gefagligt valideret (afventer Judit)."
+    });
+  }
+  let status;
+  if (!Number.isFinite(input.value)) {
+    status = "action";
+  } else if (inRange(input.value, bands.optimal[0], bands.optimal[1])) {
+    status = "optimal";
+  } else if (inRange(input.value, bands.reference[0], bands.reference[1])) {
+    status = "ok";
+  } else if (inRange(input.value, bands.watch[0], bands.watch[1])) {
+    status = "watch";
+  } else {
+    status = "action";
+  }
+  const result = {
+    id: def.id,
+    value: input.value,
+    status,
+    category: def.category,
+    deviation: deviationFromOptimalMid(input.value, def.optimalLow, def.optimalHigh),
+    explanation: def.explainer
+  };
+  if (issues.length > 0) result.issues = issues;
+  return result;
+}
+function classifyAll(inputs) {
+  return inputs.map(classifyMarker);
+}
+
+// src/bio-age.ts
+var PHENOAGE = {
+  intercept: -19.9067,
+  albumin: -0.0336,
+  // g/L
+  creatinine: 95e-4,
+  // µmol/L
+  glucose: 0.1953,
+  // mmol/L
+  lnCrp: 0.0954,
+  // ln(CRP i mg/dL)
+  lymphocytePct: -0.012,
+  // %
+  mcv: 0.0268,
+  // fL
+  rdw: 0.3306,
+  // %
+  alp: 188e-5,
+  // U/L
+  wbc: 0.0554,
+  // ×10⁹/L (1000 celler/µL)
+  age: 0.0804,
+  // år
+  gamma: 76927e-7,
+  // Gompertz
+  tmonths: 120
+};
+var REQUIRED_INPUTS = 9;
+function extractPhenoInputs(values) {
+  const albumin = values.get("albumin");
+  const creatinine = values.get("kreatinin");
+  const glucose = values.get("glukose");
+  const crpMgL = values.get("hscrp");
+  const lymf = values.get("lymfocytter");
+  const wbc = values.get("leukocytter");
+  const mcv = values.get("mcv");
+  const rdw = values.get("rdw");
+  const alp = values.get("basiskfosfatase");
+  if (albumin == null || creatinine == null || glucose == null || crpMgL == null || lymf == null || wbc == null || mcv == null || rdw == null || alp == null || wbc === 0) {
+    return null;
+  }
+  return {
+    albumin,
+    creatinine,
+    glucose,
+    crpMgDl: crpMgL / 10,
+    // hs-CRP mg/L → mg/dL (antagelse — valideres af Judit)
+    lymphocytePct: lymf / wbc * 100,
+    // absolutte tællinger → % (antagelse)
+    mcv,
+    rdw,
+    alp,
+    wbc
+  };
+}
+function phenoAgeYears(i, chronologicalAge) {
+  const c = PHENOAGE;
+  const lnCrp = Math.log(Math.max(i.crpMgDl, 0.01));
+  const xb = c.intercept + c.albumin * i.albumin + c.creatinine * i.creatinine + c.glucose * i.glucose + c.lnCrp * lnCrp + c.lymphocytePct * i.lymphocytePct + c.mcv * i.mcv + c.rdw * i.rdw + c.alp * i.alp + c.wbc * i.wbc + c.age * chronologicalAge;
+  const mortalityScore = 1 - Math.exp(-Math.exp(xb) * (Math.exp(c.gamma * c.tmonths) - 1) / c.gamma);
+  const phenoAge = 141.50225 + Math.log(-553e-5 * Math.log(1 - mortalityScore)) / 0.090165;
+  return phenoAge;
+}
+function heuristicAge(classified, chronologicalAge) {
+  let delta = 0;
+  for (const m of classified) {
+    if (m.status === "optimal") delta -= 0.1;
+    else if (m.status === "action" || m.status === "watch") delta += 0.15;
+  }
+  delta = Math.max(-8, Math.min(8, delta));
+  return chronologicalAge + delta;
+}
+function confidenceHalfWidth(method, inputsUsed) {
+  if (method === "marker-heuristic") return 6;
+  const missing = REQUIRED_INPUTS - inputsUsed;
+  return 3 + missing * 1.5;
+}
+function estimateBiologicalAge(markers, chronologicalAge, classified) {
+  const values = new Map(markers.map((m) => [m.id, m.value]));
+  const pheno = extractPhenoInputs(values);
+  if (pheno) {
+    const raw = phenoAgeYears(pheno, chronologicalAge);
+    const estimatedAge2 = Math.round(raw);
+    const half2 = confidenceHalfWidth("phenoage", REQUIRED_INPUTS);
+    return {
+      estimatedAge: estimatedAge2,
+      confidenceInterval: [Math.round(estimatedAge2 - half2), Math.round(estimatedAge2 + half2)],
+      method: "phenoage",
+      inputsUsed: REQUIRED_INPUTS,
+      inputsRequired: REQUIRED_INPUTS,
+      biologicalAgeDisclaimer: true
+    };
+  }
+  const phenoIds = ["albumin", "kreatinin", "glukose", "hscrp", "lymfocytter", "leukocytter", "mcv", "rdw", "basiskfosfatase"];
+  const inputsUsed = phenoIds.filter((id) => values.has(id)).length;
+  const estimatedAge = Math.round(heuristicAge(classified ?? [], chronologicalAge));
+  const half = confidenceHalfWidth("marker-heuristic", inputsUsed);
+  return {
+    estimatedAge,
+    confidenceInterval: [Math.round(estimatedAge - half), Math.round(estimatedAge + half)],
+    method: "marker-heuristic",
+    inputsUsed,
+    inputsRequired: REQUIRED_INPUTS,
+    biologicalAgeDisclaimer: true
+  };
+}
+
+// src/score.ts
+var STATUS_POINTS = {
+  optimal: 1,
+  ok: 0.5,
+  watch: 0.25,
+  action: 0
+};
+var STATUS_RANK = {
+  action: 0,
+  watch: 1,
+  ok: 2,
+  optimal: 3
+};
+function clamp01(n) {
+  return Math.max(0, Math.min(1, n));
+}
+function markerScore(classified) {
+  if (classified.length === 0) return 0;
+  const sum = classified.reduce((acc, m) => acc + STATUS_POINTS[m.status], 0);
+  return sum / classified.length * 100;
+}
+function momentumScore(classified, previous) {
+  if (!previous) return 50;
+  const comparable = classified.filter((m) => previous[m.id] != null);
+  if (comparable.length === 0) return 50;
+  const improved = comparable.filter((m) => {
+    const before = previous[m.id];
+    const movedUp = STATUS_RANK[m.status] > STATUS_RANK[before];
+    const heldOptimal = m.status === "optimal" && before === "optimal";
+    return movedUp || heldOptimal;
+  }).length;
+  return improved / comparable.length * 100;
+}
+function categoryBreakdown(classified) {
+  const groups = /* @__PURE__ */ new Map();
+  for (const m of classified) {
+    const arr = groups.get(m.category) ?? [];
+    arr.push(m);
+    groups.set(m.category, arr);
+  }
+  const out = {};
+  for (const [cat, arr] of groups) out[cat] = Math.round(markerScore(arr));
+  return out;
+}
+function computeAeviaScore(classified, ctx) {
+  const markers = markerScore(classified);
+  if (ctx.baseline) {
+    return {
+      total: Math.round(markers),
+      components: { markers: Math.round(markers), adherence: null, momentum: null },
+      breakdown: categoryBreakdown(classified),
+      baseline: true
+    };
+  }
+  const adherence = clamp01(ctx.adherence) * 100;
+  const momentum = momentumScore(classified, ctx.previous);
+  const total = Math.round(markers * 0.5 + adherence * 0.35 + momentum * 0.15);
+  return {
+    total,
+    components: {
+      markers: Math.round(markers),
+      adherence: Math.round(adherence),
+      momentum: Math.round(momentum)
+    },
+    breakdown: categoryBreakdown(classified),
+    baseline: false
+  };
+}
+function scoreLabel(score) {
+  if (score >= 85) return "Fremragende";
+  if (score >= 70) return "St\xE6rk";
+  if (score >= 55) return "P\xE5 vej";
+  return "Tid til fokus";
+}
+
+// src/deidentify.ts
+import { randomUUID } from "node:crypto";
+function ageBandOf(age) {
+  const lower = Math.floor(age / 5) * 5;
+  return `${lower}-${lower + 4}`;
+}
+function deidentify(raw) {
+  return {
+    pseudoId: randomUUID(),
+    ageBand: ageBandOf(raw.age),
+    sex: raw.sex,
+    markers: raw.markers.map((m) => ({
+      id: m.id,
+      value: m.value,
+      unit: m.unit,
+      sex: m.sex,
+      age: m.age
+    }))
+  };
+}
+var PII_KEYS = ["name", "cpr", "email", "navn", "phone", "telefon", "address", "adresse"];
+function assertNoPII(obj, context = "AI-payload") {
+  const seen = /* @__PURE__ */ new Set();
+  const walk = (node) => {
+    if (node == null || typeof node !== "object") return;
+    if (seen.has(node)) return;
+    seen.add(node);
+    for (const [key, val] of Object.entries(node)) {
+      if (PII_KEYS.includes(key.toLowerCase())) {
+        throw new Error(`PII-l\xE6kage blokeret: feltet '${key}' fundet i ${context}.`);
+      }
+      walk(val);
+    }
+  };
+  walk(obj);
+}
+
+// src/pipeline.ts
+var DOCTOR_EVENTS = /* @__PURE__ */ new Set(["doctor_approve", "doctor_reject"]);
+var TRANSITIONS = {
+  raw_data: { classify: "classified" },
+  classified: { prepare_draft: "draft_pending_doctor" },
+  draft_pending_doctor: {
+    doctor_approve: "approved_for_release",
+    doctor_reject: "rejected"
+  },
+  rejected: { redraft: "draft_pending_doctor" },
+  approved_for_release: {}
+  // terminal — ingen vej videre
+};
+var IllegalTransitionError = class extends Error {
+  constructor(from, event) {
+    super(`Ulovlig overgang: '${event}' er ikke tilladt fra tilstanden '${from}'.`);
+    this.from = from;
+    this.event = event;
+    this.name = "IllegalTransitionError";
+  }
+  from;
+  event;
+};
+var DoctorActionRequiredError = class extends Error {
+  constructor(event) {
+    super(`H\xE6ndelsen '${event}' kr\xE6ver en eksplicit l\xE6gehandling (doctorId).`);
+    this.event = event;
+    this.name = "DoctorActionRequiredError";
+  }
+  event;
+};
+function nextState(current, event, opts = {}) {
+  const to = TRANSITIONS[current][event];
+  if (!to) throw new IllegalTransitionError(current, event);
+  if (DOCTOR_EVENTS.has(event) && !opts.doctorId) {
+    throw new DoctorActionRequiredError(event);
+  }
+  return to;
+}
+var ReportPipeline = class {
+  _status;
+  _history = [];
+  constructor(initial = "raw_data") {
+    this._status = initial;
+  }
+  get status() {
+    return this._status;
+  }
+  get history() {
+    return this._history;
+  }
+  get isReleased() {
+    return this._status === "approved_for_release";
+  }
+  dispatch(event, opts = {}) {
+    const from = this._status;
+    const to = nextState(from, event, opts);
+    this._status = to;
+    const record = { from, to, event };
+    if (opts.doctorId !== void 0) record.doctorId = opts.doctorId;
+    if (opts.note !== void 0) record.note = opts.note;
+    if (opts.at !== void 0) record.at = opts.at;
+    this._history.push(record);
+    return to;
+  }
+};
+
+// src/draft.ts
+function buildReportDraft(raw, ctx) {
+  const deid = deidentify(raw);
+  const classifiedMarkers = classifyAll(deid.markers);
+  const aeviaScore = computeAeviaScore(classifiedMarkers, ctx);
+  const biologicalAge = estimateBiologicalAge(raw.markers, raw.age, classifiedMarkers);
+  const flaggedForDoctor = classifiedMarkers.filter((m) => m.status === "action");
+  const draft = {
+    pseudoId: deid.pseudoId,
+    ageBand: deid.ageBand,
+    sex: deid.sex,
+    classifiedMarkers,
+    aeviaScore,
+    biologicalAge,
+    flaggedForDoctor,
+    status: "draft_pending_doctor",
+    biologicalAgeDisclaimer: true
+  };
+  assertNoPII(draft, "ReportDraft");
+  return draft;
+}
+export {
+  DoctorActionRequiredError,
+  IllegalTransitionError,
+  MARKERS,
+  RANGE_MODEL,
+  ReportPipeline,
+  ageBandOf,
+  assertNoPII,
+  bandsFor,
+  buildReportDraft,
+  classifyAll,
+  classifyMarker,
+  computeAeviaScore,
+  deidentify,
+  estimateBiologicalAge,
+  markerById,
+  markerByIdForSex,
+  markerForSex,
+  nextState,
+  scoreLabel
+};

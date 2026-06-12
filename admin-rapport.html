@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Aevia · Rapport-admin</title>
+<style>
+:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#13243d;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;
+--optimal:#3fb27f;--ok:#4a9fd8;--watch:#d8a93c;--action:#e0644b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--navy);color:var(--text);line-height:1.5;padding:24px 16px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:1.5rem;margin-bottom:4px}
+.sub{color:var(--muted-2);font-size:.9rem;margin-bottom:20px}
+h2{font-size:1.05rem;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line-2)}
+h3{font-size:.78rem;color:var(--gold);text-transform:uppercase;letter-spacing:.09em;margin:18px 0 8px}
+.card{background:var(--navy-2);border:1px solid var(--line-2);border-radius:14px;padding:18px;margin-bottom:16px}
+label{font-size:.74rem;color:var(--muted-2);display:block;margin-bottom:4px}
+input,select{width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.92rem}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.mk{display:grid;grid-template-columns:1fr 96px;gap:8px;align-items:center}
+.mk .nm{font-size:.86rem}.mk .nm small{display:block;color:var(--muted-2);font-size:.72rem}
+.btn{background:var(--gold);color:var(--navy);border:none;border-radius:999px;padding:10px 20px;font-weight:600;cursor:pointer;font:inherit;font-size:.92rem}
+.btn:hover{background:var(--gold-deep)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
+.btn.ghost:hover{border-color:var(--gold)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:.82rem;color:var(--muted-2);margin-top:10px}
+.warn{background:rgba(224,100,75,.1);border:1px solid rgba(224,100,75,.4);border-radius:10px;padding:12px 14px;font-size:.86rem;color:#f4b9ab;margin-top:10px}
+details{margin-bottom:8px;border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+summary{cursor:pointer;padding:11px 14px;background:var(--navy-3);font-size:.9rem;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary .cnt{float:right;color:var(--muted-2);font-weight:400;font-size:.8rem}
+details .body{padding:14px}
+/* resultat */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--navy-3);border:1px solid var(--line-2);border-radius:12px;padding:14px}
+.kpi .n{font-size:1.8rem;font-weight:700}.kpi .l{font-size:.74rem;color:var(--muted-2);margin-top:2px}
+.chip{font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.chip.optimal{background:rgba(63,178,127,.16);color:var(--optimal)}
+.chip.ok{background:rgba(74,159,216,.16);color:var(--ok)}
+.chip.watch{background:rgba(216,169,60,.16);color:var(--watch)}
+.chip.action{background:rgba(224,100,75,.16);color:var(--action)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line-2);font-size:.86rem}
+th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
+td.r{text-align:right}
+.barline{height:8px;border-radius:99px;background:var(--navy);overflow:hidden;margin-top:6px}
+.barline>i{display:block;height:100%;background:var(--gold)}
+.muted{color:var(--muted-2)}
+textarea{width:100%;min-height:150px;background:var(--navy);border:1px solid var(--line-2);border-radius:8px;padding:11px;color:var(--text);font:inherit;font-size:.84rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+textarea:focus{outline:none;border-color:var(--gold)}
+tr.click{cursor:pointer}tr.click:hover td{background:var(--navy-3)}
+.drop{border:1.5px dashed var(--line-2);border-radius:10px;padding:18px;text-align:center;color:var(--muted-2);cursor:pointer;font-size:.88rem;transition:border-color .15s,background .15s}
+.drop:hover{border-color:var(--gold);color:var(--text)}
+.drop.over{border-color:var(--gold);background:rgba(201,164,55,.08);color:var(--text)}
+.drop b{color:var(--gold)}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted-2);font-size:.76rem;margin:14px 0;text-transform:uppercase;letter-spacing:.08em}
+.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line-2)}
+.mini{font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--navy);border:1px solid var(--line-2)}
+.mini.a{color:var(--action);border-color:rgba(224,100,75,.4)}
+.disclaim{font-size:.78rem;color:var(--muted-2);font-style:italic;margin-top:4px}
+.flag{background:rgba(224,100,75,.08);border:1px solid rgba(224,100,75,.35);border-radius:12px;padding:14px;margin-bottom:14px}
+.flag h3{color:var(--action);margin-top:0}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Rapport-admin</h1>
+  <p class="sub">Indtast rådata fra partnerklinik → motoren klassificerer deterministisk → draft til lægegodkendelse. AI klassificerer aldrig. Token gemmes kun i denne fane.</p>
+
+  <div class="card">
+    <div class="grid g4">
+      <div><label for="tok">Admin-token</label><input id="tok" type="password" placeholder="ADMIN_TOKEN"></div>
+      <div><label for="adher">Efterlevelse (%)</label><input id="adher" type="number" min="0" max="100" value="80"></div>
+      <div><label>&nbsp;</label><label style="display:flex;align-items:center;gap:7px;color:var(--text);font-size:.88rem;padding-top:8px"><input type="checkbox" id="baseline" onchange="toggleBaseline()" style="width:auto"> Første test (baseline)</label></div>
+    </div>
+    <p class="note" id="baselineNote" style="display:none">Baseline: ingen protokol eller tidligere test endnu → scoren bliver ren markør-score. Efterlevelse + momentum tilføjes ved re-test.</p>
+  </div>
+
+  <h2>Masseindlæs &amp; auto-analysér</h2>
+  <div class="card">
+    <p class="note" style="margin-top:0">Indsæt data og analysér automatisk. To formater auto-detekteres:</p>
+    <p class="note">• <strong>Én patient:</strong> linjer som <code>markør = værdi</code> (fx <code>ldl = 3.4</code>, navn på dansk eller markør-id). Udfylder formularen nedenfor.<br>
+    • <strong>Mange patienter:</strong> et regneark (CSV/TSV — komma, semikolon eller tab). Første række er overskrifter (<code>navn, cpr, email, alder, koen, efterlevelse</code> + markør-kolonner). Én patient pr. række. Decimalkomma håndteres.</p>
+
+    <div class="drop" id="drop" onclick="document.getElementById('file').click()">
+      <div>📄 <b>Vælg en eller flere filer</b> eller træk dem hertil</div>
+      <div style="font-size:.76rem;margin-top:4px">.csv · .tsv · .txt · .xlsx · .pdf — flere dokumenter samles til ét batch (én patient pr. dokument)</div>
+      <div style="font-size:.72rem;margin-top:4px;color:var(--watch)">PDF: teksten udtrækkes til gennemsyn — du bekræfter selv værdierne (ingen auto-analyse)</div>
+    </div>
+    <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls,.pdf" multiple style="display:none">
+
+    <div class="or">eller skriv / indsæt direkte</div>
+    <textarea id="bulk" placeholder="navn;cpr;alder;koen;ldl;hscrp;vo2max&#10;Anna Sø;010190-1111;36;kvinde;2,1;0,8;46&#10;Bo Dam;020280-2222;46;mand;3,4;2,4;34"></textarea>
+    <div class="bar" style="margin-top:12px">
+      <button class="btn" onclick="parseBulk()">Indlæs &amp; analysér</button>
+      <button class="btn ghost" onclick="loadExample('single')">Eksempel: én patient</button>
+      <button class="btn ghost" onclick="loadExample('batch')">Eksempel: flere patienter</button>
+      <label style="display:flex;align-items:center;gap:6px;color:var(--muted-2);font-size:.82rem;margin:0"><input type="checkbox" id="autorun" checked style="width:auto"> Analysér automatisk</label>
+      <span class="note" id="bulkstatus"></span>
+    </div>
+  </div>
+
+  <h2>1 · Patient (PII — forlader aldrig serveren mod AI)</h2>
+  <div class="card">
+    <div class="grid g3">
+      <div><label for="p_name">Navn</label><input id="p_name" placeholder="Fornavn Efternavn"></div>
+      <div><label for="p_cpr">CPR</label><input id="p_cpr" placeholder="ddmmåå-xxxx"></div>
+      <div><label for="p_email">E-mail</label><input id="p_email" type="email" placeholder="navn@eksempel.dk"></div>
+      <div><label for="p_age">Alder</label><input id="p_age" type="number" min="18" max="110" value="52"></div>
+      <div><label for="p_sex">Køn</label><select id="p_sex"><option value="male">Mand</option><option value="female">Kvinde</option></select></div>
+    </div>
+    <p class="note">Motoren pseudonymiserer: navn, CPR og mail fjernes; kun aldersbånd + køn + målinger føres videre.</p>
+  </div>
+
+  <h2>2 · Målinger <span class="muted" style="font-size:.8rem;font-weight:400">— 74 markører · blodprøver, kondition (VO2max/hvilepuls) & MR-kropskomposition</span></h2>
+  <div class="bar" style="margin-bottom:14px">
+    <button class="btn ghost" onclick="fillOptimal()">Fyld midt-optimalt (demo)</button>
+    <button class="btn ghost" onclick="clearAll()">Ryd felter</button>
+    <span class="note" id="fillcount"></span>
+  </div>
+  <div id="markerForm"></div>
+
+  <div class="bar" style="margin:18px 0">
+    <button class="btn" onclick="classify()">Klassificér &amp; byg draft</button>
+    <span class="note" id="status"></span>
+  </div>
+
+  <div id="result" class="hide"></div>
+</div>
+
+<script src="/assets/markers-manifest.js"></script>
+<script>
+var M = (window.AEVIA_MARKERS||{categories:[],markers:[]});
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fmt(n,d){return Number(n).toFixed(d);}
+function isBaseline(){return el('baseline').checked;}
+function toggleBaseline(){
+  var on=isBaseline();
+  el('adher').disabled=on; el('adher').style.opacity=on?'.4':'1';
+  el('baselineNote').style.display=on?'block':'none';
+}
+
+// ---- Byg markørformular grupperet i 10 kategorier ----
+function buildForm(){
+  var html = M.categories.map(function(cat){
+    var ms = M.markers.filter(function(m){return m.category===cat.id;});
+    if(!ms.length) return '';
+    var rows = ms.map(function(m){
+      return '<div class="mk"><div class="nm">'+esc(m.name)+
+        '<small>optimal '+fmt(m.optimalLow,m.decimals)+'–'+fmt(m.optimalHigh,m.decimals)+' '+esc(m.unit)+'</small></div>'+
+        '<input type="number" step="any" id="m_'+m.id+'" data-id="'+m.id+'" placeholder="'+esc(m.unit)+'"></div>';
+    }).join('');
+    return '<details><summary>'+esc(cat.label)+'<span class="cnt">'+ms.length+' markører</span></summary>'+
+      '<div class="body"><div class="grid g2">'+rows+'</div></div></details>';
+  }).join('');
+  el('markerForm').innerHTML = html || '<p class="warn">Kunne ikke indlæse markør-manifest (/assets/markers-manifest.js).</p>';
+}
+
+function fillOptimal(){
+  var n=0;
+  M.markers.forEach(function(m){
+    var mid=(m.optimalLow+m.optimalHigh)/2;
+    el('m_'+m.id).value = fmt(mid,m.decimals); n++;
+  });
+  el('fillcount').textContent = n+' felter fyldt med midt-optimale demo-værdier.';
+}
+function clearAll(){
+  M.markers.forEach(function(m){el('m_'+m.id).value='';});
+  el('fillcount').textContent='Felter ryddet.';
+}
+
+// ---- Saml input og kald motoren ----
+function collect(){
+  var sex = el('p_sex').value, age = Number(el('p_age').value)||0;
+  var markers = [];
+  M.markers.forEach(function(m){
+    var raw = el('m_'+m.id).value;
+    if(raw==='' || raw===null) return;
+    markers.push({ id:m.id, value:Number(raw), unit:m.unit, sex:sex, age:age });
+  });
+  return {
+    token: el('tok').value.trim(),
+    adherence: (Number(el('adher').value)||0)/100,
+    baseline: isBaseline(),
+    patient: { name:el('p_name').value, cpr:el('p_cpr').value, email:el('p_email').value, age:age, sex:sex, markers:markers }
+  };
+}
+
+function classify(){
+  var p = collect();
+  if(!p.token){ el('status').textContent='Angiv admin-token.'; return; }
+  if(!p.patient.markers.length){ el('status').textContent='Indtast mindst én måling.'; return; }
+  el('status').textContent='Klassificerer '+p.patient.markers.length+' markører…';
+  fetch('/api/classify-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.error){ el('status').textContent='Fejl: '+d.error; return; }
+      el('status').textContent='Draft bygget — status: '+d.draft.status;
+      render(d.draft);
+    })
+    .catch(function(){ el('status').textContent='Netværksfejl.'; });
+}
+
+// ---- Render draft ----
+var LABELS={optimal:'Optimal',ok:'OK',watch:'Observer',action:'Handling'};
+var CATLABEL={}; M.categories.forEach(function(c){CATLABEL[c.id]=c.label;});
+var NAME={}; M.markers.forEach(function(m){NAME[m.id]=m;});
+
+function render(d,target){
+  target = target || 'result';
+  var cm = d.classifiedMarkers;
+  var counts={optimal:0,ok:0,watch:0,action:0};
+  cm.forEach(function(m){counts[m.status]++;});
+  var b=d.aeviaScore.components, ba=d.biologicalAge;
+
+  var kpis =
+    kpi(d.aeviaScore.total+'/100','Aevia-score')+
+    kpi('~'+ba.estimatedAge+' år','Biologisk alder (estimat)')+
+    kpi(counts.optimal,'Optimal')+kpi(counts.ok,'OK')+kpi(counts.watch,'Observer')+kpi(counts.action,'Handling');
+
+  var score = d.aeviaScore.baseline
+    ? '<div class="card"><h3>Aevia-score · baseline (kun markører)</h3>'+
+      scoreBar('Markører (100%)',b.markers)+
+      '<p class="disclaim">Første test: efterlevelse og momentum tilføjes ved re-test.</p></div>'
+    : '<div class="card"><h3>Aevia-score · 50 % markører / 35 % efterlevelse / 15 % momentum</h3>'+
+      scoreBar('Markører (50%)',b.markers)+scoreBar('Efterlevelse (35%)',b.adherence)+scoreBar('Momentum (15%)',b.momentum)+'</div>';
+
+  var bio =
+    '<div class="card"><h3>Biologisk alder</h3>'+
+    '<div style="font-size:1.6rem;font-weight:700">~'+ba.estimatedAge+' år <span class="muted" style="font-size:1rem;font-weight:400">(usikkerhed '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' år)</span></div>'+
+    '<div class="disclaim">Metode: '+ba.method+' · '+ba.inputsUsed+'/'+ba.inputsRequired+' input. Et estimat — ikke en diagnostisk konklusion.</div></div>';
+
+  var flagged = d.flaggedForDoctor.length
+    ? '<div class="flag"><h3>⚑ Løftet til lægen — '+d.flaggedForDoctor.length+' markør(er) i Handling</h3>'+
+      d.flaggedForDoctor.map(function(m){return '• <strong>'+esc((NAME[m.id]||{}).name||m.id)+'</strong>: '+fmtval(m)+'';}).join('<br>')+'</div>'
+    : '';
+
+  // tabel grupperet pr. kategori
+  var byCat={}; cm.forEach(function(m){(byCat[m.category]=byCat[m.category]||[]).push(m);});
+  var tables = M.categories.map(function(c){
+    var arr=byCat[c.id]; if(!arr||!arr.length) return '';
+    var rows=arr.map(function(m){
+      var nm=(NAME[m.id]||{name:m.id,unit:''});
+      var issues=(m.issues||[]).map(function(i){return i.message;}).join(' ');
+      return '<tr><td>'+esc(nm.name)+'</td><td class="r">'+fmtval(m)+'</td>'+
+        '<td class="r">'+(m.deviation>0?'+':'')+m.deviation+'%</td>'+
+        '<td><span class="chip '+m.status+'">'+LABELS[m.status]+'</span></td>'+
+        '<td class="muted" style="font-size:.76rem">'+esc(issues)+'</td></tr>';
+    }).join('');
+    return '<h3>'+esc(c.label)+'</h3><table><thead><tr><th>Markør</th><th class="r">Værdi</th><th class="r">Afv.</th><th>Status</th><th>Note</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  }).join('');
+
+  el(target).innerHTML =
+    '<h2>Resultat · draft <span class="chip ok" style="vertical-align:middle">'+esc(d.status)+'</span></h2>'+
+    '<div class="card"><div class="kpis">'+kpis+'</div>'+
+    '<p class="note">pseudoId: <code>'+esc(d.pseudoId)+'</code> · aldersbånd '+esc(d.ageBand)+' · køn '+esc(d.sex)+' · ingen PII i dette objekt.</p></div>'+
+    flagged + score + bio +
+    '<div class="card">'+tables+'</div>'+
+    '<p class="note">Næste skridt i pipelinen: AI-formulering (ser kun denne PII-frie draft) → lægegodkendelse (kræver eksplicit doctor_approve) → frigivelse.</p>';
+  el(target).classList.remove('hide');
+  el(target).scrollIntoView({behavior:'smooth'});
+}
+
+// ============ MASSEINDLÆS & AUTO-ANALYSÉR ============
+function normId(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,'');}
+// Opslagskort: normaliseret id ELLER navn -> markør-id
+var LOOKUP={}; M.markers.forEach(function(m){LOOKUP[normId(m.id)]=m.id; LOOKUP[normId(m.name)]=m.id;});
+// Patientfelt-aliaser
+var FIELD={navn:'name',name:'name',cpr:'cpr',email:'email',mail:'email',alder:'age',age:'age','aar':'age',koen:'sex','kon':'sex',sex:'sex',efterlevelse:'adherence',adherence:'adherence',compliance:'adherence'};
+function toNum(v){var n=parseFloat(String(v).trim().replace(/\s/g,'').replace(',','.'));return isNaN(n)?null:n;}
+function parseSex(v){return /^(k|f|w)/.test(String(v).trim().toLowerCase())?'female':'male';}
+function fieldOf(h){return FIELD[normId(h)];}
+function markerOf(h){return LOOKUP[normId(h)];}
+// Fritekst-matchning (PDF): find markør nævnt et sted i en linje, længste match vinder.
+var MARKER_KEYS=[]; M.markers.forEach(function(m){MARKER_KEYS.push({mid:m.id,key:normId(m.id)},{mid:m.id,key:normId(m.name)});});
+MARKER_KEYS.sort(function(a,b){return b.key.length-a.key.length;});
+function findMarkerInText(t){var nt=normId(t);for(var i=0;i<MARKER_KEYS.length;i++){if(MARKER_KEYS[i].key.length>=3 && nt.indexOf(MARKER_KEYS[i].key)>=0)return MARKER_KEYS[i].mid;}return null;}
+// Første frittstående tal (ikke cifre inde i navne som HbA1c, VO2, B12).
+function firstValue(line){var m=line.match(/(?:^|[^A-Za-z0-9])(-?\d+(?:[.,]\d+)?)(?![A-Za-z0-9])/);return m?toNum(m[1]):null;}
+function autorun(){return el('autorun').checked;}
+
+function loadExample(kind){
+  if(kind==='single'){
+    el('bulk').value='navn = Bo Dam\ncpr = 020280-2222\nalder = 46\nkoen = mand\nefterlevelse = 80\nldl = 3,4\nhdl = 1,5\nhscrp = 2,4\nhba1c = 39\nvo2max = 34\nhvilepuls = 64\ntaljemaal = 96';
+  } else {
+    el('bulk').value='navn;cpr;alder;koen;efterlevelse;ldl;hdl;hscrp;hba1c;vo2max;taljemaal\nAnna Sø;010190-1111;36;kvinde;90;2,1;1,8;0,6;31;46;74\nBo Dam;020280-2222;46;mand;75;3,4;1,1;2,4;39;34;96\nCarl Eg;030375-3333;51;mand;60;4,2;0,9;3,8;44;29;104';
+  }
+  el('bulkstatus').textContent='Eksempel indsat — tryk "Indlæs & analysér".';
+}
+
+// ---- Filupload: tekstfiler natively, .xlsx via lazy-loadet SheetJS ----
+function loadXLSX(){
+  if(window.XLSX) return Promise.resolve();
+  return new Promise(function(res,rej){
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+    s.onload=res;
+    s.onerror=function(){rej(new Error('Kunne ikke hente Excel-bibliotek (offline?). Gem filen som CSV og prøv igen.'));};
+    document.head.appendChild(s);
+  });
+}
+function readXlsx(file){
+  return loadXLSX().then(function(){return file.arrayBuffer();}).then(function(buf){
+    var wb=XLSX.read(buf,{type:'array'});
+    var ws=wb.Sheets[wb.SheetNames[0]];
+    return XLSX.utils.sheet_to_csv(ws,{FS:'\t'}); // tab = sikker adskiller
+  });
+}
+// PDF: tekst-udtræk via lazy-loadet pdf.js. Scannede (billede-)PDF'er har ingen tekst.
+function loadPdfjs(){
+  if(window.pdfjsLib) return Promise.resolve();
+  return new Promise(function(res,rej){
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js';
+    s.onload=function(){ try{ window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js'; res(); }catch(e){rej(e);} };
+    s.onerror=function(){rej(new Error('Kunne ikke hente PDF-bibliotek (offline?). Brug CSV/Excel eller skriv værdierne.'));};
+    document.head.appendChild(s);
+  });
+}
+async function extractText(pdf){
+  var lines=[];
+  for(var p=1;p<=pdf.numPages;p++){
+    var page=await pdf.getPage(p);
+    var tc=await page.getTextContent();
+    var byY={};
+    tc.items.forEach(function(it){
+      if(!it.str || !it.str.trim()) return;
+      var y=Math.round(it.transform[5]);
+      (byY[y]=byY[y]||[]).push({x:it.transform[4],s:it.str});
+    });
+    Object.keys(byY).map(Number).sort(function(a,b){return b-a;}).forEach(function(y){
+      var row=byY[y].sort(function(a,b){return a.x-b.x;}).map(function(o){return o.s;}).join(' ').replace(/\s+/g,' ').trim();
+      if(row) lines.push(row);
+    });
+  }
+  return lines.join('\n');
+}
+function readPdf(file){
+  return loadPdfjs().then(function(){return file.arrayBuffer();})
+    .then(function(buf){return window.pdfjsLib.getDocument({data:buf}).promise;})
+    .then(extractText);
+}
+
+function handleFile(file){
+  if(!file) return;
+  var name=file.name.toLowerCase();
+  el('bulkstatus').textContent='Læser '+file.name+'…';
+  var done=function(text){ el('bulk').value=String(text).trim(); parseBulk(); };
+  if(name.endsWith('.pdf')){
+    // PDF: udtræk tekst, men kør IKKE auto-analyse — mennesket bekræfter værdierne.
+    readPdf(file).then(function(text){
+      if(!String(text).trim()){ el('bulkstatus').textContent='Ingen tekst i PDF (sandsynligvis en scanning). Brug CSV/Excel eller skriv værdierne manuelt.'; return; }
+      el('bulk').value=String(text).trim();
+      el('bulkstatus').innerHTML='<strong style="color:var(--watch)">PDF læst — gennemse og ret værdierne, og tryk derefter "Indlæs &amp; analysér".</strong> Auto-analyse er slået fra for PDF af sikkerhedshensyn.';
+    }).catch(function(e){el('bulkstatus').textContent=e.message;});
+  } else if(name.endsWith('.xlsx')||name.endsWith('.xls')){
+    readXlsx(file).then(done).catch(function(e){el('bulkstatus').textContent=e.message;});
+  } else {
+    var fr=new FileReader();
+    fr.onload=function(){done(fr.result);};
+    fr.onerror=function(){el('bulkstatus').textContent='Kunne ikke læse filen.';};
+    fr.readAsText(file);
+  }
+}
+(function wireDrop(){
+  var drop=el('drop'), input=el('file');
+  input.addEventListener('change',function(){handleFiles(this.files); this.value='';});
+  ['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over');});});
+  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over');});});
+  drop.addEventListener('drop',function(e){var fs=e.dataTransfer&&e.dataTransfer.files; if(fs&&fs.length)handleFiles(fs);});
+})();
+
+// Læs én fil til {name,text,isPdf,err} — håndterer alle understøttede typer.
+function readAnyFile(file){
+  var name=file.name.toLowerCase();
+  if(name.endsWith('.pdf')) return readPdf(file).then(function(t){return {name:file.name,text:t,isPdf:true};}).catch(function(e){return {name:file.name,text:'',isPdf:true,err:e.message};});
+  if(name.endsWith('.xlsx')||name.endsWith('.xls')) return readXlsx(file).then(function(t){return {name:file.name,text:t,isPdf:false};}).catch(function(e){return {name:file.name,text:'',isPdf:false,err:e.message};});
+  return new Promise(function(res){var fr=new FileReader();fr.onload=function(){res({name:file.name,text:String(fr.result),isPdf:false});};fr.onerror=function(){res({name:file.name,text:'',isPdf:false,err:'læsefejl'});};fr.readAsText(file);});
+}
+
+// Flere dokumenter → ét batch. Én fil → bevar eksisterende enkelt-fil-adfærd.
+function handleFiles(files){
+  files=Array.prototype.slice.call(files||[]);
+  if(!files.length) return;
+  if(files.length===1){ handleFile(files[0]); return; }
+  el('bulkstatus').textContent='Læser '+files.length+' dokumenter…';
+  Promise.all(files.map(readAnyFile)).then(function(docs){
+    var entries=[], names=[], perFile=[], anyPdf=false;
+    docs.forEach(function(doc){
+      if(doc.isPdf) anyPdf=true;
+      var pts = doc.err ? [] : textToPatients(doc.text, doc.name);
+      pts.forEach(function(p){ entries.push(p.entry); names.push(p.name); });
+      perFile.push({name:doc.name, count:pts.length, isPdf:doc.isPdf, err:doc.err});
+    });
+    if(!entries.length){ el('bulkstatus').textContent='Ingen patientdata fundet i dokumenterne.'; return; }
+    stageBatch(entries, names, perFile, anyPdf);
+  });
+}
+
+// Et dokuments tekst → en eller flere patient-entries (til batch).
+function textToPatients(text, filename){
+  var lines=String(text).split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length) return [];
+  var first=lines[0];
+  var delim=first.indexOf('\t')>=0?'\t':(first.indexOf(';')>=0?';':(first.split(',').length>=3?',':null));
+  if(delim && lines.length>=2 && first.split(delim).length>=2) return rowsToPatients(lines,delim);
+  return [linesToPatient(lines, String(filename).replace(/\.[^.]+$/,''))];
+}
+
+// Linjer (key=value og/eller fritekst) → ét patient-entry.
+function linesToPatient(lines, fallbackName){
+  var patient={name:'',cpr:'',email:'',age:0,sex:'male',markers:[]}; var adher=null;
+  lines.forEach(function(line){
+    var mt=line.match(/^([^=:\t]+)[=:\t](.+)$/);
+    if(mt){
+      var key=mt[1].trim(), val=mt[2].trim(), f=fieldOf(key);
+      if(f){ if(f==='name')patient.name=val; else if(f==='cpr')patient.cpr=val; else if(f==='email')patient.email=val; else if(f==='age')patient.age=toNum(val)||0; else if(f==='sex')patient.sex=parseSex(val); else if(f==='adherence')adher=(toNum(val)||0)/100; return; }
+      var mid=markerOf(key); if(mid){var n=toNum(val); if(n!=null){patient.markers.push({id:mid,value:n}); return;}}
+    }
+    var mid2=findMarkerInText(line), v=firstValue(line);
+    if(mid2 && v!=null) patient.markers.push({id:mid2,value:v});
+  });
+  if(!patient.name) patient.name=fallbackName;
+  patient.markers.forEach(function(mk){mk.unit=''; mk.sex=patient.sex; mk.age=patient.age;});
+  return { entry:{patient:patient, adherence: adher!=null?adher:(Number(el('adher').value)||0)/100, baseline:isBaseline()}, name:patient.name };
+}
+function rowsToPatients(lines,delim){ var b=buildBatchRows(lines,delim); return b.rows.map(function(r,i){return {entry:r, name:b.names[i]};}); }
+
+// Staging: vis hvad der blev fundet pr. dokument før analyse (PDF kræver klik).
+function stageBatch(entries,names,perFile,anyPdf){
+  window._staged={rows:entries,names:names};
+  var fileRows=perFile.map(function(f){
+    return '<tr><td>'+esc(f.name)+(f.isPdf?' <span class="mini" style="color:var(--watch)">PDF</span>':'')+'</td><td class="r">'+(f.err?'<span class="muted">fejl: '+esc(f.err)+'</span>':(f.count+' patient(er)'))+'</td></tr>';
+  }).join('');
+  el('result').innerHTML=
+    '<h2>'+entries.length+' patienter fra '+perFile.length+' dokumenter</h2>'+
+    '<div class="card"><table><thead><tr><th>Dokument</th><th class="r">Fundet</th></tr></thead><tbody>'+fileRows+'</tbody></table>'+
+    (anyPdf?'<div class="warn">Mindst ét dokument er en PDF — spotcheck de udtrukne værdier, og analysér først når de er bekræftet.</div>':'')+
+    '<div class="bar" style="margin-top:12px"><button class="btn" onclick="runStaged()">Analysér alle ('+entries.length+')</button></div></div>';
+  el('result').classList.remove('hide'); el('result').scrollIntoView({behavior:'smooth'});
+  el('bulkstatus').textContent='Læste '+perFile.length+' dokumenter → '+entries.length+' patienter.';
+  if(!anyPdf && autorun()) runStaged();
+}
+function runStaged(){ var s=window._staged; if(s&&s.rows.length) batchClassify(s.rows,s.names); }
+
+function parseBulk(){
+  var txt=el('bulk').value.replace(/\r/g,'');
+  var lines=txt.split('\n').map(function(l){return l.trim();}).filter(Boolean);
+  if(!lines.length){el('bulkstatus').textContent='Tomt felt.';return;}
+  // Detektér afgrænser i første linje
+  var first=lines[0];
+  var delim = first.indexOf('\t')>=0?'\t':(first.indexOf(';')>=0?';':(first.split(',').length>=3?',':null));
+  var isBatch = delim && lines.length>=2 && first.split(delim).length>=2;
+  if(isBatch) parseBatch(lines,delim); else parseSingle(lines);
+}
+
+// ---- Én patient: udfyld formularen ----
+function parseSingle(lines){
+  var filledM=0, filledF=0, unknown=[];
+  lines.forEach(function(line){
+    var mt=line.match(/^([^=:\t]+)[=:\t](.+)$/);
+    if(mt){
+      var key=mt[1].trim(), val=mt[2].trim();
+      var f=fieldOf(key);
+      if(f){
+        if(f==='name')el('p_name').value=val;
+        else if(f==='cpr')el('p_cpr').value=val;
+        else if(f==='email')el('p_email').value=val;
+        else if(f==='age')el('p_age').value=toNum(val)||val;
+        else if(f==='sex')el('p_sex').value=parseSex(val);
+        else if(f==='adherence')el('adher').value=toNum(val);
+        filledF++; return;
+      }
+      var mid=markerOf(key);
+      if(mid){var n=toNum(val); if(n!=null){el('m_'+mid).value=n; filledM++; return;}}
+    }
+    // Fritekst-fallback (PDF-linjer uden =/:): find markør + første frittstående tal.
+    var mid2=findMarkerInText(line);
+    var v=firstValue(line);
+    if(mid2 && v!=null){ el('m_'+mid2).value=v; filledM++; return; }
+    if(line.length>2) unknown.push(line.slice(0,20));
+  });
+  el('bulkstatus').textContent='Udfyldte '+filledM+' markører + '+filledF+' patientfelter.'+(unknown.length?' Ukendt: '+unknown.slice(0,6).join(', '):'');
+  if(autorun() && filledM>0) classify();
+}
+
+// ---- Mange patienter: batch ----
+// Bygger patient-entries fra et regneark. Genbruges af tekstfelt OG multi-dok.
+function buildBatchRows(lines,delim){
+  var header=lines[0].split(delim).map(function(h){return h.trim();});
+  var cols=header.map(function(h){return {field:fieldOf(h), marker:markerOf(h), raw:h};});
+  var unknown=header.filter(function(h,i){return !cols[i].field && !cols[i].marker;});
+  var rows=[], names=[];
+  for(var i=1;i<lines.length;i++){
+    var cells=lines[i].split(delim);
+    var patient={name:'',cpr:'',email:'',age:0,sex:'male',markers:[]};
+    var adher=null;
+    cols.forEach(function(c,ci){
+      var v=(cells[ci]||'').trim(); if(v==='')return;
+      if(c.field==='name')patient.name=v;
+      else if(c.field==='cpr')patient.cpr=v;
+      else if(c.field==='email')patient.email=v;
+      else if(c.field==='age')patient.age=toNum(v)||0;
+      else if(c.field==='sex')patient.sex=parseSex(v);
+      else if(c.field==='adherence')adher=(toNum(v)||0)/100;
+      else if(c.marker){var n=toNum(v); if(n!=null)patient.markers.push({id:c.marker,value:n,unit:'',sex:patient.sex,age:patient.age});}
+    });
+    patient.markers.forEach(function(mk){mk.sex=patient.sex; mk.age=patient.age;});
+    if(patient.markers.length){
+      rows.push({patient:patient, adherence: adher!=null?adher:(Number(el('adher').value)||0)/100, baseline:isBaseline()});
+      names.push(patient.name||('Patient '+rows.length));
+    }
+  }
+  return {rows:rows, names:names, markerCols:cols.filter(function(c){return c.marker;}).length, unknown:unknown};
+}
+function parseBatch(lines,delim){
+  var b=buildBatchRows(lines,delim);
+  el('bulkstatus').textContent='Læste '+b.rows.length+' patienter, '+b.markerCols+' markør-kolonner.'+(b.unknown.length?' Ukendte kolonner: '+b.unknown.slice(0,6).join(', '):'');
+  if(!b.rows.length){return;}
+  if(autorun()) batchClassify(b.rows,b.names);
+}
+
+function batchClassify(rows,names){
+  var tok=el('tok').value.trim();
+  if(!tok){el('bulkstatus').textContent='Angiv admin-token.';return;}
+  el('bulkstatus').textContent='Analyserer '+rows.length+' patienter…';
+  fetch('/api/classify-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok,patients:rows,baseline:isBaseline()})})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.error){el('bulkstatus').textContent='Fejl: '+d.error;return;}
+      window._batch={results:d.drafts,names:names};
+      renderBatch(d.drafts,names);
+      el('bulkstatus').textContent='Færdig — '+d.drafts.filter(function(x){return x.ok;}).length+'/'+d.drafts.length+' analyseret.';
+    }).catch(function(){el('bulkstatus').textContent='Netværksfejl.';});
+}
+
+function renderBatch(results,names){
+  var rows=results.map(function(r,i){
+    if(!r.ok) return '<tr><td>'+esc(names[i])+'</td><td colspan="5" class="muted">Fejl: '+esc(r.error)+'</td></tr>';
+    var d=r.draft, c={optimal:0,ok:0,watch:0,action:0}; d.classifiedMarkers.forEach(function(m){c[m.status]++;});
+    var ba=d.biologicalAge;
+    return '<tr class="click" onclick="showOne('+i+')">'+
+      '<td><strong>'+esc(names[i])+'</strong><br><span class="muted" style="font-size:.74rem">'+esc(d.ageBand)+' · '+esc(d.sex)+'</span></td>'+
+      '<td class="r"><strong>'+d.aeviaScore.total+'</strong>/100</td>'+
+      '<td class="r">~'+ba.estimatedAge+' år<br><span class="muted" style="font-size:.74rem">'+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+'</span></td>'+
+      '<td class="r"><span class="chip optimal">'+c.optimal+'</span></td>'+
+      '<td class="r">'+(c.action?'<span class="mini a">'+c.action+'</span>':'<span class="mini">0</span>')+'</td>'+
+      '<td class="muted" style="font-size:.78rem">vis ▸</td></tr>';
+  }).join('');
+  el('result').innerHTML=
+    '<h2>Batch-resultat · '+results.length+' patienter</h2>'+
+    '<div class="card"><table><thead><tr><th>Patient</th><th class="r">Aevia-score</th><th class="r">Bio-alder</th><th class="r">Optimal</th><th class="r">Handling</th><th></th></tr></thead><tbody>'+rows+'</tbody></table>'+
+    '<p class="note">Navne vises kun lokalt i din browser — de er ikke i de PII-frie drafts. Klik en række for fuld rapport.</p></div>'+
+    '<div id="batchDetail"></div>';
+  el('result').classList.remove('hide');
+  el('result').scrollIntoView({behavior:'smooth'});
+}
+function showOne(i){
+  var r=(window._batch&&window._batch.results||[])[i];
+  if(r&&r.ok){render(r.draft,'batchDetail'); el('batchDetail').scrollIntoView({behavior:'smooth'});}
+}
+function kpi(n,l){return '<div class="kpi"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
+function scoreBar(l,v){return '<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:.82rem"><span class="muted">'+l+'</span><span>'+v+'/100</span></div><div class="barline"><i style="width:'+v+'%"></i></div></div>';}
+function fmtval(m){var nm=NAME[m.id]||{unit:'',decimals:1};return fmt(m.value,nm.decimals)+' '+esc(nm.unit);}
+
+buildForm();
+</script>
+</body>
+</html>
