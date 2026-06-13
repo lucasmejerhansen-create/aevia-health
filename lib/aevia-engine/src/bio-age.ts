@@ -1,4 +1,4 @@
-import type { BiologicalAge, ClassifiedMarker, MarkerInput, Sex } from "./types.js";
+import type { BiologicalAge, ClassifiedMarker, Sex } from "./types.js";
 
 /**
  * TRIN 3 — BIOLOGISK ALDER (transparent estimat, aldrig en diagnose).
@@ -144,12 +144,31 @@ function confidenceHalfWidth(method: BiologicalAge["method"], inputsUsed: number
  * heuristik hvis et PhenoAge-input mangler. Disclaimer-flaget sættes ALTID.
  */
 export function estimateBiologicalAge(
-  markers: MarkerInput[],
+  // Kanoniske værdier (id + value) — typisk de allerede klassificerede markører,
+  // så PhenoAge regner på enhedskonverterede værdier, ikke rå fremmed-enheder.
+  markers: ReadonlyArray<{ id: string; value: number }>,
   chronologicalAge: number,
   classified?: ClassifiedMarker[]
 ): BiologicalAge {
   const values = new Map(markers.map((m) => [m.id, m.value]));
   const pheno = extractPhenoInputs(values);
+  const phenoIds = ["albumin", "kreatinin", "glukose", "hscrp", "lymfocytter", "leukocytter", "mcv", "rdw", "basiskfosfatase"];
+
+  // Begge modeller forankres i kronologisk alder. Mangler/ugyldig alder → intet
+  // estimat (ellers ville heuristikken give ~0 år). PhenoAge er kun valideret
+  // for voksne, så vi kræver 18–110 år.
+  const ageValid = Number.isFinite(chronologicalAge) && chronologicalAge >= 18 && chronologicalAge <= 110;
+  if (!ageValid) {
+    return {
+      estimatedAge: 0,
+      confidenceInterval: [0, 0],
+      available: false,
+      method: pheno ? "phenoage" : "marker-heuristic",
+      inputsUsed: pheno ? REQUIRED_INPUTS : phenoIds.filter((id) => values.has(id)).length,
+      inputsRequired: REQUIRED_INPUTS,
+      biologicalAgeDisclaimer: true,
+    };
+  }
 
   if (pheno) {
     const raw = phenoAgeYears(pheno, chronologicalAge);
@@ -158,6 +177,7 @@ export function estimateBiologicalAge(
     return {
       estimatedAge,
       confidenceInterval: [Math.round(estimatedAge - half), Math.round(estimatedAge + half)],
+      available: true,
       method: "phenoage",
       inputsUsed: REQUIRED_INPUTS,
       inputsRequired: REQUIRED_INPUTS,
@@ -166,13 +186,13 @@ export function estimateBiologicalAge(
   }
 
   // Fallback. Tæl hvor mange PhenoAge-input vi rent faktisk havde (til transparens).
-  const phenoIds = ["albumin", "kreatinin", "glukose", "hscrp", "lymfocytter", "leukocytter", "mcv", "rdw", "basiskfosfatase"];
   const inputsUsed = phenoIds.filter((id) => values.has(id)).length;
   const estimatedAge = Math.round(heuristicAge(classified ?? [], chronologicalAge));
   const half = confidenceHalfWidth("marker-heuristic", inputsUsed);
   return {
     estimatedAge,
     confidenceInterval: [Math.round(estimatedAge - half), Math.round(estimatedAge + half)],
+    available: true,
     method: "marker-heuristic",
     inputsUsed,
     inputsRequired: REQUIRED_INPUTS,

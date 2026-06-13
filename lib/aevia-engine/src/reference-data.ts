@@ -178,6 +178,53 @@ export const MARKERS: MarkerDef[] = [
   { id: "gribestyrke", name: "Gribestyrke", unit: "kg", category: "fysiologi", optimalLow: 42, optimalHigh: 60, higherIsBetter: true, explainer: "Et overraskende stærkt mål for din samlede muskelstyrke og robusthed — og dermed for hvordan du ældes.", decimals: 0 },
 ];
 
+/** Engelske markørnavne (standard medicinske termer) til tosproget rapport. */
+export const MARKER_NAMES_EN: Record<string, string> = {
+  totalkolesterol: "Total cholesterol", ldl: "LDL cholesterol", hdl: "HDL cholesterol",
+  triglycerid: "Triglycerides", apob: "ApoB", apoa1: "ApoA1", apobratio: "ApoB/ApoA1 ratio",
+  lpa: "Lipoprotein(a)", nonhdl: "Non-HDL cholesterol", omega3: "Omega-3 index",
+  hba1c: "HbA1c (long-term blood sugar)", glukose: "Fasting glucose", insulin: "Fasting insulin",
+  homair: "HOMA-IR (insulin sensitivity)", cpeptid: "C-peptide",
+  hscrp: "hs-CRP", homocystein: "Homocysteine", fibrinogen: "Fibrinogen", sr: "ESR (sedimentation rate)",
+  alat: "ALT", asat: "AST", ggt: "GGT", basiskfosfatase: "Alkaline phosphatase", bilirubin: "Bilirubin", albumin: "Albumin",
+  kreatinin: "Creatinine", egfr: "eGFR (kidney function)", cystatinc: "Cystatin C", urat: "Urate (uric acid)",
+  karbamid: "Urea", natrium: "Sodium", kalium: "Potassium",
+  vitd: "Vitamin D (25-OH-D)", b12: "Vitamin B12", folat: "Folate", magnesium: "Magnesium", zink: "Zinc",
+  jern: "Iron", ferritin: "Ferritin (iron stores)", transferrin: "Transferrin saturation", calcium: "Calcium", selen: "Selenium",
+  testosteron: "Testosterone (total)", frittestosteron: "Free testosterone", shbg: "SHBG", oestradiol: "Estradiol",
+  kortisol: "Cortisol (morning)", dheas: "DHEA-S", igf1: "IGF-1", prolaktin: "Prolactin",
+  tsh: "TSH", ft4: "Free T4", ft3: "Free T3", antitpo: "Anti-TPO",
+  haemoglobin: "Hemoglobin", haematokrit: "Hematocrit", erytrocytter: "Red blood cells", mcv: "MCV", mch: "MCH", rdw: "RDW",
+  leukocytter: "White blood cells", neutrofile: "Neutrophils", lymfocytter: "Lymphocytes", monocytter: "Monocytes",
+  eosinofile: "Eosinophils", basofile: "Basophils", trombocytter: "Platelets",
+  vo2max: "VO2 max", hvilepuls: "Resting heart rate", blodtryksys: "Blood pressure (systolic)",
+  blodtrykdia: "Blood pressure (diastolic)", fedtprocent: "Body fat percentage", taljemaal: "Waist circumference", gribestyrke: "Grip strength",
+};
+
+/** Ærligt, generelt råd pr. kategori — porteret fra app'ens markers.ts. */
+export const CATEGORY_ADVICE: Record<MarkerCategory, string> = {
+  hjerte:
+    "De store håndtag er kost (mindre mættet fedt, mere fiber), motion og evt. medicin i samråd med læge. Små vedvarende ændringer slår store kortvarige.",
+  blodsukker:
+    "Protein først i måltidet, en gåtur efter maden og styrketræning er de tre mest effektive hverdagshåndtag for blodsukkeret.",
+  inflammation:
+    "Søvn, vægt og tandsundhed er undervurderede håndtag mod lavgradig inflammation — sammen med fed fisk og mindre alkohol.",
+  lever:
+    "Alkohol, vægt og visse medicintyper er de tre store for levertallene. De reagerer hurtigt — ofte målbart efter 4-6 uger.",
+  nyrer:
+    "Drik nok væske, hold blodtrykket i ro og vær varsom med NSAID-smertestillende (ibuprofen m.fl.) i længere perioder.",
+  vitaminer:
+    "Mangler rettes bedst med målrettet tilskud i dokumenteret dosis — og re-test efter ~3 måneder, så du ikke skyder over eller under.",
+  hormoner:
+    "Søvn, styrketræning, normalvægt og stresshåndtering er fundamentet — hormoner følger livsstilen mere end de fleste tror.",
+  thyroidea:
+    "Stofskiftetal tolkes altid samlet (TSH + T3/T4) og over tid. Afvigelser bør følges op hos læge frem for at behandles på egen hånd.",
+  blodstatus:
+    "Blodstatus afspejler ofte jern-, B12- eller folatstatus — tjek de tilhørende markører, og lad lægen vurdere afvigelser.",
+  fysiologi:
+    "Zone 2-kardio, styrketræning 2× ugentligt og 7-8 timers søvn er de bedst dokumenterede investeringer du kan gøre her.",
+};
+
 const MARKER_INDEX = new Map(MARKERS.map((m) => [m.id, m]));
 
 export function markerById(id: string): MarkerDef | undefined {

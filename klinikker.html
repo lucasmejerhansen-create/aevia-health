@@ -386,7 +386,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <section style="padding-top:0">
   <div class="container">
     <div class="center" style="margin-bottom:40px"><span class="eyebrow">Vores partnere</span><h2>Klinikker, vi samarbejder med</h2><p class="lead">Vi udvider løbende vores netværk af akkrediterede partnere. Flere annonceres snart.</p></div>
-    <div style="max-width:760px;margin:0 auto">
+    <div style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:900px;margin:0 auto">
       <article style="background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:16px;padding:26px 28px">
         <!-- LOGO: læg heartfit-logoet i assets/partnere/heartfit.svg og indsæt her: <img src="assets/partnere/heartfit.svg" alt="Heartfit" style="height:34px;margin-bottom:14px"> -->
         <div style="font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px">Konditionstest (VO₂max)</div>
@@ -394,6 +394,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <p style="color:var(--muted-2);font-size:.9rem;margin:0 0 12px">Viborg · Midtjylland</p>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.6;margin:0 0 16px">Professionel konditionstest med måling af VO₂max, EKG, blodtryk og iltmætning samt gennemgang af dine resultater.</p>
         <a href="https://www.heartfit.dk" target="_blank" rel="noopener" style="color:var(--gold);font-size:.93rem;font-weight:600">heartfit.dk →</a>
+      </article>
+      <article style="background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:16px;padding:26px 28px">
+        <!-- LOGO: læg vo2lab-logoet i assets/partnere/vo2lab.png og indsæt her: <img src="assets/partnere/vo2lab.png" alt="VO2LAB" style="height:34px;margin-bottom:14px"> -->
+        <div style="font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px">Konditionstest (VO₂max)</div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--text);margin:0 0 4px">VO2LAB</h3>
+        <p style="color:var(--muted-2);font-size:.9rem;margin:0 0 12px">København · Østerbro</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.6;margin:0 0 16px">Professionel VO₂max-test ved Østerbro Stadion i København.</p>
+        <a href="https://www.vo2lab.dk" target="_blank" rel="noopener" style="color:var(--gold);font-size:.93rem;font-weight:600">vo2lab.dk →</a>
       </article>
     </div>
   </div>
@@ -423,7 +431,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <script>
 (function(){
   var cats={partner:{c:'#3fb27f',navn:'Bekræftet partnerklinik'},net:{c:'#c9a437',navn:'Kommende partnerklinik-område'}};
-  var clinics=[{navn:'Heartfit',by:'Viborg',adr:'Marsk Stigs Vej 2c, 8800 Viborg',ydelse:'Konditionstest (VO₂max)',kat:'partner',lat:56.4490,lng:9.4100},{navn:'København-området',by:'Hovedstaden',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.6761,lng:12.5683},{navn:'Aarhus-området',by:'Østjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1572,lng:10.2107},{navn:'Odense-området',by:'Fyn',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.4038,lng:10.4024},{navn:'Aalborg-området',by:'Nordjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:57.0488,lng:9.9217},{navn:'Herning-området',by:'Midt- og Vestjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1389,lng:8.9742}];
+  var clinics=[{navn:'Heartfit',by:'Viborg',adr:'Marsk Stigs Vej 2c, 8800 Viborg',ydelse:'Konditionstest (VO₂max)',kat:'partner',lat:56.4490,lng:9.4100},{navn:'VO2LAB',by:'København',adr:'Østerbro Stadion, København',ydelse:'Konditionstest (VO₂max)',kat:'partner',lat:55.7106,lng:12.5740},{navn:'København-området',by:'Hovedstaden',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.6761,lng:12.5683},{navn:'Aarhus-området',by:'Østjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1572,lng:10.2107},{navn:'Odense-området',by:'Fyn',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:55.4038,lng:10.4024},{navn:'Aalborg-området',by:'Nordjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:57.0488,lng:9.9217},{navn:'Herning-området',by:'Midt- og Vestjylland',adr:'Klinik annonceres snart',ydelse:'Blod, hormoner, konditionstest, MR & genetik',kat:'net',lat:56.1389,lng:8.9742}];
   var leg=document.getElementById('map-legend');
   Object.keys(cats).forEach(function(k){var s=document.createElement('span');s.className='leg';s.innerHTML='<i style="background:'+cats[k].c+'"></i>'+cats[k].navn;leg.appendChild(s);});
   var map=null,markers=[];

@@ -6,9 +6,11 @@
  */
 
 export * from "./types.js";
-export { MARKERS, markerById, markerForSex, markerByIdForSex, bandsFor, RANGE_MODEL } from "./reference-data.js";
+export { MARKERS, markerById, markerForSex, markerByIdForSex, bandsFor, RANGE_MODEL, CATEGORY_ADVICE, MARKER_NAMES_EN } from "./reference-data.js";
+export { percentileFor, PERCENTILE_MARKERS } from "./percentiles.js";
 export type { MarkerDef, MarkerBands } from "./reference-data.js";
 export { classifyMarker, classifyAll } from "./classify.js";
+export { normalizeUnit, convertToCanonical, UNIT_CONVERSIONS } from "./units.js";
 export { estimateBiologicalAge } from "./bio-age.js";
 export { computeAeviaScore, scoreLabel } from "./score.js";
 export type { ScoreContext } from "./score.js";

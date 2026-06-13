@@ -78,6 +78,7 @@ tr.click{cursor:pointer}tr.click:hover td{background:var(--navy-3)}
       <div><label for="tok">Admin-token</label><input id="tok" type="password" placeholder="ADMIN_TOKEN"></div>
       <div><label for="adher">Efterlevelse (%)</label><input id="adher" type="number" min="0" max="100" value="80"></div>
       <div><label>&nbsp;</label><label style="display:flex;align-items:center;gap:7px;color:var(--text);font-size:.88rem;padding-top:8px"><input type="checkbox" id="baseline" onchange="toggleBaseline()" style="width:auto"> Første test (baseline)</label></div>
+      <div><label for="hist">Tidligere bio-alder (graf, valgfri)</label><input id="hist" placeholder="2024 46, 2025 42"></div>
     </div>
     <p class="note" id="baselineNote" style="display:none">Baseline: ingen protokol eller tidligere test endnu → scoren bliver ren markør-score. Efterlevelse + momentum tilføjes ved re-test.</p>
   </div>
@@ -90,10 +91,10 @@ tr.click{cursor:pointer}tr.click:hover td{background:var(--navy-3)}
 
     <div class="drop" id="drop" onclick="document.getElementById('file').click()">
       <div>📄 <b>Vælg en eller flere filer</b> eller træk dem hertil</div>
-      <div style="font-size:.76rem;margin-top:4px">.csv · .tsv · .txt · .xlsx · .pdf — flere dokumenter samles til ét batch (én patient pr. dokument)</div>
-      <div style="font-size:.72rem;margin-top:4px;color:var(--watch)">PDF: teksten udtrækkes til gennemsyn — du bekræfter selv værdierne (ingen auto-analyse)</div>
+      <div style="font-size:.76rem;margin-top:4px">.csv · .tsv · .txt · .xlsx · .pdf · billeder (.png/.jpg) — flere dokumenter samles til ét batch (én patient pr. dokument)</div>
+      <div style="font-size:.72rem;margin-top:4px;color:var(--watch)">PDF/scanning/billede: tekst udtrækkes (scanninger via OCR) til gennemsyn — du bekræfter selv hver værdi (ingen auto-analyse)</div>
     </div>
-    <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls,.pdf" multiple style="display:none">
+    <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls,.pdf,.png,.jpg,.jpeg,.webp" multiple style="display:none">
 
     <div class="or">eller skriv / indsæt direkte</div>
     <textarea id="bulk" placeholder="navn;cpr;alder;koen;ldl;hscrp;vo2max&#10;Anna Sø;010190-1111;36;kvinde;2,1;0,8;46&#10;Bo Dam;020280-2222;46;mand;3,4;2,4;34"></textarea>
@@ -112,7 +113,7 @@ tr.click{cursor:pointer}tr.click:hover td{background:var(--navy-3)}
       <div><label for="p_name">Navn</label><input id="p_name" placeholder="Fornavn Efternavn"></div>
       <div><label for="p_cpr">CPR</label><input id="p_cpr" placeholder="ddmmåå-xxxx"></div>
       <div><label for="p_email">E-mail</label><input id="p_email" type="email" placeholder="navn@eksempel.dk"></div>
-      <div><label for="p_age">Alder</label><input id="p_age" type="number" min="18" max="110" value="52"></div>
+      <div><label for="p_age">Alder</label><input id="p_age" type="number" min="18" max="110" value="52"><div class="note" id="ageHint" style="display:none;color:#e0644b">Påkrævet for biologisk alder (18–110).</div></div>
       <div><label for="p_sex">Køn</label><select id="p_sex"><option value="male">Mand</option><option value="female">Kvinde</option></select></div>
     </div>
     <p class="note">Motoren pseudonymiserer: navn, CPR og mail fjernes; kun aldersbånd + køn + målinger føres videre.</p>
@@ -141,6 +142,7 @@ function el(id){return document.getElementById(id);}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function fmt(n,d){return Number(n).toFixed(d);}
 function isBaseline(){return el('baseline').checked;}
+function getHistory(){var raw=(el('hist')||{value:''}).value||'';return raw.split(',').map(function(s){var m=s.trim().match(/^(\S+)[\s:]+(-?\d+(?:[.,]\d+)?)$/);return m?{date:m[1],bioAge:Number(m[2].replace(',','.'))}:null;}).filter(Boolean);}
 function toggleBaseline(){
   var on=isBaseline();
   el('adher').disabled=on; el('adher').style.opacity=on?'.4':'1';
@@ -203,6 +205,7 @@ function classify(){
     .then(function(d){
       if(d.error){ el('status').textContent='Fejl: '+d.error; return; }
       el('status').textContent='Draft bygget — status: '+d.draft.status;
+      window._ctxName=el('p_name').value; window._ctxAge=Number(el('p_age').value)||0; window._ctxHistory=getHistory();
       render(d.draft);
     })
     .catch(function(){ el('status').textContent='Netværksfejl.'; });
@@ -215,14 +218,16 @@ var NAME={}; M.markers.forEach(function(m){NAME[m.id]=m;});
 
 function render(d,target){
   target = target || 'result';
+  window._shown={draft:d, name:(window._ctxName||''), age:(window._ctxAge||0), history:(window._ctxHistory||[])};
   var cm = d.classifiedMarkers;
   var counts={optimal:0,ok:0,watch:0,action:0};
   cm.forEach(function(m){counts[m.status]++;});
   var b=d.aeviaScore.components, ba=d.biologicalAge;
 
+  var baKpi = ba.available ? ('~'+ba.estimatedAge+' år') : 'Ikke beregnet';
   var kpis =
     kpi(d.aeviaScore.total+'/100','Aevia-score')+
-    kpi('~'+ba.estimatedAge+' år','Biologisk alder (estimat)')+
+    kpi(baKpi,'Biologisk alder'+(ba.available?' (estimat)':' — alder mangler'))+
     kpi(counts.optimal,'Optimal')+kpi(counts.ok,'OK')+kpi(counts.watch,'Observer')+kpi(counts.action,'Handling');
 
   var score = d.aeviaScore.baseline
@@ -232,10 +237,13 @@ function render(d,target){
     : '<div class="card"><h3>Aevia-score · 50 % markører / 35 % efterlevelse / 15 % momentum</h3>'+
       scoreBar('Markører (50%)',b.markers)+scoreBar('Efterlevelse (35%)',b.adherence)+scoreBar('Momentum (15%)',b.momentum)+'</div>';
 
-  var bio =
-    '<div class="card"><h3>Biologisk alder</h3>'+
-    '<div style="font-size:1.6rem;font-weight:700">~'+ba.estimatedAge+' år <span class="muted" style="font-size:1rem;font-weight:400">(usikkerhed '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' år)</span></div>'+
-    '<div class="disclaim">Metode: '+ba.method+' · '+ba.inputsUsed+'/'+ba.inputsRequired+' input. Et estimat — ikke en diagnostisk konklusion.</div></div>';
+  var bio = ba.available
+    ? '<div class="card"><h3>Biologisk alder</h3>'+
+      '<div style="font-size:1.6rem;font-weight:700">~'+ba.estimatedAge+' år <span class="muted" style="font-size:1rem;font-weight:400">(usikkerhed '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' år)</span></div>'+
+      '<div class="disclaim">Metode: '+ba.method+' · '+ba.inputsUsed+'/'+ba.inputsRequired+' input. Et estimat — ikke en diagnostisk konklusion.</div></div>'
+    : '<div class="card"><h3>Biologisk alder</h3>'+
+      '<div style="font-size:1.1rem;font-weight:600;color:var(--watch)">Ikke beregnet</div>'+
+      '<div class="disclaim">Kræver kronologisk alder (18–110 år). Angiv alder i patientfeltet — eller inkludér <code>alder = NN</code> i dataindlæsningen — og kør igen.</div></div>';
 
   var flagged = d.flaggedForDoctor.length
     ? '<div class="flag"><h3>⚑ Løftet til lægen — '+d.flaggedForDoctor.length+' markør(er) i Handling</h3>'+
@@ -259,11 +267,13 @@ function render(d,target){
 
   el(target).innerHTML =
     '<h2>Resultat · draft <span class="chip ok" style="vertical-align:middle">'+esc(d.status)+'</span></h2>'+
+    '<div class="bar" style="margin-bottom:14px;align-items:center"><button class="btn" onclick="openReport()">📄 Generér rapport</button><input id="docid" placeholder="Læge-id" style="width:120px"><button class="btn ghost" onclick="approveReport()">✓ Godkend som læge</button><span class="note" id="apprstatus"></span></div>'+
     '<div class="card"><div class="kpis">'+kpis+'</div>'+
     '<p class="note">pseudoId: <code>'+esc(d.pseudoId)+'</code> · aldersbånd '+esc(d.ageBand)+' · køn '+esc(d.sex)+' · ingen PII i dette objekt.</p></div>'+
     flagged + score + bio +
     '<div class="card">'+tables+'</div>'+
     '<p class="note">Næste skridt i pipelinen: AI-formulering (ser kun denne PII-frie draft) → lægegodkendelse (kræver eksplicit doctor_approve) → frigivelse.</p>';
+  var _pa=el('p_age');if(_pa)_pa.style.borderColor=(target==='result'&&!d.biologicalAge.available)?'#e0644b':'';var _ah=el('ageHint');if(_ah)_ah.style.display=(target==='result'&&!d.biologicalAge.available)?'block':'none';
   el(target).classList.remove('hide');
   el(target).scrollIntoView({behavior:'smooth'});
 }
@@ -304,7 +314,11 @@ var ALIASES={
   antitpo:['Anti-TPO','TPO-AK','TPO antibodies'],
   haemoglobin:['Hämoglobin','Hemoglobin','Haemoglobin'], haematokrit:['Hämatokrit','Hematocrit'],
   erytrocytter:['Erythrozyten','Erythrocytes'], leukocytter:['Leukozyten','Leukocytes','White blood cells'],
-  trombocytter:['Thrombozyten','Platelets'], mcv:['MCV'],
+  trombocytter:['Thrombozyten','Platelets'], mcv:['MCV'], mch:['MCH'], rdw:['RDW'],
+  lymfocytter:['Lymphozyten','Lymphocytes','Lymphozyt'], monocytter:['Monozyten','Monocytes'],
+  neutrofile:['Neutrophile','Neutrophils','Neutrophile Granulozyten'],
+  eosinofile:['Eosinophile','Eosinophils','Eosinophile Granulozyten'],
+  basofile:['Basophile','Basophils','Basophile Granulozyten'],
   testosteron:['Testosteron','Testosterone'], shbg:['SHBG'],
   oestradiol:['Östradiol','Estradiol','Oestradiol'], kortisol:['Kortisol','Cortisol'],
   dheas:['DHEA-S','DHEAS','DHEA-Sulfat'], igf1:['IGF-1','IGF1'], prolaktin:['Prolaktin','Prolactin']
@@ -318,6 +332,69 @@ MARKER_KEYS.sort(function(a,b){return b.key.length-a.key.length;});
 function findMarkerInText(t){var nt=normId(t);for(var i=0;i<MARKER_KEYS.length;i++){if(MARKER_KEYS[i].key.length>=3 && nt.indexOf(MARKER_KEYS[i].key)>=0)return MARKER_KEYS[i].mid;}return null;}
 // Første frittstående tal (ikke cifre inde i navne som HbA1c, VO2, B12).
 function firstValue(line){var m=line.match(/(?:^|[^A-Za-z0-9])(-?\d+(?:[.,]\d+)?)(?![A-Za-z0-9])/);return m?toNum(m[1]):null;}
+// Tal + efterfølgende enhed (mg/dl, mmol/l, %, …). Løse ord uden / eller % ignoreres som enhed.
+function firstValueUnit(line){
+  var m=line.match(/(?:^|[^A-Za-z0-9])(-?\d+(?:[.,]\d+)?)(?![A-Za-z0-9])\s*([%]|[A-Za-zµμ]+(?:\/[A-Za-zµμ0-9]+)*)?/);
+  if(!m) return null;
+  var unit=(m[2]||'').trim();
+  if(!(unit.indexOf('/')>=0 || unit==='%')) unit='';
+  return {value:toNum(m[1]), unit:unit};
+}
+// Enhedskonvertering i browseren — SAMME faktorer som motoren (fra manifestet).
+var UCONV = M.unitConversions||{};
+function normUnit(u){return String(u||'').toLowerCase().replace(/[μµ]/g,'u').replace(/\s+/g,'').replace(/\.$/,'');}
+function toCanonical(mid, value, unit){
+  if(value==null) return {value:value, note:null};
+  var def=NAME[mid]||{unit:''}; var u=normUnit(unit), c=normUnit(def.unit);
+  if(!u || u===c) return {value:value, note:null};
+  var conv=(UCONV[mid]||{})[u];
+  if(conv){ return {value:value*conv[0]+(conv[1]||0), note:'konv', from:unit}; }
+  return {value:value, note:'mismatch', from:unit};
+}
+
+// Træk RESULTATET (ikke referenceinterval, ikke tal inde i enheder som 1000/µl) ud af en lab-linje.
+function extractResult(text){
+  var t=' '+String(text)+' ';
+  // fjern referenceinterval i enden: "1.50 – 7.70", "(1,0-3,0)", "< 3.0", "> 5"
+  t=t.replace(/[\(\[]?\s*[<>]?\s*-?\d+(?:[.,]\d+)?\s*[–—\-]\s*-?\d+(?:[.,]\d+)?\s*[\)\]]?\s*$/,' ');
+  t=t.replace(/[<>]\s*-?\d+(?:[.,]\d+)?\s*$/,' ');
+  // første frittstående tal — ikke fulgt af bogstav/ciffer/"/" (så "1000/µl" ikke læses som 1000)
+  var m=t.match(/(?:^|[^A-Za-z0-9])(-?\d+(?:[.,]\d+)?)(?![A-Za-z0-9\/])\s*([%]|[A-Za-zµμ]+(?:\/[A-Za-zµμ0-9]+)*)?/);
+  if(!m) return {value:null,unit:''};
+  var unit=(m[2]||'').trim(); if(!(unit.indexOf('/')>=0||unit==='%')) unit='';
+  return {value:toNum(m[1]), unit:unit};
+}
+
+// Robust klinisk parser: patientfelter + markør-aflæsninger. Kobler navn↔værdi
+// på tværs af linjer (begge retninger), så split tabel-rækker stadig fanges.
+function parseClinicalLines(lines){
+  var fields={}, readings=[], unknown=[], pName=null;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i], handled=false;
+    var mt=line.match(/^([^=:\t]+)[=:\t](.+)$/);
+    if(mt){
+      var key=mt[1].trim(), val=mt[2].trim(), f=fieldOf(key);
+      if(f){
+        if(f==='age')fields.age=toNum(val); else if(f==='sex')fields.sex=parseSex(val);
+        else if(f==='adherence')fields.adherence=(toNum(val)||0)/100; else fields[f]=val;
+        handled=true; pName=null;
+      } else {
+        var mid=markerOf(key);
+        if(mid){ var vu=extractResult(val); if(vu.value!=null){ readings.push({mid:mid,value:vu.value,unit:vu.unit}); handled=true; pName=null; } }
+      }
+    }
+    if(handled) continue;
+    // Lab-rækker: navn står typisk på sin egen linje med værdien på NÆSTE linje
+    // (fremad-kobling). Et løst tal uden et ventende navn ignoreres (det er halen
+    // på en allerede aflæst markør), så det ikke fejlagtigt gribes af næste navn.
+    var mk=findMarkerInText(line), r=extractResult(line);
+    if(mk && r.value!=null){ readings.push({mid:mk,value:r.value,unit:r.unit}); pName=null; }
+    else if(mk && r.value==null){ pName=mk; }
+    else if(!mk && r.value!=null && pName){ readings.push({mid:pName,value:r.value,unit:r.unit}); pName=null; }
+    else if(line.length>2 && !mk && r.value==null){ unknown.push(line.slice(0,20)); pName=null; }
+  }
+  return {fields:fields, readings:readings, unknown:unknown};
+}
 function autorun(){return el('autorun').checked;}
 
 function loadExample(kind){
@@ -382,15 +459,59 @@ function readPdf(file){
     .then(extractText);
 }
 
+function loadTesseract(){
+  if(window.Tesseract) return Promise.resolve();
+  return new Promise(function(res,rej){
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+    s.onload=res; s.onerror=function(){rej(new Error('Kunne ikke hente OCR-bibliotek (offline?).'));};
+    document.head.appendChild(s);
+  });
+}
+function ocrProgress(m){ if(m&&m.status){ var t=el(window._ocrTarget||'bulkstatus'); if(t)t.textContent='OCR: '+m.status+(m.progress?' '+Math.round(m.progress*100)+'%':''); } }
+function ocrText(source){
+  return loadTesseract().then(function(){ return window.Tesseract.recognize(source,'dan+deu+eng',{logger:ocrProgress}); }).then(function(r){ return (r&&r.data&&r.data.text)||''; });
+}
+function ocrPdf(file){
+  return loadPdfjs().then(function(){return file.arrayBuffer();})
+    .then(function(buf){return window.pdfjsLib.getDocument({data:buf}).promise;})
+    .then(function(pdf){
+      var chain=Promise.resolve('');
+      var mk=function(n){ chain=chain.then(function(acc){ return pdf.getPage(n).then(function(page){ var vp=page.getViewport({scale:2}); var c=document.createElement('canvas'); c.width=vp.width; c.height=vp.height; return page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise.then(function(){ return ocrText(c).then(function(t){ return acc+(acc?'\n':'')+t; }); }); }); }); };
+      for(var i=1;i<=pdf.numPages;i++) mk(i);
+      return chain;
+    });
+}
+function ocrToReview(text,label){
+  if(!String(text).trim()){ el('bulkstatus').textContent='OCR fandt ingen tekst'+(label?(' i '+label):'')+'. Skriv værdierne manuelt.'; return; }
+  el('bulk').value=String(text).trim();
+  el('bulkstatus').innerHTML='<strong style="color:var(--watch)">OCR'+(label?(' af '+esc(label)):'')+' færdig — KONTROLLÉR hver værdi nøje (scanning/billede er mindre pålideligt), og tryk "Indlæs &amp; analysér".</strong>';
+  el('bulk').scrollIntoView({behavior:'smooth'});
+}
+function ocrStaged(i){
+  var f=(window._staged&&window._staged.docs||[])[i];
+  var st=el('stageStatus')||el('bulkstatus');
+  if(!f||!f.file){ if(st)st.textContent='Kan ikke køre OCR — filen er ikke tilgængelig.'; return; }
+  window._ocrTarget=el('stageStatus')?'stageStatus':'bulkstatus';
+  if(st)st.innerHTML='<span style="color:var(--watch)">Kører OCR på '+esc(f.name)+'… henter sprogmodel første gang (kan tage 10–40 sek).</span>';
+  (f.isImg?ocrText(f.file):ocrPdf(f.file)).then(function(t){ window._ocrTarget=null; if(!String(t).trim()){ if(st)st.textContent='OCR fandt ingen tekst i '+f.name+' — scanningen er måske for utydelig.'; return; } el('bulk').value=String(t).trim(); if(st)st.innerHTML='<span style="color:var(--watch)">OCR af '+esc(f.name)+' færdig — teksten er lagt i feltet ovenfor. KONTROLLÉR værdierne og tryk "Indlæs &amp; analysér".</span>'; el('bulk').scrollIntoView({behavior:'smooth'}); }).catch(function(e){ window._ocrTarget=null; if(st)st.textContent='OCR-fejl: '+(e&&e.message||e); });
+}
+var IMG_RE=/\.(png|jpe?g|webp|gif|bmp)$/;
 function handleFile(file){
   if(!file) return;
   var name=file.name.toLowerCase();
   el('bulkstatus').textContent='Læser '+file.name+'…';
   var done=function(text){ el('bulk').value=String(text).trim(); parseBulk(); };
-  if(name.endsWith('.pdf')){
-    // PDF: udtræk tekst, men kør IKKE auto-analyse — mennesket bekræfter værdierne.
+  if(IMG_RE.test(name)){
+    el('bulkstatus').textContent='Billede — kører OCR (kan tage et øjeblik)…';
+    ocrText(file).then(function(t){ ocrToReview(t,file.name); }).catch(function(e){el('bulkstatus').textContent=e.message;});
+  } else if(name.endsWith('.pdf')){
     readPdf(file).then(function(text){
-      if(!String(text).trim()){ el('bulkstatus').textContent='Ingen tekst i PDF (sandsynligvis en scanning). Brug CSV/Excel eller skriv værdierne manuelt.'; return; }
+      if(!String(text).trim()){
+        el('bulkstatus').textContent='Scanning fundet (ingen tekst) — kører OCR (kan tage et øjeblik)…';
+        ocrPdf(file).then(function(ot){ ocrToReview(ot,file.name); }).catch(function(e){el('bulkstatus').textContent=e.message;});
+        return;
+      }
       el('bulk').value=String(text).trim();
       el('bulkstatus').innerHTML='<strong style="color:var(--watch)">PDF læst — gennemse og ret værdierne, og tryk derefter "Indlæs &amp; analysér".</strong> Auto-analyse er slået fra for PDF af sikkerhedshensyn.';
     }).catch(function(e){el('bulkstatus').textContent=e.message;});
@@ -411,10 +532,11 @@ function handleFile(file){
   drop.addEventListener('drop',function(e){var fs=e.dataTransfer&&e.dataTransfer.files; if(fs&&fs.length)handleFiles(fs);});
 })();
 
-// Læs én fil til {name,text,isPdf,err} — håndterer alle understøttede typer.
+// Læs én fil til {name,text,isPdf,file,noText} — håndterer alle understøttede typer.
 function readAnyFile(file){
   var name=file.name.toLowerCase();
-  if(name.endsWith('.pdf')) return readPdf(file).then(function(t){return {name:file.name,text:t,isPdf:true};}).catch(function(e){return {name:file.name,text:'',isPdf:true,err:e.message};});
+  if(name.endsWith('.pdf')) return readPdf(file).then(function(t){return {name:file.name,text:t,isPdf:true,file:file,noText:!String(t).trim()};}).catch(function(e){return {name:file.name,text:'',isPdf:true,err:e.message,file:file};});
+  if(IMG_RE.test(name)) return Promise.resolve({name:file.name,text:'',isPdf:false,file:file,noText:true,isImg:true});
   if(name.endsWith('.xlsx')||name.endsWith('.xls')) return readXlsx(file).then(function(t){return {name:file.name,text:t,isPdf:false};}).catch(function(e){return {name:file.name,text:'',isPdf:false,err:e.message};});
   return new Promise(function(res){var fr=new FileReader();fr.onload=function(){res({name:file.name,text:String(fr.result),isPdf:false});};fr.onerror=function(){res({name:file.name,text:'',isPdf:false,err:'læsefejl'});};fr.readAsText(file);});
 }
@@ -434,7 +556,7 @@ function handleFiles(files){
       var withMk = pts.filter(function(p){return p.entry.patient.markers.length>0;});
       var mtotal = pts.reduce(function(a,p){return a+p.entry.patient.markers.length;},0);
       withMk.forEach(function(p){ entries.push(p.entry); names.push(p.name); });
-      perFile.push({name:doc.name, isPdf:doc.isPdf, err:doc.err, noText:noText, markers:mtotal, patients:withMk.length, text:doc.text||''});
+      perFile.push({name:doc.name, isPdf:doc.isPdf, err:doc.err, noText:noText, markers:mtotal, patients:withMk.length, text:doc.text||'', file:doc.file, isImg:doc.isImg});
     });
     stageBatch(entries, names, perFile, anyPdf);
   });
@@ -452,20 +574,14 @@ function textToPatients(text, filename){
 
 // Linjer (key=value og/eller fritekst) → ét patient-entry.
 function linesToPatient(lines, fallbackName){
-  var patient={name:'',cpr:'',email:'',age:0,sex:'male',markers:[]}; var adher=null;
-  lines.forEach(function(line){
-    var mt=line.match(/^([^=:\t]+)[=:\t](.+)$/);
-    if(mt){
-      var key=mt[1].trim(), val=mt[2].trim(), f=fieldOf(key);
-      if(f){ if(f==='name')patient.name=val; else if(f==='cpr')patient.cpr=val; else if(f==='email')patient.email=val; else if(f==='age')patient.age=toNum(val)||0; else if(f==='sex')patient.sex=parseSex(val); else if(f==='adherence')adher=(toNum(val)||0)/100; return; }
-      var mid=markerOf(key); if(mid){var n=toNum(val); if(n!=null){patient.markers.push({id:mid,value:n}); return;}}
-    }
-    var mid2=findMarkerInText(line), v=firstValue(line);
-    if(mid2 && v!=null) patient.markers.push({id:mid2,value:v});
-  });
+  var p=parseClinicalLines(lines);
+  var patient={name:p.fields.name||'', cpr:p.fields.cpr||'', email:p.fields.email||'', age:p.fields.age||0, sex:p.fields.sex||'male', markers:[]};
+  // Dedupér pr. markør (sidste aflæsning vinder); enheden bevares (engine konverterer).
+  var seen={}; p.readings.forEach(function(r){ seen[r.mid]={id:r.mid, value:r.value, unit:r.unit}; });
+  Object.keys(seen).forEach(function(k){ var mk=seen[k]; mk.sex=patient.sex; mk.age=patient.age; patient.markers.push(mk); });
   if(!patient.name) patient.name=fallbackName;
-  patient.markers.forEach(function(mk){mk.unit=''; mk.sex=patient.sex; mk.age=patient.age;});
-  return { entry:{patient:patient, adherence: adher!=null?adher:(Number(el('adher').value)||0)/100, baseline:isBaseline()}, name:patient.name };
+  var adher = p.fields.adherence!=null ? p.fields.adherence : (Number(el('adher').value)||0)/100;
+  return { entry:{patient:patient, adherence:adher, baseline:isBaseline()}, name:patient.name };
 }
 function rowsToPatients(lines,delim){ var b=buildBatchRows(lines,delim); return b.rows.map(function(r,i){return {entry:r, name:b.names[i]};}); }
 
@@ -477,17 +593,27 @@ function stageBatch(entries,names,perFile,anyPdf){
       : f.noText ? '<span style="color:var(--watch)">ingen tekst (scanning?)</span>'
       : f.markers===0 ? '<span style="color:var(--watch)">0 markører genkendt</span>'
       : f.markers+' markører'+(f.patients>1?(' · '+f.patients+' patienter'):'');
-    var link = (!f.err && !f.noText) ? ' · <a href="#" onclick="showDocText('+i+');return false" style="color:var(--gold)">vis/ret tekst</a>' : '';
+    var link = (!f.err && !f.noText) ? ' · <a href="#" onclick="showDocText('+i+');return false" style="color:var(--gold)">vis/ret tekst</a>' : ((f.noText&&f.file)?' · <a href="#" onclick="ocrStaged('+i+');return false" style="color:var(--gold)">kør OCR</a>':'');
     return '<tr><td>'+esc(f.name)+(f.isPdf?' <span class="mini" style="color:var(--watch)">PDF</span>':'')+link+'</td><td class="r">'+found+'</td></tr>';
   }).join('');
   var canRun = entries.length>0;
+  // Redigerbar patient-tabel: ret navn/alder/køn før analyse. Alder<18 markeres rødt.
+  var patRows=entries.map(function(e,i){
+    var p=e.patient, lowAge=!(p.age>=18&&p.age<=110);
+    return '<tr><td><input id="st_name_'+i+'" value="'+esc(p.name||names[i]||'')+'" style="width:140px"></td>'+
+      '<td><input id="st_age_'+i+'" type="number" min="18" max="110" value="'+(p.age||'')+'" style="width:72px'+(lowAge?';border-color:#e0644b':'')+'"></td>'+
+      '<td><select id="st_sex_'+i+'"><option value="male"'+(p.sex==='male'?' selected':'')+'>Mand</option><option value="female"'+(p.sex==='female'?' selected':'')+'>Kvinde</option></select></td>'+
+      '<td class="r">'+p.markers.length+'</td></tr>';
+  }).join('');
+  var patTable = canRun ? '<div class="card"><h3 style="margin-top:0">Patienter — ret før analyse</h3><p class="note" style="margin-top:0">Manglende/ugyldig alder (rød) → biologisk alder kan ikke beregnes. Ændret køn omklassificerer kønsspecifikke markører.</p><table><thead><tr><th>Navn (kun lokalt)</th><th>Alder</th><th>Køn</th><th class="r">Markører</th></tr></thead><tbody>'+patRows+'</tbody></table></div>' : '';
   el('result').innerHTML=
     '<h2>'+entries.length+' patient'+(entries.length===1?'':'er')+' klar · '+perFile.length+' dokumenter</h2>'+
-    '<div class="card"><table><thead><tr><th>Dokument</th><th class="r">Fundet</th></tr></thead><tbody>'+fileRows+'</tbody></table>'+
+    patTable+
+    '<div class="card"><h3 style="margin-top:0">Dokumenter</h3><table><thead><tr><th>Dokument</th><th class="r">Fundet</th></tr></thead><tbody>'+fileRows+'</tbody></table>'+
     (anyPdf?'<div class="warn">PDF: spotcheck de udtrukne værdier (klik "vis/ret tekst"), og analysér først når de er bekræftet.</div>':'')+
     (canRun
-      ? '<div class="bar" style="margin-top:12px"><button class="btn" onclick="runStaged()">Analysér alle ('+entries.length+')</button> <span class="note" id="stageStatus"></span></div>'
-      : '<div class="warn">Ingen genkendelige markører fundet. Scannede PDF-billeder har ingen tekst, og rapporter på andre sprog end dansk matcher ikke navnene endnu. Klik "vis/ret tekst" for at se det udlæste og rette markørnavnene — eller indtast manuelt nedenfor.</div>')+
+      ? '<div class="bar" style="margin-top:12px"><button class="btn" onclick="runStaged()">Analysér alle ('+entries.length+')</button></div>'
+      : '<div class="warn">Ingen genkendelige markører fundet. Scannede PDF-billeder har ingen tekst, og rapporter på andre sprog matcher ikke altid navnene. Klik "vis/ret tekst" for at se det udlæste og rette markørnavnene — eller indtast manuelt nedenfor.</div>')+'<div class="note" id="stageStatus" style="margin-top:10px"></div>'+
     '</div>';
   el('result').classList.remove('hide'); el('result').scrollIntoView({behavior:'smooth'});
   el('bulkstatus').textContent='Læste '+perFile.length+' dokumenter → '+entries.length+' patient(er) med markører.';
@@ -496,6 +622,14 @@ function stageBatch(entries,names,perFile,anyPdf){
 function runStaged(){
   var s=window._staged; if(!s||!s.rows.length) return;
   if(!el('tok').value.trim()){ var ss=el('stageStatus'); if(ss)ss.textContent='Angiv admin-token øverst først.'; return; }
+  // Læs redigeringer fra patient-tabellen tilbage i rækkerne.
+  s.rows.forEach(function(e,i){
+    var an=el('st_name_'+i), aa=el('st_age_'+i), ax=el('st_sex_'+i);
+    if(aa) e.patient.age=Number(aa.value)||0;
+    if(ax) e.patient.sex=ax.value;
+    if(an){ e.patient.name=an.value; s.names[i]=an.value||s.names[i]; }
+    e.patient.markers.forEach(function(mk){ mk.age=e.patient.age; mk.sex=e.patient.sex; });
+  });
   batchClassify(s.rows,s.names);
 }
 // Vis et dokuments udtrukne tekst i feltet, så navne/værdier kan rettes manuelt.
@@ -519,32 +653,23 @@ function parseBulk(){
 
 // ---- Én patient: udfyld formularen ----
 function parseSingle(lines){
-  var filledM=0, filledF=0, unknown=[];
-  lines.forEach(function(line){
-    var mt=line.match(/^([^=:\t]+)[=:\t](.+)$/);
-    if(mt){
-      var key=mt[1].trim(), val=mt[2].trim();
-      var f=fieldOf(key);
-      if(f){
-        if(f==='name')el('p_name').value=val;
-        else if(f==='cpr')el('p_cpr').value=val;
-        else if(f==='email')el('p_email').value=val;
-        else if(f==='age')el('p_age').value=toNum(val)||val;
-        else if(f==='sex')el('p_sex').value=parseSex(val);
-        else if(f==='adherence')el('adher').value=toNum(val);
-        filledF++; return;
-      }
-      var mid=markerOf(key);
-      if(mid){var n=toNum(val); if(n!=null){el('m_'+mid).value=n; filledM++; return;}}
-    }
-    // Fritekst-fallback (PDF-linjer uden =/:): find markør + første frittstående tal.
-    var mid2=findMarkerInText(line);
-    var v=firstValue(line);
-    if(mid2 && v!=null){ el('m_'+mid2).value=v; filledM++; return; }
-    if(line.length>2) unknown.push(line.slice(0,20));
+  var p=parseClinicalLines(lines), converted=0, mism=[], nF=0;
+  if(p.fields.name!=null){el('p_name').value=p.fields.name; nF++;}
+  if(p.fields.cpr!=null){el('p_cpr').value=p.fields.cpr; nF++;}
+  if(p.fields.email!=null){el('p_email').value=p.fields.email; nF++;}
+  if(p.fields.age!=null){el('p_age').value=p.fields.age; nF++;}
+  if(p.fields.sex!=null){el('p_sex').value=p.fields.sex; nF++;}
+  if(p.fields.adherence!=null){el('adher').value=Math.round(p.fields.adherence*100); nF++;}
+  p.readings.forEach(function(r){
+    var cc=toCanonical(r.mid, r.value, r.unit);
+    el('m_'+r.mid).value=fmt(cc.value, (NAME[r.mid]||{decimals:1}).decimals);
+    if(cc.note==='konv')converted++; else if(cc.note==='mismatch')mism.push((NAME[r.mid]||{name:r.mid}).name+' ('+cc.from+')');
   });
-  el('bulkstatus').textContent='Udfyldte '+filledM+' markører + '+filledF+' patientfelter.'+(unknown.length?' Ukendt: '+unknown.slice(0,6).join(', '):'');
-  if(autorun() && filledM>0) classify();
+  el('bulkstatus').textContent='Udfyldte '+p.readings.length+' markører + '+nF+' patientfelter.'+
+    (converted?' '+converted+' enheds-konverteret.':'')+
+    (mism.length?' ⚠ Ukendt enhed: '+mism.slice(0,4).join(', ')+'.':'')+
+    (p.unknown.length?' Ikke genkendt: '+p.unknown.slice(0,5).join(', '):'');
+  if(autorun() && p.readings.length>0) classify();
 }
 
 // ---- Mange patienter: batch ----
@@ -591,7 +716,7 @@ function batchClassify(rows,names){
     .then(function(r){return r.json();})
     .then(function(d){
       if(d.error){el('bulkstatus').textContent='Fejl: '+d.error;return;}
-      window._batch={results:d.drafts,names:names};
+      window._batch={results:d.drafts,names:names,ages:rows.map(function(r){return (r.patient&&r.patient.age)||0;})};
       renderBatch(d.drafts,names);
       el('bulkstatus').textContent='Færdig — '+d.drafts.filter(function(x){return x.ok;}).length+'/'+d.drafts.length+' analyseret.';
     }).catch(function(){el('bulkstatus').textContent='Netværksfejl.';});
@@ -620,13 +745,194 @@ function renderBatch(results,names){
 }
 function showOne(i){
   var r=(window._batch&&window._batch.results||[])[i];
-  if(r&&r.ok){render(r.draft,'batchDetail'); el('batchDetail').scrollIntoView({behavior:'smooth'});}
+  if(r&&r.ok){
+    window._ctxName=(window._batch.names||[])[i]||''; window._ctxAge=(window._batch.ages||[])[i]||0; window._ctxHistory=[];
+    render(r.draft,'batchDetail'); el('batchDetail').scrollIntoView({behavior:'smooth'});
+  }
 }
 function kpi(n,l){return '<div class="kpi"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
 function scoreBar(l,v){return '<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:.82rem"><span class="muted">'+l+'</span><span>'+v+'/100</span></div><div class="barline"><i style="width:'+v+'%"></i></div></div>';}
-function fmtval(m){var nm=NAME[m.id]||{unit:'',decimals:1};return fmt(m.value,nm.decimals)+' '+esc(nm.unit);}
+function fmtval(m){var nm=NAME[m.id]||{unit:'',decimals:1};return fmt(m.value,nm.decimals)+' '+esc(m.unit||nm.unit);}
+
+// ============ GENERÉR RAPPORT (aevia.dk-stil) ============
+var RSTATUS={optimal:{c:'#3fb27f',l:'Optimal',b:'rgba(63,178,127,.15)',t:'#7fd4a6'},
+             ok:{c:'#3fb27f',l:'OK',b:'rgba(63,178,127,.12)',t:'#7fd4a6'},
+             watch:{c:'#c9a437',l:'Observer',b:'rgba(201,164,55,.15)',t:'#d8b24a'},
+             action:{c:'#e0844b',l:'Handling',b:'rgba(224,132,75,.15)',t:'#e0a06b'}};
+function rtrack(oL,oH,value,status){
+  var lo=Math.min(oL,value), hi=Math.max(oH,value);
+  var sp=(hi-lo)||1; lo-=sp*0.2; hi+=sp*0.2; sp=hi-lo;
+  var bl=(oL-lo)/sp*100, bw=(oH-oL)/sp*100, pos=Math.max(0,Math.min(100,(value-lo)/sp*100));
+  return '<div class="rtrack"><span class="rband" style="left:'+bl+'%;width:'+bw+'%"></span>'+
+    '<span class="rneedle" style="left:'+pos+'%;background:'+RSTATUS[status].c+'"></span></div>';
+}
+function ageFromBand(b){var m=String(b||'').match(/(\d+)/);return m?Number(m[1])+2:0;}
+
+function buildReportHtml(d,name,age,history,approval){
+  age = age || ageFromBand(d.ageBand);
+  history = history || [];
+  var ba=d.biologicalAge, est=ba.estimatedAge, avail=ba.available, sc=d.aeviaScore;
+  var dT=new Date();
+  var todayDa=dT.toLocaleDateString('da-DK',{year:'numeric',month:'long',day:'numeric'});
+  var todayEn=dT.toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  var adv=M.categoryAdvice||{}, namesEn=M.markerNamesEn||{};
+  var byCat={}; d.classifiedMarkers.forEach(function(m){(byCat[m.category]=byCat[m.category]||[]).push(m);});
+  var pk=Object.keys(d.percentiles||{});
+  var daCat={}; M.categories.forEach(function(c){daCat[c.id]=c.label;});
+
+  function diffTxt(lang){ if(!avail||!age) return ''; var diff=est-age; var col=diff<=0?'#7fd4a6':'#e0a06b';
+    var txt=lang==='en'?(diff<=0?(Math.abs(diff)+' years younger'):(diff+' years older')):(diff<=0?(Math.abs(diff)+' år yngre'):(diff+' år ældre'));
+    return '<b style="color:'+col+'">'+txt+'</b>'; }
+  function nameOf(id,lang){ var def=NAME[id]||{name:id}; return lang==='en'?(namesEn[id]||def.name):def.name; }
+  function catLabel(cid,lang){ return DICT[lang].cat[cid]||cid; }
+
+  var DICT={
+    da:{ today:todayDa, eyebrow:'Fortrolig helbredsrapport · udkast',
+      disc:function(){return '⚠ Udkast — status <b>'+esc(d.status)+'</b>. En læge skal gennemgå og godkende rapporten, før den frigives. Biologisk alder er et estimat, ikke en diagnose. pseudoId '+esc(d.pseudoId)+' · genereret '+todayDa+'.';},
+      contentNote:'', resumeEyebrow:'Resumé', resumeH2:'Det vigtigste på 30 sekunder',
+      bioLine:function(){return 'Biologisk alder <b>'+(avail?('~'+est+' år'):'ikke beregnet')+'</b>'+(avail&&diffTxt('da')?(' — '+diffTxt('da')+' end den kronologiske'):'')+(avail?(' (usikkerhed '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' år)'):' (kronologisk alder mangler)')+'. Aevia-score <b>'+sc.total+'/100</b>'+(sc.baseline?' (baseline — kun markører)':'')+'.';},
+      keyFindings:'De vigtigste fund', noFindings:'Ingen markører kræver opmærksomhed lige nu — et stærkt udgangspunkt.',
+      lOptimal:'Optimal/OK', lWatch:'Observer', lAction:'Handling', deltaker:'Aevia-deltager',
+      profileEyebrow:'Profil & biologisk alder', chrono:'Kronologisk alder', bio:'Biologisk alder', yearsVs:'År vs. kronologisk', method:'Metode',
+      phenoH2:'Sådan beregnes din biologiske alder',
+      phenoText: !avail?'Biologisk alder kan ikke beregnes uden en gyldig kronologisk alder (18–110 år).':(ba.method==='phenoage'?'Beregnet med <b>PhenoAge</b> (Levine et al., 2018) ud fra 9 blodmarkører — albumin, kreatinin, glukose, hs-CRP, lymfocyt-andel, MCV, RDW, basisk fosfatase og leukocytter — kombineret med din kronologiske alder. En publiceret, gennemskuelig formel uden machine learning.':'Estimeret ud fra din markør-profil ('+ba.inputsUsed+' af '+ba.inputsRequired+' PhenoAge-input til stede). Suppler de manglende blodmarkører for et mere præcist estimat.'),
+      phenoResult: avail?('Resultat: ~'+est+' år (usikkerhed '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' år). Et estimat med usikkerhed — ikke en diagnostisk konklusion.'):'',
+      projH2:'Hvor er du på vej hen?', projSub:'Illustrativt — to mulige forløb afhængigt af indsats.', projNone:'Gør intet', projFollow:'Følg planen', projToday:'I dag', projPlus:'+5 år', projNote:'Illustrativt eksempel — ikke en forudsigelse.',
+      trendH2:'Udvikling over tid', trendSub:'Biologisk alder ved hvert tjek.',
+      catH2:'Kategori-overblik', catSub:'Hvor du står på tværs af de store områder (0–100).',
+      scoreH2:'Din Aevia-score: '+sc.total+'/100', scoreSub:'Ét tal der samler markører, efterlevelse og momentum.',
+      scMarkers:'Markører', scAdh:'Efterlevelse', scMom:'Momentum', scBaseline:'Baseline (første test): scoren bygger kun på markører. Efterlevelse og momentum tilføjes ved re-test.',
+      fitH2:'Din kondition i perspektiv', fitSub:'Hvor du ligger i forhold til din aldersgruppe (estimat).', better:'bedre end ~',
+      markH2:'Dine markører', markSub:'Den grønne bjælke er det optimale interval; nålen er din værdi. Hver markør har en kort forklaring.',
+      inOpt:function(n,tot){return '<b>'+n+' af '+tot+'</b> i optimalt leje. ';},
+      optimal:'Optimal', refTo:'reference indtil', refFrom:'reference fra', refRange:'reference',
+      docH2:'Lægens vurdering', docSub:'Markører løftet til lægen og endelig godkendelse.', docPlaceholder:'Lægens vurdering skrives her før godkendelse — sammenfat de vigtigste fund, kontekst og anbefalinger.', docAwait:'Afventer lægegodkendelse', docAwaitSub:'Ingen rapport frigives uden en læges eksplicitte godkendelse.', requires:'kræver lægens vurdering',
+      glossH2:'Sådan læser du rapporten', glossItems:['<b>Optimal</b> — inden for Aevias snævre, optimale interval.','<b>OK</b> — inden for referenceintervallet, men uden for det optimale.','<b>Observer</b> — let afvigende; hold øje og følg op.','<b>Handling</b> — klinisk relevant afvigelse; løftet til lægen.'], glossNote:'Den grønne bjælke ved hver markør er det optimale interval; nålen er din værdi. Biologisk alder er et estimat med usikkerhedsinterval — ikke en diagnose.',
+      dpH2:'Databeskyttelse', dpText:'Fortrolige helbredsoplysninger (særlige kategorier, GDPR art. 9). Dataansvarlig: Aevia Health. Rapporten er pseudonymiseret. Du har ret til indsigt, berigtigelse og sletning. Kontakt Aevia for at udøve dine rettigheder.',
+      foot:'Aevia Health · Fortrolig · genereret '+todayDa+'. Biologisk alder er et estimat med usikkerhedsinterval — ikke en diagnostisk konklusion.',
+      st:{optimal:'Optimal',ok:'OK',watch:'Observer',action:'Handling'}, cat:daCat },
+    en:{ today:todayEn, eyebrow:'Confidential health report · draft',
+      disc:function(){return '⚠ Draft — status <b>'+esc(d.status)+'</b>. A doctor must review and approve this report before it is released. Biological age is an estimate, not a diagnosis. pseudoId '+esc(d.pseudoId)+' · generated '+todayEn+'.';},
+      contentNote:'Marker explanations and category advice are shown in Danish, pending clinical English translation.', resumeEyebrow:'Summary', resumeH2:'The essentials in 30 seconds',
+      bioLine:function(){return 'Biological age <b>'+(avail?('~'+est+' yrs'):'not calculated')+'</b>'+(avail&&diffTxt('en')?(' — '+diffTxt('en')+' than chronological'):'')+(avail?(' (uncertainty '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' yrs)'):' (chronological age missing)')+'. Aevia score <b>'+sc.total+'/100</b>'+(sc.baseline?' (baseline — markers only)':'')+'.';},
+      keyFindings:'Key findings', noFindings:'No markers need attention right now — a strong starting point.',
+      lOptimal:'Optimal/OK', lWatch:'Watch', lAction:'Action', deltaker:'Aevia participant',
+      profileEyebrow:'Profile & biological age', chrono:'Chronological age', bio:'Biological age', yearsVs:'Years vs. chronological', method:'Method',
+      phenoH2:'How your biological age is calculated',
+      phenoText: !avail?'Biological age cannot be calculated without a valid chronological age (18–110 years).':(ba.method==='phenoage'?'Calculated with <b>PhenoAge</b> (Levine et al., 2018) from 9 blood markers — albumin, creatinine, glucose, hs-CRP, lymphocyte fraction, MCV, RDW, alkaline phosphatase and white blood cells — combined with your chronological age. A published, transparent formula with no machine learning.':'Estimated from your marker profile ('+ba.inputsUsed+' of '+ba.inputsRequired+' PhenoAge inputs present). Add the missing blood markers for a more precise estimate.'),
+      phenoResult: avail?('Result: ~'+est+' yrs (uncertainty '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+' yrs). An estimate with uncertainty — not a diagnostic conclusion.'):'',
+      projH2:'Where are you heading?', projSub:'Illustrative — two possible paths depending on effort.', projNone:'Do nothing', projFollow:'Follow the plan', projToday:'Today', projPlus:'+5 yrs', projNote:'Illustrative example — not a prediction.',
+      trendH2:'Progress over time', trendSub:'Biological age at each check-up.',
+      catH2:'Category overview', catSub:'Where you stand across the major areas (0–100).',
+      scoreH2:'Your Aevia score: '+sc.total+'/100', scoreSub:'One number combining markers, adherence and momentum.',
+      scMarkers:'Markers', scAdh:'Adherence', scMom:'Momentum', scBaseline:'Baseline (first test): the score is based on markers only. Adherence and momentum are added at re-test.',
+      fitH2:'Your fitness in perspective', fitSub:'Where you rank versus your age group (estimate).', better:'better than ~',
+      markH2:'Your markers', markSub:'The green bar is the optimal range; the needle is your value. Each marker has a short explanation.',
+      inOpt:function(n,tot){return '<b>'+n+' of '+tot+'</b> in the optimal range. ';},
+      optimal:'Optimal', refTo:'reference up to', refFrom:'reference from', refRange:'reference',
+      docH2:'Doctor’s assessment', docSub:'Markers escalated to the doctor and final approval.', docPlaceholder:'The doctor writes their assessment here before approval — summarise the key findings, context and recommendations.', docAwait:'Awaiting doctor approval', docAwaitSub:'No report is released without a doctor’s explicit approval.', requires:'requires the doctor’s review',
+      glossH2:'How to read this report', glossItems:['<b>Optimal</b> — within Aevia’s narrow, optimal range.','<b>OK</b> — within the reference range but outside the optimal.','<b>Watch</b> — slightly deviating; monitor and follow up.','<b>Action</b> — clinically relevant deviation; escalated to the doctor.'], glossNote:'The green bar at each marker is the optimal range; the needle is your value. Biological age is an estimate with an uncertainty interval — not a diagnosis.',
+      dpH2:'Data protection', dpText:'Confidential health data (special category, GDPR art. 9). Data controller: Aevia Health. This report is pseudonymised. You have the right of access, rectification and erasure. Contact Aevia to exercise your rights.',
+      foot:'Aevia Health · Confidential · generated '+todayEn+'. Biological age is an estimate with an uncertainty interval — not a diagnostic conclusion.',
+      st:{optimal:'Optimal',ok:'OK',watch:'Watch',action:'Action'},
+      cat:{hjerte:'Lipids & cardiovascular',blodsukker:'Metabolism & blood sugar',inflammation:'Inflammation',lever:'Liver',nyrer:'Kidneys & fluid balance',vitaminer:'Vitamins & minerals',hormoner:'Hormones',thyroidea:'Thyroid',blodstatus:'Blood & iron status',fysiologi:'Fitness & body composition'} }
+  };
+
+  function buildBody(lang){
+    var t=DICT[lang];
+    var prio={action:0,watch:1};
+    var fnd=d.classifiedMarkers.filter(function(m){return m.status==='action'||m.status==='watch';}).sort(function(a,b){return (prio[a.status]-prio[b.status])||(Math.abs(b.deviation)-Math.abs(a.deviation));}).slice(0,4);
+    var findings=fnd.length?'<div style="margin-top:14px">'+fnd.map(function(m){var def=NAME[m.id]||{unit:'',decimals:1};return '<div class="find"><i style="background:'+RSTATUS[m.status].c+'"></i><span style="color:var(--muted)"><b style="color:var(--text)">'+esc(nameOf(m.id,lang))+' '+fmt(m.value,def.decimals)+' '+esc(m.unit||def.unit)+'</b> — '+esc(m.explanation)+'</span></div>';}).join('')+'</div>':'<p style="color:#7fd4a6;margin-top:12px">'+t.noFindings+'</p>';
+    var catBars=M.categories.map(function(c){var v=sc.breakdown[c.id];if(v==null)return '';var col=v>=80?'#3fb27f':v>=55?'#c9a437':'#e0844b';return '<div class="catrow"><div class="cl">'+esc(catLabel(c.id,lang))+'</div><div class="cbar"><i style="width:'+v+'%;background:'+col+'"></i></div><div class="cv">'+v+'</div></div>';}).join('');
+    var srow=function(l,v,w){return '<div class="srow"><div style="display:flex;justify-content:space-between;font-size:.85rem"><span class="muted">'+l+' ('+w+')</span><span>'+v+'/100</span></div><div class="sbar"><i style="width:'+v+'%"></i></div></div>';};
+    var scoreCard='<div class="card"><h2>'+t.scoreH2+'</h2><p class="csub">'+t.scoreSub+'</p>'+srow(t.scMarkers,sc.components.markers,'50%')+(sc.baseline?'<p style="color:var(--muted);font-size:.88rem">'+t.scBaseline+'</p>':srow(t.scAdh,sc.components.adherence,'35%')+srow(t.scMom,sc.components.momentum,'15%'))+'</div>';
+    var fitnessCard=pk.length?'<div class="card"><h2>'+t.fitH2+'</h2><p class="csub">'+t.fitSub+'</p>'+pk.map(function(id){var pc=d.percentiles[id];return '<div class="srow"><div style="display:flex;justify-content:space-between;font-size:.9rem"><span>'+esc(nameOf(id,lang))+'</span><span class="muted">'+t.better+pc+'%</span></div><div class="sbar"><i style="width:'+pc+'%"></i></div></div>';}).join('')+'</div>':'';
+    var phenoCard='<div class="card"><h2>'+t.phenoH2+'</h2><p style="color:var(--muted)">'+t.phenoText+'</p>'+(t.phenoResult?'<p style="color:var(--muted-2);font-size:.85rem;margin-top:8px">'+t.phenoResult+'</p>':'')+'</div>';
+    var projCard='';
+    if(avail){var none=est+5,plan=est-3,lo=Math.min(plan,est)-2,hi=Math.max(none,est)+2,spn=(hi-lo)||1;var Y=function(v){return 30+(v-lo)/spn*150;};projCard='<div class="card"><h2>'+t.projH2+'</h2><p class="csub">'+t.projSub+'</p><svg viewBox="0 0 640 210" width="100%"><polyline fill="none" stroke="#e0844b" stroke-width="2.5" stroke-dasharray="6 5" points="80,'+Y(est)+' 360,'+Y((est+none)/2)+' 600,'+Y(none)+'"/><polyline fill="none" stroke="#c9a437" stroke-width="3" points="80,'+Y(est)+' 360,'+Y((est+plan)/2)+' 600,'+Y(plan)+'"/><circle cx="80" cy="'+Y(est)+'" r="5" fill="#c9a437"/><text x="600" y="'+(Y(none)-6)+'" fill="#e0a06b" font-size="11" text-anchor="end">'+t.projNone+'</text><text x="600" y="'+(Y(plan)+16)+'" fill="#c9a437" font-size="11" text-anchor="end">'+t.projFollow+'</text><text x="80" y="200" fill="#94a0b2" font-size="11" text-anchor="middle">'+t.projToday+' (~'+est+')</text><text x="600" y="200" fill="#94a0b2" font-size="11" text-anchor="middle">'+t.projPlus+'</text></svg><p style="color:var(--muted-2);font-size:.82rem">'+t.projNote+'</p></div>';}
+    var trendCard='';
+    var tp=[]; history.forEach(function(h){if(h.bioAge!=null&&isFinite(Number(h.bioAge)))tp.push({label:String(h.date||''),v:Number(h.bioAge)});});
+    if(avail)tp.push({label:t.projToday,v:est});
+    if(tp.length>=2){var vs=tp.map(function(p){return p.v;});var mn=Math.min.apply(null,vs)-2,mx=Math.max.apply(null,vs)+2,sp2=(mx-mn)||1;var n=tp.length;var X=function(i){return 60+i*(540/(n-1));};var Yt=function(v){return 30+(mx-v)/sp2*150;};var poly=tp.map(function(p,i){return X(i)+','+Yt(p.v);}).join(' ');var dots=tp.map(function(p,i){return '<circle cx="'+X(i)+'" cy="'+Yt(p.v)+'" r="4" fill="#c9a437"/><text x="'+X(i)+'" y="'+(Yt(p.v)-9)+'" fill="#f5f5f0" font-size="11" text-anchor="middle">'+p.v+'</text><text x="'+X(i)+'" y="196" fill="#94a0b2" font-size="10" text-anchor="middle">'+esc(p.label)+'</text>';}).join('');trendCard='<div class="card"><h2>'+t.trendH2+'</h2><p class="csub">'+t.trendSub+'</p><svg viewBox="0 0 640 210" width="100%"><polyline fill="none" stroke="#c9a437" stroke-width="3" points="'+poly+'"/>'+dots+'</svg></div>';}
+    var markerGroups=M.categories.map(function(c){var arr=byCat[c.id];if(!arr||!arr.length)return '';var nOpt=arr.filter(function(m){return m.status==='optimal';}).length;var narr='<p class="gnar">'+t.inOpt(nOpt,arr.length)+(lang==='en'?'':esc(adv[c.id]||''))+'</p>';var rows=arr.map(function(m){var def=NAME[m.id]||{unit:'',decimals:1},st=RSTATUS[m.status],dec=def.decimals,unit=m.unit||def.unit;var oL=m.optimal[0],oH=m.optimal[1];var rangeTxt=t.optimal+' '+fmt(oL,dec)+'–'+fmt(oH,dec)+' '+esc(def.unit);var r0=m.reference[0],r1=m.reference[1],refTxt='';if(r0!=null&&r1!=null)refTxt=t.refRange+' '+fmt(r0,dec)+'–'+fmt(r1,dec);else if(r1!=null)refTxt=t.refTo+' '+fmt(r1,dec);else if(r0!=null)refTxt=t.refFrom+' '+fmt(r0,dec);var issue=(m.issues||[]).filter(function(i){return i.code==='unit_mismatch';}).map(function(i){return i.message;}).join(' ');var valTxt=m.converted?('<span style="color:var(--muted-2)">'+fmt(m.converted.from,dec)+' '+esc(m.converted.unit)+' →</span> '+fmt(m.value,dec)+' '+esc(unit)):(fmt(m.value,dec)+' '+esc(unit));return '<div class="mrow"><div class="mtop"><span class="mn">'+esc(nameOf(m.id,lang))+'</span><span class="mbadge" style="background:'+st.b+';color:'+st.t+'">'+t.st[m.status]+'</span></div>'+rtrack(oL,oH,m.value,m.status)+'<div class="mmeta"><span class="val">'+valTxt+'</span><span>'+rangeTxt+(refTxt?' · '+refTxt:'')+'</span></div><div class="mexp">'+esc(m.explanation)+'</div>'+(issue?'<div class="mnote">'+esc(issue)+'</div>':'')+'</div>';}).join('');return '<div class="mgroup"><h3>'+esc(catLabel(c.id,lang))+'</h3>'+narr+rows+'</div>';}).join('');
+    var flagged=d.flaggedForDoctor.length?'<ul class="plan">'+d.flaggedForDoctor.map(function(m){return '<li><b>'+esc(nameOf(m.id,lang))+'</b> — '+t.requires+' ('+t.st[m.status]+').</li>';}).join('')+'</ul>':'<p style="color:var(--muted)">'+(lang==='en'?'No markers require urgent action. The doctor still reviews the full picture.':'Ingen markører kræver akut handling. Lægen gennemgår stadig hele billedet.')+'</p>';
+    var glossary='<div class="card"><h2>'+t.glossH2+'</h2><ul class="plan"><li>'+t.glossItems.join('</li><li>')+'</li></ul><p style="color:var(--muted-2);font-size:.82rem">'+t.glossNote+'</p></div>';
+    var diff=(avail&&age)?(est-age):null;
+    var sexLbl=d.sex==='female'?(lang==='en'?'Female':'Kvinde'):(lang==='en'?'Male':'Mand');var approved=d.status==='approved_for_release';var apprWho=approval&&approval.doctorId?approval.doctorId:'';var apprDate=approval&&approval.at?new Date(approval.at).toLocaleDateString(lang==='en'?'en-GB':'da-DK'):'';var eyebrowTxt=approved?(lang==='en'?'Confidential health report · approved':'Fortrolig helbredsrapport · godkendt'):t.eyebrow;var discTxt=approved?(lang==='en'?('✓ Approved by physician '+esc(apprWho)+(apprDate?(' on '+apprDate):'')+'. pseudoId '+esc(d.pseudoId)+'.'):('✓ Godkendt af læge '+esc(apprWho)+(apprDate?(' den '+apprDate):'')+'. pseudoId '+esc(d.pseudoId)+'.')):t.disc();
+    return '<div class="lang" data-lang="'+lang+'"'+(lang==='en'?' style="display:none"':'')+'>'+
+      '<span class="eyebrow">'+eyebrowTxt+'</span><h1>'+(name?esc(name):t.deltaker)+'</h1><div class="disc"'+(approved?' style="border-color:rgba(63,178,127,.4);color:#7fd4a6"':'')+'>'+discTxt+'</div>'+
+      '<div class="card" style="border-color:var(--gold)"><div class="eyebrow" style="margin-bottom:6px">'+t.resumeEyebrow+'</div><h2>'+t.resumeH2+'</h2>'+(t.contentNote?'<p class="mexp" style="font-style:italic">'+t.contentNote+'</p>':'')+'<p class="lead">'+t.bioLine()+'</p><div style="font-weight:600;color:var(--text);margin:4px 0 2px">'+t.keyFindings+'</div>'+findings+'<div class="legend"><span><i style="background:#3fb27f"></i>'+t.lOptimal+'</span><span><i style="background:#c9a437"></i>'+t.lWatch+'</span><span><i style="background:#e0844b"></i>'+t.lAction+'</span></div></div>'+
+      '<div class="card"><div class="eyebrow" style="margin-bottom:6px">'+t.profileEyebrow+'</div><div class="agerow"><div style="flex:2;min-width:180px"><div style="font-family:var(--serif);font-size:1.3rem">'+(name?esc(name):t.deltaker)+'</div><div style="color:var(--muted);font-size:.92rem;margin-top:4px">'+sexLbl+' · '+(age?age+(lang==='en'?' yrs':' år'):esc(d.ageBand))+'</div></div><div class="agebox"><div class="n">'+(age||'—')+'</div><div class="l">'+t.chrono+'</div></div><div class="agebox"><div class="n gold">'+(avail?('~'+est):'—')+'</div><div class="l">'+t.bio+'</div></div><div class="agebox"><div class="n" style="color:'+(diff!=null&&diff<=0?'#7fd4a6':'#e0a06b')+'">'+(diff==null?'—':(diff<=0?'−'+Math.abs(diff):'+'+diff))+'</div><div class="l">'+t.yearsVs+'</div></div></div><p style="color:var(--muted);font-size:.82rem;margin-top:14px">'+t.method+': '+ba.method+' · '+ba.inputsUsed+'/'+ba.inputsRequired+' input.</p></div>'+
+      phenoCard+trendCard+projCard+
+      '<div class="card"><h2>'+t.catH2+'</h2><p class="csub">'+t.catSub+'</p>'+catBars+'</div>'+scoreCard+fitnessCard+
+      '<div class="card"><h2>'+t.markH2+'</h2><p class="csub">'+t.markSub+'</p>'+markerGroups+'</div>'+
+      '<div class="card"><h2>'+t.docH2+'</h2><p class="csub">'+t.docSub+'</p>'+flagged+'<div class="docedit" contenteditable="true">'+t.docPlaceholder+'</div><div class="docsign"><div class="av">'+(approved?'✓':'⏳')+'</div><div><div class="dn">'+(approved?(lang==='en'?('Approved by physician '+esc(apprWho)):('Godkendt af læge '+esc(apprWho))):t.docAwait)+'</div><div class="dt">'+(approved?(apprDate||''):t.docAwaitSub)+'</div></div></div></div>'+
+      glossary+'<div class="card" style="border-color:var(--line-2)"><h2>'+t.dpH2+'</h2><p style="color:var(--muted);font-size:.88rem">'+t.dpText+'</p></div>'+
+      '<div class="foot">'+t.foot+'</div></div>';
+  }
+
+  var CSS=':root{--navy:#0a1628;--navy-2:#0f1f36;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,sans-serif}'+
+  '*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}'+
+  '.wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px}.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 24px;gap:10px;flex-wrap:wrap}'+
+  '.logo{font-family:var(--serif);font-size:1.3rem}.logo span{color:var(--gold)}'+
+  '.langbtn{background:transparent;border:1px solid var(--line-2);color:var(--muted);border-radius:999px;padding:6px 12px;font:inherit;font-size:.8rem;cursor:pointer}.langbtn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}'+
+  '.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}'+
+  'h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}'+
+  '.disc{color:var(--muted-2);font-size:.9rem;background:var(--navy-2);border:1px solid var(--line-2);border-radius:10px;padding:12px 16px;margin:18px 0 28px}'+
+  '.card{background:var(--navy-2);border:1px solid var(--line-2);border-radius:16px;padding:26px 28px;margin-bottom:20px}'+
+  'h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 4px}.csub{color:var(--muted);font-size:.92rem;margin-bottom:20px}'+
+  '.agerow{display:flex;flex-wrap:wrap;gap:18px;align-items:center}.agebox{flex:1;min-width:140px;text-align:center;background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:18px}'+
+  '.agebox .n{font-family:var(--serif);font-size:2.4rem;font-weight:600;line-height:1}.agebox .n.gold{color:var(--gold)}.agebox .l{color:var(--muted);font-size:.82rem;margin-top:8px}'+
+  '.catrow{display:grid;grid-template-columns:180px 1fr 36px;align-items:center;gap:14px;margin-bottom:11px}.catrow .cl{font-size:.92rem}.cbar{height:10px;background:var(--navy);border-radius:999px;overflow:hidden}.cbar i{display:block;height:100%;border-radius:999px}.catrow .cv{font-size:.85rem;color:var(--muted);text-align:right}'+
+  '.mgroup{margin-top:24px}.mgroup h3{font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:12px}'+
+  '.mrow{padding:14px 0;border-top:1px solid var(--line)}.mrow:first-of-type{border-top:none}'+
+  '.mtop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap}.mn{font-weight:600;font-size:.98rem}'+
+  '.mbadge{font-size:.68rem;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}'+
+  '.rtrack{position:relative;height:9px;border-radius:999px;background:var(--navy);overflow:visible}.rband{position:absolute;top:0;height:100%;background:rgba(63,178,127,.35);border-radius:999px}.rneedle{position:absolute;top:-4px;width:3px;height:17px;border-radius:2px;box-shadow:0 0 0 2px var(--navy-2);transform:translateX(-1px)}'+
+  '.mmeta{display:flex;justify-content:space-between;margin-top:8px;font-size:.82rem;color:var(--muted)}.mmeta .val{color:var(--text);font-weight:500}.mnote{font-size:.82rem;color:var(--muted-2);margin-top:5px}'+
+  '.plan li{margin:0 0 9px 20px;color:var(--muted)}.plan li b{color:var(--text)}'+
+  '.docsign{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.docsign .av{width:40px;height:40px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:600}.docsign .dn{font-weight:600;font-size:.92rem}.docsign .dt{color:var(--muted);font-size:.82rem}'+
+  '.lead{border-left:3px solid var(--gold);background:var(--navy);padding:14px 16px;border-radius:0 10px 10px 0;margin-bottom:16px}'+
+  '.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}'+
+  '.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:12px}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:10px;height:10px;border-radius:50%}'+
+  '.pbtn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:600;border:none;border-radius:999px;padding:9px 18px;cursor:pointer;font:inherit;font-size:.88rem}'+
+  '.find{display:flex;gap:11px;align-items:flex-start;margin-bottom:10px}.find i{flex:none;width:12px;height:12px;border-radius:50%;margin-top:5px}'+
+  '.srow{margin:9px 0}.sbar{height:8px;background:var(--navy);border-radius:999px;overflow:hidden;margin-top:5px}.sbar i{display:block;height:100%;background:var(--gold);border-radius:999px}'+
+  '.mexp{font-size:.88rem;color:var(--muted);margin-top:6px}.gnar{color:var(--muted);font-size:.9rem;margin-bottom:8px}'+
+  '.docedit{min-height:84px;border:1px dashed var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);margin:10px 0}.docedit:focus{outline:none;border-color:var(--gold)}'+
+  '@media print{.noprint{display:none!important}.card{break-inside:avoid}body{background:#fff;color:#000}.docedit{border-color:#ccc}}';
+
+  var head='<!DOCTYPE html><html lang="da"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow"><title>Aevia-rapport'+(name?' · '+esc(name):'')+'</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>'+CSS+'</style></head>';
+
+  return head+'<body><div class="wrap"><div class="top"><div class="logo">Aevia<span>.</span></div><div class="noprint" style="display:flex;gap:8px;align-items:center"><button class="langbtn active" id="lb-da" onclick="setLang(\'da\')">DA</button><button class="langbtn" id="lb-en" onclick="setLang(\'en\')">EN</button><button class="pbtn" onclick="window.print()">PDF ⤓</button></div></div>'+
+    buildBody('da')+buildBody('en')+
+    '</div><script>function setLang(l){var w=document.querySelectorAll(".lang");for(var i=0;i<w.length;i++){w[i].style.display=w[i].getAttribute("data-lang")===l?"":"none";}var a=document.getElementById("lb-da"),b=document.getElementById("lb-en");if(a)a.className="langbtn"+(l==="da"?" active":"");if(b)b.className="langbtn"+(l==="en"?" active":"");document.documentElement.lang=l;}<\/script></body></html>';
+}
+function approveReport(){
+  var s=window._shown; if(!s||!s.draft){return;}
+  var did=(el('docid')||{value:''}).value.trim(), st=el('apprstatus');
+  if(!did){ if(st)st.textContent='Angiv læge-id for at godkende.'; return; }
+  fetch('/api/approve-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:el('tok').value.trim(),status:s.draft.status,event:'doctor_approve',doctorId:did})})
+   .then(function(r){return r.json();}).then(function(d){
+     if(d.error){ if(st)st.textContent='Fejl: '+d.error; return; }
+     s.draft.status=d.status; s.approval={doctorId:d.doctorId,at:d.at};
+     if(st)st.innerHTML='<span style="color:var(--optimal)">✓ Godkendt af '+esc(d.doctorId)+'</span> — generér rapport igen for godkendt udgave.';
+   }).catch(function(){ if(st)st.textContent='Netværksfejl.'; });
+}
+function openReport(){
+  var s=window._shown; if(!s||!s.draft){alert('Ingen rapport at vise endnu.');return;}
+  var w=window.open('','_blank'); if(!w){alert('Tillad pop op-vinduer for at se rapporten.');return;}
+  w.document.write(buildReportHtml(s.draft, s.name, s.age, s.history, s.approval)); w.document.close();
+}
 
 buildForm();
+
+// Kun lokal udvikling: forudfyld dev-token. På aevia.dk (produktion) forbliver
+// feltet tomt — den rigtige ADMIN_TOKEN indtastes manuelt.
+if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)){
+  el('tok').value='dev';
+  el('tok').placeholder='dev (lokal)';
+}
 </script>
 </body>
 </html>

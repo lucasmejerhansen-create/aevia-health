@@ -9,6 +9,8 @@ const cm = (id: string, status: MarkerStatus, category: ClassifiedMarker["catego
   status,
   category,
   deviation: 0,
+  optimal: [0, 1],
+  reference: [null, null],
   explanation: "",
 });
 

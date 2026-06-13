@@ -709,5 +709,350 @@ window.AEVIA_MARKERS = {
       "optimalHigh": 60,
       "decimals": 0
     }
-  ]
+  ],
+  "unitConversions": {
+    "totalkolesterol": {
+      "mg/dl": [
+        0.02586
+      ]
+    },
+    "ldl": {
+      "mg/dl": [
+        0.02586
+      ]
+    },
+    "hdl": {
+      "mg/dl": [
+        0.02586
+      ]
+    },
+    "nonhdl": {
+      "mg/dl": [
+        0.02586
+      ]
+    },
+    "triglycerid": {
+      "mg/dl": [
+        0.01129
+      ]
+    },
+    "glukose": {
+      "mg/dl": [
+        0.0555
+      ]
+    },
+    "insulin": {
+      "uiu/ml": [
+        6.945
+      ],
+      "miu/l": [
+        6.945
+      ]
+    },
+    "hba1c": {
+      "%": [
+        10.929,
+        -23.5
+      ]
+    },
+    "hscrp": {
+      "mg/dl": [
+        10
+      ]
+    },
+    "natrium": {
+      "mg/dl": [
+        0.435
+      ],
+      "mg/l": [
+        0.0435
+      ]
+    },
+    "kalium": {
+      "mg/dl": [
+        0.2558
+      ],
+      "mg/l": [
+        0.02558
+      ]
+    },
+    "calcium": {
+      "mg/dl": [
+        0.2495
+      ],
+      "mg/l": [
+        0.02495
+      ]
+    },
+    "magnesium": {
+      "mg/dl": [
+        0.4114
+      ],
+      "mg/l": [
+        0.04114
+      ]
+    },
+    "albumin": {
+      "g/dl": [
+        10
+      ]
+    },
+    "kreatinin": {
+      "mg/dl": [
+        88.42
+      ]
+    },
+    "urat": {
+      "umol/l": [
+        0.001
+      ],
+      "mg/dl": [
+        0.05948
+      ],
+      "mg/l": [
+        0.005948
+      ]
+    },
+    "karbamid": {
+      "mg/dl": [
+        0.1665
+      ]
+    },
+    "bilirubin": {
+      "mg/dl": [
+        17.1
+      ]
+    },
+    "jern": {
+      "ug/dl": [
+        0.1791
+      ],
+      "ug/l": [
+        0.01791
+      ]
+    },
+    "ferritin": {
+      "ng/ml": [
+        1
+      ]
+    },
+    "vitd": {
+      "ng/ml": [
+        2.496
+      ]
+    },
+    "b12": {
+      "pg/ml": [
+        0.7378
+      ],
+      "ng/l": [
+        0.7378
+      ]
+    },
+    "folat": {
+      "ng/ml": [
+        2.265
+      ]
+    },
+    "zink": {
+      "ug/dl": [
+        0.153
+      ],
+      "ug/l": [
+        0.0153
+      ],
+      "mg/l": [
+        15.3
+      ]
+    },
+    "selen": {
+      "ug/dl": [
+        0.1266
+      ],
+      "ug/l": [
+        0.01266
+      ]
+    },
+    "haemoglobin": {
+      "g/dl": [
+        0.6206
+      ],
+      "g/l": [
+        0.06206
+      ]
+    },
+    "leukocytter": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "neutrofile": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "lymfocytter": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "monocytter": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "eosinofile": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "basofile": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "trombocytter": {
+      "1000/ul": [
+        1
+      ],
+      "/nl": [
+        1
+      ]
+    },
+    "erytrocytter": {
+      "mill/ul": [
+        1
+      ],
+      "mio/ul": [
+        1
+      ],
+      "/pl": [
+        1
+      ]
+    },
+    "testosteron": {
+      "ng/dl": [
+        0.0347
+      ],
+      "ng/ml": [
+        34.7
+      ]
+    },
+    "oestradiol": {
+      "pg/ml": [
+        3.671
+      ]
+    },
+    "kortisol": {
+      "ug/dl": [
+        27.59
+      ]
+    }
+  },
+  "categoryAdvice": {
+    "hjerte": "De store håndtag er kost (mindre mættet fedt, mere fiber), motion og evt. medicin i samråd med læge. Små vedvarende ændringer slår store kortvarige.",
+    "blodsukker": "Protein først i måltidet, en gåtur efter maden og styrketræning er de tre mest effektive hverdagshåndtag for blodsukkeret.",
+    "inflammation": "Søvn, vægt og tandsundhed er undervurderede håndtag mod lavgradig inflammation — sammen med fed fisk og mindre alkohol.",
+    "lever": "Alkohol, vægt og visse medicintyper er de tre store for levertallene. De reagerer hurtigt — ofte målbart efter 4-6 uger.",
+    "nyrer": "Drik nok væske, hold blodtrykket i ro og vær varsom med NSAID-smertestillende (ibuprofen m.fl.) i længere perioder.",
+    "vitaminer": "Mangler rettes bedst med målrettet tilskud i dokumenteret dosis — og re-test efter ~3 måneder, så du ikke skyder over eller under.",
+    "hormoner": "Søvn, styrketræning, normalvægt og stresshåndtering er fundamentet — hormoner følger livsstilen mere end de fleste tror.",
+    "thyroidea": "Stofskiftetal tolkes altid samlet (TSH + T3/T4) og over tid. Afvigelser bør følges op hos læge frem for at behandles på egen hånd.",
+    "blodstatus": "Blodstatus afspejler ofte jern-, B12- eller folatstatus — tjek de tilhørende markører, og lad lægen vurdere afvigelser.",
+    "fysiologi": "Zone 2-kardio, styrketræning 2× ugentligt og 7-8 timers søvn er de bedst dokumenterede investeringer du kan gøre her."
+  },
+  "markerNamesEn": {
+    "totalkolesterol": "Total cholesterol",
+    "ldl": "LDL cholesterol",
+    "hdl": "HDL cholesterol",
+    "triglycerid": "Triglycerides",
+    "apob": "ApoB",
+    "apoa1": "ApoA1",
+    "apobratio": "ApoB/ApoA1 ratio",
+    "lpa": "Lipoprotein(a)",
+    "nonhdl": "Non-HDL cholesterol",
+    "omega3": "Omega-3 index",
+    "hba1c": "HbA1c (long-term blood sugar)",
+    "glukose": "Fasting glucose",
+    "insulin": "Fasting insulin",
+    "homair": "HOMA-IR (insulin sensitivity)",
+    "cpeptid": "C-peptide",
+    "hscrp": "hs-CRP",
+    "homocystein": "Homocysteine",
+    "fibrinogen": "Fibrinogen",
+    "sr": "ESR (sedimentation rate)",
+    "alat": "ALT",
+    "asat": "AST",
+    "ggt": "GGT",
+    "basiskfosfatase": "Alkaline phosphatase",
+    "bilirubin": "Bilirubin",
+    "albumin": "Albumin",
+    "kreatinin": "Creatinine",
+    "egfr": "eGFR (kidney function)",
+    "cystatinc": "Cystatin C",
+    "urat": "Urate (uric acid)",
+    "karbamid": "Urea",
+    "natrium": "Sodium",
+    "kalium": "Potassium",
+    "vitd": "Vitamin D (25-OH-D)",
+    "b12": "Vitamin B12",
+    "folat": "Folate",
+    "magnesium": "Magnesium",
+    "zink": "Zinc",
+    "jern": "Iron",
+    "ferritin": "Ferritin (iron stores)",
+    "transferrin": "Transferrin saturation",
+    "calcium": "Calcium",
+    "selen": "Selenium",
+    "testosteron": "Testosterone (total)",
+    "frittestosteron": "Free testosterone",
+    "shbg": "SHBG",
+    "oestradiol": "Estradiol",
+    "kortisol": "Cortisol (morning)",
+    "dheas": "DHEA-S",
+    "igf1": "IGF-1",
+    "prolaktin": "Prolactin",
+    "tsh": "TSH",
+    "ft4": "Free T4",
+    "ft3": "Free T3",
+    "antitpo": "Anti-TPO",
+    "haemoglobin": "Hemoglobin",
+    "haematokrit": "Hematocrit",
+    "erytrocytter": "Red blood cells",
+    "mcv": "MCV",
+    "mch": "MCH",
+    "rdw": "RDW",
+    "leukocytter": "White blood cells",
+    "neutrofile": "Neutrophils",
+    "lymfocytter": "Lymphocytes",
+    "monocytter": "Monocytes",
+    "eosinofile": "Eosinophils",
+    "basofile": "Basophils",
+    "trombocytter": "Platelets",
+    "vo2max": "VO2 max",
+    "hvilepuls": "Resting heart rate",
+    "blodtryksys": "Blood pressure (systolic)",
+    "blodtrykdia": "Blood pressure (diastolic)",
+    "fedtprocent": "Body fat percentage",
+    "taljemaal": "Waist circumference",
+    "gribestyrke": "Grip strength"
+  }
 };

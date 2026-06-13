@@ -48,11 +48,25 @@ test("heuristik: mange optimale markører → biologisk yngre end kronologisk", 
     status: "optimal" as const,
     category: "hjerte" as const,
     deviation: 0,
+    optimal: [0, 1] as [number, number],
+    reference: [null, null] as [number | null, number | null],
     explanation: "",
   }));
   const r = estimateBiologicalAge([], 50, classified);
   assert.equal(r.method, "marker-heuristic");
   assert.ok(r.estimatedAge < 50);
+});
+
+test("manglende/ugyldig alder → intet estimat (available=false), aldrig ~0 år", () => {
+  for (const badAge of [0, 10, NaN, 200]) {
+    const r = estimateBiologicalAge(fullPanel, badAge);
+    assert.equal(r.available, false);
+    assert.equal(r.biologicalAgeDisclaimer, true);
+  }
+});
+
+test("gyldig alder → available=true", () => {
+  assert.equal(estimateBiologicalAge(fullPanel, 45).available, true);
 });
 
 test("disclaimer-flaget kan aldrig være false", () => {

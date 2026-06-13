@@ -1,5 +1,6 @@
 import type { ClassificationIssue, ClassifiedMarker, MarkerInput, MarkerStatus } from "./types.js";
 import { bandsFor, markerById, markerForSex } from "./reference-data.js";
+import { convertToCanonical } from "./units.js";
 
 /**
  * TRIN 2 — DETERMINISTISK KLASSIFICERING.
@@ -41,6 +42,8 @@ export function classifyMarker(input: MarkerInput): ClassifiedMarker {
       status: "action",
       category: "fysiologi",
       deviation: 0,
+      optimal: [0, 0],
+      reference: [null, null],
       explanation: "Ukendt markør — ikke i Aevias validerede panel. Skal afklares manuelt.",
       issues: [{ code: "unknown_marker", message: `Markør-id '${input.id}' findes ikke i panelet.` }],
     };
@@ -51,12 +54,20 @@ export function classifyMarker(input: MarkerInput): ClassifiedMarker {
   if (!Number.isFinite(input.value)) {
     issues.push({ code: "non_finite_value", message: "Værdien er ikke et endeligt tal." });
   }
-  // Enheds-sikkerhed: en forkert enhed kan vende en hel klassificering. Vi afviser
-  // ikke værdien, men flagger den, så lægen ser uoverensstemmelsen.
-  if (input.unit && input.unit !== def.unit) {
+
+  // Enheds-sikkerhed: en forkert enhed kan vende en hel klassificering. Kendte
+  // fremmede enheder konverteres til kanonisk; ukendte flagges (aldrig gættet).
+  const conv = convertToCanonical(def.id, input.value, input.unit, def.unit);
+  let value = conv.value;
+  if (conv.status === "converted") {
+    issues.push({
+      code: "unit_converted",
+      message: `Konverteret fra '${conv.from}' → '${def.unit}' (×${conv.factor}${conv.offset ? ` ${conv.offset > 0 ? "+" : ""}${conv.offset}` : ""}).`,
+    });
+  } else if (conv.status === "unmatched") {
     issues.push({
       code: "unit_mismatch",
-      message: `Forventet enhed '${def.unit}', modtog '${input.unit}'.`,
+      message: `Ukendt enhed '${conv.from}' (forventet '${def.unit}') — værdien er IKKE konverteret.`,
     });
   }
 
@@ -69,26 +80,32 @@ export function classifyMarker(input: MarkerInput): ClassifiedMarker {
   }
 
   let status: MarkerStatus;
-  if (!Number.isFinite(input.value)) {
+  if (!Number.isFinite(value)) {
     status = "action"; // ubrugelig værdi → menneske skal se på det
-  } else if (inRange(input.value, bands.optimal[0], bands.optimal[1])) {
+  } else if (inRange(value, bands.optimal[0], bands.optimal[1])) {
     status = "optimal";
-  } else if (inRange(input.value, bands.reference[0], bands.reference[1])) {
+  } else if (inRange(value, bands.reference[0], bands.reference[1])) {
     status = "ok";
-  } else if (inRange(input.value, bands.watch[0], bands.watch[1])) {
+  } else if (inRange(value, bands.watch[0], bands.watch[1])) {
     status = "watch";
   } else {
     status = "action";
   }
 
+  const fin = (x: number): number | null => (Number.isFinite(x) ? x : null);
   const result: ClassifiedMarker = {
     id: def.id,
-    value: input.value,
+    value, // kanonisk værdi (evt. konverteret fra fremmed enhed)
+    // Ved ukendt enhed beholdes den rå enhed, så værdien ikke fejlmærkes kanonisk.
+    unit: conv.status === "unmatched" ? (input.unit || def.unit) : def.unit,
     status,
     category: def.category,
-    deviation: deviationFromOptimalMid(input.value, def.optimalLow, def.optimalHigh),
+    deviation: deviationFromOptimalMid(value, def.optimalLow, def.optimalHigh),
+    optimal: [def.optimalLow, def.optimalHigh], // sex-justeret (markerForSex)
+    reference: [fin(bands.reference[0]), fin(bands.reference[1])],
     explanation: def.explainer,
   };
+  if (conv.status === "converted") result.converted = { from: input.value, unit: conv.from };
   if (issues.length > 0) result.issues = issues;
   return result;
 }

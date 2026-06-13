@@ -43,10 +43,19 @@ export interface MarkerInput {
 export interface ClassifiedMarker {
   id: string;
   value: number;
+  /** Enheden `value` er udtrykt i: kanonisk ved match/konvertering, ellers den rå
+   *  input-enhed (så en ukonverteret værdi ikke fejlmærkes med kanonisk enhed). */
+  unit?: string;
+  /** Sat når værdien er enhedskonverteret — den oprindelige værdi + enhed fra rapporten. */
+  converted?: { from: number; unit: string };
   status: MarkerStatus;
   category: MarkerCategory;
   /** % afvigelse fra midtpunktet af optimal-zonen (0 = præcist i midten). */
   deviation: number;
+  /** Sex-justeret optimal-zone [low, high]. */
+  optimal: [number, number];
+  /** Sex-justeret referenceinterval [low, high]; null = åben/ingen grænse den vej. */
+  reference: [number | null, number | null];
   /** Klartekst-forklaring fra reference-data (porteret fra app'ens markers.ts). */
   explanation: string;
   /** Sande fejl-/datakvalitetssituationer der skal ses af et menneske, ikke skjules. */
@@ -55,7 +64,7 @@ export interface ClassifiedMarker {
 
 /** Datakvalitetsproblem fundet under klassificering (fx ukendt markør, forkert enhed). */
 export interface ClassificationIssue {
-  code: "unknown_marker" | "unit_mismatch" | "non_finite_value" | "unvalidated_range";
+  code: "unknown_marker" | "unit_mismatch" | "unit_converted" | "non_finite_value" | "unvalidated_range";
   message: string;
 }
 
@@ -81,6 +90,11 @@ export interface AeviaScore {
 export interface BiologicalAge {
   estimatedAge: number;
   confidenceInterval: [number, number];
+  /**
+   * false hvis estimatet ikke kan beregnes (fx manglende/ugyldig kronologisk
+   * alder). Så skal estimatedAge IKKE vises som et tal.
+   */
+  available: boolean;
   /** Hvilken model der blev brugt. */
   method: "phenoage" | "marker-heuristic";
   /** Hvor mange af modellens påkrævede input der var til stede. */
@@ -127,6 +141,8 @@ export interface ReportDraft {
   biologicalAge: BiologicalAge;
   /** Alle markører i tilstand "action" — løftes eksplicit til lægen. */
   flaggedForDoctor: ClassifiedMarker[];
+  /** Percentil vs. aldersgruppe for udvalgte fysiologiske markører (0-100). */
+  percentiles: Record<string, number>;
   status: "draft_pending_doctor";
   biologicalAgeDisclaimer: true;
   // PII er ALDRIG til stede i dette objekt

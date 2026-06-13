@@ -121,6 +121,94 @@ var MARKERS = [
   { id: "taljemaal", name: "Taljem\xE5l", unit: "cm", category: "fysiologi", optimalLow: 80, optimalHigh: 94, lowerIsBetter: true, explainer: "Det enkleste m\xE5l for det farlige bugfedt. Centimeter her flytter mere for dit helbred end kilo p\xE5 v\xE6gten.", decimals: 0 },
   { id: "gribestyrke", name: "Gribestyrke", unit: "kg", category: "fysiologi", optimalLow: 42, optimalHigh: 60, higherIsBetter: true, explainer: "Et overraskende st\xE6rkt m\xE5l for din samlede muskelstyrke og robusthed \u2014 og dermed for hvordan du \xE6ldes.", decimals: 0 }
 ];
+var MARKER_NAMES_EN = {
+  totalkolesterol: "Total cholesterol",
+  ldl: "LDL cholesterol",
+  hdl: "HDL cholesterol",
+  triglycerid: "Triglycerides",
+  apob: "ApoB",
+  apoa1: "ApoA1",
+  apobratio: "ApoB/ApoA1 ratio",
+  lpa: "Lipoprotein(a)",
+  nonhdl: "Non-HDL cholesterol",
+  omega3: "Omega-3 index",
+  hba1c: "HbA1c (long-term blood sugar)",
+  glukose: "Fasting glucose",
+  insulin: "Fasting insulin",
+  homair: "HOMA-IR (insulin sensitivity)",
+  cpeptid: "C-peptide",
+  hscrp: "hs-CRP",
+  homocystein: "Homocysteine",
+  fibrinogen: "Fibrinogen",
+  sr: "ESR (sedimentation rate)",
+  alat: "ALT",
+  asat: "AST",
+  ggt: "GGT",
+  basiskfosfatase: "Alkaline phosphatase",
+  bilirubin: "Bilirubin",
+  albumin: "Albumin",
+  kreatinin: "Creatinine",
+  egfr: "eGFR (kidney function)",
+  cystatinc: "Cystatin C",
+  urat: "Urate (uric acid)",
+  karbamid: "Urea",
+  natrium: "Sodium",
+  kalium: "Potassium",
+  vitd: "Vitamin D (25-OH-D)",
+  b12: "Vitamin B12",
+  folat: "Folate",
+  magnesium: "Magnesium",
+  zink: "Zinc",
+  jern: "Iron",
+  ferritin: "Ferritin (iron stores)",
+  transferrin: "Transferrin saturation",
+  calcium: "Calcium",
+  selen: "Selenium",
+  testosteron: "Testosterone (total)",
+  frittestosteron: "Free testosterone",
+  shbg: "SHBG",
+  oestradiol: "Estradiol",
+  kortisol: "Cortisol (morning)",
+  dheas: "DHEA-S",
+  igf1: "IGF-1",
+  prolaktin: "Prolactin",
+  tsh: "TSH",
+  ft4: "Free T4",
+  ft3: "Free T3",
+  antitpo: "Anti-TPO",
+  haemoglobin: "Hemoglobin",
+  haematokrit: "Hematocrit",
+  erytrocytter: "Red blood cells",
+  mcv: "MCV",
+  mch: "MCH",
+  rdw: "RDW",
+  leukocytter: "White blood cells",
+  neutrofile: "Neutrophils",
+  lymfocytter: "Lymphocytes",
+  monocytter: "Monocytes",
+  eosinofile: "Eosinophils",
+  basofile: "Basophils",
+  trombocytter: "Platelets",
+  vo2max: "VO2 max",
+  hvilepuls: "Resting heart rate",
+  blodtryksys: "Blood pressure (systolic)",
+  blodtrykdia: "Blood pressure (diastolic)",
+  fedtprocent: "Body fat percentage",
+  taljemaal: "Waist circumference",
+  gribestyrke: "Grip strength"
+};
+var CATEGORY_ADVICE = {
+  hjerte: "De store h\xE5ndtag er kost (mindre m\xE6ttet fedt, mere fiber), motion og evt. medicin i samr\xE5d med l\xE6ge. Sm\xE5 vedvarende \xE6ndringer sl\xE5r store kortvarige.",
+  blodsukker: "Protein f\xF8rst i m\xE5ltidet, en g\xE5tur efter maden og styrketr\xE6ning er de tre mest effektive hverdagsh\xE5ndtag for blodsukkeret.",
+  inflammation: "S\xF8vn, v\xE6gt og tandsundhed er undervurderede h\xE5ndtag mod lavgradig inflammation \u2014 sammen med fed fisk og mindre alkohol.",
+  lever: "Alkohol, v\xE6gt og visse medicintyper er de tre store for levertallene. De reagerer hurtigt \u2014 ofte m\xE5lbart efter 4-6 uger.",
+  nyrer: "Drik nok v\xE6ske, hold blodtrykket i ro og v\xE6r varsom med NSAID-smertestillende (ibuprofen m.fl.) i l\xE6ngere perioder.",
+  vitaminer: "Mangler rettes bedst med m\xE5lrettet tilskud i dokumenteret dosis \u2014 og re-test efter ~3 m\xE5neder, s\xE5 du ikke skyder over eller under.",
+  hormoner: "S\xF8vn, styrketr\xE6ning, normalv\xE6gt og stressh\xE5ndtering er fundamentet \u2014 hormoner f\xF8lger livsstilen mere end de fleste tror.",
+  thyroidea: "Stofskiftetal tolkes altid samlet (TSH + T3/T4) og over tid. Afvigelser b\xF8r f\xF8lges op hos l\xE6ge frem for at behandles p\xE5 egen h\xE5nd.",
+  blodstatus: "Blodstatus afspejler ofte jern-, B12- eller folatstatus \u2014 tjek de tilh\xF8rende mark\xF8rer, og lad l\xE6gen vurdere afvigelser.",
+  fysiologi: "Zone 2-kardio, styrketr\xE6ning 2\xD7 ugentligt og 7-8 timers s\xF8vn er de bedst dokumenterede investeringer du kan g\xF8re her."
+};
 var MARKER_INDEX = new Map(MARKERS.map((m) => [m.id, m]));
 function markerById(id) {
   return MARKER_INDEX.get(id);
@@ -166,6 +254,186 @@ function bandsFor(def, sex) {
   };
 }
 
+// src/percentiles.ts
+function bracketOf(age) {
+  if (age < 30) return "20";
+  if (age < 40) return "30";
+  if (age < 50) return "40";
+  if (age < 60) return "50";
+  return "60";
+}
+var TABLES = {
+  vo2max: {
+    male: {
+      "20": { p25: 38, p50: 43, p75: 48, p90: 53 },
+      "30": { p25: 36, p50: 41, p75: 46, p90: 51 },
+      "40": { p25: 33, p50: 38, p75: 43, p90: 48 },
+      "50": { p25: 30, p50: 35, p75: 40, p90: 45 },
+      "60": { p25: 26, p50: 31, p75: 36, p90: 41 }
+    },
+    female: {
+      "20": { p25: 33, p50: 38, p75: 43, p90: 48 },
+      "30": { p25: 31, p50: 36, p75: 41, p90: 46 },
+      "40": { p25: 28, p50: 33, p75: 38, p90: 43 },
+      "50": { p25: 25, p50: 30, p75: 35, p90: 40 },
+      "60": { p25: 22, p50: 27, p75: 32, p90: 37 }
+    }
+  },
+  gribestyrke: {
+    male: {
+      "20": { p25: 44, p50: 50, p75: 56, p90: 61 },
+      "30": { p25: 43, p50: 49, p75: 55, p90: 60 },
+      "40": { p25: 40, p50: 46, p75: 52, p90: 57 },
+      "50": { p25: 37, p50: 43, p75: 49, p90: 54 },
+      "60": { p25: 32, p50: 38, p75: 44, p90: 49 }
+    },
+    female: {
+      "20": { p25: 27, p50: 31, p75: 35, p90: 39 },
+      "30": { p25: 26, p50: 30, p75: 34, p90: 38 },
+      "40": { p25: 24, p50: 28, p75: 32, p90: 36 },
+      "50": { p25: 22, p50: 26, p75: 30, p90: 34 },
+      "60": { p25: 19, p50: 23, p75: 27, p90: 31 }
+    }
+  },
+  // Lavere er bedre: tærsklerne er faldende.
+  hvilepuls: {
+    male: {
+      "20": { p25: 70, p50: 64, p75: 57, p90: 51 },
+      "30": { p25: 70, p50: 64, p75: 57, p90: 51 },
+      "40": { p25: 71, p50: 65, p75: 58, p90: 52 },
+      "50": { p25: 71, p50: 65, p75: 58, p90: 52 },
+      "60": { p25: 71, p50: 65, p75: 58, p90: 52 }
+    },
+    female: {
+      "20": { p25: 73, p50: 67, p75: 60, p90: 54 },
+      "30": { p25: 73, p50: 67, p75: 60, p90: 54 },
+      "40": { p25: 74, p50: 68, p75: 61, p90: 55 },
+      "50": { p25: 74, p50: 68, p75: 61, p90: 55 },
+      "60": { p25: 74, p50: 68, p75: 61, p90: 55 }
+    }
+  },
+  taljemaal: {
+    male: {
+      "20": { p25: 99, p50: 92, p75: 86, p90: 81 },
+      "30": { p25: 102, p50: 95, p75: 88, p90: 83 },
+      "40": { p25: 104, p50: 97, p75: 90, p90: 85 },
+      "50": { p25: 106, p50: 99, p75: 92, p90: 87 },
+      "60": { p25: 108, p50: 101, p75: 94, p90: 88 }
+    },
+    female: {
+      "20": { p25: 88, p50: 81, p75: 75, p90: 70 },
+      "30": { p25: 91, p50: 84, p75: 77, p90: 72 },
+      "40": { p25: 94, p50: 87, p75: 80, p90: 74 },
+      "50": { p25: 97, p50: 90, p75: 82, p90: 76 },
+      "60": { p25: 99, p50: 92, p75: 84, p90: 78 }
+    }
+  }
+};
+function percentileFor(markerId, value, age, sex) {
+  if (!Number.isFinite(value) || !Number.isFinite(age)) return null;
+  const table = TABLES[markerId]?.[sex]?.[bracketOf(age)];
+  if (!table) return null;
+  const pts = [
+    [table.p25, 25],
+    [table.p50, 50],
+    [table.p75, 75],
+    [table.p90, 90]
+  ];
+  pts.sort((a, b) => a[0] - b[0]);
+  const clamp = (y) => Math.max(3, Math.min(98, Math.round(y)));
+  const seg = (a, b, v) => a[1] + (b[1] - a[1]) / (b[0] - a[0]) * (v - a[0]);
+  if (value <= pts[0][0]) return clamp(seg(pts[0], pts[1], value));
+  if (value >= pts[3][0]) return clamp(seg(pts[2], pts[3], value));
+  for (let i = 0; i < 3; i++) {
+    if (value >= pts[i][0] && value <= pts[i + 1][0]) return clamp(seg(pts[i], pts[i + 1], value));
+  }
+  return 50;
+}
+var PERCENTILE_MARKERS = Object.keys(TABLES);
+
+// src/units.ts
+function normalizeUnit(u) {
+  if (!u) return "";
+  return String(u).toLowerCase().replace(/[μµ]/g, "u").replace(/\s+/g, "").replace(/\.$/, "");
+}
+var UNIT_CONVERSIONS = {
+  // Lipider (kanonisk mmol/L) — mg/dL
+  totalkolesterol: { "mg/dl": [0.02586] },
+  ldl: { "mg/dl": [0.02586] },
+  hdl: { "mg/dl": [0.02586] },
+  nonhdl: { "mg/dl": [0.02586] },
+  triglycerid: { "mg/dl": [0.01129] },
+  // Metabolisme
+  glukose: { "mg/dl": [0.0555] },
+  insulin: { "uiu/ml": [6.945], "miu/l": [6.945] },
+  // pmol/L
+  hba1c: { "%": [10.929, -23.5] },
+  // mmol/mol = (%-2.15)×10.929
+  // Inflammation
+  hscrp: { "mg/dl": [10] },
+  // kanonisk mg/L
+  // Elektrolytter (kanonisk mmol/L) — mg/dL og mg/L
+  natrium: { "mg/dl": [0.435], "mg/l": [0.0435] },
+  kalium: { "mg/dl": [0.2558], "mg/l": [0.02558] },
+  calcium: { "mg/dl": [0.2495], "mg/l": [0.02495] },
+  magnesium: { "mg/dl": [0.4114], "mg/l": [0.04114] },
+  // Lever / nyrer
+  albumin: { "g/dl": [10] },
+  // g/L
+  kreatinin: { "mg/dl": [88.42] },
+  // µmol/L
+  urat: { "umol/l": [1e-3], "mg/dl": [0.05948], "mg/l": [5948e-6] },
+  // mmol/L
+  karbamid: { "mg/dl": [0.1665] },
+  // mmol/L (urinstof)
+  bilirubin: { "mg/dl": [17.1] },
+  // µmol/L
+  // Vitaminer / mineraler (kanonisk µmol/L medmindre andet)
+  jern: { "ug/dl": [0.1791], "ug/l": [0.01791] },
+  ferritin: { "ng/ml": [1] },
+  // µg/L (talmæssigt ens)
+  vitd: { "ng/ml": [2.496] },
+  // nmol/L
+  b12: { "pg/ml": [0.7378], "ng/l": [0.7378] },
+  // pmol/L
+  folat: { "ng/ml": [2.265] },
+  // nmol/L
+  zink: { "ug/dl": [0.153], "ug/l": [0.0153], "mg/l": [15.3] },
+  selen: { "ug/dl": [0.1266], "ug/l": [0.01266] },
+  // Blodstatus
+  haemoglobin: { "g/dl": [0.6206], "g/l": [0.06206] },
+  // mmol/L (DK-særegen enhed!)
+  // Celletællinger: fremmede notationer der talmæssigt = kanonisk (factor 1) —
+  // suppimerer falsk enheds-flag. ×10⁹/L: 1000/µl, /nl. ×10¹²/L: Mill/µl, /pl.
+  leukocytter: { "1000/ul": [1], "/nl": [1] },
+  neutrofile: { "1000/ul": [1], "/nl": [1] },
+  lymfocytter: { "1000/ul": [1], "/nl": [1] },
+  monocytter: { "1000/ul": [1], "/nl": [1] },
+  eosinofile: { "1000/ul": [1], "/nl": [1] },
+  basofile: { "1000/ul": [1], "/nl": [1] },
+  trombocytter: { "1000/ul": [1], "/nl": [1] },
+  erytrocytter: { "mill/ul": [1], "mio/ul": [1], "/pl": [1] },
+  // Hormoner
+  testosteron: { "ng/dl": [0.0347], "ng/ml": [34.7] },
+  // nmol/L
+  oestradiol: { "pg/ml": [3.671] },
+  // pmol/L
+  kortisol: { "ug/dl": [27.59] }
+  // nmol/L
+};
+function convertToCanonical(markerId, value, unit, canonicalUnit) {
+  const u = normalizeUnit(unit);
+  const c = normalizeUnit(canonicalUnit);
+  if (!u) return { status: "no-unit", value };
+  if (u === c) return { status: "match", value };
+  const conv = UNIT_CONVERSIONS[markerId]?.[u];
+  if (conv) {
+    const [factor, offset = 0] = conv;
+    return { status: "converted", value: value * factor + offset, from: unit, factor, offset };
+  }
+  return { status: "unmatched", value, from: unit };
+}
+
 // src/classify.ts
 function inRange(value, low, high) {
   return value >= low && value <= high;
@@ -185,6 +453,8 @@ function classifyMarker(input) {
       status: "action",
       category: "fysiologi",
       deviation: 0,
+      optimal: [0, 0],
+      reference: [null, null],
       explanation: "Ukendt mark\xF8r \u2014 ikke i Aevias validerede panel. Skal afklares manuelt.",
       issues: [{ code: "unknown_marker", message: `Mark\xF8r-id '${input.id}' findes ikke i panelet.` }]
     };
@@ -193,10 +463,17 @@ function classifyMarker(input) {
   if (!Number.isFinite(input.value)) {
     issues.push({ code: "non_finite_value", message: "V\xE6rdien er ikke et endeligt tal." });
   }
-  if (input.unit && input.unit !== def.unit) {
+  const conv = convertToCanonical(def.id, input.value, input.unit, def.unit);
+  let value = conv.value;
+  if (conv.status === "converted") {
+    issues.push({
+      code: "unit_converted",
+      message: `Konverteret fra '${conv.from}' \u2192 '${def.unit}' (\xD7${conv.factor}${conv.offset ? ` ${conv.offset > 0 ? "+" : ""}${conv.offset}` : ""}).`
+    });
+  } else if (conv.status === "unmatched") {
     issues.push({
       code: "unit_mismatch",
-      message: `Forventet enhed '${def.unit}', modtog '${input.unit}'.`
+      message: `Ukendt enhed '${conv.from}' (forventet '${def.unit}') \u2014 v\xE6rdien er IKKE konverteret.`
     });
   }
   const bands = bandsFor(def, input.sex);
@@ -207,25 +484,33 @@ function classifyMarker(input) {
     });
   }
   let status;
-  if (!Number.isFinite(input.value)) {
+  if (!Number.isFinite(value)) {
     status = "action";
-  } else if (inRange(input.value, bands.optimal[0], bands.optimal[1])) {
+  } else if (inRange(value, bands.optimal[0], bands.optimal[1])) {
     status = "optimal";
-  } else if (inRange(input.value, bands.reference[0], bands.reference[1])) {
+  } else if (inRange(value, bands.reference[0], bands.reference[1])) {
     status = "ok";
-  } else if (inRange(input.value, bands.watch[0], bands.watch[1])) {
+  } else if (inRange(value, bands.watch[0], bands.watch[1])) {
     status = "watch";
   } else {
     status = "action";
   }
+  const fin = (x) => Number.isFinite(x) ? x : null;
   const result = {
     id: def.id,
-    value: input.value,
+    value,
+    // kanonisk værdi (evt. konverteret fra fremmed enhed)
+    // Ved ukendt enhed beholdes den rå enhed, så værdien ikke fejlmærkes kanonisk.
+    unit: conv.status === "unmatched" ? input.unit || def.unit : def.unit,
     status,
     category: def.category,
-    deviation: deviationFromOptimalMid(input.value, def.optimalLow, def.optimalHigh),
+    deviation: deviationFromOptimalMid(value, def.optimalLow, def.optimalHigh),
+    optimal: [def.optimalLow, def.optimalHigh],
+    // sex-justeret (markerForSex)
+    reference: [fin(bands.reference[0]), fin(bands.reference[1])],
     explanation: def.explainer
   };
+  if (conv.status === "converted") result.converted = { from: input.value, unit: conv.from };
   if (issues.length > 0) result.issues = issues;
   return result;
 }
@@ -313,6 +598,19 @@ function confidenceHalfWidth(method, inputsUsed) {
 function estimateBiologicalAge(markers, chronologicalAge, classified) {
   const values = new Map(markers.map((m) => [m.id, m.value]));
   const pheno = extractPhenoInputs(values);
+  const phenoIds = ["albumin", "kreatinin", "glukose", "hscrp", "lymfocytter", "leukocytter", "mcv", "rdw", "basiskfosfatase"];
+  const ageValid = Number.isFinite(chronologicalAge) && chronologicalAge >= 18 && chronologicalAge <= 110;
+  if (!ageValid) {
+    return {
+      estimatedAge: 0,
+      confidenceInterval: [0, 0],
+      available: false,
+      method: pheno ? "phenoage" : "marker-heuristic",
+      inputsUsed: pheno ? REQUIRED_INPUTS : phenoIds.filter((id) => values.has(id)).length,
+      inputsRequired: REQUIRED_INPUTS,
+      biologicalAgeDisclaimer: true
+    };
+  }
   if (pheno) {
     const raw = phenoAgeYears(pheno, chronologicalAge);
     const estimatedAge2 = Math.round(raw);
@@ -320,19 +618,20 @@ function estimateBiologicalAge(markers, chronologicalAge, classified) {
     return {
       estimatedAge: estimatedAge2,
       confidenceInterval: [Math.round(estimatedAge2 - half2), Math.round(estimatedAge2 + half2)],
+      available: true,
       method: "phenoage",
       inputsUsed: REQUIRED_INPUTS,
       inputsRequired: REQUIRED_INPUTS,
       biologicalAgeDisclaimer: true
     };
   }
-  const phenoIds = ["albumin", "kreatinin", "glukose", "hscrp", "lymfocytter", "leukocytter", "mcv", "rdw", "basiskfosfatase"];
   const inputsUsed = phenoIds.filter((id) => values.has(id)).length;
   const estimatedAge = Math.round(heuristicAge(classified ?? [], chronologicalAge));
   const half = confidenceHalfWidth("marker-heuristic", inputsUsed);
   return {
     estimatedAge,
     confidenceInterval: [Math.round(estimatedAge - half), Math.round(estimatedAge + half)],
+    available: true,
     method: "marker-heuristic",
     inputsUsed,
     inputsRequired: REQUIRED_INPUTS,
@@ -524,8 +823,15 @@ function buildReportDraft(raw, ctx) {
   const deid = deidentify(raw);
   const classifiedMarkers = classifyAll(deid.markers);
   const aeviaScore = computeAeviaScore(classifiedMarkers, ctx);
-  const biologicalAge = estimateBiologicalAge(raw.markers, raw.age, classifiedMarkers);
+  const biologicalAge = estimateBiologicalAge(classifiedMarkers, raw.age, classifiedMarkers);
   const flaggedForDoctor = classifiedMarkers.filter((m) => m.status === "action");
+  const percentiles = {};
+  for (const id of PERCENTILE_MARKERS) {
+    const m = classifiedMarkers.find((c) => c.id === id);
+    if (!m) continue;
+    const p = percentileFor(id, m.value, raw.age, raw.sex);
+    if (p != null) percentiles[id] = p;
+  }
   const draft = {
     pseudoId: deid.pseudoId,
     ageBand: deid.ageBand,
@@ -534,6 +840,7 @@ function buildReportDraft(raw, ctx) {
     aeviaScore,
     biologicalAge,
     flaggedForDoctor,
+    percentiles,
     status: "draft_pending_doctor",
     biologicalAgeDisclaimer: true
   };
@@ -541,11 +848,15 @@ function buildReportDraft(raw, ctx) {
   return draft;
 }
 export {
+  CATEGORY_ADVICE,
   DoctorActionRequiredError,
   IllegalTransitionError,
   MARKERS,
+  MARKER_NAMES_EN,
+  PERCENTILE_MARKERS,
   RANGE_MODEL,
   ReportPipeline,
+  UNIT_CONVERSIONS,
   ageBandOf,
   assertNoPII,
   bandsFor,
@@ -553,11 +864,14 @@ export {
   classifyAll,
   classifyMarker,
   computeAeviaScore,
+  convertToCanonical,
   deidentify,
   estimateBiologicalAge,
   markerById,
   markerByIdForSex,
   markerForSex,
   nextState,
+  normalizeUnit,
+  percentileFor,
   scoreLabel
 };
