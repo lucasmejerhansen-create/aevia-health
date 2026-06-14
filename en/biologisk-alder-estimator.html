@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test your biological age (free estimate) | Aevia Health</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Test your biological age (free estimate) | Aevia Health">
+<meta property="og:description" content="Get a quick, free estimate of your biological age from your lifestyle. Take the test in a minute — and see how a precise Aevia check can measure it properly.">
+<meta property="og:url" content="https://aevia.dk/en/biologisk-alder-estimator.html">
+<meta property="og:image" content="https://aevia.dk/og-image.png">
 <meta property="og:image" content="https://aevia.dk/assets/og/biologisk-alder-estimator-en.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Get a quick, free estimate of your biological age from your lifestyle. Take the test in a minute — and see how a precise Aevia check can measure it properly.">
@@ -15,11 +20,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png"><link rel="manifest" href="../manifest.json"><meta name="theme-color" content="#0a1628">
+<link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png"><link rel="manifest" href="../manifest.json"><meta name="theme-color" content="#ffffff">
 <style>
-:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;--line:#e6eaef;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+body{font-family:var(--sans);background:#ffffff;color:var(--text);line-height:1.6}
 .wrap{max-width:680px;margin:0 auto;padding:24px 20px 80px}
 .top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 24px}
 .logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
@@ -34,10 +39,10 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 .opts input{position:absolute;opacity:0;width:0;height:0}
 .opts span{display:inline-block;padding:9px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:.9rem;color:var(--muted);transition:all .15s ease}
 .opts label:hover span{border-color:var(--gold);color:var(--text)}
-.opts input:checked + span{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
-.q input[type=number]{width:120px;padding:11px 14px;border:1px solid var(--line-2);background:var(--navy);color:var(--text);border-radius:10px;font:inherit;-moz-appearance:textfield;appearance:textfield}
+.opts input:checked + span{background:var(--text);color:#fff;border-color:var(--gold);font-weight:600}
+.q input[type=number]{width:120px;padding:11px 14px;border:1px solid var(--line-2);background:#ffffff;color:var(--text);border-radius:10px;font:inherit;-moz-appearance:textfield;appearance:textfield}
 .q input[type=number]::-webkit-outer-spin-button,.q input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--gold);color:var(--navy);transition:all .2s ease;font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--text);color:#fff;transition:all .2s ease;font-family:inherit}
 .btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
 .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
 .result{display:none;background:var(--navy-2);border:1px solid var(--gold);border-radius:16px;padding:28px;margin-top:8px;text-align:center}
@@ -140,18 +145,18 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
     </div>
     
     <div style="margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;text-align:left">
-      <strong style="display:block;color:#f5f5f0;font-size:1rem;margin-bottom:4px">Get your result + free longevity checklist by email</strong>
-      <p style="font-size:.88rem;color:#94a0b2;margin:0 0 14px">We will send your estimate and a concrete checklist to move it.</p>
+      <strong style="display:block;color:#0a1628;font-size:1rem;margin-bottom:4px">Get your result + free longevity checklist by email</strong>
+      <p style="font-size:.88rem;color:#697585;margin:0 0 14px">We will send your estimate and a concrete checklist to move it.</p>
       <form id="bioform" action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return bioLm(event)" style="display:flex;flex-direction:column;gap:10px;background:none;border:none;padding:0;margin:0">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
         <input type="hidden" name="kilde" value="Biologisk alder-estimator EN">
         <input type="hidden" name="estimat" id="lm-est" value="">
         <input type="hidden" name="detaljer" id="lm-detaljer" value="">
-        <input name="email" type="email" required aria-label="E-mail" placeholder="you@email.com" style="width:100%;background:#0a1628;border:1px solid #28394f;border-radius:10px;padding:12px 14px;color:#f5f5f0;font-family:inherit;font-size:.95rem">
-        <label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:#94a0b2;line-height:1.4"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"> <span>I agree that Aevia may send me the checklist and relevant insights, see the <a href="privatlivspolitik.html" style="color:#c9a437">privacy policy</a>.</span></label>
+        <input name="email" type="email" required aria-label="E-mail" placeholder="you@email.com" style="width:100%;background:#ffffff;border:1px solid #d4dbe3;border-radius:10px;padding:12px 14px;color:#0a1628;font-family:inherit;font-size:.95rem">
+        <label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:#697585;line-height:1.4"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"> <span>I agree that Aevia may send me the checklist and relevant insights, see the <a href="privatlivspolitik.html" style="color:#c9a437">privacy policy</a>.</span></label>
         <button class="btn" type="submit" style="width:100%">Send it to me</button>
       </form>
-      <div id="lm-ok" style="display:none;background:#142840;border:1px solid #c9a437;border-radius:10px;padding:14px;color:#f5f5f0;font-size:.92rem;margin-top:10px">Thanks! It is on its way to your inbox.</div>
+      <div id="lm-ok" style="display:none;background:#eef2f7;border:1px solid #c9a437;border-radius:10px;padding:14px;color:#0a1628;font-size:.92rem;margin-top:10px">Thanks! It is on its way to your inbox.</div>
     </div>
     <p class="disc">This is a rough, non-binding estimate based on lifestyle — not a measurement. Your real biological age is calculated from 70+ biomarkers in your blood and approved by a physician.</p>
   </div>
@@ -203,15 +208,15 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
     /* Factor-by-factor breakdown */
     var bd=document.getElementById('breakdown');
     if(bd){
-      var h='<strong style="display:block;color:#f5f5f0;font-size:.98rem;margin-bottom:10px">How your estimate is made up</strong>';
+      var h='<strong style="display:block;color:#0a1628;font-size:.98rem;margin-bottom:10px">How your estimate is made up</strong>';
       rows.forEach(function(rw){
         var c=rw.v<0?'#7fd4a6':(rw.v>0?'#e0a06b':'#94a0b2');
         var b=rw.v<0?('−'+Math.abs(rw.v)+' yrs'):(rw.v>0?('+'+rw.v+' yrs'):'±0');
-        h+='<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem"><span style="color:#aab4c2"><strong style="color:#f5f5f0;font-weight:600">'+LABELS[rw.g]+'</strong> · '+rw.txt+'</span><span style="flex:none;font-weight:600;color:'+c+'">'+b+'</span></div>';
+        h+='<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem"><span style="color:#46505f"><strong style="color:#0a1628;font-weight:600">'+LABELS[rw.g]+'</strong> · '+rw.txt+'</span><span style="flex:none;font-weight:600;color:'+c+'">'+b+'</span></div>';
       });
       var worst=rows.filter(function(rw){return rw.v>0;}).sort(function(a,b){return b.v-a.v;})[0];
-      h+='<p style="font-size:.88rem;color:#aab4c2;margin:12px 0 0;line-height:1.55">'+(worst?('<strong style="color:#f5f5f0">Biggest gain available: '+LABELS[worst.g].toLowerCase()+'.</strong> '+TIPS[worst.g]):'<strong style="color:#f5f5f0">No red flags.</strong> Keep it up — a measurement can show whether your blood agrees with your lifestyle.')+'</p>';
-      h+='<p style="font-size:.78rem;color:#94a0b2;margin:10px 0 0;line-height:1.5">Method: each habit adds or subtracts years from your chronological age based on known associations in the research (roughly weighted). The estimate cannot go below 18 years. It is a pointer — not a measurement.</p>';
+      h+='<p style="font-size:.88rem;color:#46505f;margin:12px 0 0;line-height:1.55">'+(worst?('<strong style="color:#0a1628">Biggest gain available: '+LABELS[worst.g].toLowerCase()+'.</strong> '+TIPS[worst.g]):'<strong style="color:#0a1628">No red flags.</strong> Keep it up — a measurement can show whether your blood agrees with your lifestyle.')+'</p>';
+      h+='<p style="font-size:.78rem;color:#697585;margin:10px 0 0;line-height:1.5">Method: each habit adds or subtracts years from your chronological age based on known associations in the research (roughly weighted). The estimate cannot go below 18 years. It is a pointer — not a measurement.</p>';
       bd.innerHTML=h;
     }
     var _lf=document.getElementById('lm-est');
@@ -245,10 +250,10 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
   <p class="aevc-disc">AI assistant, general information, not medical advice. If in doubt: <a href="book.html">book a time</a>.</p>
 </div>
 <style>
-#aevc-btn{position:fixed;right:22px;bottom:22px;z-index:300;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border:none;border-radius:999px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-weight:600;font-size:.95rem;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .15s ease,background .2s ease}
+#aevc-btn{position:fixed;right:22px;bottom:22px;z-index:300;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border:none;border-radius:999px;background:var(--text);color:#fff;font-family:var(--sans);font-weight:600;font-size:.95rem;cursor:pointer;box-shadow:0 12px 30px rgba(10,22,40,.1);transition:transform .15s ease,background .2s ease}
 #aevc-btn:hover{background:var(--gold-deep);transform:translateY(-1px)}#aevc-btn:active{transform:scale(.96)}
 #aevc-btn svg{width:20px;height:20px}
-#aevc-panel{position:fixed;right:22px;bottom:84px;z-index:300;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);background:var(--navy-2);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;font-family:var(--sans);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .22s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
+#aevc-panel{position:fixed;right:22px;bottom:84px;z-index:300;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);background:var(--navy-2);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 24px 60px rgba(10,22,40,.13);display:flex;flex-direction:column;overflow:hidden;font-family:var(--sans);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .22s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
 #aevc-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .22s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .aevc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(160deg,var(--navy-3),var(--navy-2))}
 .aevc-head strong{font-family:var(--serif);color:var(--text);font-size:1.05rem;display:block}
@@ -259,14 +264,14 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 .aevc-msg{max-width:85%;padding:11px 14px;border-radius:14px;font-size:.92rem;line-height:1.55;animation:aevcIn .26s cubic-bezier(.2,.8,.2,1) both}@keyframes aevcIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 .aevc-bot{align-self:flex-start;background:var(--navy-3);color:var(--muted);border:1px solid var(--line);border-bottom-left-radius:4px}
 .aevc-bot a{color:var(--gold)}
-.aevc-user{align-self:flex-end;background:var(--gold);color:var(--navy);font-weight:500;border-bottom-right-radius:4px}
+.aevc-user{align-self:flex-end;background:var(--text);color:#fff;font-weight:500;border-bottom-right-radius:4px}
 .aevc-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 10px}
 .aevc-chip{background:none;border:1px solid var(--line-2);color:var(--muted);border-radius:999px;padding:7px 12px;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .15s ease}
 .aevc-chip:hover{border-color:var(--gold);color:var(--text)}
 #aevc-form{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
-#aevc-input{flex:1;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;color:var(--text);font-family:inherit;font-size:.92rem}
+#aevc-input{flex:1;background:#ffffff;border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;color:var(--text);font-family:inherit;font-size:.92rem}
 #aevc-input:focus{outline:none;border-color:var(--gold)}
-#aevc-form button{flex:none;width:44px;border:none;border-radius:10px;background:var(--gold);color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:center}
+#aevc-form button{flex:none;width:44px;border:none;border-radius:10px;background:var(--text);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 #aevc-form button:hover{background:var(--gold-deep)}
 #aevc-form button svg{width:18px;height:18px}
 .aevc-disc{font-size:.74rem;color:var(--muted-2);text-align:center;padding:0 14px 12px;margin:0}
@@ -293,7 +298,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
    {k:["test my age","estimate my age","free test","self-test"],a:"Try our free <a href='biologisk-alder-estimator.html'>biological age test</a>, a quick estimate from your lifestyle."},
    {k:["cancel","refund","money back","reschedule"],a:"You can cancel or move your appointment, contact us as soon as possible. See terms in our <a href='handelsbetingelser.html'>terms</a>."},
    {k:["vat"],a:"Prices are shown incl. VAT. Write to us for the price incl. VAT for your situation."},
-   {k:["how long does it take","duration","how quickly","take in total"],a:"The testing itself usually takes under two hours of your time; your report is ready within 10 working days and reviewed 1:1."},
+   {k:["how long does it take","duration","how quickly","take in total"],a:"The testing itself usually takes under two hours of your time; your report is ready within 10 working days and reviewed by a physician."},
    {k:["how is it calculated","method behind","how is biological age"],a:"Your biological age is calculated from a combination of biomarkers (inflammation, metabolism, kidneys, lipids, blood count) weighted by their link to ageing. It is a model, not a diagnosis."},
 /*GLOS*/
    {k:["homocystein"],a:"Homocysteine is an amino acid. High levels raise heart and brain risk and can often be lowered with B vitamins. Measured in our blood panel."},
@@ -336,7 +341,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
    {k:["bryan johnson","blueprint","longevity"],a:"Longevity is about measuring, changing one thing at a time and following up, without the extremes. Read our take on the <a href='bryan-johnson.html'>Bryan Johnson method</a>."},
    {k:["who performs","clinic","lab","laboratory","specialist"],a:"Aevia does not run its own clinic. We coordinate your diagnostics through accredited laboratories, imaging centres and specialist physicians and gather it all into one report. See <a href='proces.html'>How it works</a>."},
    {k:["confidential","gdpr","data","employer","boss","see my","privacy","secure","anonymous"],a:"Your health data is sensitive (GDPR Art. 9): encrypted storage, never shared with an employer. Companies only get an <strong>anonymised team report</strong>, never individual numbers. Never write health information here in the chat. More in the <a href='privatlivspolitik.html'>privacy policy</a>."},
-   {k:["when","delivery","report","result","how long","time"],a:"You receive your report within <strong>10 working days</strong> of your final test, reviewed 1:1 with a health specialist."},
+   {k:["when","delivery","report","result","how long","time"],a:"You receive your report within <strong>10 working days</strong> of your final test, reviewed by a physician."},
    {k:["book","booking","time","conversation","call","contact","mail","phone"],a:"Book your time directly on the <a href='book.html'>booking page</a>, call +45 28 30 39 33 or write to <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
    {k:["buy","payment","pay","online","invoice","card","instalment"],a:"The three private packages can be bought online by card or on invoice. Company agreements are arranged via contact. Go to <a href='pakker.html'>Packages</a>."},
    {k:["company","employee","team","staff","workplace","corporate","hr"],a:"For companies we gather the team's results into an anonymised team report, the employer never sees individual numbers, and participation is voluntary. Read <a href='virksomheder.html'>Companies</a>."},
@@ -381,19 +386,16 @@ function bioLm(e){e.preventDefault();var f=document.getElementById('bioform');tr
 </script>
 
 <!-- Analytics + samtykke -->
-<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.6);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
-<p style="margin:0 0 14px;color:#aab4c2;font-size:.92rem;line-height:1.5"><strong style="color:#f5f5f0">We respect your data.</strong> Aevia uses cookies to measure anonymous traffic (Google Analytics 4, Microsoft Clarity). Health data is never collected via the website.</p>
+<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#ffffff;border:1px solid #d4dbe3;border-radius:14px;padding:20px 22px;box-shadow:0 16px 40px rgba(10,22,40,.14);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<p style="margin:0 0 14px;color:#46505f;font-size:.92rem;line-height:1.5"><strong style="color:#0a1628">We respect your data.</strong> Aevia uses cookies to measure anonymous traffic (Google Analytics 4, Microsoft Clarity). Health data is never collected via the website.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
-<button onclick="aevSetCookie(true)" style="background:#c9a437;color:#0a1628;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accept all</button>
-<button onclick="aevSetCookie(false)" style="background:none;color:#aab4c2;border:1px solid #28394f;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Necessary only</button>
+<button onclick="aevSetCookie(true)" style="background:#0a1628;color:#fff;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accept all</button>
+<button onclick="aevSetCookie(false)" style="background:none;color:#46505f;border:1px solid #d4dbe3;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Necessary only</button>
 </div></div>
 <script>
 var AEVIA_GA4='G-8J87JYSBZG';var AEVIA_CLARITY='x15dq7rsz1';
-function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;
- if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',AEVIA_GA4);}
- if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}
-(function(){try{var c=localStorage.getItem('aevia_cookie');if(!c){document.getElementById('aevcb').style.display='block';}else if(c==='all'){aevLoadAnalytics();}}catch(e){document.getElementById('aevcb').style.display='block';}})();
-function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}document.getElementById('aevcb').style.display='none';if(all)aevLoadAnalytics();}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function aevLoadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}aevLoadAnalytics();if(c==='all'){aevGrant();aevLoadClarity();}else if(!c){try{document.getElementById('aevcb').style.display='block';}catch(e){}}})();function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('aevcb').style.display='none';}catch(e){}if(all){aevGrant();aevLoadClarity();}}
 </script>
+<script>(function(){function ev(n,p){try{if(window.gtag)gtag("event",n,p||{});}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";var t=(a.textContent||"").trim().slice(0,60);if(/book\.html/.test(h)){var pk=(h.match(/pakke=([a-z]+)/)||[])[1];ev("book_cta_click",{label:t,package:pk||"none",page:location.pathname});}else if(a.classList&&a.classList.contains("nav-cta")){ev("book_cta_click",{label:"nav",page:location.pathname});}else if(/pakker\.html/.test(h)){ev("packages_view_click",{label:t,page:location.pathname});}},{passive:true});})();</script>
 </body>
 </html>
