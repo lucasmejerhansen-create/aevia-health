@@ -741,11 +741,11 @@ function assertNoPII(obj, context = "AI-payload") {
     if (node == null || typeof node !== "object") return;
     if (seen.has(node)) return;
     seen.add(node);
-    for (const [key, val] of Object.entries(node)) {
+    for (const [key, val2] of Object.entries(node)) {
       if (PII_KEYS.includes(key.toLowerCase())) {
         throw new Error(`PII-l\xE6kage blokeret: feltet '${key}' fundet i ${context}.`);
       }
-      walk(val);
+      walk(val2);
     }
   };
   walk(obj);
@@ -818,6 +818,200 @@ var ReportPipeline = class {
   }
 };
 
+// src/clinical.ts
+function find(cm, id) {
+  return cm.find((c) => c.id === id);
+}
+function val(cm, id) {
+  const m = find(cm, id);
+  return m && Number.isFinite(m.value) ? m.value : null;
+}
+function isHigh(cm, id) {
+  const m = find(cm, id);
+  return !!m && Number.isFinite(m.value) && m.value > m.optimal[1];
+}
+function isLow(cm, id) {
+  const m = find(cm, id);
+  return !!m && Number.isFinite(m.value) && m.value < m.optimal[0];
+}
+function present(cm, ids) {
+  return ids.filter((id) => find(cm, id));
+}
+function detectPatterns(cm) {
+  const out = [];
+  const hi = (id) => isHigh(cm, id);
+  const lo = (id) => isLow(cm, id);
+  if ((hi("alat") || hi("ggt")) && (hi("triglycerid") || hi("fedtprocent") || hi("taljemaal"))) {
+    out.push({
+      id: "fatty_liver",
+      label: "Muligt fedtlever-m\xF8nster",
+      severity: "watch",
+      detail: "Forh\xF8jede leverenzymer sammen med tegn p\xE5 metabolisk belastning.",
+      markers: present(cm, ["alat", "ggt", "triglycerid", "fedtprocent", "taljemaal"])
+    });
+  }
+  if (lo("b12") && (hi("homocystein") || hi("mcv"))) {
+    out.push({
+      id: "b12_deficiency",
+      label: "B12-mangel-m\xF8nster",
+      severity: "watch",
+      detail: "Lav B12 sammen med forh\xF8jet homocystein og/eller MCV.",
+      markers: present(cm, ["b12", "homocystein", "mcv"])
+    });
+  }
+  if (lo("ferritin") && (lo("transferrin") || lo("haemoglobin") || lo("mcv"))) {
+    out.push({
+      id: "iron_deficiency",
+      label: "Jernmangel-m\xF8nster",
+      severity: "watch",
+      detail: "Lave jerndepoter sammen med tegn p\xE5 begyndende blodmangel.",
+      markers: present(cm, ["ferritin", "transferrin", "haemoglobin", "mcv"])
+    });
+  }
+  if (hi("hscrp") && (hi("fibrinogen") || hi("sr"))) {
+    out.push({
+      id: "inflammation",
+      label: "Forh\xF8jet systemisk inflammation",
+      severity: "watch",
+      detail: "Flere inflammationsmark\xF8rer er forh\xF8jede samtidig.",
+      markers: present(cm, ["hscrp", "fibrinogen", "sr"])
+    });
+  }
+  if (hi("tsh") && (lo("ft4") || lo("ft3"))) {
+    out.push({
+      id: "hypothyroid",
+      label: "Muligt lavt stofskifte",
+      severity: "action",
+      detail: "Forh\xF8jet TSH sammen med lavt frit T4/T3 \u2014 b\xF8r vurderes af l\xE6ge.",
+      markers: present(cm, ["tsh", "ft4", "ft3"])
+    });
+  }
+  return out;
+}
+function assessRisks(cm, sex) {
+  const out = [];
+  const crit = [];
+  const waist = val(cm, "taljemaal");
+  const wThr = sex === "female" ? 88 : 102;
+  if (waist != null && waist >= wThr) crit.push(`taljem\xE5l \u2265${wThr} cm`);
+  const tg = val(cm, "triglycerid");
+  if (tg != null && tg >= 1.7) crit.push("triglycerid \u22651,7 mmol/L");
+  const hdl = val(cm, "hdl");
+  const hThr = sex === "female" ? 1.3 : 1;
+  if (hdl != null && hdl < hThr) crit.push(`HDL <${hThr} mmol/L`);
+  const sys = val(cm, "blodtryksys");
+  const dia = val(cm, "blodtrykdia");
+  if (sys != null && sys >= 130 || dia != null && dia >= 85) crit.push("blodtryk \u2265130/85 mmHg");
+  const glu = val(cm, "glukose");
+  if (glu != null && glu >= 5.6) crit.push("fasteglukose \u22655,6 mmol/L");
+  if (crit.length >= 3) {
+    out.push({
+      id: "metabolic_syndrome",
+      label: "Metabolisk syndrom",
+      severity: "action",
+      detail: `${crit.length} af 5 kriterier opfyldt (\u22653 = metabolisk syndrom, ATP III).`,
+      criteria: crit
+    });
+  } else if (crit.length === 2) {
+    out.push({
+      id: "metabolic_risk",
+      label: "Begyndende metabolisk risiko",
+      severity: "watch",
+      detail: "2 af 5 kriterier for metabolisk syndrom opfyldt.",
+      criteria: crit
+    });
+  }
+  const homa = val(cm, "homair");
+  const ins = val(cm, "insulin");
+  if (homa != null && homa >= 2.5 || ins != null && ins > 80) {
+    out.push({
+      id: "insulin_resistance",
+      label: "Insulinresistens",
+      severity: "action",
+      detail: "HOMA-IR/fasteinsulin tyder p\xE5 nedsat insulinf\xF8lsomhed.",
+      criteria: [homa != null ? `HOMA-IR ${homa}` : "", ins != null ? `fasteinsulin ${ins} pmol/L` : ""].filter(Boolean)
+    });
+  } else if (homa != null && homa >= 2 || ins != null && ins > 60) {
+    out.push({
+      id: "insulin_watch",
+      label: "Tidlig insulinresistens",
+      severity: "watch",
+      detail: "Let forh\xF8jet HOMA-IR/fasteinsulin \u2014 et tidligt signal f\xF8r blodsukkeret reagerer.",
+      criteria: [homa != null ? `HOMA-IR ${homa}` : "", ins != null ? `fasteinsulin ${ins} pmol/L` : ""].filter(Boolean)
+    });
+  }
+  const lipidCrit = [];
+  if (isHigh(cm, "apob")) lipidCrit.push("ApoB forh\xF8jet");
+  if (isHigh(cm, "ldl")) lipidCrit.push("LDL forh\xF8jet");
+  const lpa = val(cm, "lpa");
+  if (lpa != null && lpa > 75) lipidCrit.push("Lp(a) >75 nmol/L (arvelig)");
+  if (lipidCrit.length > 0) {
+    const severe = isHigh(cm, "apob") || lpa != null && lpa > 125;
+    out.push({
+      id: "cvd_lipid_burden",
+      label: "Forh\xF8jet hjerte-kar-lipidbyrde",
+      severity: severe ? "action" : "watch",
+      detail: "Aterogene lipider er forh\xF8jede. Bem\xE6rk: ikke en fuld risikoscore (rygestatus/blodtrykshistorik mangler).",
+      criteria: lipidCrit
+    });
+  }
+  return out;
+}
+var CATEGORY_FOCUS = {
+  hjerte: { title: "S\xE6nk hjerte-kar-risiko", evidence: "st\xE6rk" },
+  blodsukker: { title: "Stabilis\xE9r blodsukker & insulin", evidence: "st\xE6rk" },
+  inflammation: { title: "D\xE6mp lavgradig inflammation", evidence: "moderat" },
+  lever: { title: "Aflast leveren", evidence: "moderat" },
+  nyrer: { title: "St\xF8t nyrer & v\xE6skebalance", evidence: "moderat" },
+  vitaminer: { title: "Ret vitamin-/mineralmangel", evidence: "moderat" },
+  hormoner: { title: "Balanc\xE9r hormoner via livsstil", evidence: "moderat" },
+  thyroidea: { title: "F\xF8lg op p\xE5 stofskiftet", evidence: "moderat" },
+  blodstatus: { title: "Afklar blod-/jernstatus", evidence: "moderat" },
+  fysiologi: { title: "L\xF8ft kondition & kropskomposition", evidence: "st\xE6rk" }
+};
+function buildActionPlan(cm) {
+  const flagged = cm.filter((m) => m.status === "action" || m.status === "watch");
+  const byCat = /* @__PURE__ */ new Map();
+  for (const m of flagged) {
+    const arr = byCat.get(m.category) ?? [];
+    arr.push(m);
+    byCat.set(m.category, arr);
+  }
+  const cats = [...byCat.entries()].sort((a, b) => {
+    const aAct = a[1].some((m) => m.status === "action") ? 0 : 1;
+    const bAct = b[1].some((m) => m.status === "action") ? 0 : 1;
+    return aAct - bAct;
+  });
+  const out = cats.map(([cat, ms]) => {
+    const focus = CATEGORY_FOCUS[cat];
+    return { category: cat, title: focus.title, why: CATEGORY_ADVICE[cat], markerIds: ms.map((m) => m.id), evidence: focus.evidence };
+  });
+  out.push({
+    category: "fysiologi",
+    title: "Re-test om 3-12 m\xE5neder",
+    why: "Mangler og livsstilsmark\xF8rer re-testes efter ~3 m\xE5neder; de fleste \xF8vrige efter 12 m\xE5neder, s\xE5 du kan se effekten.",
+    markerIds: [],
+    evidence: "st\xE6rk"
+  });
+  return out;
+}
+function healthspanPhase(scoreTotal, actionCount) {
+  if (scoreTotal >= 85 && actionCount === 0)
+    return { phase: "optimering", label: "Optimering", rationale: "St\xE6rkt udgangspunkt \u2014 fokus p\xE5 at fastholde og finjustere." };
+  if (scoreTotal >= 70 && actionCount <= 1)
+    return { phase: "vedligehold", label: "Vedligehold", rationale: "Solidt niveau med f\xE5 indsatsomr\xE5der." };
+  if (scoreTotal >= 55)
+    return { phase: "opbygning", label: "Opbygning", rationale: "Flere mark\xF8rer kan l\xF8ftes \u2014 god mulighed for m\xE5lbar fremgang." };
+  return { phase: "fokus", label: "Tid til fokus", rationale: "Flere omr\xE5der kr\xE6ver opm\xE6rksomhed; start med de l\xE6geflagede." };
+}
+function validationSummary(cm) {
+  let derived = 0;
+  for (const m of cm) {
+    if ((m.issues ?? []).some((i) => i.code === "unvalidated_range")) derived++;
+  }
+  return { validated: cm.length - derived, derived, total: cm.length };
+}
+
 // src/draft.ts
 function buildReportDraft(raw, ctx) {
   const deid = deidentify(raw);
@@ -841,6 +1035,11 @@ function buildReportDraft(raw, ctx) {
     biologicalAge,
     flaggedForDoctor,
     percentiles,
+    patterns: detectPatterns(classifiedMarkers),
+    risks: assessRisks(classifiedMarkers, raw.sex),
+    actionPlan: buildActionPlan(classifiedMarkers),
+    healthspan: healthspanPhase(aeviaScore.total, flaggedForDoctor.length),
+    validation: validationSummary(classifiedMarkers),
     status: "draft_pending_doctor",
     biologicalAgeDisclaimer: true
   };
@@ -859,19 +1058,24 @@ export {
   UNIT_CONVERSIONS,
   ageBandOf,
   assertNoPII,
+  assessRisks,
   bandsFor,
+  buildActionPlan,
   buildReportDraft,
   classifyAll,
   classifyMarker,
   computeAeviaScore,
   convertToCanonical,
   deidentify,
+  detectPatterns,
   estimateBiologicalAge,
+  healthspanPhase,
   markerById,
   markerByIdForSex,
   markerForSex,
   nextState,
   normalizeUnit,
   percentileFor,
-  scoreLabel
+  scoreLabel,
+  validationSummary
 };

@@ -7,6 +7,7 @@
 // source of truth. Beskyttes af ADMIN_TOKEN. Bruges af admin-rapport.html.
 import crypto from "crypto";
 import { nextState } from "./_engine.mjs";
+import { setStatus } from "./_store.js";
 
 function authed(token) {
   const expected = process.env.ADMIN_TOKEN || "";
@@ -22,12 +23,14 @@ export default async function handler(req, res) {
 
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
-  const { token, status, event, doctorId, note } = body || {};
+  const { token, status, event, doctorId, note, reportId } = body || {};
   if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
 
   try {
     const at = new Date().toISOString();
     const to = nextState(status, event, { doctorId, note, at }); // kaster hvis ulovlig / mangler doctorId
+    // Hvis draften ligger i køen, persistér den nye tilstand + revisionsspor.
+    if (reportId) { try { await setStatus(reportId, to, doctorId, note, at); } catch (e) { /* lager valgfrit */ } }
     return res.status(200).json({ status: to, doctorId, at });
   } catch (err) {
     // DoctorActionRequiredError / IllegalTransitionError → 400 (forventelig brugerfejl)

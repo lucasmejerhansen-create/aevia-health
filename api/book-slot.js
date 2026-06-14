@@ -68,7 +68,7 @@ function icsFor({ id, area, parts, lang }) {
 function partsTable(area, parts, lang) {
   return parts.map((p) => {
     const cl = clinicFor(area, p.svc);
-    return `<tr><td style="color:#f5f5f0;font-size:14px;padding:7px 0;border-bottom:1px solid #1d2c42">${svcLabel(p.svc, lang)}${cl ? `<br><span style="color:#94a0b2;font-size:12px">${cl}</span>` : ""}</td><td style="color:#c9a437;font-size:14px;font-weight:bold;text-align:right;border-bottom:1px solid #1d2c42">${fmtDate(p.date, p.time, lang)}</td></tr>`;
+    return `<tr><td style="color:#0a1628;font-size:14px;padding:7px 0;border-bottom:1px solid #eef1f4">${svcLabel(p.svc, lang)}${cl ? `<br><span style="color:#697585;font-size:12px">${cl}</span>` : ""}</td><td style="color:#8a6d10;font-size:14px;font-weight:bold;text-align:right;border-bottom:1px solid #eef1f4">${fmtDate(p.date, p.time, lang)}</td></tr>`;
   }).join("");
 }
 
@@ -84,32 +84,32 @@ function customerMail({ lang, name, area, parts, payUrl, manageUrl, paid }) {
           : "Thank you for choosing Aevia — it means a lot to us. We have reserved all your times below.");
   // Allerede betalt → ingen betalingsopfordring; alt er på plads.
   const payBlock = paid
-    ? `<div style="background:#0c1830;border:1px solid #1d2c42;border-left:3px solid #3fb27f;border-radius:10px;padding:12px 16px;margin:14px 0 6px"><p style="margin:0;color:#3fb27f;font-size:14px;font-weight:bold">${da ? "✓ Betaling registreret — du skal ikke gøre mere" : "✓ Payment registered — nothing more to do"}</p></div>`
-    : `<p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Sidste skridt er betalingen af dit forløb:" : "The final step is paying for your programme:"}</p>` +
+    ? `<div style="background:#f6f8fb;border:1px solid #eef1f4;border-left:3px solid #3fb27f;border-radius:10px;padding:12px 16px;margin:14px 0 6px"><p style="margin:0;color:#3fb27f;font-size:14px;font-weight:bold">${da ? "✓ Betaling registreret — du skal ikke gøre mere" : "✓ Payment registered — nothing more to do"}</p></div>`
+    : `<p style="color:#46505f;font-size:15px;line-height:1.6;margin:0 0 8px">${da ? "Sidste skridt er betalingen af dit forløb:" : "The final step is paying for your programme:"}</p>` +
       (payUrl
-        ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
-        : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`);
+        ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
+        : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`);
   const next = da
-    ? `<p style="color:#f5f5f0;font-size:14px;font-weight:bold;margin:18px 0 8px">Sådan forbereder du dig</p>
-       <p style="color:#aab4c2;font-size:14px;line-height:1.7;margin:0">· Tiderne ligger som kalenderfil i denne mail — én aftale pr. ydelse<br>· 8-12 timers faste før blodprøven (vand og sort kaffe er ok)<br>· Vi minder dig om hver tid dagen før<br>· Din rapport er klar inden for 10 arbejdsdage og gennemgås 1:1 med en læge</p>`
-    : `<p style="color:#f5f5f0;font-size:14px;font-weight:bold;margin:18px 0 8px">How to prepare</p>
-       <p style="color:#aab4c2;font-size:14px;line-height:1.7;margin:0">· Your appointments are attached as a calendar file — one event per service<br>· Fast 8-12 hours before the blood draw (water and black coffee are fine)<br>· We will remind you the day before each appointment<br>· Your report is ready within 10 working days and reviewed 1:1 with a physician</p>`;
-  return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif">
+    ? `<p style="color:#0a1628;font-size:14px;font-weight:bold;margin:18px 0 8px">Sådan forbereder du dig</p>
+       <p style="color:#46505f;font-size:14px;line-height:1.7;margin:0">· Tiderne ligger som kalenderfil i denne mail — én aftale pr. ydelse<br>· 8-12 timers faste før blodprøven (vand og sort kaffe er ok)<br>· Vi minder dig om hver tid dagen før<br>· Din rapport er klar inden for 10 arbejdsdage og gennemgås af en læge</p>`
+    : `<p style="color:#0a1628;font-size:14px;font-weight:bold;margin:18px 0 8px">How to prepare</p>
+       <p style="color:#46505f;font-size:14px;line-height:1.7;margin:0">· Your appointments are attached as a calendar file — one event per service<br>· Fast 8-12 hours before the blood draw (water and black coffee are fine)<br>· We will remind you the day before each appointment<br>· Your report is ready within 10 working days and reviewed by a physician</p>`;
+  return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#eef2f7;font-family:Arial,Helvetica,sans-serif">
   <div style="max-width:560px;margin:0 auto;padding:36px 24px">
-    <div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
-    <div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">
-      <h1 style="color:#f5f5f0;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${h1}</h1>
-      <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 14px">${intro}</p>
-      <p style="color:#94a0b2;font-size:13px;margin:0 0 6px">${area}</p>
+    <div style="font-size:26px;font-weight:bold;color:#0a1628;font-family:Georgia,serif">Aevia<span style="color:#8a6d10">.</span></div>
+    <div style="background:#ffffff;border:1px solid #e3e8ee;border-radius:14px;padding:28px;margin-top:22px">
+      <h1 style="color:#0a1628;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${h1}</h1>
+      <p style="color:#46505f;font-size:15px;line-height:1.7;margin:0 0 14px">${intro}</p>
+      <p style="color:#697585;font-size:13px;margin:0 0 6px">${area}</p>
       <table style="width:100%;border-collapse:collapse;margin:0 0 16px">${partsTable(area, parts, lang)}</table>
       ${payBlock}
       ${next}
-      <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:16px 0 0">${da
-        ? `Skal noget flyttes eller aflyses? <a href="${manageUrl}" style="color:#c9a437">Administrér din booking her</a> — det tager under et minut.`
-        : `Need to reschedule or cancel? <a href="${manageUrl}" style="color:#c9a437">Manage your booking here</a> — it takes less than a minute.`}</p>
-      <p style="color:#f5f5f0;font-size:14px;line-height:1.6;margin:18px 0 0">${da ? "Vi glæder os til at tage imod dig." : "We look forward to welcoming you."}<br><span style="color:#94a0b2">${da ? "— dit Aevia-team" : "— your Aevia team"}</span></p>
+      <p style="color:#46505f;font-size:14px;line-height:1.6;margin:16px 0 0">${da
+        ? `Skal noget flyttes eller aflyses? <a href="${manageUrl}" style="color:#8a6d10">Administrér din booking her</a> — det tager under et minut.`
+        : `Need to reschedule or cancel? <a href="${manageUrl}" style="color:#8a6d10">Manage your booking here</a> — it takes less than a minute.`}</p>
+      <p style="color:#0a1628;font-size:14px;line-height:1.6;margin:18px 0 0">${da ? "Vi glæder os til at tage imod dig." : "We look forward to welcoming you."}<br><span style="color:#697585">${da ? "— dit Aevia-team" : "— your Aevia team"}</span></p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">${da ? "Spørgsmål? Svar blot på denne mail eller ring " : "Questions? Just reply to this email or call "}<a href="tel:+4528303933" style="color:#c9a437">+45 28 30 39 33</a><br>Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#697585;font-size:12px;margin-top:18px;text-align:center">${da ? "Spørgsmål? Svar blot på denne mail eller ring " : "Questions? Just reply to this email or call "}<a href="tel:+4528303933" style="color:#8a6d10">+45 28 30 39 33</a><br>Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#8a6d10">aevia.dk</a></p>
   </div></body></html>`;
 }
 

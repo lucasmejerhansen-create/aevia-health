@@ -51,7 +51,7 @@ export default async function handler(req, res) {
             const SITE = process.env.SITE_URL || "https://aevia.dk";
             for (const em of waiters) {
               await sendMail({ to: em, subject: `En tid er blevet ledig i ${b.area}`,
-                html: `<div style="font-family:Arial,sans-serif"><p>God nyhed — en tid er netop blevet ledig i ${b.area} (${b.date} kl. ${b.time}). Først til mølle:</p><p><a href="${SITE}/book.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px">Book tiden nu</a></p></div>` });
+                html: `<div style="font-family:Arial,sans-serif"><p>God nyhed — en tid er netop blevet ledig i ${b.area} (${b.date} kl. ${b.time}). Først til mølle:</p><p><a href="${SITE}/book.html" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px">Book tiden nu</a></p></div>` });
             }
           } catch (e) { console.error("Venteliste-notifikation:", e.message); }
         }

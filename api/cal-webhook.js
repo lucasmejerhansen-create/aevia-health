@@ -49,30 +49,30 @@ function findPkg(payload) {
 function mailHtml({ lang, name, title, when, payUrl }) {
   const da = lang !== "en";
   const btn = payUrl
-    ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
-    : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`;
-  return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif">
+    ? `<p style="margin:20px 0 6px"><a href="${payUrl}" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Betal dit forløb nu" : "Pay for your programme now"}</a></p>`
+    : `<p style="margin:20px 0 6px"><a href="${SITE}/${da ? "" : "en/"}pakker.html" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;font-size:15px;text-decoration:none;border-radius:999px;padding:13px 26px">${da ? "Vælg og betal dit forløb" : "Choose and pay for your programme"}</a></p>`;
+  return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#eef2f7;font-family:Arial,Helvetica,sans-serif">
   <div style="max-width:560px;margin:0 auto;padding:36px 24px">
-    <div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
-    <div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">
-      <h1 style="color:#f5f5f0;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${da ? `Din tid er bekræftet${name ? ", " + name : ""}` : `Your appointment is confirmed${name ? ", " + name : ""}`}</h1>
+    <div style="font-size:26px;font-weight:bold;color:#0a1628;font-family:Georgia,serif">Aevia<span style="color:#8a6d10">.</span></div>
+    <div style="background:#ffffff;border:1px solid #e3e8ee;border-radius:14px;padding:28px;margin-top:22px">
+      <h1 style="color:#0a1628;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${da ? `Din tid er bekræftet${name ? ", " + name : ""}` : `Your appointment is confirmed${name ? ", " + name : ""}`}</h1>
       <table style="width:100%;border-collapse:collapse;margin:0 0 16px">
-        <tr><td style="color:#94a0b2;font-size:14px;padding:6px 0">${da ? "Aftale" : "Appointment"}</td><td style="color:#f5f5f0;font-size:14px;text-align:right">${title}</td></tr>
-        <tr><td style="color:#94a0b2;font-size:14px;padding:6px 0">${da ? "Tidspunkt" : "Time"}</td><td style="color:#c9a437;font-size:14px;font-weight:bold;text-align:right">${when}</td></tr>
+        <tr><td style="color:#697585;font-size:14px;padding:6px 0">${da ? "Aftale" : "Appointment"}</td><td style="color:#0a1628;font-size:14px;text-align:right">${title}</td></tr>
+        <tr><td style="color:#697585;font-size:14px;padding:6px 0">${da ? "Tidspunkt" : "Time"}</td><td style="color:#8a6d10;font-size:14px;font-weight:bold;text-align:right">${when}</td></tr>
       </table>
-      <p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 8px">${
+      <p style="color:#46505f;font-size:15px;line-height:1.6;margin:0 0 8px">${
         da
           ? "Din tid er booket direkte i klinikkens kalender og kræver ingen yderligere bekræftelse. Sidste skridt er betalingen af dit forløb:"
           : "Your time is booked directly in the clinic's calendar and needs no further confirmation. The final step is paying for your programme:"
       }</p>
       ${btn}
-      <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:16px 0 0">${
+      <p style="color:#46505f;font-size:14px;line-height:1.6;margin:16px 0 0">${
         da
-          ? 'Du modtager en forberedelsesguide før din tid (bl.a. 8-12 timers faste — vand er ok). Skal tiden flyttes, bruger du blot linket i kalenderinvitationen. Spørgsmål? Svar på denne mail eller skriv til <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.'
-          : 'You will receive a preparation guide before your appointment (incl. 8-12 hours of fasting — water is fine). Need to reschedule? Just use the link in the calendar invitation. Questions? Reply to this email or write to <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a>.'
+          ? 'Du modtager en forberedelsesguide før din tid (bl.a. 8-12 timers faste — vand er ok). Skal tiden flyttes, bruger du blot linket i kalenderinvitationen. Spørgsmål? Svar på denne mail eller skriv til <a href="mailto:kontakt@aevia.dk" style="color:#8a6d10">kontakt@aevia.dk</a>.'
+          : 'You will receive a preparation guide before your appointment (incl. 8-12 hours of fasting — water is fine). Need to reschedule? Just use the link in the calendar invitation. Questions? Reply to this email or write to <a href="mailto:kontakt@aevia.dk" style="color:#8a6d10">kontakt@aevia.dk</a>.'
       }</p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#697585;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#8a6d10">aevia.dk</a></p>
   </div>
 </body></html>`;
 }

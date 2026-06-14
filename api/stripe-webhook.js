@@ -74,10 +74,10 @@ function confirmedHtml({ name, pkg, total, booking }) {
     ? `<p style="margin:0 0 10px;color:#f5f5f0;font-size:15px;font-weight:bold">Dine bookede tider</p>
        <table style="width:100%;border-collapse:collapse;margin:0 0 22px">${timesRows}</table>
        ${step(1, "Du får din forberedelsesguide", "Bl.a. 8-12 timers faste før blodprøven — vand er ok. Vi minder dig også om tiden dagen før.")}
-       ${step(2, "Din rapport gennemgås 1:1", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`
+       ${step(2, "Din rapport gennemgås af en læge", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`
     : `${step(1, "Vi kontakter dig", "Inden for 1 arbejdsdag aftaler vi tid og sted for din prøvetagning.")}
        ${step(2, "Du får din forberedelsesguide", "Bl.a. 8-12 timers faste før blodprøven — vand er ok.")}
-       ${step(3, "Din rapport gennemgås 1:1", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`;
+       ${step(3, "Din rapport gennemgås af en læge", "Klar inden for 10 arbejdsdage efter prøvetagning — ellers 10% retur.")}`;
   return shell("Betaling modtaget", `<h1 style="color:#f5f5f0;font-size:24px;margin:0 0 14px;font-family:Georgia,serif;font-weight:normal">Tak for din booking${name ? ", " + name : ""}</h1>
     <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 24px">Vi har modtaget din betaling, og dit forløb er bekræftet.</p>
     <div style="background:#0c1830;border:1px solid #1d2c42;border-left:3px solid #c9a437;border-radius:10px;padding:14px 18px;margin:0 0 26px">
