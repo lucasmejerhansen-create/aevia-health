@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Billedplan & formater — Nuvera</title>
+<meta name="description" content="Fotobrief for Nuvera: hvilke billeder der skal ind hvor på sitet, i hvilke formater og beskæringer — plus billedstil og shot list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f3f7fc;--navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;
+  --sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;--sand:#efeae0;
+  --ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;--line:#e6ecf3;--line-2:#d3deea;
+  --serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.15}
+h1{font-size:clamp(2rem,4.6vw,3rem)}h2{font-size:clamp(1.5rem,3.2vw,2rem)}h3{font-size:1.1rem}
+p{color:var(--muted)}
+.container{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:58px 0}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+
+/* intro */
+.intro{background:linear-gradient(155deg,var(--navy-deep),var(--navy-grad));color:#fff;border-radius:0 0 32px 32px}
+.intro .container{padding-block:60px 54px}
+.intro .eyebrow{background:rgba(63,134,214,.22);color:#bcd8f5}
+.intro h1{color:#fff;max-width:20ch}.intro .lead{color:#bccadd;margin-top:16px}
+
+/* placeholders */
+.ph{position:relative;background:linear-gradient(135deg,#1c3e69,#0a1f3c);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:12px;color:#a9c5e6;width:100%}
+.ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 12px,transparent 12px 26px)}
+.ph .r{position:absolute;top:8px;left:8px;background:var(--sky);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:6px;z-index:2}
+.ph .cap{position:relative;padding:12px;font-size:.78rem;color:#bcd0ea;line-height:1.45}
+.ph .cap svg{width:24px;height:24px;opacity:.8;display:block;margin:0 auto 5px}
+.r-21x9{aspect-ratio:21/9}.r-16x9{aspect-ratio:16/9}.r-1x1{aspect-ratio:1/1}.r-3x1{aspect-ratio:3/1}
+.r-4x5{aspect-ratio:4/5}.r-9x16{aspect-ratio:9/16}.r-191{aspect-ratio:120/63}.r-3x2{aspect-ratio:3/2}
+
+/* plan cards */
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column}
+.pcard .ph{margin-bottom:13px}
+.pcard .pl{font-weight:600;color:var(--ink);font-size:1rem}
+.pcard .meta{font-size:.82rem;color:var(--sky);font-weight:600;margin:1px 0 7px}
+.pcard p{font-size:.9rem;color:var(--muted);margin-bottom:5px}
+.pcard .t{font-size:.82rem;color:var(--text-solid)}
+.pcard .t b{color:var(--ink)}
+
+/* format grid */
+.fmt{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;align-items:end}
+.fmt figure{margin:0}
+.fmt figcaption{font-size:.82rem;color:var(--text-solid);margin-top:8px}
+.fmt figcaption b{color:var(--ink);display:block}
+
+/* principper + shotlist */
+.soft{background:var(--bg-soft);border-block:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.pcol{background:#fff;border:1px solid var(--line);border-left:3px solid var(--sky);border-radius:12px;padding:20px}
+.pcol h3{font-family:var(--sans);font-size:.98rem;margin-bottom:6px}
+.pcol p{font-size:.9rem}
+.shot{list-style:none;columns:2;column-gap:32px;margin-top:6px}
+.shot li{break-inside:avoid;padding:9px 0 9px 26px;position:relative;font-size:.94rem;color:var(--text-solid);border-bottom:1px solid var(--line)}
+.shot li svg{position:absolute;left:0;top:11px;width:16px;height:16px;color:var(--sky)}
+@media(max-width:680px){.shot{columns:1}}
+
+footer.site{border-top:1px solid var(--line);padding:44px 0 34px;background:var(--bg-soft)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:14px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element.html" class="hide-m">Forsiden</a></li>
+      <li><a href="#formater" class="hide-m">Formater</a></li>
+      <li><a href="forslag-3-element.html" class="nav-cta">Tilbage til sitet</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <span class="eyebrow">Fotobrief</span>
+    <h1>Billedplan & formater</h1>
+    <p class="lead">Hvilke billeder der skal ind hvor på Nuvera-sitet, i hvilke beskæringer — så en fotograf eller bureau kan gå direkte i gang. Hver boks viser format og motiv; selve billederne mangler stadig.</p>
+  </div>
+</section>
+
+<!-- BILLEDSTIL -->
+<section class="soft">
+  <div class="container">
+    <span class="eyebrow">Billedstil</span>
+    <h2 style="margin-bottom:22px">Sådan skal billederne føles</h2>
+    <div class="cols">
+      <div class="pcol"><h3>Naturligt lys</h3><p>Blødt morgenlys, ægte rum (køkken, badeværelse, kontor). Ingen hårdt studieflash.</p></div>
+      <div class="pcol"><h3>Ægte mennesker</h3><p>Rigtige kunder/medarbejdere — ikke stockfoto. Candid frem for poseret.</p></div>
+      <div class="pcol"><h3>Navy duotone-mulighed</h3><p>Brede bånd kan tones i navy/sky, så hvid tekst kan ligge ovenpå.</p></div>
+      <div class="pcol"><h3>Varm sand-undertone</h3><p>En anelse varme i graderingen, så det ikke bliver koldt og klinisk.</p></div>
+      <div class="pcol"><h3>Rekvisitter</h3><p>Glas vand, dåsen, scoop, hætteglas/blodprøve — konkret og troværdigt.</p></div>
+      <div class="pcol"><h3>Luft &amp; ro</h3><p>God negativ plads, få elementer. Premium frem for proppet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BILLEDPLAN -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Billedplan</span>
+    <h2 style="margin-bottom:8px">Hvor hvert billede skal ind</h2>
+    <p class="lead" style="margin-bottom:30px">Ti placeringer på tværs af sitet, hver med format og motiv.</p>
+    <div class="plan">
+
+      <div class="pcard">
+        <div class="ph r-21x9"><span class="r">21:9</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.3"/></svg>Full-bleed lifestyle</span></div>
+        <div class="pl">Forside · hero-bånd</div>
+        <div class="meta">21:9 · ≥ 2400×1030 px</div>
+        <p>Person der rører formlen ud i et glas vand ved køkkenbordet, morgenlys.</p>
+        <div class="t"><b>Behandling:</b> let navy-overlay til venstre, så hvid tekst kan ligge ovenpå.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-1x1" style="max-width:150px;margin-inline:auto"><span class="r">1:1</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="4"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>Portræt</span></div>
+        <div class="pl">Forside · stifter-note</div>
+        <div class="meta">1:1 · 1200×1200 px · cirkulær</div>
+        <p>Stifterens ansigt — roligt, ærligt, tæt på.</p>
+        <div class="t"><b>Behandling:</b> navy-duotone, beskåret cirkulært.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-1x1" style="max-width:170px;margin-inline:auto"><span class="r">PNG</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 4h10l-1 16H8z"/><path d="M9 4V2h6v2"/></svg>Produkt-cutout</span></div>
+        <div class="pl">Forside · produkt</div>
+        <div class="meta">1:1 · 2000 px · transparent PNG</div>
+        <p>Dåsen + scoop fritlagt, studielys, skarpe kanter.</p>
+        <div class="t"><b>Behandling:</b> placeres på navy/sky-flade — også til ads &amp; pakke-shots.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-16x9"><span class="r">16:9 ×3</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.3"/></svg>Miniature-trio</span></div>
+        <div class="pl">Forside · "Sådan virker det"</div>
+        <div class="meta">16:9 · 1200×675 px (×3)</div>
+        <p>1) hætteglas/fingerprik · 2) pulver der røres i vand · 3) pose ved hoveddøren.</p>
+        <div class="t"><b>Behandling:</b> ensartet lys &amp; gradering, så de tre matcher.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-3x1"><span class="r">3:1</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.3"/></svg>Dokumentar-bånd</span></div>
+        <div class="pl">Forside · før cases</div>
+        <div class="meta">3:1 · 3000×1000 px</div>
+        <p>Reportage fra produktion/laboratorium — hænder i arbejde.</p>
+        <div class="t"><b>Behandling:</b> navy-duotone med hvid overskrift ovenpå.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-3x2"><span class="r">3:2</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7h14v12H5z"/><path d="M9 7V5h6v2"/></svg>Produktion / lab</span></div>
+        <div class="pl">Kvalitet &amp; dokumentation</div>
+        <div class="meta">3:2 · 1800×1200 px</div>
+        <p>GMP-produktion, kvalitetskontrol, batch-mærkning. Konkret og rent.</p>
+        <div class="t"><b>Behandling:</b> naturligt, dokumentarisk — bygger tillid.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-3x2"><span class="r">3:2</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="10" r="2.5"/><path d="M4 19c0-3 2.3-5 5-5s5 2 5 5M14 19c0-2.2 1.4-3.7 3.2-3.7"/></svg>Arbejdsplads / team</span></div>
+        <div class="pl">For virksomheder</div>
+        <div class="meta">3:2 · 1800×1200 px</div>
+        <p>Lyst kontor, kolleger, hverdag — menneskeligt og professionelt.</p>
+        <div class="t"><b>Behandling:</b> varmt og imødekommende, ikke corporate-stift.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-4x5" style="max-width:160px;margin-inline:auto"><span class="r">4:5</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="13" rx="2"/><path d="M9 6V4h6v2"/></svg>Gave / livsstil</span></div>
+        <div class="pl">Gavekort</div>
+        <div class="meta">4:5 · 1080×1350 px</div>
+        <p>Formlen som gave — indpakning, varm stemning, to hænder.</p>
+        <div class="t"><b>Behandling:</b> blødt og personligt; egner sig også til feed.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-16x9"><span class="r">16:9</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z"/></svg>Diætist-video</span></div>
+        <div class="pl">Din formel forklaret</div>
+        <div class="meta">16:9 · 1920×1080 px</div>
+        <p>Diætisten taler til kamera. Thumbnail + kort video (2 min).</p>
+        <div class="t"><b>Behandling:</b> rolig, troværdig; play-knap-overlay.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph r-1x1" style="max-width:150px;margin-inline:auto"><span class="r">1:1</span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>Råvare-makro</span></div>
+        <div class="pl">Ingredienser</div>
+        <div class="meta">1:1 · 1200×1200 px</div>
+        <p>Makro af pulver, kapsler, råvarer — tekstur og kvalitet helt tæt på.</p>
+        <div class="t"><b>Behandling:</b> ensartet på lys eller navy flade.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMATER -->
+<section id="formater" class="soft">
+  <div class="container">
+    <span class="eyebrow">Formater</span>
+    <h2 style="margin-bottom:8px">Alle beskæringer på ét sted</h2>
+    <p class="lead" style="margin-bottom:30px">Skyd så vidt muligt løst nok til at kunne beskære til flere formater fra samme optagelse.</p>
+    <div class="fmt">
+      <figure><div class="ph r-191"><span class="r">1.91:1</span></div><figcaption><b>og:image</b> 1200×630 — links/deling</figcaption></figure>
+      <figure><div class="ph r-21x9"><span class="r">21:9</span></div><figcaption><b>Hero-bånd</b> full-bleed</figcaption></figure>
+      <figure><div class="ph r-16x9"><span class="r">16:9</span></div><figcaption><b>Bred</b> video, miniature</figcaption></figure>
+      <figure><div class="ph r-3x1"><span class="r">3:1</span></div><figcaption><b>Dokumentar-bånd</b></figcaption></figure>
+      <figure><div class="ph r-3x2"><span class="r">3:2</span></div><figcaption><b>Redaktionel</b> lab, team</figcaption></figure>
+      <figure><div class="ph r-1x1"><span class="r">1:1</span></div><figcaption><b>Kvadrat</b> portræt, produkt, feed</figcaption></figure>
+      <figure><div class="ph r-4x5"><span class="r">4:5</span></div><figcaption><b>Feed-portræt</b> Instagram</figcaption></figure>
+      <figure><div class="ph r-9x16"><span class="r">9:16</span></div><figcaption><b>Story / Reels</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- SHOT LIST -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Shot list</span>
+    <h2 style="margin-bottom:16px">Det fotografen skal hjem med</h2>
+    <ul class="shot">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Person rører formel ud i glas (morgenlys)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Stifter-portræt (tæt, roligt)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Dåse + scoop, fritlagt på hvid</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Hætteglas / fingerprik (nært)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Pulver der røres i vand (bevægelse)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Pose/pakke ved hoveddøren</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Produktion/lab — hænder i arbejde</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Diætist taler til kamera (video + still)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Råvare-makro (pulver, kapsler)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Gave-stemning til gavekort &amp; social</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Nuvera ApS · Intern fotobrief. Brug rettighedsklarerede billeder; indhent samtykke fra personer der medvirker (særligt hvis de kobles til sundhed/markører).</p>
+    <div class="foot-bottom"><span>© 2026 Nuvera ApS</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+<script src="nuvera-nav.js"></script>
+</body>
+</html>

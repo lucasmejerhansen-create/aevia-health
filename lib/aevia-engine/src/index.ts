@@ -23,3 +23,4 @@ export {
 } from "./pipeline.js";
 export type { PipelineEvent, TransitionOptions, TransitionRecord } from "./pipeline.js";
 export { buildReportDraft } from "./draft.js";
+export { detectPatterns, assessRisks, buildActionPlan, healthspanPhase, validationSummary } from "./clinical.js";

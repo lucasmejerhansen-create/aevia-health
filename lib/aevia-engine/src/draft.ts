@@ -4,6 +4,7 @@ import { estimateBiologicalAge } from "./bio-age.js";
 import { computeAeviaScore, type ScoreContext } from "./score.js";
 import { assertNoPII, deidentify } from "./deidentify.js";
 import { percentileFor, PERCENTILE_MARKERS } from "./percentiles.js";
+import { detectPatterns, assessRisks, buildActionPlan, healthspanPhase, validationSummary } from "./clinical.js";
 
 /**
  * TRIN 7 — STRUKTURERET DRAFT klar til AI-formulering + lægegodkendelse.
@@ -45,6 +46,11 @@ export function buildReportDraft(raw: RawPatientData, ctx: ScoreContext): Report
     biologicalAge,
     flaggedForDoctor,
     percentiles,
+    patterns: detectPatterns(classifiedMarkers),
+    risks: assessRisks(classifiedMarkers, raw.sex),
+    actionPlan: buildActionPlan(classifiedMarkers),
+    healthspan: healthspanPhase(aeviaScore.total, flaggedForDoctor.length),
+    validation: validationSummary(classifiedMarkers),
     status: "draft_pending_doctor",
     biologicalAgeDisclaimer: true,
   };

@@ -131,6 +131,45 @@ export interface DeidentifiedData {
   // name, cpr, email er ALDRIG til stede
 }
 
+/** Sværhedsgrad for kliniske fund (mønstre, risici). */
+export type ClinicalSeverity = "info" | "watch" | "action";
+
+/** Et klinisk mønster på tværs af flere markører (deterministisk regel). */
+export interface MarkerPattern {
+  id: string;
+  label: string;
+  detail: string;
+  severity: ClinicalSeverity;
+  /** Markør-id'er der udløste mønsteret. */
+  markers: string[];
+}
+
+/** En etableret risiko-vurdering (deterministisk kriterie). */
+export interface RiskFlag {
+  id: string;
+  label: string;
+  severity: ClinicalSeverity;
+  detail: string;
+  /** Hvilke markører/kriterier der indgik. */
+  criteria: string[];
+}
+
+/** Et handlingsplan-punkt udledt deterministisk af flagede markører. */
+export interface ActionItem {
+  category: MarkerCategory;
+  title: string;
+  why: string;
+  markerIds: string[];
+  evidence: "stærk" | "moderat" | "tidlig";
+}
+
+/** Healthspan-fase (illustrativ placering). */
+export interface HealthspanResult {
+  phase: "optimering" | "vedligehold" | "opbygning" | "fokus";
+  label: string;
+  rationale: string;
+}
+
 /** Struktureret draft klar til AI-formulering og lægegodkendelse. PII er ALDRIG til stede. */
 export interface ReportDraft {
   pseudoId: string;
@@ -143,6 +182,16 @@ export interface ReportDraft {
   flaggedForDoctor: ClassifiedMarker[];
   /** Percentil vs. aldersgruppe for udvalgte fysiologiske markører (0-100). */
   percentiles: Record<string, number>;
+  /** Deterministiske kliniske mønstre på tværs af markører. */
+  patterns: MarkerPattern[];
+  /** Etablerede risiko-flag (metabolisk syndrom, insulinresistens m.m.). */
+  risks: RiskFlag[];
+  /** Deterministisk handlingsplan udledt af flagede markører. */
+  actionPlan: ActionItem[];
+  /** Healthspan-fase (illustrativ). */
+  healthspan: HealthspanResult;
+  /** Datagrundlag: hvor mange intervaller er lægefagligt valideret vs. udledt. */
+  validation: { validated: number; derived: number; total: number };
   status: "draft_pending_doctor";
   biologicalAgeDisclaimer: true;
   // PII er ALDRIG til stede i dette objekt

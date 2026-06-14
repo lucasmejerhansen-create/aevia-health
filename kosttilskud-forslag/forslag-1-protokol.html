@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protokol — Personlige kosttilskud bygget på dine Aevia-markører</title>
+<meta name="description" content="Protokol oversætter dine Aevia-blodprøver til et præcist, månedligt tilskudsprogram. Doser tilpasset dine markører — gennemgået af læge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Lyst design (som billedet) — navy blå i stedet for grøn */
+  --bg:#ffffff;--bg-soft:#f4f7fb;--bg-soft-2:#eef3f9;
+  --navy:#0e2c54;--navy-deep:#0a1f3c;--navy-bright:#1f5fae;
+  --ink:#0c1c33;--text:#3a4a5e;--muted:#6b7a8d;--muted-2:#8a97a8;
+  --line:#e2e9f1;--line-2:#cfdae7;
+  --navy-soft:rgba(14,44,84,.06);--blue-soft:rgba(31,95,174,.10);
+  --maxw:1140px;--radius:14px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Space Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:color .2s ease}
+a:hover{color:var(--navy-bright)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.16;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.1rem,5vw,3.5rem)}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+h3{font-size:1.18rem}
+p{color:var(--text)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+section{padding:84px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-bright);margin-bottom:18px;font-weight:700}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--navy-bright)}
+.lead{font-size:1.13rem;color:var(--muted);max-width:60ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* Topbanner */
+.topbar{background:var(--navy);color:#cfe0f5;font-size:.8rem;text-align:center;padding:9px 16px;font-family:var(--mono);letter-spacing:.03em}
+.topbar a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.42rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.logo span{color:var(--navy-bright)}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:10px 12px;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:11px 20px!important;background:var(--navy)!important;border-radius:999px;color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--navy-deep)!important}
+@media(max-width:860px){.nav-links .hide-m{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s ease;border:1px solid transparent;white-space:nowrap;line-height:1;font-family:inherit}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-deep);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:var(--navy);background:var(--navy-soft)}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+
+/* Hero */
+.hero{padding:96px 0 80px;position:relative;border-bottom:1px solid var(--line);background:
+  linear-gradient(180deg,#fff,var(--bg-soft));}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(820px 420px at 78% -8%,var(--blue-soft),transparent 70%);pointer-events:none}
+.hero .container{position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+.hero h1{max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--navy-bright)}
+.hero .lead{margin-top:22px;font-size:1.18rem}
+.microtrust{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;font-size:.84rem;color:var(--muted);font-family:var(--mono)}
+.microtrust span{display:inline-flex;align-items:center;gap:7px}
+.microtrust svg{width:15px;height:15px;color:var(--navy-bright)}
+
+/* Protokol-kort */
+.proto{background:#fff;border:1px solid var(--line-2);border-radius:18px;box-shadow:0 24px 60px -30px rgba(14,44,84,.35);overflow:hidden}
+.proto-head{background:var(--navy);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.proto-head .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fc0ec}
+.proto-head .name{font-family:var(--serif);font-size:1.18rem;margin-top:2px}
+.proto-head .match{text-align:right}
+.proto-head .match b{font-family:var(--serif);font-size:1.8rem;display:block;line-height:1}
+.proto-head .match small{font-size:.68rem;color:#9fc0ec;font-family:var(--mono);letter-spacing:.1em}
+.proto-rows{padding:8px 0}
+.prow{display:grid;grid-template-columns:1fr auto;gap:8px;padding:14px 24px;border-bottom:1px solid var(--line);align-items:center}
+.prow:last-child{border-bottom:none}
+.prow .marker{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.06em;text-transform:uppercase}
+.prow .supp{font-weight:600;color:var(--ink);margin-top:2px;font-size:.98rem}
+.prow .dose{font-family:var(--mono);font-size:.92rem;color:var(--navy-bright);font-weight:700;text-align:right;white-space:nowrap}
+.prow .flag{display:inline-block;font-family:var(--mono);font-size:.64rem;padding:2px 7px;border-radius:5px;margin-left:8px;vertical-align:middle;letter-spacing:.05em}
+.flag.low{background:#fdeaea;color:#b5462f}
+.flag.high{background:#fdf3e3;color:#9a6a16}
+.flag.ok{background:#e7f1ea;color:#2f7a52}
+.proto-foot{padding:16px 24px;background:var(--bg-soft);font-family:var(--mono);font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+/* Trust bar */
+.trustbar{border-bottom:1px solid var(--line);padding:30px 0;background:#fff}
+.trust-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px}
+.trust-logos .chip{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:.86rem;color:var(--muted)}
+.trust-logos .chip svg{width:15px;height:15px;color:var(--navy-bright)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative}
+.step .n{counter-increment:s;font-family:var(--mono);font-size:.8rem;color:var(--navy-bright);font-weight:700;letter-spacing:.1em}
+.step .n::before{content:"0" counter(s) " /"}
+.step h3{margin:14px 0 8px;font-size:1.12rem}
+.step p{font-size:.95rem;color:var(--muted)}
+
+/* Grid cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:0 18px 40px -28px rgba(14,44,84,.4)}
+.card .ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--navy-bright);background:var(--blue-soft)}
+.card .ico svg{width:22px;height:22px}
+.card h3{margin-bottom:9px}.card p{font-size:.95rem;color:var(--muted)}
+
+/* Section bg */
+.soft{background:var(--bg-soft);border-block:1px solid var(--line)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat .num{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+.stat .num span{color:var(--navy-bright)}
+.stat .lab{color:var(--muted);font-size:.88rem;margin-top:4px}
+
+/* Pricing */
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.pkg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;position:relative}
+.pkg.feat{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy)}
+.pkg .tag{position:absolute;top:-13px;left:32px;background:var(--navy);color:#fff;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.pkg .pname{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:4px}
+.pkg .who{font-size:.86rem;color:var(--muted);margin-bottom:18px}
+.pkg .price{font-family:var(--serif);font-size:2rem;color:var(--ink)}
+.pkg .price small{font-size:.86rem;color:var(--muted);font-family:var(--mono)}
+.pkg ul{list-style:none;margin:18px 0 24px}
+.pkg li{position:relative;padding-left:26px;margin-bottom:11px;font-size:.93rem;color:var(--text)}
+.pkg li svg{position:absolute;left:0;top:3px;width:16px;height:16px;color:var(--navy-bright)}
+.pkg .btn{margin-top:auto;width:100%}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden}
+.faq summary{padding:20px 22px;cursor:pointer;font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--serif);font-size:1.04rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{flex:none;width:20px;height:20px;position:relative}
+.faq summary .plus::before,.faq summary .plus::after{content:"";position:absolute;background:var(--navy-bright);left:50%;top:50%;transform:translate(-50%,-50%)}
+.faq summary .plus::before{width:13px;height:2px}
+.faq summary .plus::after{width:2px;height:13px;transition:opacity .2s}
+.faq details[open] .plus::after{opacity:0}
+.faq p{padding:0 22px 20px;font-size:.96rem;color:var(--muted)}
+
+/* CTA */
+.cta-band{background:var(--navy);border-radius:22px;padding:60px 44px;text-align:center;position:relative;overflow:hidden;color:#fff}
+.cta-band::before{content:"";position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:360px;height:240px;background:radial-gradient(circle,rgba(31,95,174,.5),transparent 70%)}
+.cta-band>*{position:relative}
+.cta-band h2{color:#fff;max-width:22ch;margin-inline:auto}
+.cta-band p{color:#bcd0ea;margin:14px auto 0;max-width:52ch}
+.cta-band .btn-primary{background:#fff;color:var(--navy)}
+.cta-band .btn-primary:hover{background:#eaf1fb}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line);padding:60px 0 34px;background:var(--bg-soft)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+.foot-grid h4{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted-2);margin-bottom:15px;font-weight:700}
+.foot-grid ul{list-style:none}.foot-grid li{margin-bottom:9px}
+.foot-grid a{font-size:.91rem;color:var(--muted)}.foot-grid a:hover{color:var(--ink)}
+.foot-brand .logo{margin-bottom:12px;display:inline-block}
+.foot-brand p{font-size:.9rem;max-width:38ch;color:var(--muted)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:60ch;margin-top:22px;line-height:1.6}
+.foot-bottom{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .steps,.grid-3,.pkgs,.cmp{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Et selvstændigt selskab — bygget oven på dine resultater fra <a href="../index.html">Aevia&nbsp;Health</a></div>
+
+<header class="site">
+  <div class="container nav">
+    <a href="#" class="logo">Protokol<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#sadan" class="hide-m">Sådan virker det</a></li>
+      <li><a href="#protokol" class="hide-m">Dine markører</a></li>
+      <li><a href="#priser" class="hide-m">Priser</a></li>
+      <li><a href="#aevia" class="hide-m">Aevia &amp; os</a></li>
+      <li><a href="#faq" class="hide-m">FAQ</a></li>
+      <li><a href="#start" class="nav-cta">Start din protokol</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Data-drevet supplering</span>
+        <h1>Dit tilskud, regnet ud fra <em>dine egne blodprøver</em>.</h1>
+        <p class="lead">Protokol oversætter dine markører fra Aevia til et præcist månedligt program. Ingen gætteri, ingen hyldevarer — kun de stoffer og doser dine tal faktisk kalder på.</p>
+        <div class="btn-row">
+          <a href="#start" class="btn btn-primary">Forbind dine Aevia-resultater
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#sadan" class="btn btn-ghost">Se hvordan det virker</a>
+        </div>
+        <div class="microtrust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Læge-gennemgået</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> Tredjepartstestet</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg> Afmeld når som helst</span>
+        </div>
+      </div>
+
+      <!-- Protokol-kort -->
+      <div class="proto">
+        <div class="proto-head">
+          <div>
+            <div class="t">Din protokol · juni</div>
+            <div class="name">Morgen &amp; aften · 6 aktive</div>
+          </div>
+          <div class="match"><b>94<span style="font-size:1rem">%</span></b><small>markør-match</small></div>
+        </div>
+        <div class="proto-rows">
+          <div class="prow">
+            <div><div class="marker">D-vitamin <span class="flag low">lav · 38 nmol/L</span></div><div class="supp">D3 + K2</div></div>
+            <div class="dose">90 µg</div>
+          </div>
+          <div class="prow">
+            <div><div class="marker">hs-CRP <span class="flag high">høj · 3,1 mg/L</span></div><div class="supp">Omega-3 (EPA/DHA)</div></div>
+            <div class="dose">2 g</div>
+          </div>
+          <div class="prow">
+            <div><div class="marker">LDL / ApoB <span class="flag high">forhøjet</span></div><div class="supp">Bergamot + plantesteroler</div></div>
+            <div class="dose">500 mg</div>
+          </div>
+          <div class="prow">
+            <div><div class="marker">Homocystein <span class="flag high">14 µmol/L</span></div><div class="supp">B-kompleks (B12 · folat)</div></div>
+            <div class="dose">1 kap.</div>
+          </div>
+          <div class="prow">
+            <div><div class="marker">Søvn / kortisol <span class="flag ok">fokus</span></div><div class="supp">Magnesium glycinat</div></div>
+            <div class="dose">300 mg</div>
+          </div>
+        </div>
+        <div class="proto-foot"><span>Kilde: Aevia-blodpanel 04.06</span><span>Næste justering: sep.</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trustbar">
+  <div class="container trust-logos">
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> GMP-certificeret produktion i EU</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Renhedstestet pr. batch</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18v13H3zM8 7V4h8v3"/></svg> Læge &amp; klinisk diætist</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Leveret hver 4. uge</span>
+  </div>
+</div>
+
+<!-- SÅDAN -->
+<section id="sadan">
+  <div class="container">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow" style="margin-inline:auto">Sådan virker det</span>
+      <h2>Fra blodprøve til personlig kur — på tre trin</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n"></span>
+        <h3>Forbind dine resultater</h3>
+        <p>Tag et helbredstjek hos Aevia, eller upload eksisterende blodprøver. Du giver samtykke til, at vi læser de relevante markører — og kun dem.</p>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <h3>Algoritmen + lægen regner</h3>
+        <p>Vores model matcher hver markør mod evidensbaserede doser. En læge og en diætist godkender protokollen, før den går i produktion.</p>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <h3>Levered i daglige doser</h3>
+        <p>Du får dine tilskud i nummererede morgen-/aften-poser. Næste blodprøve justerer protokollen automatisk — så du ikke tager mere end nødvendigt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VÆRDIER -->
+<section class="soft">
+  <div class="container">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow" style="margin-inline:auto">Hvorfor Protokol</span>
+      <h2>Supplering uden gætteri</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6"/></svg></div>
+        <h3>Bygget på dine tal</h3>
+        <p>Hver kapsel er knyttet til en konkret markør. Er din D-vitamin normal, får du ikke D-vitamin. Du betaler kun for det, der rykker noget.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>
+        <h3>Doser der følger evidensen</h3>
+        <p>Vi bruger doser fra peer-reviewed studier — ikke marketing-mængder. Ingen proprietære blandinger; alt er deklareret i mg.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>Justeres over tid</h3>
+        <p>Markører ændrer sig. Når du tester igen, opdateres din protokol, og du ser sort på hvidt, om tallene faktisk flytter sig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="container stats">
+    <div class="stat"><div class="num">40<span>+</span></div><div class="lab">markører oversættes til doser</div></div>
+    <div class="stat"><div class="num">0</div><div class="lab">proprietære blandinger — alt deklareret</div></div>
+    <div class="stat"><div class="num">4<span>u.</span></div><div class="lab">levering, afmeld når som helst</div></div>
+    <div class="stat"><div class="num">100<span>%</span></div><div class="lab">batch-testet for renhed</div></div>
+  </div>
+</section>
+
+<!-- AEVIA & TRANSPARENS -->
+<section id="aevia" style="background:var(--navy)">
+  <div class="container">
+    <div class="center" style="margin-bottom:44px">
+      <span class="eyebrow" style="margin-inline:auto;color:#9fc0ec">Sådan hænger det sammen</span>
+      <h2 style="color:#fff">Aevia &amp; Protokol — to selskaber, fuld åbenhed</h2>
+      <p class="lead" style="margin-inline:auto;color:#bccadd">Protokol er et selvstændigt selskab. Aevia leverer dit helbredstjek og dine markører; vi oversætter dem til tilskud. Du bestemmer hele vejen.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 15l6-6"/><path d="M10.5 6L12 4.5a4 4 0 015.5 5.5L16 11.5"/><path d="M13.5 18L12 19.5a4 4 0 01-5.5-5.5L8 12.5"/></svg></div>
+        <h3>To selskaber</h3>
+        <p>Aevia udfører helbredstjekket. Protokol sælger tilskuddene. Adskilt drift, hver sit CVR og egen faktura.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Kun med dit samtykke</h3>
+        <p>Vi henter dine markører fra Aevia udelukkende med dit udtrykkelige samtykke (GDPR art. 9) — og du kan trække det tilbage når som helst.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <h3>Du vælger selv</h3>
+        <p>Anbefalinger er klinisk begrundede. Protokol er én mulighed blandt flere — du er aldrig forpligtet til at vælge os.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIS-SAMMENLIGNING -->
+<section id="sammenlign">
+  <div class="container">
+    <div class="center" style="margin-bottom:44px">
+      <span class="eyebrow" style="margin-inline:auto">Pris</span>
+      <h2>Én protokol vs. seks bøtter</h2>
+      <p class="lead" style="margin-inline:auto">Køber du det samme separat på hylden, ender du med en skuffe fuld af bøtter — og en større regning.</p>
+    </div>
+    <div class="cmp">
+      <div class="card" style="display:flex;flex-direction:column">
+        <h3 style="font-size:1.1rem">Hyldevarer, hver for sig</h3>
+        <div style="margin:16px 0;flex:1">
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem"><span>D3 + K2</span><span style="font-family:var(--mono);color:var(--muted)">99 kr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem"><span>Omega-3</span><span style="font-family:var(--mono);color:var(--muted)">169 kr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem"><span>Magnesium</span><span style="font-family:var(--mono);color:var(--muted)">89 kr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem"><span>Bergamot</span><span style="font-family:var(--mono);color:var(--muted)">149 kr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem"><span>B-kompleks</span><span style="font-family:var(--mono);color:var(--muted)">99 kr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:.92rem"><span>Kreatin</span><span style="font-family:var(--mono);color:var(--muted)">99 kr</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--line);padding-top:14px"><span style="font-weight:600;color:var(--ink)">I alt</span><span style="font-family:var(--mono);font-weight:700;font-size:1.4rem;color:var(--ink)">704 kr<small style="font-size:.78rem;color:var(--muted)">/md</small></span></div>
+        <p style="font-size:.85rem;color:var(--muted);margin-top:10px">6 bøtter · du gætter selv doser · ingen markør-styring.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;border-color:var(--navy-bright);box-shadow:0 0 0 1px var(--navy-bright);position:relative">
+        <span style="position:absolute;top:-13px;left:28px;background:var(--navy);color:#fff;font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px">Anbefalet</span>
+        <h3 style="font-size:1.1rem">Protokol</h3>
+        <div style="margin:16px 0;flex:1">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.93rem"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy-bright)" stroke-width="2" style="width:18px;height:18px;flex:none;margin-top:2px"><path d="M5 12l5 5L20 7"/></svg> Én daglig protokol — alt samlet</div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.93rem"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy-bright)" stroke-width="2" style="width:18px;height:18px;flex:none;margin-top:2px"><path d="M5 12l5 5L20 7"/></svg> Doser ramt til dine markører</div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.93rem"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy-bright)" stroke-width="2" style="width:18px;height:18px;flex:none;margin-top:2px"><path d="M5 12l5 5L20 7"/></svg> Justeres efter hver blodprøve</div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.93rem"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy-bright)" stroke-width="2" style="width:18px;height:18px;flex:none;margin-top:2px"><path d="M5 12l5 5L20 7"/></svg> Leveret · afmeld frit</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--navy-bright);padding-top:14px"><span style="font-weight:600;color:var(--ink)">Din pris</span><span style="font-family:var(--mono);font-weight:700;font-size:1.4rem;color:var(--ink)">649 kr<small style="font-size:.78rem;color:var(--muted)">/md</small></span></div>
+        <p style="font-size:.85rem;color:var(--navy-bright);margin-top:10px;font-weight:600">Billigere — og uden gætteri.</p>
+      </div>
+    </div>
+    <p class="center" style="font-size:.8rem;color:var(--muted-2);margin-top:18px">Hyldepriser er vejledende eksempler og varierer.</p>
+  </div>
+</section>
+
+<!-- PRISER -->
+<section id="priser" class="soft">
+  <div class="container">
+    <div class="center" style="margin-bottom:50px">
+      <span class="eyebrow" style="margin-inline:auto">Abonnement</span>
+      <h2>Vælg dit niveau af præcision</h2>
+      <p class="lead">Alle priser er månedlige og inkl. moms. Selve programmet er gratis at få beregnet.</p>
+    </div>
+    <div class="pkgs">
+      <div class="pkg">
+        <div class="pname">Basis</div>
+        <div class="who">Til dig der vil dække det vigtigste</div>
+        <div class="price">399 kr<small> /md</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Op til 4 aktive tilskud</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Justeres ved ny blodprøve</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Daglige doseringsposer</li>
+        </ul>
+        <a href="#start" class="btn btn-ghost">Vælg Basis</a>
+      </div>
+      <div class="pkg feat">
+        <span class="tag">Mest valgt</span>
+        <div class="pname">Protokol</div>
+        <div class="who">Fuldt markør-styret program</div>
+        <div class="price">649 kr<small> /md</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Op til 8 aktive tilskud</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Læge-gennemgang af protokol</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Kvartalsvis justering</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Markør-udvikling i app</li>
+        </ul>
+        <a href="#start" class="btn btn-primary">Start Protokol</a>
+      </div>
+      <div class="pkg">
+        <div class="pname">Elite</div>
+        <div class="who">Maksimal optimering &amp; opfølgning</div>
+        <div class="price">1.149 kr<small> /md</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Ubegrænset antal tilskud</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> 1:1 samtale med diætist</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Månedlig justering</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Premium-former (liposomal m.m.)</li>
+        </ul>
+        <a href="#start" class="btn btn-ghost">Vælg Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="max-width:780px">
+    <div class="center" style="margin-bottom:40px">
+      <span class="eyebrow" style="margin-inline:auto">Spørgsmål</span>
+      <h2>Det du nok tænker på</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Er Protokol det samme firma som Aevia?<span class="plus"></span></summary>
+        <p>Nej. Protokol er et selvstændigt selskab, der sælger kosttilskud. Aevia leverer selve helbredstjekket og dine markører. Vi henter kun dine data, hvis du giver udtrykkeligt samtykke.</p></details>
+      <details><summary>Skal jeg have testet hos Aevia for at bruge Protokol?<span class="plus"></span></summary>
+        <p>Det er den nemmeste vej, men du kan også uploade eksisterende blodprøver. Jo flere relevante markører vi har, jo mere præcis bliver din protokol.</p></details>
+      <details><summary>Er det medicin?<span class="plus"></span></summary>
+        <p>Nej. Kosttilskud er ikke lægemidler og erstatter ikke behandling. Protokol er et supplement til en sund livsstil og dialog med din læge.</p></details>
+      <details><summary>Hvad sker der med mine helbredsdata?<span class="plus"></span></summary>
+        <p>De behandles som følsomme personoplysninger efter GDPR. De bruges udelukkende til at beregne din protokol, deles aldrig med tredjepart, og du kan trække samtykket tilbage når som helst.</p></details>
+      <details><summary>Kan jeg afmelde?<span class="plus"></span></summary>
+        <p>Ja, når som helst og uden binding. Du kan også sætte leveringen på pause mellem to blodprøver.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="start">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Hold op med at gætte på dine kosttilskud</h2>
+      <p>Forbind dine Aevia-resultater og se din personlige protokol gratis — du betaler først, når du bestiller.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a href="#" class="btn btn-primary">Beregn min protokol gratis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo">Protokol<span>.</span></a>
+        <p>Personlige kosttilskud beregnet ud fra dine egne markører. Et selvstændigt selskab i samarbejde med Aevia Health.</p>
+      </div>
+      <div><h4>Produkt</h4><ul><li><a href="#sadan">Sådan virker det</a></li><li><a href="#sammenlign">Pris</a></li><li><a href="forslag-1-protokol-udvikling.html">Min udvikling</a></li><li><a href="#priser">Priser</a></li></ul></div>
+      <div><h4>Selskab</h4><ul><li><a href="#">Om os</a></li><li><a href="../index.html">Aevia Health</a></li><li><a href="#">Kontakt</a></li></ul></div>
+      <div><h4>Jura</h4><ul><li><a href="#">Handelsbetingelser</a></li><li><a href="#">Privatlivspolitik</a></li><li><a href="#">Samtykke &amp; data</a></li></ul></div>
+    </div>
+    <p class="foot-note">Protokol ApS · CVR 00000000 · Kosttilskud er ikke lægemidler og bør ikke erstatte en varieret kost eller lægebehandling. Anbefalede doser overskrides ikke. Markører hentes fra Aevia Health udelukkende med dit udtrykkelige samtykke (GDPR art. 9).</p>
+    <div class="foot-bottom"><span>© 2026 Protokol ApS</span><span>Designforslag · navy-variant</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

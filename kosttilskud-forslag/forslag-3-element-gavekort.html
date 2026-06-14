@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Gavekort &amp; inviter en ven — Nuvera</title>
+<meta name="description" content="Giv personlig sundhed videre med et Nuvera-gavekort, eller inviter en ven og giv 150 kr, få 150 kr. Enkelt, premium og fleksibelt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f3f7fc;
+  --navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;
+  --sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;
+  --ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;
+  --line:#e6ecf3;--line-2:#d3deea;
+  --maxw:1080px;--radius:18px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(2rem,4.6vw,3.1rem)}
+p{color:var(--muted)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:9px}
+.logo .dot{width:11px;height:11px;border-radius:3px;background:var(--sky);display:inline-block;transform:rotate(45deg)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+.nav-cta:hover{background:var(--sky)!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s;border:2px solid transparent;font-family:inherit;line-height:1;width:100%}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--sky);color:#fff}
+.btn-primary:hover{background:#2f74c4}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:var(--sky);color:var(--sky)}
+
+/* Intro */
+.intro{padding:54px 0 30px}
+.intro h1{max-width:18ch}
+.intro .lead{margin-top:16px}
+
+/* Sektioner */
+.wrap{padding:20px 0 80px}
+.section{margin-bottom:64px}
+.section:last-child{margin-bottom:0}
+.sec-head{margin-bottom:26px}
+.sec-head .step-eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--sky);margin-bottom:8px}
+.sec-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+.sec-head p{margin-top:10px;max-width:62ch}
+
+/* DEL 1 — Gavekort */
+.gift-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+
+/* Gavekort-visuel */
+.giftcard{position:relative;border-radius:20px;background:linear-gradient(155deg,#0c2748,#16386a);color:#fff;padding:30px 30px 28px;box-shadow:0 34px 70px -34px rgba(8,27,52,.7);overflow:hidden;aspect-ratio:1.6/1;display:flex;flex-direction:column;justify-content:space-between;min-height:230px}
+.giftcard::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.45),transparent 65%);top:-130px;right:-90px}
+.giftcard::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.22),transparent 65%);bottom:-110px;left:-60px}
+.gc-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.gc-logo{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:9px}
+.gc-logo .dot{width:10px;height:10px;border-radius:3px;background:var(--sky);display:inline-block;transform:rotate(45deg)}
+.gc-chip{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#9fc0ec;border:1px solid rgba(159,192,236,.4);border-radius:999px;padding:5px 11px}
+.gc-mid{position:relative;z-index:1}
+.gc-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#9fc0ec}
+.gc-amount{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:#fff;line-height:1.05;margin-top:4px}
+.gc-bottom{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+.gc-bottom .gc-to{font-size:.82rem;color:#bccadd}
+.gc-bottom .gc-to b{color:#fff;display:block;font-size:.95rem;font-weight:600}
+.gc-bottom .gc-code{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;color:#9fc0ec;text-align:right}
+.gc-bottom .gc-code b{display:block;color:#fff;font-size:.95rem;letter-spacing:.14em;font-weight:600;margin-top:2px}
+
+/* Beløbsvalg */
+.gift-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.gift-panel .q{display:block;font-weight:600;color:var(--ink);margin-bottom:13px;font-size:.97rem}
+.amt-opts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.amt{position:relative}
+.amt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.amt span{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:1px solid var(--line-2);border-radius:999px;font-size:.95rem;font-weight:600;color:var(--text-solid);cursor:pointer;transition:all .15s;user-select:none;min-width:96px}
+.amt span:hover{border-color:var(--sky-line)}
+.amt input:checked + span{background:var(--sky);border-color:var(--sky);color:#fff}
+.amt input:focus-visible + span{outline:2px solid var(--sky);outline-offset:2px}
+.amt-custom{margin-top:14px;display:none}
+.amt-custom.show{display:block}
+.amt-custom label{display:block;font-size:.86rem;color:var(--muted);margin-bottom:7px}
+.amt-custom .inwrap{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:#fff}
+.amt-custom input[type="number"]{flex:1;border:none;outline:none;padding:13px 14px;font-family:inherit;font-size:1rem;color:var(--ink);background:transparent}
+.amt-custom .suffix{padding:0 16px;color:var(--muted);font-weight:600;font-size:.95rem}
+.gift-redeem{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.gift-redeem h4{font-size:1rem;margin-bottom:9px}
+.gift-redeem ol{margin:0 0 0 1.1em;padding:0;color:var(--muted);font-size:.92rem}
+.gift-redeem li{margin-bottom:7px}
+.gift-redeem li:last-child{margin-bottom:0}
+.gift-panel .btn{margin-top:22px}
+
+/* DEL 2 — Inviter en ven */
+.invite-wrap{background:var(--bg-soft);border:1px solid var(--line);border-radius:22px;padding:40px 34px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:34px}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px}
+.step .num{width:38px;height:38px;border-radius:11px;background:var(--sky-soft);color:var(--sky);font-family:var(--serif);font-weight:700;font-size:1.15rem;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h4{font-size:1.02rem;margin-bottom:6px}
+.step p{font-size:.9rem;color:var(--muted)}
+
+/* Henvisningslink */
+.ref-box{background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:24px;max-width:560px;margin:0 auto}
+.ref-box .q{display:block;font-weight:600;color:var(--ink);margin-bottom:11px;font-size:.95rem}
+.ref-field{display:flex;gap:10px;align-items:stretch}
+.ref-field input{flex:1;border:1px solid var(--line-2);border-radius:12px;padding:14px 15px;font-family:inherit;font-size:.92rem;color:var(--text-solid);background:var(--bg-soft);outline:none;min-width:0}
+.ref-field input:focus{border-color:var(--sky-line)}
+.copy-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 22px;border-radius:12px;background:var(--navy);color:#fff;font-weight:600;font-size:.92rem;border:none;cursor:pointer;transition:all .2s;font-family:inherit;white-space:nowrap}
+.copy-btn:hover{background:var(--sky)}
+.copy-btn.copied{background:var(--sky)}
+.copy-btn svg{width:16px;height:16px}
+
+/* Note */
+.fineprint{display:flex;gap:9px;font-size:.82rem;color:var(--muted);max-width:62ch;margin:26px auto 0}
+.fineprint svg{width:16px;height:16px;color:var(--sky);flex:none;margin-top:2px}
+
+footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--bg-soft)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:16px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+
+@media(max-width:880px){
+  .gift-grid{grid-template-columns:1fr;gap:28px}
+  .steps{grid-template-columns:1fr;gap:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element.html#sadan" class="hide-m">Sådan virker det</a></li>
+      <li><a href="forslag-3-element-ingredienser.html" class="hide-m">Ingredienser</a></li>
+      <li><a href="forslag-3-element.html#priser" class="hide-m">Priser</a></li>
+      <li><a href="forslag-3-element.html#start" class="nav-cta">Forbind Aevia</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <span class="eyebrow">Del sundhed</span>
+    <h1>Giv personlig sundhed videre</h1>
+    <p class="lead">Et gavekort til en, du holder af — eller en invitation til en ven. Begge dele gør det nemt at give andre adgang til en formel, der er bygget til netop dem. Premium fra første dag.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="container">
+
+    <!-- DEL 1 — GAVEKORT -->
+    <section class="section" id="gavekort">
+      <div class="sec-head">
+        <span class="step-eyebrow">Del 1 · Gavekort</span>
+        <h2>Forær et Nuvera-gavekort</h2>
+        <p>Vælg et beløb, og send et personligt gavekort. Modtageren bygger sin egen formel — enten ud fra en kort profil eller ved at forbinde sin Aevia-blodprøve.</p>
+      </div>
+
+      <div class="gift-grid">
+
+        <!-- Gavekort-visuel -->
+        <div class="giftcard" aria-hidden="true">
+          <div class="gc-top">
+            <span class="gc-logo"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true" style="flex:none"><rect width="32" height="32" rx="10" fill="#0c2748"/><path d="M16 6c4 4.2 6.2 7.4 6.2 10.5a6.2 6.2 0 11-12.4 0C9.8 13.4 12 10.2 16 6z" fill="#3f86d6"/><path d="M13 16.5a3.2 3.2 0 003.1 3.3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".85"/></svg>Nuvera</span>
+            <span class="gc-chip">Gavekort</span>
+          </div>
+          <div class="gc-mid">
+            <div class="gc-label">Værdi</div>
+            <div class="gc-amount" id="gcAmount">799 kr</div>
+          </div>
+          <div class="gc-bottom">
+            <div class="gc-to">Til<b>En, du holder af</b></div>
+            <div class="gc-code">Indløsningskode<b>ELEMENT-GIFT</b></div>
+          </div>
+        </div>
+
+        <!-- Beløbsvalg & info -->
+        <div class="gift-panel">
+          <label class="q">Vælg beløb</label>
+          <div class="amt-opts" id="amtOpts">
+            <label class="amt"><input type="radio" name="belob" value="399"><span>399 kr</span></label>
+            <label class="amt"><input type="radio" name="belob" value="799" checked><span>799 kr</span></label>
+            <label class="amt"><input type="radio" name="belob" value="1500"><span>1.500 kr</span></label>
+            <label class="amt"><input type="radio" name="belob" value="custom"><span>Valgfrit</span></label>
+          </div>
+
+          <div class="amt-custom" id="amtCustom">
+            <label for="customBelob">Skriv dit eget beløb</label>
+            <div class="inwrap">
+              <input type="number" id="customBelob" min="100" step="50" placeholder="fx 1.000" inputmode="numeric">
+              <span class="suffix">kr</span>
+            </div>
+          </div>
+
+          <div class="gift-redeem">
+            <h4>Sådan indløses gavekortet</h4>
+            <ol>
+              <li>Modtageren får en kode på e-mail med det samme.</li>
+              <li>De forbinder deres Aevia-konto eller udfylder en kort profil.</li>
+              <li>Koden trækkes fra deres formel — resten kører som et almindeligt abonnement.</li>
+            </ol>
+          </div>
+
+          <a href="#" class="btn btn-primary">Køb gavekort</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEL 2 — INVITER EN VEN -->
+    <section class="section" id="inviter">
+      <div class="invite-wrap">
+        <div class="sec-head" style="text-align:center;margin-bottom:30px">
+          <span class="step-eyebrow">Del 2 · Inviter en ven</span>
+          <h2>Giv 150 kr, få 150 kr</h2>
+          <p style="margin-left:auto;margin-right:auto">Del din henvisning, og I får begge en fordel. Din ven sparer på sin første formel — og du får kredit, når de kommer i gang.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <h4>Del dit henvisningslink</h4>
+            <p>Send linket til en ven via besked, e-mail eller sociale medier.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h4>Din ven får 150 kr</h4>
+            <p>De får 150 kr i rabat på deres første personlige formel.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h4>Du får 150 kr</h4>
+            <p>Når deres første formel er afsendt, lægges 150 kr som kredit på din konto.</p>
+          </div>
+        </div>
+
+        <div class="ref-box">
+          <label class="q" for="refLink">Dit henvisningslink</label>
+          <div class="ref-field">
+            <input type="text" id="refLink" value="https://nuvera.dk/invitation/lucas-150" readonly>
+            <button type="button" class="copy-btn" id="copyBtn" aria-live="polite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span id="copyLabel">Kopiér</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="fineprint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Kredit udbetales ikke kontant og kan kun bruges på dit eget abonnement hos Nuvera. Gælder nye kunder med aktivt abonnement. Vilkår gælder.</span>
+        </p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Nuvera ApS · CVR 00000000 · Gavekort og henvisningskredit gælder på Nuvera-abonnement og kan ikke ombyttes til kontanter. Kosttilskud er ikke lægemidler og erstatter ikke en varieret kost eller lægebehandling.</p>
+    <div class="foot-bottom"><span>© 2026 Nuvera ApS</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Beløbsvalg → opdater gavekort-visuel + vis/skjul valgfrit felt
+  var amtOpts = document.getNuveraById('amtOpts');
+  var amtCustom = document.getNuveraById('amtCustom');
+  var customBelob = document.getNuveraById('customBelob');
+  var gcAmount = document.getNuveraById('gcAmount');
+
+  function fmt(n){ return Number(n).toLocaleString('da-DK') + ' kr'; }
+
+  function update(){
+    var sel = amtOpts.querySelector('[name="belob"]:checked');
+    var v = sel ? sel.value : '799';
+    if(v === 'custom'){
+      amtCustom.classList.add('show');
+      var c = parseInt(customBelob.value, 10);
+      gcAmount.textContent = (c && c > 0) ? fmt(c) : '— kr';
+    } else {
+      amtCustom.classList.remove('show');
+      gcAmount.textContent = fmt(v);
+    }
+  }
+
+  amtOpts.addEventListener('change', update);
+  customBelob.addEventListener('input', update);
+  update();
+
+  // Kopiér henvisningslink
+  var copyBtn = document.getNuveraById('copyBtn');
+  var copyLabel = document.getNuveraById('copyLabel');
+  var refLink = document.getNuveraById('refLink');
+  var resetTimer;
+
+  function flash(text){
+    copyLabel.textContent = text;
+    copyBtn.classList.add('copied');
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(function(){
+      copyLabel.textContent = 'Kopiér';
+      copyBtn.classList.remove('copied');
+    }, 1800);
+  }
+
+  copyBtn.addEventListener('click', function(){
+    var text = refLink.value;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        flash('Kopieret!');
+      }).catch(function(){
+        fallback();
+      });
+    } else {
+      fallback();
+    }
+    function fallback(){
+      refLink.removeAttribute('readonly');
+      refLink.select();
+      refLink.setSelectionRange(0, 99999);
+      try { document.execCommand('copy'); flash('Kopieret!'); }
+      catch(e){ flash('Markér og kopiér'); }
+      refLink.setAttribute('readonly', '');
+    }
+  });
+})();
+</script>
+
+<script src="nuvera-nav.js"></script></body>
+</html>
