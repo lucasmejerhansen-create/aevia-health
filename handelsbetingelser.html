@@ -16,17 +16,17 @@
 <meta property="og:title" content="Handelsbetingelser | Aevia Health">
 <meta property="og:url" content="https://aevia.dk/handelsbetingelser.html">
 <meta property="og:image" content="https://aevia.dk/og-image.png">
-<meta name="theme-color" content="#0a1628">
+<meta name="theme-color" content="#ffffff">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/logo/aevia-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="assets/logo/aevia-icon-512.png"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><link rel="manifest" href="manifest.json">
 <style>:root{
-  --navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;
-  --text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;
-  --gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);
-  --line:#1d2c42;--line-2:#28394f;
+  --navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;
+  --text:#0a1628;--muted:#46505f;--muted-2:#697585;
+  --gold:#8f7118;--gold-deep:#6f5912;--gold-soft:rgba(201,164,55,.12);
+  --line:#e6eaef;--line-2:#d4dbe3;
   --maxw:1140px;--radius:14px;
   --serif:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -286,7 +286,7 @@ footer.site{border-top:1px solid var(--line);padding:66px 0 36px;background:var(
 
 
 /* ---------- A11y: synligt tastatur-fokus + reduceret bevægelse ---------- */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.btn:focus-visible,.aevc-chip:focus-visible{outline:2px solid #c9a437;outline-offset:2px;border-radius:6px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.btn:focus-visible,.aevc-chip:focus-visible{outline:2px solid #0a1628;outline-offset:2px;border-radius:6px}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
 .skiplink{position:absolute;left:-9999px;top:0;z-index:400;background:#c9a437;color:#0a1628;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;font-family:var(--sans)}.skiplink:focus{left:0}
@@ -297,6 +297,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lang-li a.lang-active{color:var(--gold);font-weight:600}
 .lang-li .sep{color:var(--line-2)}
 .foot-social{display:flex;gap:10px;margin-top:18px}.foot-social a{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s,border-color .2s}.foot-social a:hover{color:var(--gold);border-color:var(--gold)}.foot-social svg{width:18px;height:18px}@media(max-width:680px){.cookie{left:0;right:0;bottom:0;max-width:none;border-radius:14px 14px 0 0;padding:13px 16px 12px;border-left:none;border-right:none;border-bottom:none}.cookie p{font-size:.78rem;line-height:1.45}.cookie .row{margin-top:10px;gap:8px}.cookie .row .btn{padding:9px 14px;font-size:.84rem;flex:1}}</style>
+<style id="cw-overrides">
+/* Clinical White */
+header.site{background:rgba(255,255,255,.82)}
+.btn-primary{background:var(--text);color:#fff;animation:none!important}
+.btn-primary:hover{background:#16243d;color:#fff}
+.nav-cta{background:var(--text)!important;color:#fff!important}
+.nav-cta:hover{background:#16243d!important;color:#fff!important}
+#aev-mcta a{background:var(--text)!important;color:#fff!important}
+.bioage .big,.stat .num{color:var(--text)}
+.hero-bg{display:none}
+.hero::before{background:radial-gradient(900px 440px at var(--gx,70%) var(--gy,-10%),rgba(143,113,24,.06),transparent 70%)}
+.page-hero::before{background:radial-gradient(700px 320px at 25% -20%,rgba(143,113,24,.05),transparent 70%)}
+.bar{background:#e3e9f0;border-color:var(--line)}
+.pkg.feat{border-color:var(--text);box-shadow:0 0 0 1px var(--text)}
+.card:hover,.pkg:hover{box-shadow:0 14px 30px rgba(10,22,40,.08)}
+.cookie{box-shadow:0 16px 40px rgba(10,22,40,.14)}
+.figure::after,.banner::after,.ymedia::after,.media-thumb::after{box-shadow:inset 0 0 60px 10px rgba(10,22,40,.14)}
+.cta-band{background:linear-gradient(160deg,#0f1f36,#0a1628);border-color:#26344a}
+.cta-band .eyebrow{color:#c9a437}
+.cta-band h2{color:#f7f7f2}
+.cta-band p{color:#aeb8c6}
+.cta-band .btn-primary{background:#c9a437;color:#0a1628}
+.cta-band .btn-primary:hover{background:#b8960c;color:#0a1628}
+.cta-band .btn-ghost{border-color:#3a4a63;color:#f7f7f2;background:transparent}
+.cta-band .btn-ghost:hover{border-color:#c9a437;color:#fff}
+.cta-band .gold,.cta-band a:not(.btn){color:#c9a437}
+.cta-band .dna-bg{opacity:.1}
+
+/* pro-polish */
+.bioage .big,.metric .m,.pkg .price,.stat .num,.price,.delivery,.hero .lead strong{font-variant-numeric:tabular-nums}
+[id]{scroll-margin-top:90px}
+header.site .nav{transition:height .25s ease}header.site .logo{transition:font-size .25s ease}
+header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .nav{height:58px}header.site.aev-shrink .logo{font-size:1.26rem}
+</style>
 </head>
 <body>
 <a class="skiplink" href="#main">Spring til indhold</a>
@@ -435,11 +469,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 function toggleMenu(btn){var n=document.getElementById('navlinks');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o);}
 var AEVIA_GA4='G-8J87JYSBZG';/* ← indsæt jeres GA4 måle-ID */
 var AEVIA_CLARITY='x15dq7rsz1';/* ← indsæt jeres Microsoft Clarity-ID */
-function loadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;
- if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',AEVIA_GA4);}
- if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}
-(function(){try{var c=localStorage.getItem('aevia_cookie');if(!c){document.getElementById('cookie').classList.add('show');}else if(c==='all'){loadAnalytics();}}catch(e){document.getElementById('cookie').classList.add('show');}})();
-function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}document.getElementById('cookie').classList.remove('show');if(all)loadAnalytics();}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function loadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function loadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}loadAnalytics();if(c==='all'){aevGrant();loadClarity();}else if(!c){try{document.getElementById('cookie').classList.add('show');}catch(e){}}})();function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('cookie').classList.remove('show');}catch(e){}if(all){aevGrant();loadClarity();}}
 </script>
 <!-- Aevia AI-assistent (forbind AEVC_ENDPOINT til backend for fulde LLM-svar; ellers udvidet vidensbase) -->
 <button id="aevc-btn" aria-label="Åbn chat" aria-expanded="false">
@@ -512,7 +542,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
    {k:["test min alder","beregn min alder","gratis test","estimat","selvtest"],a:"Prøv vores gratis <a href='biologisk-alder-estimator.html'>test af din biologiske alder</a>, et hurtigt estimat ud fra din livsstil."},
    {k:["fortryd","refusion","penge tilbage","afbestil","annuller","ombook"],a:"Du kan afbestille eller flytte din tid, kontakt os hurtigst muligt. Se vilkår i <a href='handelsbetingelser.html'>handelsbetingelserne</a>."},
    {k:["moms"],a:"Alle priser er angivet inkl. moms."},
-   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås 1:1. Vi har leveringsgaranti: bliver rapporten forsinket, får du 10% retur."},
+   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås af en læge. Vi har leveringsgaranti: bliver rapporten forsinket, får du 10% retur."},
    {k:["hvordan beregnes","metode bag","udregnes biologisk","model"],a:"Din biologiske alder beregnes ud fra en kombination af biomarkører (inflammation, stofskifte, nyrer, lipider, blodtal) vægtet efter sammenhæng med aldring. Det er en model, ikke en diagnose."},
 /*GLOS*/
    {k:["homocystein"],a:"Homocystein er en aminosyre. Høje niveauer øger risikoen for hjerte og hjerne og kan ofte sænkes med B-vitaminer. Måles i vores blodpanel."},
@@ -555,7 +585,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
    {k:["bryan johnson","blueprint","longevity"],a:"Longevity handler om at måle, ændre én ting ad gangen og følge op, uden ekstremerne. Læs vores tag på <a href='bryan-johnson.html'>Bryan Johnson-metoden</a>."},
    {k:["hvem udfører","klinik","lab","udfører","laboratorium","speciallæge"],a:"Aevia driver ikke egen klinik. Vi koordinerer din diagnostik gennem akkrediterede laboratorier, billeddiagnostiske centre og speciallæger og samler alt i én rapport. Se <a href='proces.html'>Sådan virker det</a>."},
    {k:["fortrolig","gdpr","data","arbejdsgiver","chef","ser min","privatliv","sikker","anonym"],a:"Dine helbredsdata er følsomme (GDPR art. 9): krypteret opbevaring, deles aldrig med arbejdsgiver. Virksomheder får kun en <strong>anonymiseret teamrapport</strong>, aldrig individuelle tal. Skriv aldrig helbredsoplysninger her i chatten. Mere i <a href='handelsbetingelser.html'>privatlivspolitikken</a>."},
-   {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået 1:1 med en sundhedsspecialist."},
+   {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået af en læge."},
    {k:["book","booking","tid","samtale","ring","kontakt","mail","telefon"],a:"Book din tid direkte på <a href='book.html'>book-siden</a>, ring +45 28 30 39 33 eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
    {k:["køb","betaling","betale","online","faktura","kort","afdrag"],a:"De tre private pakker kan købes online med kort eller på faktura. Virksomhedsaftaler indgås via kontakt. Gå til <a href='pakker.html'>Pakker</a>."},
    {k:["virksomhed","medarbejder","team","ansat","arbejdsplads","erhverv","hr"],a:"For virksomheder samler vi teamets resultater i en anonymiseret teamrapport, arbejdsgiver ser aldrig individuelle tal, og deltagelse er frivillig. Læs <a href='virksomheder.html'>For virksomheder</a>."},
@@ -596,19 +626,14 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 </script>
 
 <!-- Aevia exit-intent (lead magnet) -->
-<div id="aevx" class="aevx-overlay" role="dialog" aria-label="Tilbud: gratis longevity-tjekliste" aria-modal="true">
+<div id="aevx" class="aevx-overlay" role="dialog" aria-label="Tilbud: gratis biologisk alder-test" aria-modal="true">
   <div class="aevx-box">
     <button class="aevx-close" id="aevx-close" aria-label="Luk">&times;</button>
     <span class="eyebrow">Inden du går</span>
-    <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--text);margin:6px 0 10px">Få vores gratis longevity-tjekliste</h3>
-    <p style="color:var(--muted);font-size:.95rem;margin:0">10 evidensbaserede vaner, der flytter din biologiske alder, skrevet til en travl hverdag.</p>
-    <form id="aevx-form" action="https://formspree.io/f/xdajrdrz" method="POST" onsubmit="return aevxSubmit(event)" style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0">
-      <input type="hidden" name="kilde" value="Exit-intent">
-      <input id="aevx-email" name="email" type="email" required aria-label="E-mail" placeholder="din@email.dk" style="flex:1;min-width:180px;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.95rem"><label style="display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:var(--muted-2);text-align:left;line-height:1.4;margin-top:2px"><input type="checkbox" required style="width:auto;margin-top:3px;flex:none"><span>Jeg accepterer, at Aevia må sende mig materialet og relevante indsigter, jf. <a class="gold" href="privatlivspolitik.html">privatlivspolitikken</a>.</span></label>
-      <button class="btn btn-primary" type="submit">Send mig den</button>
-    </form>
-    <p class="form-note" id="aevx-ok" style="display:none;margin-top:10px">Tak! <a class="gold" href="longevity-tjekliste.pdf" download>Hent tjeklisten her.</a></p>
-    <p class="form-note" style="margin-top:10px"><a class="gold" href="longevity-tjekliste.pdf" download>Eller hent direkte som PDF</a></p>
+    <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--text);margin:6px 0 10px">Kend din biologiske alder — gratis</h3>
+    <p style="color:var(--muted);font-size:.95rem;margin:0">Tag vores 1-minutters test og se, hvor gammel din krop egentlig er. Intet kreditkort, intet besvær.</p>
+    <p style="margin-top:18px"><a class="btn btn-primary" href="biologisk-alder-estimator.html">Start testen (1 min)</a></p>
+    <p class="form-note" style="margin-top:10px"><a class="gold" href="indsigter.html#brief">Eller hent vores gratis longevity-tjekliste →</a></p>
   </div>
 </div>
 <style>
@@ -653,5 +678,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   window.addEventListener('scroll',upd,{passive:true}); upd();
 })();
 </script>
+<script>(function(){var h=document.querySelector("header.site");if(!h)return;var f=function(){h.classList.toggle("aev-shrink",(window.scrollY||0)>40);};addEventListener("scroll",f,{passive:true});f();})();</script>
+<script>(function(){function ev(n,p){try{if(window.gtag)gtag("event",n,p||{});}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";var t=(a.textContent||"").trim().slice(0,60);if(/book\.html/.test(h)){var pk=(h.match(/pakke=([a-z]+)/)||[])[1];ev("book_cta_click",{label:t,package:pk||"none",page:location.pathname});}else if(a.classList&&a.classList.contains("nav-cta")){ev("book_cta_click",{label:"nav",page:location.pathname});}else if(/pakker\.html/.test(h)){ev("packages_view_click",{label:t,page:location.pathname});}},{passive:true});})();</script>
 </body>
 </html>

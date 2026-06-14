@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eksempel-rapport | Aevia Health</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eksempel-rapport | Aevia Health">
+<meta property="og:description" content="Se en uddybende, anonymiseret eksempel-rapport fra Aevia: biologisk alder over tid, kategori-overblik, hver markør vist som intervalbjælke, og lægens grundige vurdering. Tallene er fiktive.">
+<meta property="og:url" content="https://aevia.dk/eksempel-rapport.html">
+<meta property="og:image" content="https://aevia.dk/og-image.png">
 <meta property="og:image" content="https://aevia.dk/assets/og/eksempel-rapport-da.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Se en uddybende, anonymiseret eksempel-rapport fra Aevia: biologisk alder over tid, kategori-overblik, hver markør vist som intervalbjælke, og lægens grundige vurdering. Tallene er fiktive.">
@@ -15,11 +20,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0a1628">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/logo/aevia-icon-180.png"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#ffffff">
 <style>
-:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--ok:#3fb27f;--warn:#c9a437;--low:#e0844b;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;--line:#e6eaef;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--gold-soft:rgba(201,164,55,.12);--ok:#3fb27f;--warn:#c9a437;--low:#e0844b;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+body{font-family:var(--sans);background:#ffffff;color:var(--text);line-height:1.6}
 .wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px}
 .top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 28px}
 .logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
@@ -31,14 +36,14 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 4px}
 .csub{color:var(--muted);font-size:.92rem;margin-bottom:20px}
 .agerow{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
-.agebox{flex:1;min-width:150px;text-align:center;background:var(--navy);border:1px solid var(--line);border-radius:12px;padding:18px}
+.agebox{flex:1;min-width:150px;text-align:center;background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:18px}
 .agebox .n{font-family:var(--serif);font-size:2.4rem;font-weight:600;line-height:1}
 .agebox .n.gold{color:var(--gold)}
 .agebox .l{color:var(--muted);font-size:.82rem;margin-top:8px}
 /* category bars */
 .catrow{display:grid;grid-template-columns:150px 1fr 48px;align-items:center;gap:14px;margin-bottom:12px}
 .catrow .cl{font-size:.92rem;color:var(--text)}
-.cbar{height:10px;background:var(--navy);border-radius:999px;overflow:hidden}
+.cbar{height:10px;background:#ffffff;border-radius:999px;overflow:hidden}
 .cbar i{display:block;height:100%;border-radius:999px}
 .catrow .cv{font-size:.85rem;color:var(--muted);text-align:right}
 /* marker range bars */
@@ -62,7 +67,7 @@ h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 4px}
 .mnote{font-size:.9rem;color:var(--muted);margin-top:6px}
 .summary p{margin-bottom:12px}
 .summary p:last-child{margin-bottom:0}
-.summary .lead-line{border-left:3px solid var(--gold);background:var(--navy);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text);margin-bottom:16px}
+.summary .lead-line{border-left:3px solid var(--gold);background:#ffffff;padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text);margin-bottom:16px}
 .docsign{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
 .docsign .av{width:40px;height:40px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:600}
 .docsign .dn{font-weight:600;font-size:.92rem}.docsign .dt{color:var(--muted);font-size:.82rem}
@@ -72,7 +77,7 @@ h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 0 4px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:50%}
 .cta{text-align:center;margin-top:36px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;background:var(--gold);color:var(--navy);transition:all .2s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;background:var(--text);color:#fff;transition:all .2s ease}
 .btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
 .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2);margin-left:10px}
 .foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
@@ -92,7 +97,7 @@ svg .grid{stroke:var(--line)}
 .card.collapsed .cl-head .chev{transform:rotate(-90deg)}
 .mgroup.collapsed .gbody{display:none}
 .mgroup.collapsed .cl-head .chev{transform:rotate(-90deg)}
-.mgroup .cl-head{margin-bottom:0;padding:12px 16px;border:1px solid var(--line-2);background:var(--navy);border-radius:12px;transition:border-color .2s ease,background .2s ease}.mgroup .cl-head:hover{border-color:var(--gold);background:var(--gold-soft)}.mgroup:not(.collapsed) .cl-head{margin-bottom:12px}.mgroup .cl-head .chev{font-size:1.05rem}
+.mgroup .cl-head{margin-bottom:0;padding:12px 16px;border:1px solid var(--line-2);background:#ffffff;border-radius:12px;transition:border-color .2s ease,background .2s ease}.mgroup .cl-head:hover{border-color:var(--gold);background:var(--gold-soft)}.mgroup:not(.collapsed) .cl-head{margin-bottom:12px}.mgroup .cl-head .chev{font-size:1.05rem}
 </style>
 <style>
 .mtags{display:flex;gap:7px;align-items:center}
@@ -104,9 +109,9 @@ svg .grid{stroke:var(--line)}
 .toc-card .toc-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .toc-btns{display:flex;gap:8px;flex-wrap:wrap}
 .toc-btn{background:var(--gold-soft);border:1px solid var(--gold);color:var(--gold);font-weight:600;font-size:.82rem;padding:7px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
-.toc-btn:hover{background:var(--gold);color:var(--navy)}
+.toc-btn:hover{background:var(--text);color:#fff}
 .toc-nav{display:flex;flex-wrap:wrap;gap:8px}
-.toc-a{font-size:.85rem;color:var(--muted);background:var(--navy);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;transition:all .15s}
+.toc-a{font-size:.85rem;color:var(--muted);background:#ffffff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;transition:all .15s}
 .toc-a:hover{border-color:var(--gold);color:var(--text)}
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
@@ -121,7 +126,7 @@ svg .grid{stroke:var(--line)}
 
 }
 </style>
-</head>
+<style>body{font-variant-numeric:tabular-nums}</style></head>
 <body>
 <div id="print-cover" aria-hidden="true"><div class="pc-logo">Aevia<span style="color:var(--gold)">.</span></div><div class="pc-title">Fortrolig helbredsrapport</div><div class="pc-sub">Anonym deltager · Fiktivt eksempel</div><div class="pc-date" id="pc-date"></div></div>
 
@@ -140,7 +145,7 @@ svg .grid{stroke:var(--line)}
     <div class="eyebrow" style="margin-bottom:6px">Resumé</div>
     <h2>Det vigtigste på 30 sekunder</h2>
     <p class="csub">Konklusionen, før du dykker ned i tallene.</p>
-    <p style="border-left:3px solid var(--gold);background:var(--navy);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text);margin:0 0 20px">Biologisk alder <b>39 år</b> — fem år under den kronologiske, og afstanden er vokset tre år i træk. Et stærkt udgangspunkt, båret af god kondition og lav inflammation.</p>
+    <p style="border-left:3px solid var(--gold);background:#ffffff;padding:14px 16px;border-radius:0 10px 10px 0;color:var(--text);margin:0 0 20px">Biologisk alder <b>39 år</b> — fem år under den kronologiske, og afstanden er vokset tre år i træk. Et stærkt udgangspunkt, båret af god kondition og lav inflammation.</p>
     <div style="font-weight:600;color:var(--text);margin-bottom:12px">De 3 vigtigste fund</div>
     <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
       <div style="display:flex;gap:11px;align-items:flex-start"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--low);margin-top:5px"></span><span style="color:var(--muted)"><b style="color:var(--text)">ApoB 1,15 g/L</b> er let forhøjet — den vigtigste markør at sænke for din hjerte-kar-risiko.</span></div>
@@ -328,7 +333,7 @@ svg .grid{stroke:var(--line)}
     <h2>De næste 12 måneder</h2>
     <p class="csub">Sådan følger vi op på din plan.</p>
     <div class="timeline">
-      <div class="ti"><div class="td">Nu</div><div class="tc">Rapport + 1:1 lægegennemgang. Du får din plan og kommer i gang.</div></div>
+      <div class="ti"><div class="td">Nu</div><div class="tc">Rapport + lægegennemgang. Du får din plan og kommer i gang.</div></div>
       <div class="ti"><div class="td">3 mdr.</div><div class="tc">Kort opfølgning (valgfri): justér planen, evt. mini-retest af ApoB og insulin.</div></div>
       <div class="ti"><div class="td">12 mdr.</div><div class="tc">Fuld re-test af kernemarkører — vi måler fremgangen sort på hvidt (indgår i medlemskab).</div></div>
     </div>
@@ -344,7 +349,7 @@ svg .grid{stroke:var(--line)}
       <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--warn);color:#0a1628;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center">2</span><div><b style="color:var(--text)">Forbedr insulinfølsomhed</b><div style="color:var(--muted);font-size:.92rem">2-3 styrketræningspas om ugen + gåtur efter måltider.</div></div></div>
       <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:var(--ok);color:#0a1628;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center">3</span><div><b style="color:var(--text)">Ret D-vitamin & bevar konditionen</b><div style="color:var(--muted);font-size:.92rem">Tilskud 70-100 µg dagligt; fasthold 2-3 konditionspas om ugen.</div></div></div>
     </div>
-    <div style="background:var(--navy);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:13px 16px;color:var(--text);font-size:.95rem;margin-top:18px"><b>Dit næste skridt:</b> Book din 1:1 lægegennemgang, så gennemgår vi planen sammen — og re-tester kernemarkørerne om 12 måneder.</div>
+    <div style="background:#ffffff;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:13px 16px;color:var(--text);font-size:.95rem;margin-top:18px"><b>Dit næste skridt:</b> Book din lægegennemgang, så gennemgår vi planen sammen — og re-tester kernemarkørerne om 12 måneder.</div>
   </div>
 
   <div class="cta">
@@ -554,10 +559,10 @@ svg .grid{stroke:var(--line)}
   <p class="aevc-disc">AI-assistent, generel info, ikke lægefaglig rådgivning. Ved tvivl: <a href="book.html">book en tid</a>.</p>
 </div>
 <style>
-#aevc-btn{position:fixed;right:22px;bottom:22px;z-index:300;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border:none;border-radius:999px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-weight:600;font-size:.95rem;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .15s ease,background .2s ease}
+#aevc-btn{position:fixed;right:22px;bottom:22px;z-index:300;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border:none;border-radius:999px;background:var(--text);color:#fff;font-family:var(--sans);font-weight:600;font-size:.95rem;cursor:pointer;box-shadow:0 12px 30px rgba(10,22,40,.1);transition:transform .15s ease,background .2s ease}
 #aevc-btn:hover{background:var(--gold-deep);transform:translateY(-1px)}#aevc-btn:active{transform:scale(.96)}
 #aevc-btn svg{width:20px;height:20px}
-#aevc-panel{position:fixed;right:22px;bottom:84px;z-index:300;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);background:var(--navy-2);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;font-family:var(--sans);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .22s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
+#aevc-panel{position:fixed;right:22px;bottom:84px;z-index:300;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);background:var(--navy-2);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 24px 60px rgba(10,22,40,.13);display:flex;flex-direction:column;overflow:hidden;font-family:var(--sans);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .22s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
 #aevc-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .22s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .aevc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(160deg,var(--navy-3),var(--navy-2))}
 .aevc-head strong{font-family:var(--serif);color:var(--text);font-size:1.05rem;display:block}
@@ -568,14 +573,14 @@ svg .grid{stroke:var(--line)}
 .aevc-msg{max-width:85%;padding:11px 14px;border-radius:14px;font-size:.92rem;line-height:1.55;animation:aevcIn .26s cubic-bezier(.2,.8,.2,1) both}@keyframes aevcIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 .aevc-bot{align-self:flex-start;background:var(--navy-3);color:var(--muted);border:1px solid var(--line);border-bottom-left-radius:4px}
 .aevc-bot a{color:var(--gold)}
-.aevc-user{align-self:flex-end;background:var(--gold);color:var(--navy);font-weight:500;border-bottom-right-radius:4px}
+.aevc-user{align-self:flex-end;background:var(--text);color:#fff;font-weight:500;border-bottom-right-radius:4px}
 .aevc-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 10px}
 .aevc-chip{background:none;border:1px solid var(--line-2);color:var(--muted);border-radius:999px;padding:7px 12px;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .15s ease}
 .aevc-chip:hover{border-color:var(--gold);color:var(--text)}
 #aevc-form{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
-#aevc-input{flex:1;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;color:var(--text);font-family:inherit;font-size:.92rem}
+#aevc-input{flex:1;background:#ffffff;border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;color:var(--text);font-family:inherit;font-size:.92rem}
 #aevc-input:focus{outline:none;border-color:var(--gold)}
-#aevc-form button{flex:none;width:44px;border:none;border-radius:10px;background:var(--gold);color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:center}
+#aevc-form button{flex:none;width:44px;border:none;border-radius:10px;background:var(--text);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 #aevc-form button:hover{background:var(--gold-deep)}
 #aevc-form button svg{width:18px;height:18px}
 .aevc-disc{font-size:.74rem;color:var(--muted-2);text-align:center;padding:0 14px 12px;margin:0}
@@ -604,7 +609,7 @@ svg .grid{stroke:var(--line)}
    {k:["test min alder","beregn min alder","gratis test","estimat","selvtest"],a:"Prøv vores gratis <a href='biologisk-alder-estimator.html'>test af din biologiske alder</a>, et hurtigt estimat ud fra din livsstil."},
    {k:["fortryd","refusion","penge tilbage","afbestil","annuller","ombook"],a:"Du kan afbestille eller flytte din tid, kontakt os hurtigst muligt. Se vilkår i <a href='handelsbetingelser.html'>handelsbetingelserne</a>."},
    {k:["moms"],a:"Alle priser er angivet inkl. moms."},
-   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås 1:1. Vi har leveringsgaranti: bliver rapporten forsinket, får du 10% retur."},
+   {k:["hvor lang tid tager","varighed","hvor hurtigt kan jeg","tager forløbet"],a:"Selve prøvetagningen tager typisk under to timer af din tid; rapporten er klar inden for 10 arbejdsdage og gennemgås af en læge. Vi har leveringsgaranti: bliver rapporten forsinket, får du 10% retur."},
    {k:["hvordan beregnes","metode bag","udregnes biologisk","model"],a:"Din biologiske alder beregnes ud fra en kombination af biomarkører (inflammation, stofskifte, nyrer, lipider, blodtal) vægtet efter sammenhæng med aldring. Det er en model, ikke en diagnose."},
 /*GLOS*/
    {k:["homocystein"],a:"Homocystein er en aminosyre. Høje niveauer øger risikoen for hjerte og hjerne og kan ofte sænkes med B-vitaminer. Måles i vores blodpanel."},
@@ -647,7 +652,7 @@ svg .grid{stroke:var(--line)}
    {k:["bryan johnson","blueprint","longevity"],a:"Longevity handler om at måle, ændre én ting ad gangen og følge op, uden ekstremerne. Læs vores tag på <a href='bryan-johnson.html'>Bryan Johnson-metoden</a>."},
    {k:["hvem udfører","klinik","lab","udfører","laboratorium","speciallæge"],a:"Aevia driver ikke egen klinik. Vi koordinerer din diagnostik gennem akkrediterede laboratorier, billeddiagnostiske centre og speciallæger og samler alt i én rapport. Se <a href='proces.html'>Sådan virker det</a>."},
    {k:["fortrolig","gdpr","data","arbejdsgiver","chef","ser min","privatliv","sikker","anonym"],a:"Dine helbredsdata er følsomme (GDPR art. 9): krypteret opbevaring, deles aldrig med arbejdsgiver. Virksomheder får kun en <strong>anonymiseret teamrapport</strong>, aldrig individuelle tal. Skriv aldrig helbredsoplysninger her i chatten. Mere i <a href='privatlivspolitik.html'>privatlivspolitikken</a>."},
-   {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået 1:1 med en sundhedsspecialist."},
+   {k:["hvornår","leveringstid","rapport","svar","hvor lang","tid på"],a:"Du får din rapport inden for <strong>10 arbejdsdage</strong> efter sidste prøve, gennemgået af en læge."},
    {k:["book","booking","tid","samtale","ring","kontakt","mail","telefon"],a:"Book din tid direkte på <a href='book.html'>book-siden</a>, ring +45 28 30 39 33 eller skriv til <a href='mailto:kontakt@aevia.dk'>kontakt@aevia.dk</a>."},
    {k:["køb","betaling","betale","online","faktura","kort","afdrag"],a:"De tre private pakker kan købes online med kort eller på faktura. Virksomhedsaftaler indgås via kontakt. Gå til <a href='pakker.html'>Pakker</a>."},
    {k:["virksomhed","medarbejder","team","ansat","arbejdsplads","erhverv","hr"],a:"For virksomheder samler vi teamets resultater i en anonymiseret teamrapport, arbejdsgiver ser aldrig individuelle tal, og deltagelse er frivillig. Læs <a href='virksomheder.html'>For virksomheder</a>."},
@@ -758,19 +763,16 @@ svg .grid{stroke:var(--line)}
 </script>
 
 <!-- Analytics + samtykke -->
-<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.6);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
-<p style="margin:0 0 14px;color:#aab4c2;font-size:.92rem;line-height:1.5"><strong style="color:#f5f5f0">Vi respekterer dine data.</strong> Aevia bruger cookies til at måle anonym trafik (Google Analytics 4, Microsoft Clarity). Helbredsdata indsamles aldrig via hjemmesiden.</p>
+<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#ffffff;border:1px solid #d4dbe3;border-radius:14px;padding:20px 22px;box-shadow:0 16px 40px rgba(10,22,40,.14);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<p style="margin:0 0 14px;color:#46505f;font-size:.92rem;line-height:1.5"><strong style="color:#0a1628">Vi respekterer dine data.</strong> Aevia bruger cookies til at måle anonym trafik (Google Analytics 4, Microsoft Clarity). Helbredsdata indsamles aldrig via hjemmesiden.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
-<button onclick="aevSetCookie(true)" style="background:#c9a437;color:#0a1628;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accepter alle</button>
-<button onclick="aevSetCookie(false)" style="background:none;color:#aab4c2;border:1px solid #28394f;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Kun nødvendige</button>
+<button onclick="aevSetCookie(true)" style="background:#0a1628;color:#fff;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accepter alle</button>
+<button onclick="aevSetCookie(false)" style="background:none;color:#46505f;border:1px solid #d4dbe3;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Kun nødvendige</button>
 </div></div>
 <script>
 var AEVIA_GA4='G-8J87JYSBZG';var AEVIA_CLARITY='x15dq7rsz1';
-function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;
- if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',AEVIA_GA4);}
- if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}
-(function(){try{var c=localStorage.getItem('aevia_cookie');if(!c){document.getElementById('aevcb').style.display='block';}else if(c==='all'){aevLoadAnalytics();}}catch(e){document.getElementById('aevcb').style.display='block';}})();
-function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}document.getElementById('aevcb').style.display='none';if(all)aevLoadAnalytics();}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function aevLoadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}aevLoadAnalytics();if(c==='all'){aevGrant();aevLoadClarity();}else if(!c){try{document.getElementById('aevcb').style.display='block';}catch(e){}}})();function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('aevcb').style.display='none';}catch(e){}if(all){aevGrant();aevLoadClarity();}}
 </script>
+<script>(function(){function ev(n,p){try{if(window.gtag)gtag("event",n,p||{});}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";var t=(a.textContent||"").trim().slice(0,60);if(/book\.html/.test(h)){var pk=(h.match(/pakke=([a-z]+)/)||[])[1];ev("book_cta_click",{label:t,package:pk||"none",page:location.pathname});}else if(a.classList&&a.classList.contains("nav-cta")){ev("book_cta_click",{label:"nav",page:location.pathname});}else if(/pakker\.html/.test(h)){ev("packages_view_click",{label:t,page:location.pathname});}},{passive:true});})();</script>
 </body>
 </html>
