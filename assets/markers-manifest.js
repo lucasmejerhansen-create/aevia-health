@@ -50,7 +50,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 3.5,
       "optimalHigh": 5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "ldl",
@@ -59,7 +62,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 1,
       "optimalHigh": 2.6,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "hdl",
@@ -68,7 +74,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 1.2,
       "optimalHigh": 2.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     },
     {
       "id": "triglycerid",
@@ -77,7 +86,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 0.4,
       "optimalHigh": 1,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "apob",
@@ -86,7 +98,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 0.4,
       "optimalHigh": 0.8,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "apoa1",
@@ -95,7 +110,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 1.4,
       "optimalHigh": 2,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     },
     {
       "id": "apobratio",
@@ -104,7 +122,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 0.3,
       "optimalHigh": 0.6,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "lpa",
@@ -113,7 +134,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 0,
       "optimalHigh": 75,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "nonhdl",
@@ -122,7 +146,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 1.5,
       "optimalHigh": 3,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "omega3",
@@ -131,7 +158,10 @@ window.AEVIA_MARKERS = {
       "category": "hjerte",
       "optimalLow": 8,
       "optimalHigh": 12,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     },
     {
       "id": "hba1c",
@@ -140,7 +170,10 @@ window.AEVIA_MARKERS = {
       "category": "blodsukker",
       "optimalLow": 28,
       "optimalHigh": 35,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "glukose",
@@ -149,7 +182,10 @@ window.AEVIA_MARKERS = {
       "category": "blodsukker",
       "optimalLow": 4.2,
       "optimalHigh": 5.4,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "insulin",
@@ -158,7 +194,10 @@ window.AEVIA_MARKERS = {
       "category": "blodsukker",
       "optimalLow": 20,
       "optimalHigh": 60,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "homair",
@@ -167,7 +206,10 @@ window.AEVIA_MARKERS = {
       "category": "blodsukker",
       "optimalLow": 0.5,
       "optimalHigh": 1.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "cpeptid",
@@ -176,7 +218,10 @@ window.AEVIA_MARKERS = {
       "category": "blodsukker",
       "optimalLow": 300,
       "optimalHigh": 700,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "hscrp",
@@ -185,7 +230,10 @@ window.AEVIA_MARKERS = {
       "category": "inflammation",
       "optimalLow": 0,
       "optimalHigh": 1,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "homocystein",
@@ -194,7 +242,10 @@ window.AEVIA_MARKERS = {
       "category": "inflammation",
       "optimalLow": 5,
       "optimalHigh": 9,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "fibrinogen",
@@ -203,7 +254,10 @@ window.AEVIA_MARKERS = {
       "category": "inflammation",
       "optimalLow": 1.8,
       "optimalHigh": 3,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "sr",
@@ -212,7 +266,10 @@ window.AEVIA_MARKERS = {
       "category": "inflammation",
       "optimalLow": 0,
       "optimalHigh": 10,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "alat",
@@ -221,7 +278,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 10,
       "optimalHigh": 35,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "asat",
@@ -230,7 +290,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 10,
       "optimalHigh": 35,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "ggt",
@@ -239,7 +302,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 10,
       "optimalHigh": 40,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "basiskfosfatase",
@@ -248,7 +314,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 35,
       "optimalHigh": 105,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "bilirubin",
@@ -257,7 +326,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 5,
       "optimalHigh": 20,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "albumin",
@@ -266,7 +338,10 @@ window.AEVIA_MARKERS = {
       "category": "lever",
       "optimalLow": 40,
       "optimalHigh": 48,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "kreatinin",
@@ -275,7 +350,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 60,
       "optimalHigh": 100,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "egfr",
@@ -284,7 +362,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 90,
       "optimalHigh": 130,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     },
     {
       "id": "cystatinc",
@@ -293,7 +374,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 0.6,
       "optimalHigh": 1,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "urat",
@@ -302,7 +386,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 0.2,
       "optimalHigh": 0.4,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "karbamid",
@@ -311,7 +398,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 3,
       "optimalHigh": 8,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "natrium",
@@ -320,7 +410,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 137,
       "optimalHigh": 144,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "kalium",
@@ -329,7 +422,10 @@ window.AEVIA_MARKERS = {
       "category": "nyrer",
       "optimalLow": 3.7,
       "optimalHigh": 4.6,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "vitd",
@@ -338,7 +434,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 75,
       "optimalHigh": 120,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "b12",
@@ -347,7 +446,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 350,
       "optimalHigh": 650,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "folat",
@@ -356,7 +458,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 15,
       "optimalHigh": 35,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "magnesium",
@@ -365,7 +470,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 0.85,
       "optimalHigh": 1,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "zink",
@@ -374,7 +482,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 12,
       "optimalHigh": 18,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "jern",
@@ -383,7 +494,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 12,
       "optimalHigh": 28,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "ferritin",
@@ -392,7 +506,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 50,
       "optimalHigh": 150,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "transferrin",
@@ -401,7 +518,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 25,
       "optimalHigh": 40,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "calcium",
@@ -410,7 +530,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 2.2,
       "optimalHigh": 2.5,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "selen",
@@ -419,7 +542,10 @@ window.AEVIA_MARKERS = {
       "category": "vitaminer",
       "optimalLow": 1,
       "optimalHigh": 1.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "testosteron",
@@ -428,7 +554,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 15,
       "optimalHigh": 30,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "frittestosteron",
@@ -437,7 +566,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 250,
       "optimalHigh": 600,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "shbg",
@@ -446,7 +578,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 20,
       "optimalHigh": 55,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "oestradiol",
@@ -455,7 +590,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 60,
       "optimalHigh": 150,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "kortisol",
@@ -464,7 +602,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 250,
       "optimalHigh": 550,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "dheas",
@@ -473,7 +614,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 4,
       "optimalHigh": 10,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "igf1",
@@ -482,7 +626,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 18,
       "optimalHigh": 30,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "prolaktin",
@@ -491,7 +638,10 @@ window.AEVIA_MARKERS = {
       "category": "hormoner",
       "optimalLow": 80,
       "optimalHigh": 320,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "tsh",
@@ -500,7 +650,10 @@ window.AEVIA_MARKERS = {
       "category": "thyroidea",
       "optimalLow": 0.5,
       "optimalHigh": 2.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "ft4",
@@ -509,7 +662,10 @@ window.AEVIA_MARKERS = {
       "category": "thyroidea",
       "optimalLow": 12,
       "optimalHigh": 20,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "ft3",
@@ -518,7 +674,10 @@ window.AEVIA_MARKERS = {
       "category": "thyroidea",
       "optimalLow": 4,
       "optimalHigh": 6,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "antitpo",
@@ -527,7 +686,10 @@ window.AEVIA_MARKERS = {
       "category": "thyroidea",
       "optimalLow": 0,
       "optimalHigh": 35,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "haemoglobin",
@@ -536,7 +698,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 8.5,
       "optimalHigh": 10.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "haematokrit",
@@ -545,7 +710,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 40,
       "optimalHigh": 50,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "erytrocytter",
@@ -554,7 +722,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 4.5,
       "optimalHigh": 5.7,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "mcv",
@@ -563,7 +734,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 85,
       "optimalHigh": 95,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "mch",
@@ -572,7 +746,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 27,
       "optimalHigh": 33,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "rdw",
@@ -581,7 +758,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 11.5,
       "optimalHigh": 14,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "leukocytter",
@@ -590,7 +770,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 4,
       "optimalHigh": 8,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "neutrofile",
@@ -599,7 +782,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 2,
       "optimalHigh": 6,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "lymfocytter",
@@ -608,7 +794,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 1,
       "optimalHigh": 3.5,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "monocytter",
@@ -617,7 +806,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 0.2,
       "optimalHigh": 0.8,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "eosinofile",
@@ -626,7 +818,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 0,
       "optimalHigh": 0.4,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "basofile",
@@ -635,7 +830,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 0,
       "optimalHigh": 0.1,
-      "decimals": 2
+      "decimals": 2,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "trombocytter",
@@ -644,7 +842,10 @@ window.AEVIA_MARKERS = {
       "category": "blodstatus",
       "optimalLow": 150,
       "optimalHigh": 350,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "vo2max",
@@ -653,7 +854,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 42,
       "optimalHigh": 60,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     },
     {
       "id": "hvilepuls",
@@ -662,7 +866,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 48,
       "optimalHigh": 62,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "blodtryksys",
@@ -671,7 +878,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 105,
       "optimalHigh": 125,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "blodtrykdia",
@@ -680,7 +890,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 65,
       "optimalHigh": 80,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "fedtprocent",
@@ -689,7 +902,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 12,
       "optimalHigh": 20,
-      "decimals": 1
+      "decimals": 1,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "taljemaal",
@@ -698,7 +914,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 80,
       "optimalHigh": 94,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": true,
+      "higherIsBetter": false,
+      "validated": false
     },
     {
       "id": "gribestyrke",
@@ -707,7 +926,10 @@ window.AEVIA_MARKERS = {
       "category": "fysiologi",
       "optimalLow": 42,
       "optimalHigh": 60,
-      "decimals": 0
+      "decimals": 0,
+      "lowerIsBetter": false,
+      "higherIsBetter": true,
+      "validated": false
     }
   ],
   "unitConversions": {
