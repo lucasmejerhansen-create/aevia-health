@@ -680,7 +680,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
               <button type="button" class="bk-dd-btn"><span class="bk-dd-cur">Jeg er ikke sikker endnu</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
               <div class="bk-dd-list">
                 <button type="button" class="bk-dd-opt" data-val="">Jeg er ikke sikker endnu</button>
+                <button type="button" class="bk-dd-opt" data-val="Aevia Intro (5.995 DKK)">Aevia Intro (5.995 DKK)</button>
                 <button type="button" class="bk-dd-opt" data-val="Aevia Core (10.995 DKK)">Aevia Core (10.995 DKK)</button>
+                <button type="button" class="bk-dd-opt" data-val="Aevia Kvinde (13.995 DKK)">Aevia Kvinde (13.995 DKK)</button>
+                <button type="button" class="bk-dd-opt" data-val="Aevia Mand (13.995 DKK)">Aevia Mand (13.995 DKK)</button>
+                <button type="button" class="bk-dd-opt" data-val="Aevia Atlet (14.995 DKK)">Aevia Atlet (14.995 DKK)</button>
                 <button type="button" class="bk-dd-opt" data-val="Aevia Plus (18.495 DKK)">Aevia Plus (18.495 DKK)</button>
                 <button type="button" class="bk-dd-opt" data-val="Aevia Elite (36.995 DKK)">Aevia Elite (36.995 DKK)</button>
                 <button type="button" class="bk-dd-opt" data-val="Virksomhedspakke (150.000 DKK)">Virksomhedspakke (150.000 DKK)</button>
@@ -835,8 +839,12 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
   var KB=[
    {k:["112","nødsituation","akut","brystsmerter","åndenød","besvimer","bevidstløs","blødning"],a:"⚠️ Lyder det som en akut situation, fx brystsmerter, åndenød eller bevidstløshed, så ring <strong>112</strong> eller vagtlægen med det samme. Aevia er forebyggende og kan ikke håndtere akutte tilfælde."},
    {k:["symptom","syg","ondt","smerte","diagnose","fejler jeg","er det farligt","blodprop","kræft"],a:"Jeg kan desværre ikke vurdere symptomer eller stille diagnoser. Har du en konkret bekymring, så book en tid hos Aevia eller kontakt din egen læge, ved akut sygdom ring 112. <a href='book.html'>Book en samtale</a>."},
-   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Core 10.995 kr.</strong>, <strong>Plus 18.495 kr.</strong>, <strong>Elite 36.995 kr.</strong> Virksomhedsaftaler fra 150.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
-   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"Alle pakker: biologisk alder, fuldt blodpanel (70+ markører) og personlig rapport. Plus tilføjer konditionstest (VO2max) og hormonpanel; Elite tilføjer helkrops-MRI, genetik, 3 mdr. opfølgning og en trykt premium-rapport. Se <a href='ydelser.html'>Ydelser</a>."},
+   {k:["koster","pris","priser","hvad koster","beløb"," kr","dyrt"],a:"Private pakker: <strong>Intro 5.995 kr.</strong>, <strong>Core 10.995 kr.</strong>, <strong>Kvinde / Mand 13.995 kr.</strong>, <strong>Atlet 14.995 kr.</strong>, <strong>Plus 18.495 kr.</strong>, <strong>Elite 36.995 kr.</strong> Virksomhedsaftaler fra 150.000 kr. Se alt på <a href='pakker.html'>Pakker &amp; priser</a>. Skal jeg hjælpe dig med at vælge?"},
+   {k:["indgår","indeholder","pakke","pakker","forskel","niveau","får jeg"],a:"<strong>Intro (5.995 kr.)</strong>: 25–30 markører + rapport. <strong>Core (10.995 kr.)</strong>: 70+ markører + rapport. <strong>Kvinde/Mand (13.995 kr.)</strong>: Core + kønspecifikt panel. <strong>Atlet (14.995 kr.)</strong>: Core + atletpanel. <strong>Plus (18.495 kr.)</strong>: Core + hormon + VO2max. <strong>Elite (36.995 kr.)</strong>: alt i Plus + MRI + genetik. Se <a href='pakker.html'>Pakker</a>."},
+   {k:["intro","begynde","starte","prøve","første gang"],a:"Aevia Intro (5.995 kr.) er vores indgangspakke med 25–30 af de vigtigste markører og en personlig rapport. Perfekt som første skridt. <a href='book.html?pakke=intro&amp;total=5995'>Book Aevia Intro</a>."},
+   {k:["kvinde","kvinder","amh","æggestor","overgangsalder","menopause"],a:"Aevia Kvinde (13.995 kr.) inkluderer Core-blodpanel + kvindepanel med hormoner, AMH og knoglestatus. Relevant fra 30+ og særligt ved symptomer på overgangsalder. <a href='pakker.html'>Se pakken</a>."},
+   {k:["mand","mænd","testosteron","psa","prostata"],a:"Aevia Mand (13.995 kr.) inkluderer Core-blodpanel + mandepanel med testosteron, PSA og prostatastatus. <a href='pakker.html'>Se pakken</a>."},
+   {k:["atlet","sport","løber","cykel","triathlon","performance","ferritin","overreaching"],a:"Aevia Atlet (14.995 kr.) er for seriøse motionister og atleter: Core-blodpanel + atletpanel med VO2max, ferritin, kortisol og inflammation. <a href='atlet.html'>Læs mere</a> eller <a href='book.html?pakke=atlet&amp;total=14995'>book direkte</a>."},
    {k:["biologisk alder","biologiske"],a:"Din biologiske alder viser, hvor hurtigt din krop reelt ældes, uafhængigt af fødselsdagen. Den indgår i alle pakker. Læs <a href='biologisk-alder.html'>artiklen</a>."},
    {k:["vo2","kondition","iltoptag"],a:"Konditionstesten (VO2max) måler dit kondital og er en af de stærkeste markører for levetid, og den kan trænes. Indgår i Plus og Elite. Læs <a href='vo2max-levetid.html'>om VO2max</a>."},
    {k:["mri","mr-scanning","scanning","helkrop"],a:"Helkrops-MRI scanner organer og væv uden stråling og indgår i Elite. Læs <a href='mri-helkropsscanning.html'>om helkrops-MRI</a>."},
@@ -895,7 +903,7 @@ function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'neces
 <script>
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
-  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
+  var names={intro:'Aevia Intro',core:'Aevia Core',kvinde:'Aevia Kvinde',mand:'Aevia Mand',atlet:'Aevia Atlet',executive:'Aevia Plus',elite:'Aevia Elite'};
   var an={vo2max:'Konditionstest (VO2max)',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){var dd=sel.closest('.bk-dd'),op=dd?dd.querySelectorAll('.bk-dd-opt'):[];for(var i=0;i<op.length;i++){if(op[i].textContent.indexOf(names[pk])===0){sel.value=op[i].getAttribute('data-val')||op[i].textContent;var cu=dd.querySelector('.bk-dd-cur');if(cu)cu.textContent=op[i].textContent;break;}}}
@@ -957,11 +965,11 @@ var BOOKING={
      NÅR du har lavet ét dedikeret event, fx "Aevia helbredstjek", så skift værdierne til
      'aevia/<event-slug>' (slug står i Cal.com-event'ets URL). */
   calcom:{
-    events:{ _default:'aevia/gratis-samtale', core:'aevia/gratis-samtale', executive:'aevia/udvidet-samtale', elite:'aevia/udvidet-samtale' } }
+    events:{ _default:'aevia/gratis-samtale', intro:'aevia/gratis-samtale', core:'aevia/gratis-samtale', kvinde:'aevia/gratis-samtale', mand:'aevia/gratis-samtale', atlet:'aevia/gratis-samtale', executive:'aevia/udvidet-samtale', elite:'aevia/udvidet-samtale' } }
 };
 (function(){
   var p=new URLSearchParams(location.search);
-  var names={core:'Aevia Core',executive:'Aevia Plus',elite:'Aevia Elite'};
+  var names={intro:'Aevia Intro',core:'Aevia Core',kvinde:'Aevia Kvinde',mand:'Aevia Mand',atlet:'Aevia Atlet',executive:'Aevia Plus',elite:'Aevia Elite'};
   var pk=p.get('pakke'),total=p.get('total');
   var label=(names[pk]||'')+(total?(' ('+Number(total).toLocaleString('da-DK')+' kr.)'):'');
   var el=document.getElementById('aevia-calendly');
@@ -1000,7 +1008,11 @@ var BOOKING={
       ['Rapport & 1:1 lægegennemgang','Vi samler dine resultater og gennemgår dem med dig.','coord',null]
     ];
     var PKG_INCL={
+      intro:['Blodpanel · 25–30 markører','Rapport & 1:1 lægegennemgang'],
       core:['Blodpanel · 70+ markører','Rapport & 1:1 lægegennemgang'],
+      kvinde:['Blodpanel · 70+ markører','Kvindepanel (hormoner, AMH, knoglestatus)','Rapport & 1:1 lægegennemgang'],
+      mand:['Blodpanel · 70+ markører','Mandepanel (testosteron, PSA, prostata)','Rapport & 1:1 lægegennemgang'],
+      atlet:['Blodpanel · 70+ markører','Atletpanel (VO2max, ferritin, kortisol)','Rapport & 1:1 lægegennemgang'],
       executive:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Rapport & 1:1 lægegennemgang'],
       elite:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Helkrops-MRI','Genetisk profil','Rapport & 1:1 lægegennemgang']
     };
