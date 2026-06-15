@@ -1035,16 +1035,16 @@ var BOOKING={
       ['Konditionstest (VO2max)','Vælg sted og din ønskede tid · vi bekræfter.','coord','kondition'],
       ['Helkrops-MRI','Vælg sted og din ønskede tid · vi bekræfter.','coord','mr'],
       ['Genetisk profil','Vælg sted og din ønskede tid · vi bekræfter.','self','genetik'],
-      ['Rapport & lægegennemgang','Vi samler dine resultater og gennemgår dem med dig.','coord',null]
+      ['Rapport & lægegodkendelse','Vi samler dine resultater og gennemgår dem med dig.','coord',null]
     ];
     var PKG_INCL={
-      intro:['Blodpanel · 25–30 markører','Rapport & lægegennemgang'],
-      core:['Blodpanel · 70+ markører','Rapport & lægegennemgang'],
-      kvinde:['Blodpanel · 70+ markører','Kvindepanel (hormoner, AMH, knoglestatus)','Rapport & lægegennemgang'],
-      mand:['Blodpanel · 70+ markører','Mandepanel (testosteron, PSA, prostata)','Rapport & lægegennemgang'],
-      atlet:['Blodpanel · 70+ markører','Atletpanel (VO2max, ferritin, kortisol)','Rapport & lægegennemgang'],
-      executive:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Rapport & lægegennemgang'],
-      elite:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Helkrops-MRI','Genetisk profil','Rapport & lægegennemgang']
+      intro:['Blodpanel · 25–30 markører','Rapport & lægegodkendelse'],
+      core:['Blodpanel · 70+ markører','Rapport & lægegodkendelse'],
+      kvinde:['Blodpanel · 70+ markører','Kvindepanel (hormoner, AMH, knoglestatus)','Rapport & lægegodkendelse'],
+      mand:['Blodpanel · 70+ markører','Mandepanel (testosteron, PSA, prostata)','Rapport & lægegodkendelse'],
+      atlet:['Blodpanel · 70+ markører','Atletpanel (VO2max, ferritin, kortisol)','Rapport & lægegodkendelse'],
+      executive:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Rapport & lægegodkendelse'],
+      elite:['Blodpanel · 70+ markører','Hormonpanel','Konditionstest (VO2max)','Helkrops-MRI','Genetisk profil','Rapport & lægegodkendelse']
     };
     var calLoaded=false;
     function loadCal(){ if(calLoaded)return; calLoaded=true;
@@ -1477,7 +1477,7 @@ function aevWait(f,e){e.preventDefault();
     kondition:{lbl:'Konditionstest (VO2max)'},
     mr:{lbl:'Helkrops-MRI (uden kontrast)'},
     genetik:{lbl:'Genetisk profil'},
-    rapport:{lbl:'Rapport & lægegennemgang',fixed:'Aevia · online eller telefon'}
+    rapport:{lbl:'Rapport & lægegodkendelse',fixed:'Aevia · online eller telefon'}
   };
   function fmtDay(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return '<strong>'+DAY[d.getDay()]+'</strong><br>'+d.getDate()+'. '+MON[d.getMonth()];}
   function fmtDayTxt(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return DAY[d.getDay()]+' '+d.getDate()+'. '+MON[d.getMonth()];}

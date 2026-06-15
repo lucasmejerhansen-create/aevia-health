@@ -992,7 +992,7 @@ function aevWait(f,e){e.preventDefault();
     kondition:{lbl:'Cardio fitness test (VO2max)'},
     mr:{lbl:'Whole-body MRI (no contrast)'},
     genetik:{lbl:'Genetic profile'},
-    rapport:{lbl:'Report & physician review',fixed:'Aevia · online or phone'}
+    rapport:{lbl:'Report & physician approval',fixed:'Aevia · online or phone'}
   };
   function fmtDay(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return '<strong>'+DAY[d.getDay()]+'</strong><br>'+d.getDate()+' '+MON[d.getMonth()];}
   function fmtDayTxt(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return DAY[d.getDay()]+' '+d.getDate()+' '+MON[d.getMonth()];}
