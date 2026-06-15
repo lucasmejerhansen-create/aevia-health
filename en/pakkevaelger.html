@@ -17,11 +17,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png"><meta name="theme-color" content="#0a1628">
+<link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../assets/logo/aevia-icon-180.png"><meta name="theme-color" content="#ffffff">
 <style>
-:root{--navy:#0a1628;--navy-2:#0f1f36;--navy-3:#142840;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;--line:#e6eaef;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--gold-soft:rgba(201,164,55,.12);--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.6}
+body{font-family:var(--sans);background:#ffffff;color:var(--text);line-height:1.6}
 .wrap{max-width:680px;margin:0 auto;padding:24px 20px 80px}
 .top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 24px}
 .logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
@@ -37,7 +37,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 .opts span{display:block;padding:11px 16px;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;color:var(--muted);transition:all .15s ease}
 .opts label:hover span{border-color:var(--gold);color:var(--text)}
 .opts input:checked + span{background:var(--gold-soft);color:var(--text);border-color:var(--gold);font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--gold);color:var(--navy);transition:all .2s ease;font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;background:var(--text);color:#fff;transition:all .2s ease;font-family:inherit}
 .btn:hover{background:var(--gold-deep);transform:translateY(-1px)}
 .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
 .result{display:none;background:var(--navy-2);border:1px solid var(--gold);border-radius:16px;padding:28px;margin-top:8px;text-align:center}
@@ -132,7 +132,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 (function(){
   var PKG={
     c:{name:'Aevia Core',price:'DKK 10,995',url:'book.html?pakke=core&total=10995',
-       list:['Biological age calculation','Full blood panel (70+ markers)','Personal report + 1:1 physician review'],
+       list:['Biological age calculation','Full blood panel (70+ markers)','Personal report + physician approval'],
        msg:'The focused starting point. You get the full picture of your blood and biological age — and can always add a cardio fitness test, hormones, MRI or genetics later.'},
     p:{name:'Aevia Plus',price:'DKK 18,495',url:'book.html?pakke=executive&total=18495',
        list:['Everything in Core','Cardio fitness test (VO2max)','Full hormone panel','Personal protocol with measurable goals'],
@@ -171,19 +171,16 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
 </script>
 
 <!-- Analytics + samtykke -->
-<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.6);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
-<p style="margin:0 0 14px;color:#aab4c2;font-size:.92rem;line-height:1.5"><strong style="color:#f5f5f0">We respect your data.</strong> Aevia uses cookies to measure anonymous traffic (Google Analytics 4, Microsoft Clarity). Health data is never collected via the website.</p>
+<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#ffffff;border:1px solid #d4dbe3;border-radius:14px;padding:20px 22px;box-shadow:0 16px 40px rgba(10,22,40,.14);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<p style="margin:0 0 14px;color:#46505f;font-size:.92rem;line-height:1.5"><strong style="color:#0a1628">We respect your data.</strong> Aevia uses cookies to measure anonymous traffic (Google Analytics 4, Microsoft Clarity). Health data is never collected via the website.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
-<button onclick="aevSetCookie(true)" style="background:#c9a437;color:#0a1628;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accept all</button>
-<button onclick="aevSetCookie(false)" style="background:none;color:#aab4c2;border:1px solid #28394f;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Necessary only</button>
+<button onclick="aevSetCookie(true)" style="background:#0a1628;color:#fff;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accept all</button>
+<button onclick="aevSetCookie(false)" style="background:none;color:#46505f;border:1px solid #d4dbe3;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Necessary only</button>
 </div></div>
 <script>
 var AEVIA_GA4='G-8J87JYSBZG';var AEVIA_CLARITY='x15dq7rsz1';
-function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;
- if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',AEVIA_GA4);}
- if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}
-(function(){try{var c=localStorage.getItem('aevia_cookie');if(!c){document.getElementById('aevcb').style.display='block';}else if(c==='all'){aevLoadAnalytics();}}catch(e){document.getElementById('aevcb').style.display='block';}})();
-function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}document.getElementById('aevcb').style.display='none';if(all)aevLoadAnalytics();}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function aevLoadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}aevLoadAnalytics();if(c==='all'){aevGrant();aevLoadClarity();}else if(!c){try{document.getElementById('aevcb').style.display='block';}catch(e){}}})();function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('aevcb').style.display='none';}catch(e){}if(all){aevGrant();aevLoadClarity();}}
 </script>
+<script>(function(){function ev(n,p){try{if(window.gtag)gtag("event",n,p||{});}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";var t=(a.textContent||"").trim().slice(0,60);if(/book\.html/.test(h)){var pk=(h.match(/pakke=([a-z]+)/)||[])[1];ev("book_cta_click",{label:t,package:pk||"none",page:location.pathname});}else if(a.classList&&a.classList.contains("nav-cta")){ev("book_cta_click",{label:"nav",page:location.pathname});}else if(/pakker\.html/.test(h)){ev("packages_view_click",{label:t,page:location.pathname});}},{passive:true});})();</script>
 </body>
 </html>

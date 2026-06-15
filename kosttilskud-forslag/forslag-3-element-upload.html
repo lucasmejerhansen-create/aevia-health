@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Upload din rapport — Nuvera</title>
+<meta name="description" content="Upload din Aevia-blodprøve, så bygger Nuvera en formel ud fra dine faktiske markører — markør-baseret og præcis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg-soft:#f3f7fc;--navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;--sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;--good:#2f7a52;--good-soft:#e7f1ea;--amber:#9a6a16;--ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;--line:#e6ecf3;--line-2:#d3deea;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.15}
+h1{font-size:clamp(2rem,4.6vw,3rem)}
+.container{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s;border:2px solid transparent;font-family:inherit;line-height:1;width:100%}
+.btn-primary{background:var(--sky);color:#fff}.btn-primary:hover{background:#2f74c4}
+.intro{padding:50px 0 26px}.intro .lead{margin-top:14px}
+.wrap{padding:14px 0 80px}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.drop{border:2px dashed var(--line-2);border-radius:18px;background:var(--bg-soft);padding:36px 26px;text-align:center;cursor:pointer;transition:all .2s}
+.drop.drag{border-color:var(--sky);background:var(--sky-soft)}
+.drop .ic{width:54px;height:54px;border-radius:15px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--sky)}
+.drop .ic svg{width:26px;height:26px}
+.drop b{color:var(--ink);font-size:1.02rem}
+.drop span{display:block;font-size:.88rem;color:var(--muted);margin-top:5px}
+.drop .pick{color:var(--sky);font-weight:600;text-decoration:underline}
+.status{display:none;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:14px;font-size:.92rem}
+.status.show{display:flex}
+.status .dot{width:18px;height:18px;border:2px solid var(--sky);border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;flex:none}
+.status.done .dot{border:none;background:var(--good);position:relative;animation:none}
+.status.done .dot::after{content:"✓";color:#fff;font-size:11px;position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status b{color:var(--ink)}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:20px}
+.formcard h3{font-size:1.1rem;margin-bottom:4px}
+.formcard .sub{font-size:.86rem;color:var(--muted);margin-bottom:16px}
+.sexrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.sexrow .lbl{font-size:.86rem;color:var(--muted)}
+.seg{display:flex;gap:7px}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.seg span{display:inline-flex;padding:8px 15px;border:1px solid var(--line-2);border-radius:999px;font-size:.88rem;color:var(--text-solid)}
+.seg input:checked+span{background:var(--sky);border-color:var(--sky);color:#fff}
+.mrow{display:grid;grid-template-columns:1fr 116px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.mrow:last-of-type{border-bottom:none}
+.mrow .ml b{color:var(--ink);font-size:.96rem;font-weight:600}
+.mrow .ml small{display:block;color:var(--muted-2);font-size:.78rem}
+.mrow .mi{display:flex;align-items:center;gap:6px}
+.mrow input{width:72px;border:1px solid var(--line-2);border-radius:9px;padding:9px 10px;font-family:inherit;font-size:.95rem;color:var(--ink);text-align:right}
+.mrow input:focus{outline:none;border-color:var(--sky)}
+.mrow .u{font-size:.78rem;color:var(--muted-2);white-space:nowrap}
+.result{position:sticky;top:92px;background:#fff;border:1px solid var(--line-2);border-radius:18px;box-shadow:0 28px 64px -36px rgba(8,27,52,.55);overflow:hidden}
+.rhead{background:linear-gradient(160deg,#0c2748,#16386a);color:#fff;padding:22px 24px;position:relative;overflow:hidden}
+.rhead::before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.4),transparent 65%);top:-90px;right:-50px}
+.rhead .t{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#9fc0ec;position:relative}
+.rhead h3{color:#fff;margin-top:3px;font-size:1.3rem;position:relative}
+.rhead .cnt{position:relative;font-size:.82rem;color:#bccadd;margin-top:4px}.rhead .cnt b{color:#fff}
+.ritems{padding:6px 0;max-height:400px;overflow-y:auto}
+.ritem{padding:13px 24px;border-bottom:1px solid var(--line);display:flex;gap:11px;align-items:flex-start}
+.ritem:last-child{border-bottom:none}
+.ritem .pdot{width:30px;height:30px;border-radius:9px;background:var(--sky-soft);color:var(--sky);display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.ritem .pdot svg{width:15px;height:15px}
+.ritem b{color:var(--ink);font-size:.95rem}.ritem .amt{margin-left:auto;color:var(--sky);font-weight:700;font-size:.9rem;white-space:nowrap}
+.ritem small{display:block;color:var(--muted);font-size:.82rem;margin-top:1px}
+.tag{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:5px;margin-left:5px;letter-spacing:.04em;vertical-align:middle;text-transform:uppercase;background:#e8f1fb;color:#2f6fb0}
+.empty{padding:28px 24px;text-align:center;color:var(--muted);font-size:.92rem}
+.rfoot{padding:18px 24px;background:var(--bg-soft);border-top:1px solid var(--line)}
+.rnote{font-size:.82rem;color:var(--muted);margin-bottom:11px;display:flex;gap:7px}
+.rnote svg{width:15px;height:15px;color:var(--sky);flex:none;margin-top:2px}
+.disc{font-size:.82rem;color:var(--muted-2);max-width:64ch;margin-top:26px;line-height:1.6}
+footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--bg-soft);margin-top:30px}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+@media(max-width:880px){.grid{grid-template-columns:1fr;gap:24px}.result{position:static}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element-ingredienser.html" class="hide-m">Ingredienser</a></li>
+      <li><a href="forslag-3-element-profil.html" class="hide-m">Uden test</a></li>
+      <li><a href="forslag-3-element.html#priser" class="hide-m">Priser</a></li>
+      <li><a href="forslag-3-element.html#start" class="nav-cta">Få din formel</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro"><div class="container">
+  <span class="eyebrow">Med test · mest præcis</span>
+  <h1>Upload din rapport</h1>
+  <p class="lead">Læg din Aevia-blodprøve op, så bygger vi en formel ud fra dine faktiske markører — dosis for dosis. Samme optimal-zoner som Aevias markør-vurdering. Vi henter kun de relevante værdier, med dit samtykke.</p>
+</div></section>
+
+<div class="wrap"><div class="container"><div class="grid">
+  <div>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Upload rapport">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></div>
+      <b>Træk din rapport hertil</b>
+      <span>eller <span class="pick">vælg en fil</span> · PDF, JPG eller PNG</span>
+      <input type="file" id="file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+    </div>
+    <div class="status" id="status"><span class="dot"></span><span id="statustext"></span></div>
+
+    <div class="formcard">
+      <div class="sexrow"><span class="lbl">Køn <small>(til kønsspecifikke intervaller)</small></span>
+        <div class="seg">
+          <label><input type="radio" name="sex" value="mand" checked><span>Mand</span></label>
+          <label><input type="radio" name="sex" value="kvinde"><span>Kvinde</span></label>
+        </div>
+      </div>
+      <h3>Dine markører</h3>
+      <div class="sub">Tjek værdierne fra din rapport — ret hvis nødvendigt. Formlen opdateres live.</div>
+      <div id="markers"></div>
+    </div>
+    <p class="disc">Optimal-zonerne er Aevias validerede tærskler (porteret fra samme reference-data som markør-siderne). Doserne i formlen er Nuveras tilskuds-lag og skal godkendes klinisk før live. Upload en PDF, så forsøger vi at udlæse værdierne; ellers udfyldes eksempel-værdier du selv retter. Jern gives kun ved dokumenteret lav ferritin.</p>
+  </div>
+
+  <div class="result" aria-live="polite">
+    <div class="rhead"><div class="t">Din markør-formel</div><h3>Bygget på dine tal</h3><div class="cnt"><b id="rcount">0</b> aktive stoffer</div></div>
+    <div id="ritems"><div class="empty">Indtast dine værdier eller upload din rapport, så bygger vi formlen.</div></div>
+    <div class="rfoot">
+      <div class="rnote" id="rnote"></div>
+      <button id="order" class="btn btn-primary">Bestil min formel</button>
+    </div>
+  </div>
+</div></div></div>
+
+<footer class="site"><div class="container">
+  <div class="foot-bottom"><span>© 2026 Nuvera ApS · Markører hentes med dit udtrykkelige samtykke (GDPR art. 9).</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+</div></footer>
+
+<script src="nuvera-engine.js"></script>
+<script>
+(function(){
+  if(!window.NuveraEngine) return;
+  var num=function(v){ if(v==null) return NaN; return parseFloat(String(v).replace(',','.')); };
+  var box=document.getElementById('markers');
+  var DEMO={vitd:38,ldl:3.9,apob:1.1,hscrp:3.1,hba1c:41,homocystein:14,ferritin:18,magnesium:0.72,b12:240,folat:8,testosteron:11,tsh:4.8};
+  var pill='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>';
+  var warn='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>';
+  var rcount=document.getElementById('rcount'), ritems=document.getElementById('ritems'), rnote=document.getElementById('rnote');
+  var lastItems=[];
+
+  function sex(){ var e=document.querySelector('[name="sex"]:checked'); return e?e.value:'mand'; }
+  function buildForm(){
+    box.innerHTML = NuveraEngine.markers(sex()).map(function(m){
+      return '<div class="mrow"><div class="ml"><b>'+m.label+'</b><small>'+m.optimalText+' '+m.unit+'</small></div>'+
+        '<div class="mi"><input type="text" inputmode="decimal" data-k="'+m.key+'" placeholder="–"><span class="u">'+m.unit+'</span></div></div>';
+    }).join('');
+  }
+  function readVals(){ var v={}; [].forEach.call(box.querySelectorAll('input[data-k]'),function(el){ var n=num(el.value); if(!isNaN(n)) v[el.getAttribute('data-k')]=n; }); return v; }
+  function setVals(v){ Object.keys(v).forEach(function(k){ var el=box.querySelector('[data-k="'+k+'"]'); if(el) el.value=String(v[k]).replace('.',','); }); }
+
+  function compute(){
+    var vals=readVals(), any=Object.keys(vals).length>0;
+    var r=NuveraEngine.recommend(vals, sex());
+    lastItems=r.items; rcount.textContent=r.items.length;
+    if(!any){ ritems.innerHTML='<div class="empty">Indtast dine værdier eller upload din rapport, så bygger vi formlen.</div>'; rnote.innerHTML=''; return; }
+    ritems.innerHTML = r.items.length
+      ? r.items.map(function(i){ return '<div class="ritem"><span class="pdot">'+pill+'</span><div style="flex:1"><b>'+i.n+(i.cap?' <span class="tag">kapsel</span>':'')+'</b><small>'+i.w+'</small></div><span class="amt">'+i.a+'</span></div>'; }).join('')
+      : '<div class="empty">Ingen målrettede tilskud — dine markører er i optimal-zonen.</div>';
+    var html='';
+    if(r.items.length) html+='<span>'+warn+'</span><span>Bygget på dine faktiske markører (Aevias optimal-zoner). Gennemgås af læge før blanding.</span>';
+    r.notes.forEach(function(n){ html+='<span style="display:flex;gap:7px;margin-top:8px;color:var(--amber)"><span>'+warn+'</span><span>'+n+'</span></span>'; });
+    rnote.innerHTML=html;
+  }
+
+  buildForm(); compute();
+  box.addEventListener('input', compute);
+  [].forEach.call(document.querySelectorAll('[name="sex"]'),function(r){ r.addEventListener('change',function(){ var cur=readVals(); buildForm(); setVals(cur); compute(); }); });
+
+  // gem formel → checkout
+  document.getElementById('order').addEventListener('click', function(){
+    var payload={ kilde:'Aevia-rapport', koen:sex(), items:lastItems };
+    try{ payload.dato=new Date().toISOString().slice(0,10); }catch(e){}
+    try{ localStorage.setItem('nuvera_formel', JSON.stringify(payload)); }catch(e){}
+    location.href='forslag-3-element-bestil.html';
+  });
+
+  // upload + pdf-udlæsning
+  var drop=document.getElementById('drop'), file=document.getElementById('file'), st=document.getElementById('status'), stt=document.getElementById('statustext');
+  drop.addEventListener('click', function(){ file.click(); });
+  drop.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); file.click(); } });
+  ['dragover','dragenter'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.add('drag'); }); });
+  ['dragleave','dragend','drop'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.remove('drag'); }); });
+  drop.addEventListener('drop', function(e){ if(e.dataTransfer.files[0]) handle(e.dataTransfer.files[0]); });
+  file.addEventListener('change', function(e){ if(e.target.files[0]) handle(e.target.files[0]); });
+
+  var RX={
+    vitd:/(?:25[- ]?oh|d[- ]?vitamin|vitamin\s*d)\D{0,30}(\d{1,3}(?:[.,]\d)?)/i,
+    ldl:/ldl\D{0,20}(\d(?:[.,]\d)?)/i,
+    apob:/apo\s?b\D{0,20}(\d(?:[.,]\d{1,2})?)/i,
+    hscrp:/(?:hs[- ]?crp|crp)\D{0,20}(\d{1,2}(?:[.,]\d)?)/i,
+    hba1c:/hba1c\D{0,20}(\d{2}(?:[.,]\d)?)/i,
+    homocystein:/homocystein\D{0,20}(\d{1,2}(?:[.,]\d)?)/i,
+    ferritin:/ferritin\D{0,20}(\d{1,4}(?:[.,]\d)?)/i,
+    magnesium:/magnesium\D{0,20}(\d(?:[.,]\d{1,2})?)/i,
+    b12:/(?:b[- ]?12|cobalamin)\D{0,20}(\d{2,4})/i,
+    folat:/(?:folat|folate)\D{0,20}(\d{1,3}(?:[.,]\d)?)/i,
+    testosteron:/testosteron\D{0,20}(\d{1,2}(?:[.,]\d)?)/i,
+    tsh:/tsh\D{0,20}(\d{1,2}(?:[.,]\d)?)/i
+  };
+  function fill(v, found, fname){ setVals(v); compute(); st.className='status show done'; stt.innerHTML='Læste <b>'+fname+'</b> · '+found+' markører fundet — tjek værdierne nedenfor.'; }
+  function demoFill(fname, msg){ fill(DEMO, Object.keys(DEMO).length, fname); if(msg) stt.innerHTML='<b>'+fname+'</b> · '+msg; }
+  function handle(f){
+    st.className='status show'; stt.innerHTML='Læser <b>'+f.name+'</b> …';
+    var isPdf=(f.type==='application/pdf')||/\.pdf$/i.test(f.name);
+    if(isPdf && window.pdfjsLib){ parsePDF(f); }
+    else { setTimeout(function(){ demoFill(f.name, isPdf?'kunne ikke læses automatisk — eksempel-værdier indsat, tjek dem':'billede kan ikke læses automatisk — eksempel-værdier indsat, tjek dem'); }, 900); }
+  }
+  function parsePDF(f){
+    try{ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }catch(e){}
+    f.arrayBuffer().then(function(buf){ return pdfjsLib.getDocument({data:buf}).promise; }).then(function(pdf){
+      var jobs=[]; for(var i=1;i<=pdf.numPages;i++){ jobs.push(pdf.getPage(i).then(function(p){return p.getTextContent();}).then(function(tc){return tc.items.map(function(it){return it.str;}).join(' ');})); }
+      return Promise.all(jobs);
+    }).then(function(texts){
+      var text=texts.join(' ').replace(/\s+/g,' '), v={}, found=0;
+      Object.keys(RX).forEach(function(k){ var mm=text.match(RX[k]); if(mm){ v[k]=mm[1].replace(',','.'); found++; } });
+      if(found>0) fill(v, found, f.name); else demoFill(f.name, 'fandt ingen kendte markører i PDF\'en — eksempel-værdier indsat, tjek dem');
+    }).catch(function(){ demoFill(f.name, 'kunne ikke læse PDF\'en — eksempel-værdier indsat, tjek dem'); });
+  }
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="nuvera-nav.js"></script>
+</body>
+</html>

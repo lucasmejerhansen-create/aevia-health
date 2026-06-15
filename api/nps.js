@@ -7,17 +7,17 @@ const SITE = process.env.SITE_URL || "https://aevia.dk";
 function page({ title, body }) {
   return `<!DOCTYPE html><html lang="da"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow"><title>${title} | Aevia</title></head>
-<body style="margin:0;background:#0a1628;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px">
+<body style="margin:0;background:#eef2f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px">
 <div style="max-width:480px;text-align:center">
-  <div style="font-size:34px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
-  <div style="background:#0f1f36;border:1px solid #28394f;border-radius:18px;overflow:hidden;margin-top:24px">
+  <div style="font-size:34px;font-weight:bold;color:#0a1628;font-family:Georgia,serif">Aevia<span style="color:#8a6d10">.</span></div>
+  <div style="background:#ffffff;border:1px solid #e3e8ee;border-radius:18px;overflow:hidden;margin-top:24px">
     <div style="height:3px;background:#c9a437"></div>
     <div style="padding:34px 32px">
-      <h1 style="color:#f5f5f0;font-size:24px;margin:0 0 12px;font-family:Georgia,serif;font-weight:normal">${title}</h1>
-      <p style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0">${body}</p>
+      <h1 style="color:#0a1628;font-size:24px;margin:0 0 12px;font-family:Georgia,serif;font-weight:normal">${title}</h1>
+      <p style="color:#46505f;font-size:15px;line-height:1.7;margin:0">${body}</p>
     </div>
   </div>
-  <p style="margin-top:20px"><a href="${SITE}" style="color:#94a0b2;font-size:13px;text-decoration:none">Tilbage til aevia.dk →</a></p>
+  <p style="margin-top:20px"><a href="${SITE}" style="color:#697585;font-size:13px;text-decoration:none">Tilbage til aevia.dk →</a></p>
 </div></body></html>`;
 }
 
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
   return res.status(200).send(page({
     title: "Tak for dit svar!",
     body: happy
-      ? `Du gav os ${s}/10 — det varmer. Hvis du har 2 minutter mere, må du meget gerne dele din oplevelse på <a href="https://dk.trustpilot.com/evaluate/aevia.dk" style="color:#c9a437">Trustpilot</a> — det hjælper andre med at finde os.`
-      : `Du gav os ${s}/10. Tak for ærligheden — den bruger vi til at blive bedre. Er der noget konkret, vi kunne have gjort anderledes? Skriv til <a href="mailto:kontakt@aevia.dk" style="color:#c9a437">kontakt@aevia.dk</a> — grundlæggeren læser hvert svar.`,
+      ? `Du gav os ${s}/10 — det varmer. Hvis du har 2 minutter mere, må du meget gerne dele din oplevelse på <a href="https://dk.trustpilot.com/evaluate/aevia.dk" style="color:#8a6d10">Trustpilot</a> — det hjælper andre med at finde os.`
+      : `Du gav os ${s}/10. Tak for ærligheden — den bruger vi til at blive bedre. Er der noget konkret, vi kunne have gjort anderledes? Skriv til <a href="mailto:kontakt@aevia.dk" style="color:#8a6d10">kontakt@aevia.dk</a> — grundlæggeren læser hvert svar.`,
   }));
 }

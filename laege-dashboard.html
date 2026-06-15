@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Aevia · Læge-dashboard</title>
+<style>
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--optimal:#3fb27f;--ok:#4a9fd8;--watch:#d8a93c;--action:#e0644b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#ffffff;color:var(--text);line-height:1.5;padding:24px 16px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:1.5rem;margin-bottom:4px}.sub{color:var(--muted-2);font-size:.9rem;margin-bottom:18px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--navy-2);border:1px solid var(--line-2);border-radius:12px;padding:14px;margin-bottom:18px}
+label{font-size:.74rem;color:var(--muted-2);display:block;margin-bottom:4px}
+input{background:#ffffff;border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.9rem}
+.btn{background:var(--text);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-weight:600;cursor:pointer;font:inherit;font-size:.9rem}
+.btn:hover{background:var(--gold-deep)}.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
+.btn.danger{background:transparent;color:var(--action);border:1px solid rgba(224,100,75,.4)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line-2);font-size:.88rem;vertical-align:top}
+th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.tag{font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:999px}
+.tag.pending{background:rgba(216,169,60,.15);color:var(--watch)}
+.tag.approved{background:rgba(63,178,127,.15);color:var(--optimal)}
+.tag.rejected{background:rgba(224,100,75,.15);color:var(--action)}
+.empty{color:var(--muted-2);padding:28px 0;text-align:center}
+.detail{background:var(--navy-3);border-radius:10px;padding:12px 14px;margin-top:8px;font-size:.84rem}
+.mini{font-size:.7rem;font-weight:600;padding:1px 7px;border-radius:999px;background:#ffffff;border:1px solid var(--line-2)}
+.mini.action{color:var(--action);border-color:rgba(224,100,75,.4)}.mini.watch{color:var(--watch)}
+.row2{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.note{font-size:.82rem;color:var(--muted-2);margin-top:10px}
+code{background:var(--navy-3);padding:1px 5px;border-radius:5px;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Læge-dashboard</h1>
+  <p class="sub">Kø af pseudonymiserede rapport-udkast til gennemgang. Ingen PII vises — beslutning træffes på de klassificerede data. Godkendelse kræver dit læge-id.</p>
+  <div class="bar">
+    <div><label for="tok">Admin-token</label><input id="tok" type="password" placeholder="ADMIN_TOKEN" style="width:160px"></div>
+    <div><label for="did">Læge-id</label><input id="did" placeholder="fx dr-judit" style="width:140px"></div>
+    <button class="btn" onclick="load()">Hent kø</button>
+    <span class="note" id="status"></span>
+  </div>
+  <div id="out"><p class="empty">Indtast token og tryk "Hent kø".</p></div>
+  <p class="note">Dev-lager (fil-baseret, kun PII-frie drafts). Produktion: Supabase + DPIA. Send drafts til køen fra <code>rapport-admin</code> med "Send til læge-kø".</p>
+</div>
+<script src="/assets/markers-manifest.js"></script>
+<script>
+var NAME={}; (window.AEVIA_MARKERS||{markers:[]}).markers.forEach(function(m){NAME[m.id]=m;});
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function tok(){return el('tok').value.trim();}
+function api(path,bodyObj){return fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(bodyObj)}).then(function(r){return r.json();});}
+var LBL={draft_pending_doctor:['Afventer','pending'],approved_for_release:['Godkendt','approved'],rejected:['Afvist','rejected']};
+
+function load(){
+  if(!tok()){el('status').textContent='Angiv admin-token.';return;}
+  el('status').textContent='Henter…';
+  api('/api/list-drafts',{token:tok()}).then(function(d){
+    if(d.error){el('status').textContent=d.error;return;}
+    el('status').textContent='';
+    var b=d.drafts||[];
+    if(!b.length){el('out').innerHTML='<p class="empty">Køen er tom. Send et udkast fra rapport-admin.</p>';return;}
+    var rows=b.map(function(x){
+      var st=LBL[x.status]||[x.status,'pending'];
+      return '<tr><td><code>'+esc(x.pseudoId.slice(0,8))+'…</code><br><span class="muted" style="color:var(--muted-2);font-size:.76rem">'+esc(x.ageBand)+' · '+esc(x.sex)+'</span></td>'+
+        '<td class="r"><b>'+x.score+'</b>/100</td>'+
+        '<td>'+(x.action?'<span class="mini action">'+x.action+' handling</span>':'<span class="mini">0</span>')+'</td>'+
+        '<td><span class="tag '+st[1]+'">'+st[0]+'</span></td>'+
+        '<td><button class="btn ghost" onclick="detail(\''+x.reportId+'\',this)">Detaljer</button></td></tr>'+
+        '<tr id="d_'+x.reportId+'"><td colspan="5" style="border:none;padding:0"></td></tr>';
+    }).join('');
+    el('out').innerHTML='<table><thead><tr><th>Patient (pseudo)</th><th class="r">Score</th><th>Flag</th><th>Status</th><th></th></tr></thead><tbody>'+rows+'</tbody></table>';
+  }).catch(function(){el('status').textContent='Netværksfejl.';});
+}
+
+function detail(id,btn){
+  var cell=el('d_'+id).firstChild;
+  if(cell.innerHTML){cell.innerHTML='';return;}
+  api('/api/get-draft',{token:tok(),reportId:id}).then(function(d){
+    if(d.error){cell.innerHTML='<div class="detail">'+d.error+'</div>';return;}
+    var dr=d.record.draft, ba=dr.biologicalAge;
+    var flagged=(dr.flaggedForDoctor||[]).map(function(m){return '<span class="mini action">'+esc((NAME[m.id]||{name:m.id}).name)+' '+m.value+'</span>';}).join(' ')||'<span class="muted">ingen action-markører</span>';
+    var pat=(dr.patterns||[]).map(function(p){return '<span class="mini '+p.severity+'">'+esc(p.label)+'</span>';}).join(' ');
+    var risk=(dr.risks||[]).map(function(r){return '<span class="mini '+r.severity+'">'+esc(r.label)+'</span>';}).join(' ');
+    cell.innerHTML='<div class="detail">'+
+      '<div>Biologisk alder: '+(ba.available?('~'+ba.estimatedAge+' år (CI '+ba.confidenceInterval[0]+'–'+ba.confidenceInterval[1]+')'):'ikke beregnet')+' · Healthspan: '+esc(dr.healthspan.label)+'</div>'+
+      '<div style="margin-top:8px">Løftet til læge: '+flagged+'</div>'+
+      (pat?'<div style="margin-top:8px">Mønstre: '+pat+'</div>':'')+
+      (risk?'<div style="margin-top:8px">Risici: '+risk+'</div>':'')+
+      '<div class="row2">'+(dr.status==='draft_pending_doctor'
+        ? '<button class="btn" onclick="act(\''+id+'\',\'doctor_approve\')">✓ Godkend</button><button class="btn danger" onclick="act(\''+id+'\',\'doctor_reject\')">Afvis</button>'
+        : '<span class="muted">Status: '+esc(dr.status)+'</span>')+'</div>'+
+      '</div>';
+  });
+}
+
+function act(id,event){
+  if(!el('did').value.trim()){el('status').textContent='Angiv dit læge-id øverst.';return;}
+  api('/api/approve-report',{token:tok(),reportId:id,status:'draft_pending_doctor',event:event,doctorId:el('did').value.trim()}).then(function(d){
+    if(d.error){el('status').textContent=d.error;return;}
+    el('status').textContent=(event==='doctor_approve'?'Godkendt':'Afvist')+' ('+d.status+').';
+    load();
+  });
+}
+</script>
+</body>
+</html>

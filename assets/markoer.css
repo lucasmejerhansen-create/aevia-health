@@ -1,0 +1,21 @@
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--line:#e6eaef;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.65}
+.wrap{max-width:680px;margin:0 auto;padding:24px 20px 70px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 26px}
+.logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
+.back{color:var(--gold);text-decoration:none;font-size:.92rem}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+h1{font-family:var(--serif);font-size:1.9rem;font-weight:600;margin-bottom:14px}
+h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin:28px 0 8px}
+p{color:var(--muted);margin-bottom:12px}
+.panel{background:var(--navy-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 18px;color:var(--text);margin:18px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;font-weight:600;text-decoration:none;background:var(--text);color:#fff;transition:background .2s}
+.btn:hover{background:#16243d}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2);margin-left:10px}
+.rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.rel a{font-size:.85rem;color:var(--muted);background:var(--navy-2);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none}
+.rel a:hover{border-color:var(--gold);color:var(--text)}
+.disc{color:var(--muted-2);font-size:.84rem;margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
+.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+.foot a{color:var(--gold);text-decoration:none}

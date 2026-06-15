@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Nuvera for virksomheder</title>
+<meta name="description" content="Tilbyd medarbejderne en personlig Nuvera-formel oven på Aevias firma-helbredstjek. Personligt for hver medarbejder, anonymt for arbejdsgiver, nem administration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f3f7fc;
+  --navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;
+  --sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;
+  --ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;
+  --line:#e6ecf3;--line-2:#d3deea;
+  --maxw:1080px;--radius:18px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(2rem,4.6vw,3.1rem)}
+p{color:var(--muted)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:9px}
+.logo .dot{width:11px;height:11px;border-radius:3px;background:var(--sky);display:inline-block;transform:rotate(45deg)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+.nav-cta:hover{background:var(--sky)!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s;border:2px solid transparent;font-family:inherit;line-height:1;width:100%}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--sky);color:#fff}
+.btn-primary:hover{background:#2f74c4}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:var(--sky);color:var(--sky)}
+
+footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--bg-soft)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:16px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+
+/* ===== Page-specific (erhverv) ===== */
+.section{padding:64px 0}
+.section-soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+.section-head{max-width:62ch;margin-bottom:38px}
+.section-head .lead{margin-top:14px}
+
+/* Hero */
+.hero{padding:0 0 14px}
+.hero-card{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(160deg,#0c2748,#16386a);color:#fff;padding:64px 48px}
+.hero-card::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.42),transparent 65%);top:-160px;right:-120px}
+.hero-card::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.20),transparent 65%);bottom:-150px;left:-90px}
+.hero-card .eyebrow{background:rgba(63,134,214,.22);color:#bcd6f4;position:relative}
+.hero-card h1{color:#fff;max-width:17ch;position:relative}
+.hero-card .lead{color:#c7d4e6;margin-top:18px;position:relative;max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;position:relative}
+.hero-actions .btn{width:auto}
+.hero-actions .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
+.hero-actions .btn-ghost:hover{border-color:#fff;color:#fff}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:30px;position:relative}
+.hero-meta span{font-size:.84rem;color:#9fb6d4;display:inline-flex;align-items:center;gap:8px}
+.hero-meta svg{width:16px;height:16px;color:var(--sky)}
+
+/* 3-kort grid */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--sky-soft);color:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card .ic svg{width:23px;height:23px}
+.card h3{font-size:1.18rem;margin-bottom:9px}
+.card p{font-size:.95rem;line-height:1.6}
+
+/* Trin */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.step .num{flex:none;width:42px;height:42px;border-radius:12px;background:linear-gradient(160deg,#0c2748,#16386a);color:#fff;font-family:var(--serif);font-size:1.25rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:1.08rem;margin-bottom:6px}
+.step p{font-size:.92rem;line-height:1.55}
+
+/* ROI */
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.roi-list{list-style:none;display:grid;gap:16px}
+.roi-list li{display:flex;gap:13px;align-items:flex-start}
+.roi-list .ck{flex:none;width:26px;height:26px;border-radius:8px;background:var(--sky-soft);color:var(--sky);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.roi-list .ck svg{width:15px;height:15px}
+.roi-list b{color:var(--ink);font-size:.98rem;display:block}
+.roi-list small{color:var(--muted);font-size:.88rem}
+
+/* Priser */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.tier{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column}
+.tier.featured{border-color:var(--sky);box-shadow:0 28px 64px -40px rgba(8,27,52,.45)}
+.tier .badge{display:inline-block;align-self:flex-start;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sky-soft);color:var(--sky);padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.tier h3{font-size:1.15rem;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:1.9rem;color:var(--ink);font-weight:600;margin:6px 0 2px}
+.tier .price small{font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:500}
+.tier .sub{font-size:.88rem;color:var(--muted);margin-bottom:18px}
+.tier ul{list-style:none;display:grid;gap:10px;margin-bottom:24px;flex:1}
+.tier li{font-size:.92rem;color:var(--text-solid);display:flex;gap:9px;align-items:flex-start}
+.tier li svg{width:16px;height:16px;color:var(--sky);flex:none;margin-top:3px}
+
+/* Kontakt / form */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+.field label{display:block;font-weight:600;color:var(--ink);margin-bottom:7px;font-size:.92rem}
+.field input,.field textarea{width:100%;font-family:inherit;font-size:.95rem;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;transition:border-color .15s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--sky)}
+.field textarea{resize:vertical;min-height:104px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-note{font-size:.8rem;color:var(--muted);margin-top:14px;display:flex;gap:8px}
+.form-note svg{width:15px;height:15px;color:var(--sky);flex:none;margin-top:2px}
+
+/* GDPR-note */
+.gdpr{background:var(--navy);color:#fff;border-radius:18px;padding:30px 32px;position:relative;overflow:hidden}
+.gdpr::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.32),transparent 65%);top:-110px;right:-70px}
+.gdpr .ic{width:46px;height:46px;border-radius:12px;background:rgba(63,134,214,.2);color:#bcd6f4;display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative}
+.gdpr .ic svg{width:23px;height:23px}
+.gdpr h3{color:#fff;font-size:1.2rem;margin-bottom:10px;position:relative}
+.gdpr p{color:#c7d4e6;font-size:.94rem;line-height:1.6;position:relative;max-width:60ch}
+
+@media(max-width:880px){
+  .hero-card{padding:44px 26px}
+  .grid-3{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .roi-grid{grid-template-columns:1fr;gap:28px}
+  .price-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:28px}
+  .field-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element.html#sadan" class="hide-m">Sådan virker det</a></li>
+      <li><a href="forslag-3-element-ingredienser.html" class="hide-m">Ingredienser</a></li>
+      <li><a href="forslag-3-element.html#priser" class="hide-m">Priser</a></li>
+      <li><a href="#kontakt" class="nav-cta">Book et oplæg</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero section" style="padding-top:48px">
+  <div class="container">
+    <div class="hero-card">
+      <span class="eyebrow">For virksomheder</span>
+      <h1>Personlig sundhed til hele teamet</h1>
+      <p class="lead">Tilbyd jeres medarbejdere en personlig Nuvera-formel oven på Aevias firma-helbredstjek. Hver medarbejder får en sammensætning ud fra egne markører og profil — og I som arbejdsgiver ser kun anonymiseret, aggregeret data. Aldrig individuelle resultater.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary" style="width:auto">Book et oplæg</a>
+        <a href="#sadan" class="btn btn-ghost" style="width:auto">Sådan fungerer det</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>Bygger på Aevias firma-helbredstjek</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Anonymt for arbejdsgiver</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg>Samlet fakturering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 KORT -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Et personalegode der passer</span>
+      <h2>Personligt for medarbejderen, trygt for jer</h2>
+      <p class="lead">Tre principper bærer hele ordningen — personlig værdi for den enkelte, fuld anonymitet for arbejdsgiveren og administration der ikke koster jer tid.</p>
+    </div>
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg></div>
+        <h3>Personligt for hver medarbejder</h3>
+        <p>Formlen sammensættes ud fra den enkeltes egne markører fra helbredstjekket og en kort profil. Ingen generiske pakker — hver medarbejder får netop de stoffer, deres tal og hverdag peger på.</p>
+      </div>
+
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><circle cx="12" cy="15" r="1.4"/></svg></div>
+        <h3>Anonymt for arbejdsgiver</h3>
+        <p>Virksomheden ser aldrig individuelle data — kun aggregeret indsigt på tværs af teamet, præcis som med Aevias helbredstjek. Resultater og formler tilhører den enkelte medarbejder.</p>
+      </div>
+
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/></svg></div>
+        <h3>Nem administration</h3>
+        <p>Én samlet faktura, enkel onboarding og levering direkte til medarbejderens hjem eller arbejdsplads. I sætter rammen, vi håndterer resten — uden ekstra HR-arbejde.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SÅDAN FUNGERER DET -->
+<section class="section section-soft" id="sadan">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Sådan fungerer det</span>
+      <h2>Fra helbredstjek til personlig formel</h2>
+      <p class="lead">Ordningen bygger oven på det helbredstjek, Aevia allerede laver hos jer. Medarbejderen bestemmer selv, om markørerne skal bruges til en formel.</p>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Aevia kører firma-helbredstjek</h3>
+          <p>Aevia gennemfører helbredstjekket på arbejdspladsen og måler de relevante markører for hver medarbejder, der deltager.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Medarbejderen giver samtykke og forbinder sine markører</h3>
+          <p>Den enkelte vælger aktivt at forbinde sine egne markører til Nuvera og udfylder en kort profil. Helt frivilligt og fuldt under medarbejderens kontrol.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Nuvera blander personlige formler</h3>
+          <p>Vi sammensætter en individuel formel ud fra markører og profil — én formel pr. medarbejder, pakket og mærket personligt.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <h3>Levering + kvartalsvis justering</h3>
+          <p>Formlerne leveres til hjem eller arbejdsplads. Ved næste helbredstjek justeres sammensætningen, så den følger medarbejderens udvikling kvartal for kvartal.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROI / VÆRDI -->
+<section class="section">
+  <div class="container">
+    <div class="roi-grid">
+      <div>
+        <span class="eyebrow">Værdi for arbejdspladsen</span>
+        <h2>Et personalegode der faktisk bruges</h2>
+        <p class="lead" style="margin-top:14px">Personlig sundhed er konkret og mærkbart for medarbejderen — og et synligt signal om, at I prioriterer trivsel. Vi holder forventningerne nøgterne: et tilskud erstatter ikke en sund hverdag, men det kan være en gennemtænkt del af jeres samlede sundhedsindsats.</p>
+      </div>
+      <ul class="roi-list">
+        <li>
+          <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+          <span><b>Medarbejdertrivsel</b><small>Et personligt gode, der signalerer omsorg og knytter sig til den enkeltes egne sundhedstal.</small></span>
+        </li>
+        <li>
+          <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+          <span><b>Mulighed for færre sygedage</b><small>En del af en bredere sundhedsindsats sammen med helbredstjekket — uden at vi lover bestemte resultater.</small></span>
+        </li>
+        <li>
+          <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+          <span><b>Attraktivt personalegode</b><small>Skiller sig ud i rekruttering og fastholdelse — personligt frem for en standardpakke til alle.</small></span>
+        </li>
+        <li>
+          <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+          <span><b>Aggregeret indsigt</b><small>I ser anonymiserede tendenser på tværs af teamet og kan målrette jeres sundhedsindsats — uden adgang til individuelle data.</small></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRISER -->
+<section class="section section-soft" id="priser">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Priser</span>
+      <h2>Enkel pris pr. medarbejder pr. måned</h2>
+      <p class="lead">Prisen afhænger af antal medarbejdere og formel-omfang. Nedenstående er vejledende — kontakt os for et tilbud tilpasset jeres virksomhed.</p>
+    </div>
+    <div class="price-grid">
+
+      <div class="tier">
+        <h3>Basis</h3>
+        <div class="price">fra 549 kr <small>/medarbejder/md</small></div>
+        <div class="sub">Personlig grundformel</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Profil-baseret formel pr. medarbejder</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Levering til hjem eller arbejdsplads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Samlet fakturering</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Anonymiseret aggregeret rapport</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost">Kontakt for tilbud</a>
+      </div>
+
+      <div class="tier featured">
+        <span class="badge">Mest valgt</span>
+        <h3>Markør</h3>
+        <div class="price">fra 749 kr <small>/medarbejder/md</small></div>
+        <div class="sub">Formel ud fra Aevias markører</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Markør-baseret formel pr. medarbejder</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Kvartalsvis justering efter helbredstjek</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Levering + samlet fakturering</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Onboarding-materiale til medarbejdere</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Kontakt for tilbud</a>
+      </div>
+
+      <div class="tier">
+        <h3>Skræddersyet</h3>
+        <div class="price">Kontakt for tilbud</div>
+        <div class="sub">Større teams &amp; særlige behov</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Volumenpris fra 50+ medarbejdere</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Tilpasset onboarding &amp; oplæg</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Fast kontaktperson</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg>Integration med Aevias firma-helbredstjek</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost">Book et oplæg</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT / BOOKING -->
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow">Kontakt &amp; booking</span>
+        <h2>Book et uforpligtende oplæg</h2>
+        <p class="lead" style="margin-top:14px">Fortæl os lidt om jeres virksomhed, så vender vi tilbage med et tilbud og et forslag til, hvordan ordningen kan kobles på jeres næste Aevia-helbredstjek.</p>
+        <ul class="roi-list" style="margin-top:26px">
+          <li>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+            <span><b>Svar inden for 2 hverdage</b><small>Et oplæg tilpasset jeres størrelse og behov.</small></span>
+          </li>
+          <li>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-11"/></svg></span>
+            <span><b>Ingen binding</b><small>Vi gennemgår mulighederne, før I beslutter jer.</small></span>
+          </li>
+        </ul>
+      </div>
+
+      <form class="formcard" autocomplete="off" onsubmit="return false">
+        <div class="field-row">
+          <div class="field">
+            <label for="navn">Navn</label>
+            <input type="text" id="navn" name="navn" placeholder="Dit navn">
+          </div>
+          <div class="field">
+            <label for="firma">Firma</label>
+            <input type="text" id="firma" name="firma" placeholder="Virksomhedens navn">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="antal">Antal medarbejdere</label>
+            <input type="number" id="antal" name="antal" min="1" placeholder="fx 25">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="dig@firma.dk">
+          </div>
+        </div>
+        <div class="field">
+          <label for="besked">Besked</label>
+          <textarea id="besked" name="besked" placeholder="Fortæl os om jeres ønsker — fx om I allerede bruger Aevias helbredstjek."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send forespørgsel</button>
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          <span>Dette er et statisk designforslag — formularen sender endnu ikke data. Vi behandler kun firmaoplysninger, aldrig medarbejderes helbredsdata.</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- GDPR / ANONYMITET -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="gdpr">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Arbejdsgiveren ser aldrig individuelle resultater</h3>
+      <p>Helbredsmarkører, profiler og personlige formler tilhører den enkelte medarbejder og deles aldrig med arbejdsgiveren. Virksomheden modtager udelukkende anonymiseret, aggregeret data på tværs af teamet — præcis som ved Aevias firma-helbredstjek. Deltagelse er frivillig og kræver medarbejderens aktive samtykke, og samtykket kan til enhver tid trækkes tilbage.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Nuvera ApS · CVR 00000000 · Erhvervsordningen bygger på Aevias firma-helbredstjek. Kosttilskud er ikke lægemidler og erstatter ikke en varieret kost eller lægebehandling. Arbejdsgiver modtager kun anonymiseret, aggregeret data — individuelle resultater og formler deles aldrig.</p>
+    <div class="foot-bottom"><span>© 2026 Nuvera ApS</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+
+<script src="nuvera-nav.js"></script></body>
+</html>

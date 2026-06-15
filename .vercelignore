@@ -8,3 +8,6 @@ lib/
 
 # Eksempel-/demodata med patient-lignende felter — ikke offentligt
 eksempel-patienter.csv
+
+# Dev draft-lager (kun lokalt)
+.data/

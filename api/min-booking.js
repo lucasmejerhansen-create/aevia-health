@@ -22,15 +22,15 @@ function fmt(date, time, lang) {
 function page({ lang, title, body }) {
   const da = lang !== "en";
   return `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${title} | Aevia</title>
-<style>body{margin:0;background:#0a1628;color:#f5f5f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.6}
-.card{max-width:480px;width:100%;background:#0f1f36;border:1px solid #28394f;border-radius:16px;padding:32px;text-align:center}
+<style>body{margin:0;background:#eef2f7;color:#0a1628;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.6}
+.card{max-width:480px;width:100%;background:#ffffff;border:1px solid #e3e8ee;border-radius:16px;padding:32px;text-align:center}
 h1{font-family:Georgia,serif;font-size:1.4rem;margin:0 0 10px}
-p{color:#aab4c2;font-size:.95rem;margin:0 0 14px}
-.when{color:#c9a437;font-weight:600;font-size:1.05rem;margin-bottom:18px}
-.btn{display:inline-block;background:#c9a437;color:#0a1628;font-weight:600;font-size:.93rem;text-decoration:none;border-radius:999px;padding:12px 24px;border:none;cursor:pointer;font-family:inherit;margin:4px}
-.ghost{background:transparent;color:#c9a437;border:1px solid #28394f}
-.logo{font-family:Georgia,serif;font-size:1.4rem;margin-bottom:18px}.logo span{color:#c9a437}
-.note{font-size:.8rem;color:#94a0b2;margin-top:16px}</style></head>
+p{color:#46505f;font-size:.95rem;margin:0 0 14px}
+.when{color:#8a6d10;font-weight:600;font-size:1.05rem;margin-bottom:18px}
+.btn{display:inline-block;background:#eef2f7;color:#ffffff;font-weight:600;font-size:.93rem;text-decoration:none;border-radius:999px;padding:12px 24px;border:none;cursor:pointer;font-family:inherit;margin:4px}
+.ghost{background:transparent;color:#8a6d10;border:1px solid #e3e8ee}
+.logo{font-family:Georgia,serif;font-size:1.4rem;margin-bottom:18px}.logo span{color:#8a6d10}
+.note{font-size:.8rem;color:#697585;margin-top:16px}</style></head>
 <body><div class="card"><div class="logo">Aevia<span>.</span></div>${body}</div></body></html>`;
 }
 
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
   const parts = b.parts || (b.date ? [{ svc: "blod", date: b.date, time: b.time }] : []);
   const whenHtml = parts.map((p) => {
     const l = SVC_LABELS[p.svc];
-    return `<div style="margin-bottom:6px"><span style="color:#aab4c2;font-size:.85rem">${l ? (da ? l.da : l.en) : p.svc}</span><br>${fmt(p.date, p.time, lang)}</div>`;
+    return `<div style="margin-bottom:6px"><span style="color:#46505f;font-size:.85rem">${l ? (da ? l.da : l.en) : p.svc}</span><br>${fmt(p.date, p.time, lang)}</div>`;
   }).join("");
   const when = parts.map((p) => fmt(p.date, p.time, lang)).join(" · ");
   const bookUrl = `${SITE}/${da ? "" : "en/"}book.html`;
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
           try {
             await sendMail({ to: em,
               subject: da ? `En tid er blevet ledig i ${b.area}` : `A time has opened up in ${b.area}`,
-              html: `<div style="font-family:Arial,sans-serif;background:#0a1628;padding:30px"><div style="max-width:520px;margin:0 auto;background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:26px"><p style="color:#f5f5f0;font-size:16px;font-weight:bold;margin:0 0 8px">${da ? "God nyhed — en tid er blevet ledig" : "Good news — a time has opened up"}</p><p style="color:#aab4c2;font-size:14px;margin:0 0 16px">${da ? `Der er netop blevet en tid ledig i ${b.area} (${when}). Først til mølle:` : `A slot just opened in ${b.area} (${when}). First come, first served:`}</p><a href="${bookUrl}" style="display:inline-block;background:#c9a437;color:#0a1628;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px;font-size:14px">${da ? "Book tiden nu" : "Book the time now"}</a></div></div>` });
+              html: `<div style="font-family:Arial,sans-serif;background:#eef2f7;padding:30px"><div style="max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e3e8ee;border-radius:14px;padding:26px"><p style="color:#0a1628;font-size:16px;font-weight:bold;margin:0 0 8px">${da ? "God nyhed — en tid er blevet ledig" : "Good news — a time has opened up"}</p><p style="color:#46505f;font-size:14px;margin:0 0 16px">${da ? `Der er netop blevet en tid ledig i ${b.area} (${when}). Først til mølle:` : `A slot just opened in ${b.area} (${when}). First come, first served:`}</p><a href="${bookUrl}" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px;font-size:14px">${da ? "Book tiden nu" : "Book the time now"}</a></div></div>` });
           } catch (e) { console.error("Venteliste-mailfejl:", e.message); }
         }
       }
@@ -106,7 +106,7 @@ export default async function handler(req, res) {
   }
   return res.status(200).send(page({ lang, title: da ? "Din booking" : "Your booking", body:
     `<h1>${da ? "Din booking" : "Your booking"}</h1>
-     <div class="when">${whenHtml}<span style="color:#aab4c2;font-weight:400;font-size:.9rem">${b.area}</span></div>
+     <div class="when">${whenHtml}<span style="color:#46505f;font-weight:400;font-size:.9rem">${b.area}</span></div>
      <p>${da ? "Vil du flytte tiden, så aflys den her og book en ny — tiden frigives med det samme." : "To reschedule, cancel here and book a new time — the slot is released immediately."}</p>
      <form method="POST" action="${SITE}/api/min-booking?id=${id}&sig=${sig}&lang=${lang}" onsubmit="return confirm('${da ? "Er du sikker på, at du vil aflyse?" : "Are you sure you want to cancel?"}')">
        <button type="submit" class="btn ghost">${da ? "Aflys min tid" : "Cancel my appointment"}</button>

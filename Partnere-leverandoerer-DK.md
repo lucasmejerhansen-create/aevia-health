@@ -6,6 +6,16 @@ Aevia driver ikke egen klinik, men koordinerer diagnostikken hos eksterne specia
 
 ---
 
+## ✅ Bekræftede partnere (underskrevet)
+
+| Partner | By | Ydelse | Pris | Status |
+|---|---|---|---|---|
+| **Heartfit** | Viborg | Konditionstest (VO₂max), EKG, blodtryk | — | Live på klinikker-siden + kort |
+| **VO2LAB** | København (Østerbro) | Konditionstest (VO₂max) | — | Live på klinikker-siden + kort |
+| **SportsLAB** | København | Fysiologiske tests (VO₂max, puls/watt-zoner) | Aftalt juni 2026 (Magnus) — pris fortrolig | Live på klinikker-siden + kort · logo afventer |
+
+---
+
 ## 1. Blodpanel & biomarkører (Core-fundamentet)
 
 | Udbyder | Hvad de tilbyder | Link |

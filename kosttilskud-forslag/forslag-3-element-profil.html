@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Byg din formel uden test — Nuvera</title>
+<meta name="description" content="Ingen blodprøve? Udfyld en kort profil, og se en gennemtænkt generel formel med det samme. Opgradér til markør-baseret når du tester hos Aevia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f3f7fc;
+  --navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;
+  --sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;
+  --ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;
+  --line:#e6ecf3;--line-2:#d3deea;
+  --maxw:1080px;--radius:18px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(2rem,4.6vw,3.1rem)}
+p{color:var(--muted)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:9px}
+.logo .dot{width:11px;height:11px;border-radius:3px;background:var(--sky);display:inline-block;transform:rotate(45deg)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+.nav-cta:hover{background:var(--sky)!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s;border:2px solid transparent;font-family:inherit;line-height:1;width:100%}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--sky);color:#fff}
+.btn-primary:hover{background:#2f74c4}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:var(--sky);color:var(--sky)}
+
+/* Intro */
+.intro{padding:54px 0 30px}
+.intro h1{max-width:18ch}
+.intro .lead{margin-top:16px}
+
+/* Layout */
+.wrap{padding:20px 0 80px}
+.form-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.fieldset{margin-bottom:24px}
+.fieldset:last-child{margin-bottom:0}
+.q{display:block;font-weight:600;color:var(--ink);margin-bottom:11px;font-size:.97rem}
+.q small{font-weight:400;color:var(--muted);font-size:.84rem}
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.opt span{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border:1px solid var(--line-2);border-radius:999px;font-size:.9rem;color:var(--text-solid);cursor:pointer;transition:all .15s;user-select:none}
+.opt span:hover{border-color:var(--sky-line)}
+.opt input:checked + span{background:var(--sky);border-color:var(--sky);color:#fff}
+.opt input:focus-visible + span{outline:2px solid var(--sky);outline-offset:2px}
+.hr{height:1px;background:var(--line);margin:24px 0}
+
+/* Result */
+.result{position:sticky;top:92px;background:#fff;border:1px solid var(--line-2);border-radius:18px;box-shadow:0 28px 64px -36px rgba(8,27,52,.55);overflow:hidden}
+.rhead{background:linear-gradient(160deg,#0c2748,#16386a);color:#fff;padding:22px 24px;position:relative;overflow:hidden}
+.rhead::before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(63,134,214,.4),transparent 65%);top:-90px;right:-50px}
+.rhead .t{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#9fc0ec;position:relative}
+.rhead h3{color:#fff;margin-top:3px;font-size:1.3rem;position:relative}
+.rhead .cnt{position:relative;font-size:.82rem;color:#bccadd;margin-top:4px}
+.rhead .cnt b{color:#fff}
+.ritems{padding:6px 0;max-height:380px;overflow-y:auto}
+.ritem{padding:12px 24px;border-bottom:1px solid var(--line);display:flex;gap:11px;align-items:flex-start}
+.ritem:last-child{border-bottom:none}
+.ritem .pdot{width:30px;height:30px;border-radius:9px;background:var(--sky-soft);color:var(--sky);display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.ritem .pdot svg{width:15px;height:15px}
+.ritem b{color:var(--ink);font-size:.95rem}
+.ritem small{display:block;color:var(--muted);font-size:.82rem;margin-top:1px}
+.tag{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:5px;margin-left:5px;letter-spacing:.04em;vertical-align:middle;text-transform:uppercase;background:#e8f1fb;color:#2f6fb0}
+.rfoot{padding:18px 24px;background:var(--bg-soft);border-top:1px solid var(--line)}
+.rnote{font-size:.82rem;color:var(--muted);margin-bottom:9px;display:flex;gap:7px}
+.rnote svg{width:15px;height:15px;color:var(--sky);flex:none;margin-top:2px}
+.rfoot .btn{margin-top:8px}
+.rfoot .alt{display:block;text-align:center;margin-top:11px;font-size:.86rem;color:var(--sky);font-weight:600}
+
+footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--bg-soft)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:16px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+
+@media(max-width:880px){
+  .form-grid{grid-template-columns:1fr;gap:26px}
+  .result{position:static}
+  .ritems{max-height:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element.html#sadan" class="hide-m">Sådan virker det</a></li>
+      <li><a href="forslag-3-element-ingredienser.html" class="hide-m">Ingredienser</a></li>
+      <li><a href="forslag-3-element.html#priser" class="hide-m">Priser</a></li>
+      <li><a href="forslag-3-element.html#start" class="nav-cta">Forbind Aevia</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <span class="eyebrow">Uden test · gratis</span>
+    <h1>Byg din formel ud fra en kort profil</h1>
+    <p class="lead">Ingen blodprøve? Svar på nogle få spørgsmål, så sammensætter vi en gennemtænkt generel formel med det samme. Den opdateres live, mens du svarer — og kan altid opgraderes til en markør-baseret formel, når du tester hos Aevia.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="container">
+    <div class="form-grid">
+
+      <!-- FORM -->
+      <form class="formcard" id="profil" autocomplete="off">
+        <div class="fieldset">
+          <label class="q">Køn</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="kon" value="kvinde" checked><span>Kvinde</span></label>
+            <label class="opt"><input type="radio" name="kon" value="mand"><span>Mand</span></label>
+            <label class="opt"><input type="radio" name="kon" value="andet"><span>Andet</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Alder</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="alder" value="18-29"><span>18–29</span></label>
+            <label class="opt"><input type="radio" name="alder" value="30-44" checked><span>30–44</span></label>
+            <label class="opt"><input type="radio" name="alder" value="45-59"><span>45–59</span></label>
+            <label class="opt"><input type="radio" name="alder" value="60+"><span>60+</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Kost</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="kost" value="alsidig" checked><span>Alsidig</span></label>
+            <label class="opt"><input type="radio" name="kost" value="lidt-fisk"><span>Spiser sjældent fisk</span></label>
+            <label class="opt"><input type="radio" name="kost" value="vegetar"><span>Vegetar</span></label>
+            <label class="opt"><input type="radio" name="kost" value="vegansk"><span>Vegansk</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Hvor meget sol/udeliv får du?</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="sol" value="meget" checked><span>Meget</span></label>
+            <label class="opt"><input type="radio" name="sol" value="lidt"><span>Lidt</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Hvordan sover du?</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="sovn" value="god" checked><span>Godt</span></label>
+            <label class="opt"><input type="radio" name="sovn" value="svingende"><span>Svingende</span></label>
+            <label class="opt"><input type="radio" name="sovn" value="daarlig"><span>Dårligt</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Stressniveau i hverdagen</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="stress" value="lav" checked><span>Lavt</span></label>
+            <label class="opt"><input type="radio" name="stress" value="moderat"><span>Moderat</span></label>
+            <label class="opt"><input type="radio" name="stress" value="hoej"><span>Højt</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Hvor ofte træner du?</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="motion" value="sjaeldent"><span>Sjældent</span></label>
+            <label class="opt"><input type="radio" name="motion" value="let" checked><span>1–2× om ugen</span></label>
+            <label class="opt"><input type="radio" name="motion" value="ofte"><span>3+ om ugen</span></label>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="fieldset">
+          <label class="q">Hvad vil du gerne opnå? <small>(vælg gerne flere)</small></label>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="maal" value="energi"><span>Mere energi</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="sovn"><span>Bedre søvn</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="stress"><span>Mindre stress</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="hjerte"><span>Hjerte & kolesterol</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="traening"><span>Træning & restitution</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="immun"><span>Immunforsvar</span></label>
+            <label class="opt"><input type="checkbox" name="maal" value="longevity"><span>Generel longevity</span></label>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="q">Andet vi skal vide?</label>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="flags" value="gravid"><span>Gravid / ammer</span></label>
+            <label class="opt"><input type="checkbox" name="flags" value="medicin"><span>Tager medicin</span></label>
+          </div>
+        </div>
+      </form>
+
+      <!-- RESULTAT -->
+      <div class="result" aria-live="polite">
+        <div class="rhead">
+          <div class="t">Din profil-formel</div>
+          <h3>Foreslået sammensætning</h3>
+          <div class="cnt"><b id="rcount">0</b> aktive stoffer · opdateres live</div>
+        </div>
+        <div class="ritems" id="ritems"></div>
+        <div class="rfoot">
+          <div id="rnotes"></div>
+          <button id="order" class="btn btn-primary">Bestil min formel</button>
+          <a href="forslag-3-element-upload.html" class="alt">Har du en blodprøve? Upload den for fuld præcision →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Nuvera ApS · CVR 00000000 · Profil-formlen er en generel anbefaling og ikke en lægefaglig vurdering. Kosttilskud er ikke lægemidler og erstatter ikke en varieret kost eller lægebehandling. En blodprøve giver en markør-baseret og mere præcis formel.</p>
+    <div class="foot-bottom"><span>© 2026 Nuvera ApS</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getNuveraById('profil');
+  var ritems = document.getNuveraById('ritems');
+  var rcount = document.getNuveraById('rcount');
+  var rnotes = document.getNuveraById('rnotes');
+
+  var pill = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>';
+
+  function val(name){ var el = form.querySelector('[name="'+name+'"]:checked'); return el ? el.value : ''; }
+  function multi(name){ return [].slice.call(form.querySelectorAll('[name="'+name+'"]:checked')).map(function(e){return e.value;}); }
+
+  function compute(){
+    var kon=val('kon'), alder=val('alder'), kost=val('kost'), sol=val('sol'),
+        sovn=val('sovn'), stress=val('stress'), motion=val('motion');
+    var maal=multi('maal'), flags=multi('flags');
+    var pregnant = flags.indexOf('gravid')>-1;
+    var items=[], notes=[];
+    function add(name, why, cap){
+      for(var i=0;i<items.length;i++){ if(items[i].name===name){ if(items[i].why.indexOf(why)<0) items[i].why += ' · ' + why; return; } }
+      items.push({name:name, why:why, cap:!!cap});
+    }
+    function note(t){ if(notes.indexOf(t)<0) notes.push(t); }
+
+    // Grundsten (alle)
+    add('D3 + K2', 'nordisk grundsten — lavt D-vitamin er udbredt');
+    add('Magnesium glycinat', 'muskel, nerve, søvn & energi');
+    add('Omega-3', kost==='vegansk' ? 'hjerte & anti-inflammation (alge-baseret)' : 'hjerte & anti-inflammation', true);
+
+    if(sol==='lidt') add('D3 + K2', 'du får kun lidt sol');
+    if(kost==='vegansk' || kost==='vegetar'){ add('B12 (methylcobalamin)', 'plantebaseret kost'); }
+    if(kost==='lidt-fisk') add('Omega-3', 'du spiser sjældent fisk', true);
+
+    if(maal.indexOf('energi')>-1){ add('B-kompleks', 'energiomsætning'); if(alder==='45-59'||alder==='60+') add('CoQ10 (ubiquinol)', 'mitokondrie-energi med alderen'); }
+    if(maal.indexOf('sovn')>-1 || sovn==='daarlig' || sovn==='svingende'){ add('Magnesium glycinat', 'søvnkvalitet'); add('Glycin', 'lettere indsovning'); add('L-theanin', 'ro om aftenen'); }
+    if(maal.indexOf('stress')>-1 || stress==='hoej'){ add('L-theanin', 'ro uden sløvhed'); if(!pregnant) add('Ashwagandha (KSM-66)', 'kan sænke stress & kortisol'); }
+    if(maal.indexOf('hjerte')>-1){ add('Omega-3', 'hjerte & triglycerider', true); add('Fiber (psyllium)', 'kolesterol & blodsukker'); add('Plantesteroler', 'reducerer kolesterol-optag'); note('Kolesterol og ApoB kan ikke vurderes uden blodprøve — en test gør hjerte-delen markant mere præcis.'); }
+    if(maal.indexOf('traening')>-1 || motion==='ofte'){ add('Kreatin monohydrat', 'styrke, power & restitution'); add('Magnesium glycinat', 'muskelfunktion'); }
+    if(maal.indexOf('immun')>-1){ add('D3 + K2', 'immunstøtte'); add('Zink', 'immunforsvar'); add('C-vitamin', 'immun & antioxidant'); }
+    if(maal.indexOf('longevity')>-1){ add('Glycin + NAC', 'forløbere for glutathion'); add('Taurin', 'longevity & metabolisk støtte'); add('Fiber (psyllium)', 'tarm & metabolisk'); }
+
+    if(kon==='kvinde' && (kost==='vegansk'||kost==='vegetar')) note('Kvinder på plantebaseret kost er oftere lave i jern — vi tilføjer ikke jern uden en ferritin-måling.');
+    if(pregnant) note('Gravid/ammende: enkelte stoffer (fx ashwagandha) er udeladt. Få altid din formel godkendt af din læge eller jordemoder.');
+    if(flags.indexOf('medicin')>-1) note('Tager du medicin? Vis din formel til din læge — fx omega-3 og enkelte stoffer kan interagere.');
+
+    return {items:items, notes:notes};
+  }
+
+  function render(){
+    var r = compute();
+    rcount.textContent = r.items.length;
+    ritems.innerHTML = r.items.map(function(i){
+      return '<div class="ritem"><span class="pdot">'+pill+'</span><div><b>'+i.name+(i.cap?' <span class="tag">kapsel</span>':'')+'</b><small>'+i.why+'</small></div></div>';
+    }).join('');
+    var warn = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>';
+    rnotes.innerHTML = r.notes.length
+      ? r.notes.map(function(n){ return '<p class="rnote">'+warn+'<span>'+n+'</span></p>'; }).join('')
+      : '<p class="rnote">'+warn+'<span>Bygget på din profil. Forbind en blodprøve for en markør-baseret, mere præcis formel.</span></p>';
+  }
+
+  form.addEventListener('input', render);
+  render();
+})();
+</script>
+
+<script>
+(function(){
+  var b=document.getElementById('order'); if(!b) return;
+  b.addEventListener('click', function(){
+    var items=[].map.call(document.querySelectorAll('#ritems .ritem'), function(el){
+      var nb=el.querySelector('b'), sm=el.querySelector('small');
+      return { n: nb?nb.textContent.replace('kapsel','').trim():'', a:'', w: sm?sm.textContent:'', cap: !!el.querySelector('.tag') };
+    }).filter(function(i){ return i.n; });
+    if(!items.length){ location.href='forslag-3-element-upload.html'; return; }
+    var payload={ kilde:'profil (uden test)', items:items };
+    try{ payload.dato=new Date().toISOString().slice(0,10); }catch(e){}
+    try{ localStorage.setItem('nuvera_formel', JSON.stringify(payload)); }catch(e){}
+    location.href='forslag-3-element-bestil.html';
+  });
+})();
+</script>
+<script src="nuvera-nav.js"></script></body>
+</html>

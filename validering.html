@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Aevia · Klinisk validering</title>
+<style>
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--navy-3:#eef2f7;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--ok:#3fb27f;--watch:#d8a93c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#ffffff;color:var(--text);line-height:1.5;padding:24px 16px}
+.wrap{max-width:1100px;margin:0 auto}
+h1{font-size:1.5rem;margin-bottom:4px}
+.sub{color:var(--muted-2);font-size:.9rem;margin-bottom:18px;max-width:80ch}
+.bar{position:sticky;top:0;background:#ffffff;padding:12px 0;border-bottom:1px solid var(--line-2);display:flex;gap:14px;align-items:center;flex-wrap:wrap;z-index:5}
+.count{font-size:.95rem}.count b{color:var(--gold)}
+.btn{background:var(--text);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-weight:600;cursor:pointer;font:inherit;font-size:.9rem}
+.btn:hover{background:var(--gold-deep)}.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
+h3{font-size:.78rem;color:var(--gold);text-transform:uppercase;letter-spacing:.09em;margin:22px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+input[type=number]{width:74px;background:#ffffff;border:1px solid var(--line-2);border-radius:7px;padding:6px 8px;color:var(--text);font:inherit;font-size:.86rem}
+input:focus{outline:none;border-color:var(--gold)}
+tr.done td{background:rgba(63,178,127,.06)}
+.dir{font-size:.66rem;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--navy-3);color:var(--muted)}
+.muted{color:var(--muted-2)}
+textarea{width:100%;min-height:160px;background:#ffffff;border:1px solid var(--line-2);border-radius:8px;padding:11px;color:var(--text);font:inherit;font-size:.82rem;font-family:ui-monospace,Menlo,monospace;margin-top:10px}
+.note{font-size:.82rem;color:var(--muted-2);margin-top:8px}
+.warn{background:rgba(216,169,60,.1);border:1px solid rgba(216,169,60,.4);border-radius:10px;padding:12px 14px;font-size:.86rem;color:#e7cf8f;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Klinisk validering — referenceintervaller</h1>
+  <p class="sub">Til overlæge Judit Kolovics. Gennemgå hver markørs <b>optimal-zone</b> og angiv et lægefagligt <b>referenceinterval</b>. Sæt flueben ved "valideret". Eksportér til sidst en JSON, som lægges ind i motorens <code>reference</code>-felter — så skifter de fra <i>udledt</i> til <i>valideret</i> i klassificeringen.</p>
+  <div class="warn">Den "udledte reference" er motorens midlertidige skøn (±25 % om optimal-grænsen), ikke en klinisk reference. Den erstattes af dine værdier. Lavere-er-bedre/Højere-er-bedre vises pr. markør — for disse er den ene side bevidst åben.</div>
+
+  <div class="bar">
+    <span class="count" id="count"></span>
+    <button class="btn" onclick="doExport()">Eksportér valideret JSON</button>
+    <button class="btn ghost" onclick="copyJson()">Kopiér</button>
+    <button class="btn ghost" onclick="download()">Download .json</button>
+  </div>
+
+  <div id="rows"></div>
+
+  <h3 style="margin-top:26px">Eksport (indsæt i reference-data.ts)</h3>
+  <textarea id="out" placeholder="Tryk &quot;Eksportér valideret JSON&quot;…"></textarea>
+  <p class="note">Format: <code>{ "markør-id": { "optimal": [low, high], "reference": [low, high] } }</code>. Kun markører markeret "valideret" medtages. <code>null</code> i reference = åben side (lavere/højere er bedre).</p>
+</div>
+
+<script src="/assets/markers-manifest.js"></script>
+<script>
+var M=(window.AEVIA_MARKERS||{categories:[],markers:[]});
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fmt(n,d){return (n==null||!isFinite(n))?'':Number(n).toFixed(d);}
+var REF=0.25; // samme som motorens RANGE_MODEL.referenceWiden
+
+// Udledt reference (til kontekst) — spejler motoren.
+function derived(m){
+  var lo=m.lowerIsBetter?null:+(m.optimalLow*(1-REF)).toFixed(m.decimals);
+  var hi=m.higherIsBetter?null:+(m.optimalHigh*(1+REF)).toFixed(m.decimals);
+  return [lo,hi];
+}
+function num(id){var v=el(id).value;return v===''?null:Number(v);}
+
+function build(){
+  var html=M.categories.map(function(c){
+    var ms=M.markers.filter(function(m){return m.category===c.id;});
+    if(!ms.length)return '';
+    var rows=ms.map(function(m){
+      var dr=derived(m), dec=m.decimals;
+      var dir=m.lowerIsBetter?'<span class="dir">lavere bedre</span>':(m.higherIsBetter?'<span class="dir">højere bedre</span>':'<span class="dir">tosidet</span>');
+      return '<tr id="row_'+m.id+'">'+
+        '<td><b>'+esc(m.name)+'</b><br><span class="muted" style="font-size:.76rem">'+esc(m.unit)+' · '+dir+'</span></td>'+
+        '<td><input type="number" step="any" id="o_lo_'+m.id+'" value="'+m.optimalLow+'"> – <input type="number" step="any" id="o_hi_'+m.id+'" value="'+m.optimalHigh+'"></td>'+
+        '<td class="muted" style="font-size:.8rem">'+(dr[0]==null?'åben':fmt(dr[0],dec))+' – '+(dr[1]==null?'åben':fmt(dr[1],dec))+'</td>'+
+        '<td><input type="number" step="any" id="r_lo_'+m.id+'" placeholder="'+(dr[0]==null?'åben':fmt(dr[0],dec))+'"> – <input type="number" step="any" id="r_hi_'+m.id+'" placeholder="'+(dr[1]==null?'åben':fmt(dr[1],dec))+'"></td>'+
+        '<td style="text-align:center"><input type="checkbox" id="v_'+m.id+'" onchange="mark(\''+m.id+'\');updateCount()"></td></tr>';
+    }).join('');
+    return '<h3>'+esc(c.label)+'</h3><table><thead><tr><th>Markør</th><th>Optimal-zone</th><th>Udledt ref.</th><th>Valideret reference</th><th>Valideret</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  }).join('');
+  el('rows').innerHTML=html||'<p class="warn">Kunne ikke indlæse markør-manifest (/assets/markers-manifest.js).</p>';
+  updateCount();
+}
+function mark(id){var r=el('row_'+id); if(r)r.className=el('v_'+id).checked?'done':'';}
+function updateCount(){
+  var n=M.markers.filter(function(m){return el('v_'+m.id)&&el('v_'+m.id).checked;}).length;
+  el('count').innerHTML='<b>'+n+'</b> af '+M.markers.length+' markører valideret';
+}
+function doExport(){
+  var out={};
+  M.markers.forEach(function(m){
+    if(!el('v_'+m.id)||!el('v_'+m.id).checked)return;
+    var dr=derived(m);
+    out[m.id]={
+      optimal:[num('o_lo_'+m.id), num('o_hi_'+m.id)],
+      reference:[num('r_lo_'+m.id)!=null?num('r_lo_'+m.id):dr[0], num('r_hi_'+m.id)!=null?num('r_hi_'+m.id):dr[1]]
+    };
+  });
+  el('out').value=JSON.stringify(out,null,2);
+  return out;
+}
+function copyJson(){ if(!el('out').value)doExport(); el('out').select(); document.execCommand('copy'); }
+function download(){
+  if(!el('out').value)doExport();
+  var blob=new Blob([el('out').value],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='aevia-validering.json'; a.click();
+}
+build();
+</script>
+</body>
+</html>

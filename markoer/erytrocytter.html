@@ -14,31 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="../favicon.ico" sizes="any"><meta name="theme-color" content="#0a1628">
-<style>
-:root{--navy:#0a1628;--navy-2:#0f1f36;--line:#1d2c42;--line-2:#28394f;--text:#f5f5f0;--muted:#aab4c2;--muted-2:#94a0b2;--gold:#c9a437;--gold-deep:#b8960c;--serif:"Playfair Display",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--navy);color:var(--text);line-height:1.65}
-.wrap{max-width:680px;margin:0 auto;padding:24px 20px 70px}
-.top{display:flex;align-items:center;justify-content:space-between;padding:10px 0 26px}
-.logo{font-family:var(--serif);font-size:1.3rem;color:var(--text);text-decoration:none}.logo span{color:var(--gold)}
-.back{color:var(--gold);text-decoration:none;font-size:.92rem}
-.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
-h1{font-family:var(--serif);font-size:1.9rem;font-weight:600;margin-bottom:14px}
-h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin:28px 0 8px}
-p{color:var(--muted);margin-bottom:12px}
-.panel{background:var(--navy-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 18px;color:var(--text);margin:18px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;font-weight:600;text-decoration:none;background:var(--gold);color:var(--navy);transition:background .2s}
-.btn:hover{background:var(--gold-deep)}
-.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2);margin-left:10px}
-.rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.rel a{font-size:.85rem;color:var(--muted);background:var(--navy-2);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none}
-.rel a:hover{border-color:var(--gold);color:var(--text)}
-.disc{color:var(--muted-2);font-size:.84rem;margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
-.foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
-.foot a{color:var(--gold);text-decoration:none}
-</style>
-</head>
+<link rel="icon" href="../favicon.ico" sizes="any"><meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="../assets/markoer.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalWebPage", "name": "Erytrocytter: hvad fortæller dit blodprøvetal? | Aevia", "description": "Antallet af røde blodlegemer, der transporterer ilt.", "url": "https://aevia.dk/markoer/erytrocytter.html", "inLanguage": "da", "publisher": {"@type": "Organization", "name": "Aevia Health", "url": "https://aevia.dk"}}</script></head>
 <body>
 <div class="wrap">
   <div class="top">
@@ -54,7 +32,7 @@ p{color:var(--muted);margin-bottom:12px}
   <h2>Hvad betyder et højt eller lavt tal?</h2>
   <p>Det afhænger af sammenhængen: din alder, dit køn, dine øvrige markører og din historik. Et tal uden for referenceområdet er ikke en diagnose — og et "normalt" tal er ikke altid optimalt. Derfor tolkes alle dine resultater hos Aevia af en læge, der ser Erytrocytter i sammenhæng med 70+ andre markører og forklarer, hvad netop dit tal betyder for dig.</p>
   <h2>Sådan får du målt Erytrocytter</h2>
-  <p>Erytrocytter indgår i Aevias fulde blodpanel, som er med i alle pakker — sammen med beregning af din biologiske alder og en personlig rapport, der gennemgås 1:1 med en læge. Blodprøven tager få minutter, og rapporten er klar inden for 10 arbejdsdage.</p>
+  <p>Erytrocytter indgår i Aevias fulde blodpanel, som er med i alle pakker — sammen med beregning af din biologiske alder og en personlig rapport, der gennemgås af en læge. Blodprøven tager få minutter, og rapporten er klar inden for 10 arbejdsdage.</p>
   <p style="margin-top:18px"><a class="btn" href="../book.html">Book dit helbredstjek</a><a class="btn ghost" href="../pakker.html">Se pakker &amp; priser</a></p>
   <h2>Relaterede markører</h2>
   <div class="rel"><a href="haemoglobin.html">Hæmoglobin</a><a href="haematokrit.html">Hæmatokrit</a><a href="mcv.html">MCV</a><a href="mch.html">MCH</a><a href="mchc.html">MCHC</a><a href="rdw.html">RDW</a><a href="leukocytter.html">Leukocytter</a><a href="neutrofile.html">Neutrofile</a></div>
@@ -63,19 +41,16 @@ p{color:var(--muted);margin-bottom:12px}
 </div>
 
 <!-- Analytics + samtykke -->
-<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.6);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
-<p style="margin:0 0 14px;color:#aab4c2;font-size:.92rem;line-height:1.5"><strong style="color:#f5f5f0">Vi respekterer dine data.</strong> Aevia bruger cookies til at måle anonym trafik (Google Analytics 4, Microsoft Clarity). Helbredsdata indsamles aldrig via hjemmesiden.</p>
+<div id="aevcb" style="display:none;position:fixed;left:18px;right:18px;bottom:18px;z-index:500;max-width:580px;margin:0 auto;background:#ffffff;border:1px solid #d4dbe3;border-radius:14px;padding:20px 22px;box-shadow:0 16px 40px rgba(10,22,40,.14);font-family:Inter,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<p style="margin:0 0 14px;color:#46505f;font-size:.92rem;line-height:1.5"><strong style="color:#0a1628">Vi respekterer dine data.</strong> Aevia bruger cookies til at måle anonym trafik (Google Analytics 4, Microsoft Clarity). Helbredsdata indsamles aldrig via hjemmesiden.</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
-<button onclick="aevSetCookie(true)" style="background:#c9a437;color:#0a1628;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accepter alle</button>
-<button onclick="aevSetCookie(false)" style="background:none;color:#aab4c2;border:1px solid #28394f;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Kun nødvendige</button>
+<button onclick="aevSetCookie(true)" style="background:#0a1628;color:#fff;border:none;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Accepter alle</button>
+<button onclick="aevSetCookie(false)" style="background:none;color:#46505f;border:1px solid #d4dbe3;border-radius:999px;padding:11px 22px;font-weight:600;font-size:.92rem;cursor:pointer;font-family:inherit">Kun nødvendige</button>
 </div></div>
 <script>
 var AEVIA_GA4='G-8J87JYSBZG';var AEVIA_CLARITY='x15dq7rsz1';
-function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;
- if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',AEVIA_GA4);}
- if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}
-(function(){try{var c=localStorage.getItem('aevia_cookie');if(!c){document.getElementById('aevcb').style.display='block';}else if(c==='all'){aevLoadAnalytics();}}catch(e){document.getElementById('aevcb').style.display='block';}})();
-function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}document.getElementById('aevcb').style.display='none';if(all)aevLoadAnalytics();}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function aevLoadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function aevLoadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}aevLoadAnalytics();if(c==='all'){aevGrant();aevLoadClarity();}else if(!c){try{document.getElementById('aevcb').style.display='block';}catch(e){}}})();function aevSetCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('aevcb').style.display='none';}catch(e){}if(all){aevGrant();aevLoadClarity();}}
 </script>
+<script>(function(){function ev(n,p){try{if(window.gtag)gtag("event",n,p||{});}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";var t=(a.textContent||"").trim().slice(0,60);if(/book\.html/.test(h)){var pk=(h.match(/pakke=([a-z]+)/)||[])[1];ev("book_cta_click",{label:t,package:pk||"none",page:location.pathname});}else if(a.classList&&a.classList.contains("nav-cta")){ev("book_cta_click",{label:"nav",page:location.pathname});}else if(/pakker\.html/.test(h)){ev("packages_view_click",{label:t,page:location.pathname});}},{passive:true});})();</script>
 </body>
 </html>

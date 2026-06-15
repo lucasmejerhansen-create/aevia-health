@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Din udvikling — Protokol</title>
+<meta name="description" content="Følg dine markører over tid og se, hvordan din protokol justeres efter hver blodprøve. Retest-loop med Aevia — automatisk genberegning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Lyst design (som Protokols forside) — navy blå */
+  --bg:#ffffff;--bg-soft:#f4f7fb;--bg-soft-2:#eef3f9;
+  --navy:#0e2c54;--navy-deep:#0a1f3c;--navy-bright:#1f5fae;
+  --ink:#0c1c33;--text:#3a4a5e;--muted:#6b7a8d;--muted-2:#8a97a8;
+  --line:#e2e9f1;--line-2:#cfdae7;
+  --navy-soft:rgba(14,44,84,.06);--blue-soft:rgba(31,95,174,.10);
+  --good:#2f7a52;--good-soft:rgba(47,122,82,.10);
+  --maxw:1140px;--radius:14px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Space Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:color .2s ease}
+a:hover{color:var(--navy-bright)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.16;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.1rem,5vw,3.5rem)}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+h3{font-size:1.18rem}
+p{color:var(--text)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-bright);margin-bottom:18px;font-weight:700}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--navy-bright)}
+.lead{font-size:1.13rem;color:var(--muted);max-width:60ch}
+
+/* Topbanner */
+.topbar{background:var(--navy);color:#cfe0f5;font-size:.8rem;text-align:center;padding:9px 16px;font-family:var(--mono);letter-spacing:.03em}
+.topbar a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.42rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.logo span{color:var(--navy-bright)}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:10px 12px;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{padding:11px 20px!important;background:var(--navy)!important;border-radius:999px;color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--navy-deep)!important}
+@media(max-width:860px){.nav-links .hide-m{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-size:.96rem;font-weight:600;cursor:pointer;transition:all .2s ease;border:1px solid transparent;white-space:nowrap;line-height:1;font-family:inherit}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-deep);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:var(--navy);background:var(--navy-soft)}
+
+/* Intro */
+.intro{padding:60px 0 26px}
+.wrap{padding:14px 0 80px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
+.stat .num{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--navy);letter-spacing:-.02em;line-height:1}
+.stat .num span{color:var(--navy-bright);font-size:1.1rem}
+.stat .lab{color:var(--muted);font-size:.88rem;margin-top:8px}
+
+/* Retest banner */
+.retest{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:space-between;background:var(--navy);color:#fff;border-radius:20px;padding:28px 32px;margin-bottom:34px;position:relative;overflow:hidden}
+.retest::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(31,95,174,.42),transparent 65%);top:-140px;right:-60px}
+.retest .rt{position:relative}
+.retest .rt .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fc0ec}
+.retest .rt h3{color:#fff;margin:5px 0 6px;font-size:1.4rem}
+.retest .rt p{color:#bccadd;font-size:.92rem;max-width:48ch}
+.retest .btn{position:relative;background:#fff;color:var(--navy)}
+.retest .btn:hover{background:#eaf1fb}
+
+/* Charts */
+.sec-title{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:36px 0 16px}
+.sec-title h2{font-size:1.5rem}
+.sec-title .hint{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;transition:border-color .2s,box-shadow .2s}
+.chart-card:hover{border-color:var(--line-2);box-shadow:0 18px 40px -28px rgba(14,44,84,.4)}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.cm-name{font-weight:600;color:var(--ink);font-size:1rem}
+.cm-sub{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+.cm-now{text-align:right;font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1.05}
+.cm-now .trend{display:block;font-family:var(--mono);font-size:.72rem;font-weight:700;margin-top:4px;letter-spacing:.02em}
+.trend.good{color:var(--good)}.trend.flat{color:var(--muted)}
+.chart-svg{width:100%;height:auto;display:block;margin-top:6px}
+.chart-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted-2);margin-top:8px;padding:0 2px}
+
+/* Timeline */
+.timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:24px}
+.tl{position:relative;padding-bottom:26px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-31px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--navy-bright)}
+.tl.done::before{background:var(--navy-bright)}
+.tl .date{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-bright);font-weight:700}
+.tl h4{font-family:var(--sans);font-size:1rem;color:var(--ink);margin:5px 0 5px;font-weight:600}
+.tl p{font-size:.9rem;color:var(--muted)}
+.tl .chg{display:inline-block;font-family:var(--mono);font-size:.74rem;color:var(--text);background:var(--bg-soft);border:1px solid var(--line);border-radius:7px;padding:4px 9px;margin:7px 6px 0 0;letter-spacing:.02em}
+
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:start;margin-top:14px}
+.note-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--navy-bright);border-radius:var(--radius);padding:26px}
+
+/* CTA */
+.cta-band{background:var(--navy);border-radius:22px;padding:56px 44px;text-align:center;position:relative;overflow:hidden;color:#fff;margin-top:44px}
+.cta-band::before{content:"";position:absolute;top:-90px;left:50%;transform:translateX(-50%);width:380px;height:250px;background:radial-gradient(circle,rgba(31,95,174,.5),transparent 70%)}
+.cta-band>*{position:relative}
+.cta-band h2{color:#fff;max-width:22ch;margin-inline:auto}
+.cta-band p{color:#bccadd;margin:14px auto 24px;max-width:52ch}
+.cta-band .btn-primary{background:#fff;color:var(--navy)}
+.cta-band .btn-primary:hover{background:#eaf1fb}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line);padding:46px 0 34px;background:var(--bg-soft);margin-top:36px}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:16px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+
+@media(max-width:860px){
+  .stats{grid-template-columns:1fr}
+  .charts{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:26px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Et selvstændigt selskab — bygget oven på dine resultater fra <a href="../index.html">Aevia&nbsp;Health</a></div>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-1-protokol.html" class="logo">Protokol<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-1-protokol.html#sadan" class="hide-m">Sådan virker det</a></li>
+      <li><a href="forslag-1-protokol.html#priser" class="hide-m">Priser</a></li>
+      <li><a href="forslag-1-protokol.html#aevia" class="hide-m">Aevia &amp; os</a></li>
+      <li><a href="forslag-1-protokol.html#faq" class="hide-m">FAQ</a></li>
+      <li><a href="#" class="active hide-m">Din udvikling</a></li>
+      <li><a href="../book.html" class="nav-cta">Book retest</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <span class="eyebrow">Din udvikling</span>
+    <h1>Se dine markører bevæge sig</h1>
+    <p class="lead">Hver gang du tester hos Aevia, opdateres dine kurver — og din protokol justeres efter dem. Her er et eksempel på et år med Protokol.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="container">
+
+    <div class="stats">
+      <div class="stat"><div class="num">6/8</div><div class="lab">markører i mål (op fra 3/8)</div></div>
+      <div class="stat"><div class="num">−2 <span>år</span></div><div class="lab">biologisk alder siden start</div></div>
+      <div class="stat"><div class="num">312</div><div class="lab">dage på din protokol</div></div>
+    </div>
+
+    <div class="retest">
+      <div class="rt">
+        <div class="k">Retest-loop</div>
+        <h3>Næste blodprøve: 28. juli 2026 · om ca. 6 uger</h3>
+        <p>Vi minder dig om det automatisk — og genberegner din protokol ud fra de nye tal, så du aldrig tager mere end nødvendigt.</p>
+      </div>
+      <a href="../book.html" class="btn">Book retest hos Aevia
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="sec-title">
+      <h2>Dine markører over tid</h2>
+      <span class="hint">Grøn zone = mål · stiplet linje = grænse</span>
+    </div>
+    <div class="charts" id="charts"></div>
+
+    <div class="split">
+      <div>
+        <div class="sec-title"><h2>Din protokol, justeret efter tallene</h2></div>
+        <div class="timeline">
+          <div class="tl done"><div class="date">Juni 2025 · 1. test</div><h4>Startprotokol sammensat</h4><p>Dine markører viste lavt D-vitamin, forhøjet hs-CRP og høj LDL.</p><span class="chg">+ D3+K2 90 µg</span><span class="chg">+ Omega-3 2 g</span><span class="chg">+ Bergamot 500 mg</span></div>
+          <div class="tl done"><div class="date">September 2025 · 2. test</div><h4>Justeret op</h4><p>Inflammation faldt, men D-vitamin stadig under mål.</p><span class="chg">↑ D3 til 100 µg</span><span class="chg">+ Magnesium 300 mg</span></div>
+          <div class="tl done"><div class="date">December 2025 · 3. test</div><h4>D-vitamin normaliseret</h4><p>D-vitamin nåede målzonen — dosis trappet ned.</p><span class="chg">↓ D3 til 50 µg</span><span class="chg">+ Fiber (psyllium)</span></div>
+          <div class="tl"><div class="date">Marts 2026 · 4. test</div><h4>LDL i mål</h4><p>LDL under 3,0. Bergamot fastholdt, omega-3 reduceret.</p><span class="chg">↓ Omega-3 til 1 g</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-title"><h2>Hvorfor det virker</h2></div>
+        <div class="note-card">
+          <p style="font-size:.95rem;color:var(--text)">Du gætter ikke. Hver justering er et svar på en konkret ændring i dit blod — og du kan se sort på hvidt, om det rykker noget. Det er forskellen på at <b style="color:var(--ink)">tage tilskud</b> og at <b style="color:var(--ink)">følge en protokol</b>.</p>
+          <p style="font-size:.9rem;color:var(--muted);margin-top:14px">Test typisk hver 3.–6. måned. Mellem to test holder din protokol sig stabil — og du kan altid sætte den på pause.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <h2>Klar til næste skridt på din kurve?</h2>
+      <p>Book din næste blodprøve hos Aevia, så justerer vi protokollen efter dine nye tal.</p>
+      <a href="../book.html" class="btn btn-primary">Book retest hos Aevia
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Protokol ApS · CVR 00000000 · Eksempel-data til illustration. Kosttilskud er ikke lægemidler og erstatter ikke lægebehandling. Markører hentes fra Aevia Health udelukkende med dit udtrykkelige samtykke (GDPR art. 9).</p>
+    <div class="foot-bottom"><span>© 2026 Protokol ApS</span><span><a href="forslag-1-protokol.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var markers = [
+    {name:'LDL-kolesterol', sub:'mål < 3,0 mmol/L', unit:'', dir:'lower', target:3.0, min:2.2, max:4.2, data:[3.9,3.5,3.1,2.8,2.6], fmt:function(v){return v.toFixed(1).replace('.',',');}},
+    {name:'hs-CRP', sub:'mål < 1,0 mg/L', unit:'', dir:'lower', target:1.0, min:0, max:3.4, data:[3.1,2.3,1.6,1.1,0.8], fmt:function(v){return v.toFixed(1).replace('.',',');}},
+    {name:'D-vitamin', sub:'mål > 75 nmol/L', unit:'', dir:'higher', target:75, min:30, max:120, data:[38,52,68,82,90], fmt:function(v){return Math.round(v);}},
+    {name:'HbA1c', sub:'mål < 39 mmol/mol', unit:'', dir:'lower', target:39, min:33, max:45, data:[42,41,40,38,37], fmt:function(v){return Math.round(v);}}
+  ];
+  var labels=['jun','sep','dec','mar','jun'];
+  var W=300,H=140,padL=10,padR=10,padT=12,padB=10;
+  var plotW=W-padL-padR, plotH=H-padT-padB;
+
+  function y(v,m){ return padT + (m.max-v)/(m.max-m.min)*plotH; }
+  function x(i,n){ return padL + (n<=1?0:i/(n-1)*plotW); }
+
+  function chart(m){
+    var n=m.data.length;
+    var pts=m.data.map(function(v,i){return x(i,n)+','+y(v,m);}).join(' ');
+    // god zone
+    var gy = y(m.target,m);
+    var zone = m.dir==='lower'
+      ? '<rect x="0" y="'+gy.toFixed(1)+'" width="'+W+'" height="'+(padT+plotH-gy).toFixed(1)+'" fill="var(--good-soft)"/>'
+      : '<rect x="0" y="'+padT+'" width="'+W+'" height="'+(gy-padT).toFixed(1)+'" fill="var(--good-soft)"/>';
+    var targetLine='<line x1="0" y1="'+gy.toFixed(1)+'" x2="'+W+'" y2="'+gy.toFixed(1)+'" stroke="var(--good)" stroke-width="1" stroke-dasharray="4 4" opacity=".55"/>';
+    var dots=m.data.map(function(v,i){
+      var last=i===n-1;
+      return '<circle cx="'+x(i,n).toFixed(1)+'" cy="'+y(v,m).toFixed(1)+'" r="'+(last?4.5:3)+'" fill="'+(last?'var(--navy-bright)':'#fff')+'" stroke="var(--navy-bright)" stroke-width="2"/>';
+    }).join('');
+    var area='<polyline points="'+pts+'" fill="none" stroke="var(--navy-bright)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+    return '<svg class="chart-svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" role="img" aria-label="'+m.name+'">'+zone+targetLine+area+dots+'</svg>';
+  }
+
+  function trend(m){
+    var first=m.data[0], last=m.data[m.data.length-1];
+    var diff=last-first;
+    var towardGoal = m.dir==='lower' ? diff<0 : diff>0;
+    var arrow = diff<0?'↓':(diff>0?'↑':'→');
+    var cls = Math.abs(diff)<0.01?'flat':(towardGoal?'good':'flat');
+    var val = m.fmt(Math.abs(diff));
+    return '<span class="trend '+cls+'">'+arrow+' '+val+(towardGoal?' · mod mål':'')+'</span>';
+  }
+
+  document.getElementById('charts').innerHTML = markers.map(function(m){
+    return '<div class="chart-card">'
+      +'<div class="chart-head"><div><div class="cm-name">'+m.name+'</div><div class="cm-sub">'+m.sub+'</div></div>'
+      +'<div class="cm-now">'+m.fmt(m.data[m.data.length-1])+trend(m)+'</div></div>'
+      + chart(m)
+      +'<div class="chart-x">'+labels.map(function(l){return '<span>'+l+'</span>';}).join('')+'</div>'
+      +'</div>';
+  }).join('');
+})();
+</script>
+
+</body>
+</html>

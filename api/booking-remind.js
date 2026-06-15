@@ -33,10 +33,10 @@ function reminderMail({ b, partsTomorrow, lang }) {
   const manageUrl = `${SITE}/api/min-booking?id=${b.id}&sig=${bookingSig(b.id)}${da ? "" : "&lang=en"}`;
   const hasBlood = partsTomorrow.some((p) => p.svc === "blod");
   const rows = partsTomorrow.map((p) =>
-    `<tr><td style="color:#f5f5f0;font-size:14px;padding:6px 0">${svcLabel(p.svc, lang)}</td><td style="color:#c9a437;font-size:14px;font-weight:bold;text-align:right">${p.time}</td></tr>`).join("");
+    `<tr><td style="color:#0a1628;font-size:14px;padding:6px 0">${svcLabel(p.svc, lang)}</td><td style="color:#8a6d10;font-size:14px;font-weight:bold;text-align:right">${p.time}</td></tr>`).join("");
   const prep = hasBlood
-    ? `<p style="color:#aab4c2;font-size:15px;line-height:1.6;margin:0 0 10px"><strong style="color:#f5f5f0">${da ? "Din forberedelse til blodprøven:" : "Your preparation for the blood draw:"}</strong></p>
-      <ul style="color:#aab4c2;font-size:15px;line-height:1.7;margin:0 0 16px;padding-left:20px">
+    ? `<p style="color:#46505f;font-size:15px;line-height:1.6;margin:0 0 10px"><strong style="color:#0a1628">${da ? "Din forberedelse til blodprøven:" : "Your preparation for the blood draw:"}</strong></p>
+      <ul style="color:#46505f;font-size:15px;line-height:1.7;margin:0 0 16px;padding-left:20px">
         <li>${da ? "Fast 8-12 timer før — vand er ok, kaffe og mad er ikke." : "Fast 8-12 hours before — water is fine, coffee and food are not."}</li>
         <li>${da ? "Undgå hård træning i dag." : "Avoid hard training today."}</li>
         <li>${da ? "Ingen alkohol." : "No alcohol."}</li>
@@ -44,19 +44,19 @@ function reminderMail({ b, partsTomorrow, lang }) {
     : "";
   return {
     subject: da ? `Husk dine tider hos Aevia i morgen` : `Reminder: your Aevia appointments tomorrow`,
-    html: `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><body style="margin:0;background:#0a1628;font-family:Arial,Helvetica,sans-serif">
+    html: `<!DOCTYPE html><html lang="${da ? "da" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#eef2f7;font-family:Arial,Helvetica,sans-serif">
   <div style="max-width:560px;margin:0 auto;padding:36px 24px">
-    <div style="font-size:26px;font-weight:bold;color:#f5f5f0;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
-    <div style="background:#0f1f36;border:1px solid #28394f;border-radius:14px;padding:28px;margin-top:22px">
-      <h1 style="color:#f5f5f0;font-size:20px;margin:0 0 6px;font-family:Georgia,serif">${da ? "Vi ses i morgen" : "See you tomorrow"}</h1>
-      <p style="color:#94a0b2;font-size:13px;margin:0 0 12px">${fmtDay(partsTomorrow[0].date, lang)} · ${b.area}</p>
+    <div style="font-size:26px;font-weight:bold;color:#0a1628;font-family:Georgia,serif">Aevia<span style="color:#8a6d10">.</span></div>
+    <div style="background:#ffffff;border:1px solid #e3e8ee;border-radius:14px;padding:28px;margin-top:22px">
+      <h1 style="color:#0a1628;font-size:20px;margin:0 0 6px;font-family:Georgia,serif">${da ? "Vi ses i morgen" : "See you tomorrow"}</h1>
+      <p style="color:#697585;font-size:13px;margin:0 0 12px">${fmtDay(partsTomorrow[0].date, lang)} · ${b.area}</p>
       <table style="width:100%;border-collapse:collapse;margin:0 0 14px">${rows}</table>
       ${prep}
-      <p style="color:#aab4c2;font-size:14px;line-height:1.6;margin:0">${da
-        ? `Kan du alligevel ikke komme? <a href="${manageUrl}" style="color:#c9a437">Aflys eller flyt her</a> — så kan en anden få tiden.`
-        : `Can't make it after all? <a href="${manageUrl}" style="color:#c9a437">Cancel or reschedule here</a> — so someone else can have the slot.`}</p>
+      <p style="color:#46505f;font-size:14px;line-height:1.6;margin:0">${da
+        ? `Kan du alligevel ikke komme? <a href="${manageUrl}" style="color:#8a6d10">Aflys eller flyt her</a> — så kan en anden få tiden.`
+        : `Can't make it after all? <a href="${manageUrl}" style="color:#8a6d10">Cancel or reschedule here</a> — so someone else can have the slot.`}</p>
     </div>
-    <p style="color:#94a0b2;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#c9a437">aevia.dk</a></p>
+    <p style="color:#697585;font-size:12px;margin-top:18px;text-align:center">Aevia · CVR 46 52 07 50 · <a href="${SITE}" style="color:#8a6d10">aevia.dk</a></p>
   </div></body></html>`,
   };
 }

@@ -17,7 +17,7 @@ const PACKAGES = {
     name: "Aevia Core",
     amount: 1099500,
     description:
-      "Biologisk alder, fuld blodpanel (70+ markører), metabolisk & kardiovaskulær risikoprofil + 1:1 lægegennemgang.",
+      "Biologisk alder, fuld blodpanel (70+ markører), metabolisk & kardiovaskulær risikoprofil + lægegennemgang.",
   },
   executive: {
     name: "Aevia Plus",
@@ -38,7 +38,7 @@ const GIFTCARDS = {
   "1000":  { name: "Gavekort til Aevia — 1.000 kr.",  amount: 100000 },
   "2500":  { name: "Gavekort til Aevia — 2.500 kr.",  amount: 250000 },
   "5000":  { name: "Gavekort til Aevia — 5.000 kr.",  amount: 500000 },
-  "core":  { name: "Gavekort til Aevia — Core-forløb", amount: 1099500, description: "Et komplet Aevia Core-helbredstjek i gave: biologisk alder, fuldt blodpanel (70+ markører) og 1:1 lægegennemgang." },
+  "core":  { name: "Gavekort til Aevia — Core-forløb", amount: 1099500, description: "Et komplet Aevia Core-helbredstjek i gave: biologisk alder, fuldt blodpanel (70+ markører) og lægegennemgang." },
   "plus":  { name: "Gavekort til Aevia — Plus-forløb", amount: 1849500, description: "Et komplet Aevia Plus-forløb i gave: alt i Core + konditionstest (VO2max) og fuldt hormonpanel." },
 };
 

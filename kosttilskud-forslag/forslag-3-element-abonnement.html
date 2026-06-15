@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Dit abonnement — Nuvera</title>
+<meta name="description" content="Styr dit Nuvera-abonnement: sæt på pause, spring en levering over, skift interval eller juster dine mål. Ingen binding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-soft:#f3f7fc;
+  --navy:#0c2748;--navy-deep:#081b34;--navy-grad:#16386a;
+  --sky:#3f86d6;--sky-soft:#e8f1fb;--sky-line:#cfe2f5;
+  --good:#2f7a52;--good-soft:#e7f1ea;--amber:#9a6a16;--amber-soft:#fdf3e3;
+  --ink:#0b1d36;--text-solid:#415064;--muted:#6e7c8d;--muted-2:#93a0b0;
+  --line:#e6ecf3;--line-2:#d3deea;
+  --maxw:1080px;--radius:18px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-solid);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--navy);text-decoration:none;transition:all .2s}a:hover{color:var(--sky)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(2rem,4.6vw,3rem)}h3{font-size:1.12rem}
+p{color:var(--muted)}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;background:var(--sky-soft);color:var(--sky);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:9px}
+.logo .dot{width:11px;height:11px;border-radius:3px;background:var(--sky);display:inline-block;transform:rotate(45deg)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:10px 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:999px;padding:11px 22px!important}
+@media(max-width:880px){.nav-links .hide-m{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s;border:1px solid var(--line-2);font-family:inherit;line-height:1;background:#fff;color:var(--ink)}
+.btn:hover{border-color:var(--sky);color:var(--sky)}
+.btn svg{width:17px;height:17px}
+
+.intro{padding:48px 0 24px}
+.wrap{padding:14px 0 80px}
+.acc-grid{display:grid;grid-template-columns:1fr .82fr;gap:26px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px}
+.panel h3{margin-bottom:4px}
+.panel .psub{font-size:.86rem;color:var(--muted);margin-bottom:18px}
+
+/* plan header */
+.planhead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.planhead .pl{font-family:var(--serif);font-size:1.5rem;color:var(--ink)}
+.planhead .pp{font-size:.9rem;color:var(--muted)}
+.badge{font-size:.74rem;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.02em}
+.badge.on{background:var(--good-soft);color:var(--good)}
+.badge.off{background:var(--amber-soft);color:var(--amber)}
+
+/* next delivery */
+.nextbox{display:flex;align-items:center;gap:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:18px}
+.nextbox .ic{width:44px;height:44px;border-radius:12px;background:var(--sky-soft);color:var(--sky);display:flex;align-items:center;justify-content:center;flex:none}
+.nextbox .ic svg{width:22px;height:22px}
+.nextbox .k{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+.nextbox .v{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-top:1px}
+
+/* controls */
+.ctrl{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ctrl:last-child{border-bottom:none}
+.ctrl .ct{font-weight:600;color:var(--ink);font-size:.96rem}
+.ctrl .cd{font-size:.85rem;color:var(--muted);margin-top:1px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.opt span{display:inline-flex;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:.88rem;color:var(--text-solid);cursor:pointer;transition:all .15s}
+.opt input:checked + span{background:var(--sky);border-color:var(--sky);color:#fff}
+
+/* switch */
+.switch{position:relative;width:52px;height:30px;flex:none;cursor:pointer}
+.switch input{opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch .track{position:absolute;inset:0;background:var(--line-2);border-radius:999px;transition:.2s}
+.switch .knob{position:absolute;top:3px;left:3px;width:24px;height:24px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.switch input:checked ~ .track{background:var(--amber)}
+.switch input:checked ~ .knob{transform:translateX(22px)}
+
+/* formula summary */
+.fitem{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.fitem:last-child{border-bottom:none}
+.fitem b{color:var(--ink)}
+.fitem span{color:var(--sky);font-weight:700;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:5px;margin-left:6px;background:#e8f1fb;color:#2f6fb0;text-transform:uppercase}
+
+/* history */
+.hist{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.hist:last-child{border-bottom:none}
+.hist .st{color:var(--good);font-weight:600}
+
+.danger{margin-top:6px;font-size:.88rem}
+.danger a{color:#b5462f;font-weight:600}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:13px 22px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:200}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer.site{border-top:1px solid var(--line);padding:46px 0 34px;background:var(--bg-soft)}
+.foot-note{font-size:.8rem;color:var(--muted-2);max-width:64ch;margin-bottom:16px;line-height:1.6}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:var(--muted-2)}
+@media(max-width:820px){.acc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="forslag-3-element.html" class="logo">Nuvera<span style="color:#3f86d6">.</span></a>
+    <ul class="nav-links">
+      <li><a href="forslag-3-element-ingredienser.html" class="hide-m">Ingredienser</a></li>
+      <li><a href="forslag-3-element-udvikling.html" class="hide-m">Min udvikling</a></li>
+      <li><a href="#" class="active hide-m">Abonnement</a></li>
+      <li><a href="forslag-3-element.html#start" class="nav-cta">Få din formel</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <span class="eyebrow">Min konto</span>
+    <h1>Dit abonnement</h1>
+    <p class="lead">Fuld kontrol, ingen binding. Sæt på pause, spring en levering over, skift interval — eller juster dine mål. Prøv knapperne nedenfor.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="container">
+    <div class="acc-grid">
+
+      <!-- VENSTRE: styring -->
+      <div>
+        <div class="panel">
+          <div class="planhead">
+            <div>
+              <div class="pl">Nuvera <span style="font-size:.95rem;color:var(--muted);font-family:var(--sans)">· 649 kr/md</span></div>
+              <div class="pp">Din daglige formel · inkl. omega-3-kapsel</div>
+            </div>
+            <span class="badge on" id="statusBadge">Aktiv</span>
+          </div>
+          <div class="nextbox">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+            <div>
+              <div class="k">Næste levering</div>
+              <div class="v" id="nextDate">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Styring</h3>
+          <div class="psub">Ændringer træder i kraft med det samme.</div>
+
+          <div class="ctrl">
+            <div><div class="ct">Leveringsinterval</div><div class="cd">Hvor ofte du får din formel</div></div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="interval" value="4" checked><span>4 uger</span></label>
+              <label class="opt"><input type="radio" name="interval" value="6"><span>6 uger</span></label>
+              <label class="opt"><input type="radio" name="interval" value="8"><span>8 uger</span></label>
+            </div>
+          </div>
+
+          <div class="ctrl">
+            <div><div class="ct">Spring næste levering over</div><div class="cd">Rykker næste levering ét interval frem</div></div>
+            <button class="btn" id="skipBtn">Spring over</button>
+          </div>
+
+          <div class="ctrl">
+            <div><div class="ct">Sæt abonnement på pause</div><div class="cd">Stopper levering, indtil du genoptager</div></div>
+            <label class="switch"><input type="checkbox" id="pauseToggle"><span class="track"></span><span class="knob"></span></label>
+          </div>
+
+          <div class="ctrl">
+            <div><div class="ct">Juster dine mål</div><div class="cd">Ændrer hvilke stoffer der indgår</div></div>
+            <a class="btn" href="forslag-3-element-profil.html">Rediger profil</a>
+          </div>
+
+          <div class="ctrl">
+            <div><div class="ct">Smag</div><div class="cd">På pulveret</div></div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="smag" value="neutral" checked><span>Neutral</span></label>
+              <label class="opt"><input type="radio" name="smag" value="baer"><span>Bær</span></label>
+              <label class="opt"><input type="radio" name="smag" value="citrus"><span>Citrus</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Leveringshistorik</h3>
+          <div class="psub">Dine seneste forsendelser.</div>
+          <div class="hist"><span>2. juni 2026</span><span class="st">Leveret ✓</span></div>
+          <div class="hist"><span>5. maj 2026</span><span class="st">Leveret ✓</span></div>
+          <div class="hist"><span>7. april 2026</span><span class="st">Leveret ✓</span></div>
+          <div class="hist"><span>10. marts 2026</span><span class="st">Leveret ✓</span></div>
+          <p class="danger" style="margin-top:16px">Vil du stoppe helt? <a href="#" id="cancel">Afmeld abonnement</a> — ingen binding, du kan altid komme tilbage.</p>
+        </div>
+      </div>
+
+      <!-- HØJRE: formel -->
+      <div>
+        <div class="panel">
+          <h3>Din nuværende formel</h3>
+          <div class="psub">Bygget på din seneste blodprøve (4. juni).</div>
+          <div class="fitem"><span style="color:var(--ink);font-weight:400"><b>D3 + K2</b></span><span>90 µg</span></div>
+          <div class="fitem"><span style="color:var(--ink);font-weight:400"><b>Omega-3</b><span class="tag">kapsel</span></span><span>2 g</span></div>
+          <div class="fitem"><span style="color:var(--ink);font-weight:400"><b>Bergamot</b></span><span>500 mg</span></div>
+          <div class="fitem"><span style="color:var(--ink);font-weight:400"><b>Magnesium glycinat</b></span><span>300 mg</span></div>
+          <div class="fitem"><span style="color:var(--ink);font-weight:400"><b>B-kompleks</b></span><span>1 ×</span></div>
+          <a class="btn" style="width:100%;margin-top:18px;justify-content:center" href="forslag-3-element-udvikling.html">Se min udvikling →</a>
+        </div>
+        <div class="panel" style="background:var(--bg-soft)">
+          <h3 style="font-size:1.02rem">Retest snart</h3>
+          <p style="font-size:.9rem;margin-top:6px">Din formel er mest præcis, når den følger dine tal. Næste anbefalede blodprøve: <b style="color:var(--ink)">28. juli 2026</b>.</p>
+          <a class="btn" style="width:100%;margin-top:14px;justify-content:center" href="../book.html">Book retest hos Aevia</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="site">
+  <div class="container">
+    <p class="foot-note">Nuvera ApS · CVR 00000000 · Demo-konto til illustration. Kosttilskud er ikke lægemidler og erstatter ikke lægebehandling. Markører hentes fra Aevia Health udelukkende med dit udtrykkelige samtykke (GDPR art. 9).</p>
+    <div class="foot-bottom"><span>© 2026 Nuvera ApS</span><span><a href="forslag-3-element.html">← Tilbage til forsiden</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var MND=['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
+  var anchor=new Date(2026,5,2); // sidste levering: 2. juni 2026
+  var state={paused:false, skip:false, interval:4};
+  var elDate=document.getNuveraById('nextDate');
+  var elBadge=document.getNuveraById('statusBadge');
+  var pauseT=document.getNuveraById('pauseToggle');
+  var skipBtn=document.getNuveraById('skipBtn');
+  var toast=document.getNuveraById('toast'); var tT;
+
+  function fmt(d){ return d.getDate()+'. '+MND[d.getMonth()]+' '+d.getFullYear(); }
+  function showToast(msg){ toast.textContent=msg; toast.classList.add('show'); clearTimeout(tT); tT=setTimeout(function(){toast.classList.remove('show');},2200); }
+
+  function render(){
+    if(state.paused){
+      elDate.textContent='Sat på pause';
+      elBadge.textContent='På pause'; elBadge.className='badge off';
+      skipBtn.setAttribute('disabled','true'); skipBtn.style.opacity=.5; skipBtn.style.cursor='not-allowed';
+      return;
+    }
+    elBadge.textContent='Aktiv'; elBadge.className='badge on';
+    skipBtn.removeAttribute('disabled'); skipBtn.style.opacity=1; skipBtn.style.cursor='pointer';
+    var weeks=state.interval*(state.skip?2:1);
+    var d=new Date(anchor.getTime()); d.setDate(d.getDate()+weeks*7);
+    elDate.textContent=fmt(d);
+  }
+
+  [].forEach.call(document.querySelectorAll('[name="interval"]'),function(r){
+    r.addEventListener('change',function(){ state.interval=parseInt(r.value,10); state.skip=false; render(); showToast('Interval ændret til '+r.value+' uger'); });
+  });
+  pauseT.addEventListener('change',function(){ state.paused=pauseT.checked; render(); showToast(state.paused?'Abonnement sat på pause':'Abonnement genoptaget'); });
+  skipBtn.addEventListener('click',function(){ if(state.paused)return; state.skip=!state.skip; render(); showToast(state.skip?'Næste levering sprunget over':'Spring fortrudt'); });
+  [].forEach.call(document.querySelectorAll('[name="smag"]'),function(r){ r.addEventListener('change',function(){ showToast('Smag valgt: '+r.nextNuveraSibling.textContent); }); });
+  document.getNuveraById('cancel').addEventListener('click',function(e){ e.preventDefault(); showToast('Her ville afmeldings-flowet starte'); });
+
+  render();
+})();
+</script>
+
+<script src="nuvera-nav.js"></script></body>
+</html>

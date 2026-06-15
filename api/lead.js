@@ -34,10 +34,10 @@ async function resendFetch(path, options = {}) {
 
 function htmlPage(title, body) {
   return `<!DOCTYPE html><html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${title}</title></head>
-<body style="margin:0;background:#0a1628;color:#f5f5f0;font-family:Arial,Helvetica,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px">
-<div><div style="font-size:26px;font-weight:bold;font-family:Georgia,serif">Aevia<span style="color:#c9a437">.</span></div>
-<p style="color:#aab4c2;max-width:42ch;line-height:1.6">${body}</p>
-<a href="https://aevia.dk" style="color:#c9a437">Tilbage til aevia.dk</a></div></body></html>`;
+<body style="margin:0;background:#eef2f7;color:#0a1628;font-family:Arial,Helvetica,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px">
+<div><div style="font-size:26px;font-weight:bold;font-family:Georgia,serif">Aevia<span style="color:#8a6d10">.</span></div>
+<p style="color:#46505f;max-width:42ch;line-height:1.6">${body}</p>
+<a href="https://aevia.dk" style="color:#8a6d10">Tilbage til aevia.dk</a></div></body></html>`;
 }
 
 export default async function handler(req, res) {
