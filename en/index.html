@@ -511,7 +511,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
           <div class="stat"><div class="num">&lt; 2h</div><div class="lab">of your time, in total</div></div>
           <div class="stat"><div class="num">10 days</div><div class="lab">to a finished report</div></div>
           <div class="stat"><div class="num">70+</div><div class="lab">biomarkers measured</div></div>
-          <div class="stat"><div class="num">Doctor</div><div class="lab">approved report</div></div>
+          <div class="stat"><div class="num">Doctor</div><div class="lab">behind every result</div></div>
         </div>
       </div>
     </div>
@@ -955,12 +955,6 @@ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(argu
       var px=(e.clientX-r.left)/r.width-.5, qy=(e.clientY-r.top)/r.height-.5; ry=px*7; rx=-qy*7; apply(); });
     panel.addEventListener('mouseleave',function(){ rx=0; ry=0; apply(); });
   }
-  [].slice.call(document.querySelectorAll('.hero .btn-primary,.nav-cta')).forEach(function(b){
-    b.addEventListener('mousemove',function(e){ var r=b.getBoundingClientRect();
-      var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
-      b.style.transform='translate('+(dx*.12).toFixed(1)+'px,'+(dy*.18).toFixed(1)+'px)'; });
-    b.addEventListener('mouseleave',function(){ b.style.transform=''; });
-  });
   var tl=document.querySelector('.trust-logos');
   if(tl){ var chips=[].slice.call(tl.children);
     var track=document.createElement('div'); track.className='tl-track';
