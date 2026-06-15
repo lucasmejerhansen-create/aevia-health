@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 116" role="img" aria-label="Heartfit">
+  <text x="4" y="72" font-family="'Trebuchet MS', Verdana, Helvetica, Arial, sans-serif" font-weight="bold" font-size="62" letter-spacing="-1.5" fill="#1aa3b3">heartfit</text>
+  <circle cx="20" cy="98" r="6.5" fill="#e6007e"/>
+  <circle cx="44" cy="98" r="6.5" fill="#e6007e"/>
+  <circle cx="68" cy="98" r="6.5" fill="#e6007e"/>
+  <circle cx="232" cy="98" r="6.5" fill="#e6007e"/>
+  <circle cx="256" cy="98" r="6.5" fill="#e6007e"/>
+</svg>
