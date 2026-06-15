@@ -230,7 +230,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(
         <div class="ritems" id="ritems"></div>
         <div class="rfoot">
           <div id="rnotes"></div>
-          <a href="forslag-3-element.html#start" class="btn btn-primary">Bestil min formel</a>
+          <button id="order" class="btn btn-primary">Bestil min formel</button>
           <a href="forslag-3-element-upload.html" class="alt">Har du en blodprøve? Upload den for fuld præcision →</a>
         </div>
       </div>
@@ -311,5 +311,21 @@ footer.site{border-top:1px solid var(--line);padding:40px 0 34px;background:var(
 })();
 </script>
 
+<script>
+(function(){
+  var b=document.getElementById('order'); if(!b) return;
+  b.addEventListener('click', function(){
+    var items=[].map.call(document.querySelectorAll('#ritems .ritem'), function(el){
+      var nb=el.querySelector('b'), sm=el.querySelector('small');
+      return { n: nb?nb.textContent.replace('kapsel','').trim():'', a:'', w: sm?sm.textContent:'', cap: !!el.querySelector('.tag') };
+    }).filter(function(i){ return i.n; });
+    if(!items.length){ location.href='forslag-3-element-upload.html'; return; }
+    var payload={ kilde:'profil (uden test)', items:items };
+    try{ payload.dato=new Date().toISOString().slice(0,10); }catch(e){}
+    try{ localStorage.setItem('nuvera_formel', JSON.stringify(payload)); }catch(e){}
+    location.href='forslag-3-element-bestil.html';
+  });
+})();
+</script>
 <script src="nuvera-nav.js"></script></body>
 </html>
