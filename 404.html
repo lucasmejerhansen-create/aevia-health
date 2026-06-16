@@ -13,7 +13,7 @@
 <style>
 :root{
   --navy:#ffffff;--navy-2:#f6f8fb;--text:#0a1628;--muted:#46505f;
-  --gold:#8f7118;--gold-deep:#6f5912;--line-2:#d4dbe3;
+  --gold:#8f7118;--gold-deep:#6f5912;--line-2:#d4dbe3;--muted-2:#697585;--line:#e6eaef;
   --serif:"Playfair Display",Georgia,serif;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -31,6 +31,7 @@ p{color:var(--muted);margin-bottom:28px}
 .btn-primary:hover{background:var(--gold-deep)}
 .btn-ghost{border-color:var(--line-2);color:var(--text)}
 .btn-ghost:hover{border-color:var(--gold)}
+.back{color:var(--gold-deep);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
 a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
 @media(max-width:1140px){.hamburger{display:flex;align-items:center;justify-content:center}.nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);border-bottom:1px solid var(--line);padding:10px 16px 22px;display:none;max-height:calc(100dvh - 72px);overflow-y:auto}.nav-links.open{display:flex}.nav-links > li > a{padding:14px 6px;width:100%;font-size:1rem}.lang-li > a{width:auto;padding:14px 2px}.nav-cta{display:inline-block;margin-top:8px;text-align:center}.lang-li{padding:14px 6px;border-top:1px solid var(--line);justify-content:flex-start}}
 </style>
@@ -48,8 +49,8 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6
       <a href="index.html" class="btn btn-primary">Til forsiden</a>
       <a href="pakker.html" class="btn btn-ghost">Se pakker &amp; priser</a>
       <a href="book.html" class="btn btn-ghost">Book en tid</a>
-    <p style="margin-top:20px;font-size:.9rem;color:var(--muted-2)">Populært: <a class="back" href="indsigter.html">Indsigter</a> · <a class="back" href="markoerer.html">Markør-leksikon</a> · <a class="back" href="eksempel-rapport.html">Eksempel-rapport</a></p>
     </div>
+    <p style="margin-top:24px;font-size:.9rem;color:var(--muted-2)">Populært: <a class="back" href="klinikker.html">Klinikker</a> · <a class="back" href="faq.html">FAQ</a> · <a class="back" href="markoerer.html">Markør-leksikon</a> · <a class="back" href="eksempel-rapport.html">Eksempel-rapport</a></p>
   </div>
 <script src="glossary.js"></script>
 

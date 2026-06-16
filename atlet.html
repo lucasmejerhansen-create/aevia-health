@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helbredstjek for atleter: VO2max & restitution | Aevia</title>
-<meta name="description" content="Dybtgående blod- og præstationsanalyse for sportsaktive: VO2max, ferritin, hormoner og inflammation — tolket af læger. Træn smartere med data fra din egen krop.">
+<meta name="description" content="Dybtgående blod- og præstationsanalyse for sportsaktive: VO2max, ferritin, hormoner og inflammation — tolket af læger. Træn smartere med data.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aevia.dk/atlet.html">
 <link rel="alternate" hreflang="da" href="https://aevia.dk/atlet.html">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="Aevia Health">
 <meta property="og:title" content="Helbredstjek for atleter: VO2max, restitution og præstationsmarkører | Aevia Health">
-<meta property="og:description" content="Dybtgående blod- og præstationsanalyse for sportsaktive: VO2max, ferritin, hormoner og inflammation — tolket af læger. Træn smartere med data fra din egen krop.">
+<meta property="og:description" content="Dybtgående blod- og præstationsanalyse for sportsaktive: VO2max, ferritin, hormoner og inflammation — tolket af læger. Træn smartere med data.">
 <meta property="og:url" content="https://aevia.dk/atlet.html">
 <meta property="og:image" content="https://aevia.dk/assets/og/index-da.png">
 <meta name="theme-color" content="#ffffff">
@@ -70,7 +70,7 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.85);back
 .btn svg{width:18px;height:18px;flex:none}
 .btn-primary{background:var(--gold);color:var(--navy)}
 .btn-primary:hover{background:var(--gold-deep);transform:translateY(-1px)}
-.btn-ghost{border-color:var(--line-2);color:var(--text);background:transparent}
+.btn-ghost{border-color:#8a96a5;color:var(--text);background:transparent}
 .btn-ghost:hover{border-color:var(--gold);color:var(--text);background:rgba(201,164,55,.06)}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
 .panel{background:var(--navy-2);border:1px solid var(--line-2);border-radius:18px;padding:36px}
@@ -185,13 +185,15 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
         <li><a href="proces.html">Sådan virker det</a></li>
         <li><a class="active" href="indsigter.html">Indsigter</a></li>
         <li><a href="om-os.html">Om Aevia</a></li>
+        <li><a href="klinikker.html">Klinikker</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a class="nav-cta" href="book.html">Book dit check</a></li>
         <li class="lang-li"><a href="atlet.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/index.html" hreflang="en" aria-label="Switch to English">EN</a></li>
       </ul>
     </nav>
   </div>
 </header>
-<a id="main" tabindex="-1"></a>
+<main id="main" tabindex="-1">
 <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Forside</a> / <a href="indsigter.html">Indsigter</a> / Artikel</div><span class="eyebrow">For atleter</span><h1 style="max-width:24ch">Træn smartere — ikke bare hårdere</h1></div></section>
 <section style="padding-bottom:0"><div class="container"><div class="banner">
 <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration af præstationsdata for atleter" preserveAspectRatio="xMidYMid slice">
@@ -259,6 +261,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 <div class="cta-band" style="margin-top:56px"><span class="eyebrow">Næste skridt</span><h2>Find ud af, hvad der bremser dig</h2><p class="lead">Et forløb fortæller dig mere end et år med fornemmelser.</p><div class="btn-row" style="justify-content:center"><a href="book.html" class="btn btn-primary">Book dit helbredstjek</a><a href="pakker.html" class="btn btn-ghost">Se pakker &amp; priser</a></div></div>
 </div></section>
 
+</main>
 <footer class="site">
   <div class="container">
     <div class="foot-grid">
@@ -365,7 +368,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 @media(max-width:680px){#aevc-btn span{display:none}#aevc-btn{padding:14px}#aevc-panel{right:16px;left:16px;width:auto;bottom:80px}}
 </style>
 <script>
-function toggleMenu(btn){var n=document.getElementById('navlinks');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o);}
+function toggleMenu(btn){var n=document.getElementById('navlinks');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o);}(function(){var n=document.getElementById('navlinks'),h=document.querySelector('.hamburger');if(!n)return;function c(){n.classList.remove('open');if(h)h.setAttribute('aria-expanded','false');}n.addEventListener('click',function(e){if(e.target.closest('a'))c();});document.addEventListener('click',function(e){if(n.classList.contains('open')&&!e.target.closest('#navlinks')&&!e.target.closest('.hamburger'))c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
 var AEVIA_GA4='G-8J87JYSBZG';
 var AEVIA_CLARITY='x15dq7rsz1';
 window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function loadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function loadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}loadAnalytics();if(c==='all'){aevGrant();loadClarity();}else if(!c){try{document.getElementById('cookie').classList.add('show');}catch(e){}}})();function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('cookie').classList.remove('show');}catch(e){}if(all){aevGrant();loadClarity();}}

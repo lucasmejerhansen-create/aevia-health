@@ -19,3 +19,11 @@ p{color:var(--muted);margin-bottom:12px}
 .disc{color:var(--muted-2);font-size:.84rem;margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
 .foot{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
 .foot a{color:var(--gold);text-decoration:none}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:10;text-decoration:none}
+.skip:focus{left:8px}
+.crumb{font-size:.9rem;color:var(--muted-2)}
+.crumb a{color:var(--gold-deep);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.crumb span{margin:0 4px;color:var(--line-2)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:6px}
+.rel a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px}

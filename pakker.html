@@ -74,7 +74,7 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.85);back
 .btn svg{width:18px;height:18px;flex:none}
 .btn-primary{background:var(--gold);color:var(--navy)}
 .btn-primary:hover{background:var(--gold-deep);transform:translateY(-1px)}
-.btn-ghost{border-color:var(--line-2);color:var(--text);background:transparent}
+.btn-ghost{border-color:#8a96a5;color:var(--text);background:transparent}
 .btn-ghost:hover{border-color:var(--gold);color:var(--text);background:rgba(201,164,55,.06)}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
 
@@ -117,7 +117,7 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.85);back
 .card p{font-size:.96rem}
 .card .ico{width:46px;height:46px;border:1px solid var(--line-2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--gold);background:var(--gold-soft)}
 .card .ico svg{width:22px;height:22px}
-.card-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.9rem;color:var(--gold);font-weight:600}
+.card-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.9rem;color:var(--gold-deep);font-weight:600}
 .card-link svg{width:15px;height:15px}
 
 /* Process steps */
@@ -142,7 +142,7 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.85);back
 .pkg .who{font-size:.86rem;color:var(--muted-2);margin-bottom:18px}
 .pkg .price{font-family:var(--serif);font-size:2rem;color:var(--text);margin-bottom:2px}
 .pkg .price small{font-size:.9rem;color:var(--muted-2);font-family:var(--sans)}
-.pkg .delivery{font-size:.82rem;color:var(--gold);margin:14px 0 18px}
+.pkg .delivery{font-size:.82rem;color:var(--gold-deep);margin:14px 0 18px}
 .pkg ul{list-style:none;margin:6px 0 24px}
 .pkg ul li{position:relative;padding-left:28px;margin-bottom:11px;font-size:.94rem;color:var(--muted)}
 .pkg ul li svg{position:absolute;left:0;top:3px;width:17px;height:17px;color:var(--gold)}
@@ -179,7 +179,7 @@ form{display:grid;gap:16px;background:var(--navy-2);border:1px solid var(--line)
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{font-size:.85rem;color:var(--muted);display:block;margin-bottom:7px}
 input,select,textarea{width:100%;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:13px 15px;color:var(--text);font-family:inherit;font-size:.97rem}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--text);outline-offset:2px}
 textarea{resize:vertical;min-height:120px}
 .form-note{font-size:.82rem;color:var(--muted-2)}
 .form-ok{display:none;background:var(--navy-3);border:1px solid var(--gold);border-radius:10px;padding:16px;color:var(--text);font-size:.95rem}
@@ -356,6 +356,8 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
         <li><a href="proces.html">Sådan virker det</a></li>
         <li><a href="indsigter.html">Indsigter</a></li>
         <li><a href="om-os.html">Om Aevia</a></li>
+        <li><a href="klinikker.html">Klinikker</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a class="nav-cta" href="book.html">Book dit check</a></li>
       
         <li class="lang-li"><a href="pakker.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/pakker.html" hreflang="en" aria-label="Switch to English">EN</a></li>
@@ -363,7 +365,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
     </nav>
   </div>
 </header>
-<a id="main" tabindex="-1"></a>
+<main id="main" tabindex="-1">
 
 <section class="page-hero">
   <div class="container">
@@ -376,7 +378,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
     <p style="margin-top:10px;font-size:.9rem;color:var(--muted-2)">Leveringsgaranti: er din rapport ikke klar inden for 10 arbejdsdage efter din sidste prøve, får du 10% af prisen retur.</p>
   </div>
   </section>
-<section style="padding:0;border:none"><div class="container" style="margin-top:56px;margin-bottom:-20px"><div style="border:1px solid var(--gold);background:linear-gradient(160deg,var(--gold-soft),rgba(201,164,55,.04));border-radius:18px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between"><div style="flex:1;min-width:260px"><span class="eyebrow" style="margin-bottom:8px">Founding member</span><h3 style="font-family:var(--serif);font-size:1.35rem;margin-bottom:6px">Vær blandt de første 50 kunder</h3><p style="color:var(--muted);font-size:.97rem;max-width:62ch">Som founding member får du gratis 3-måneders opfølgning med re-test af dine kernemarkører (værdi 3.595 kr.) med i dit første forløb — og fast pris på dit medlemskab fremover.</p></div><a href="book.html" class="btn btn-primary" style="flex:none">Book dit check</a></div></div></section>
+<section style="padding:0;border:none"><div class="container" style="margin-top:56px;margin-bottom:-20px"><div style="border:1px solid var(--gold);background:linear-gradient(160deg,var(--gold-soft),rgba(201,164,55,.04));border-radius:18px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between"><div style="flex:1;min-width:260px"><span class="eyebrow" style="margin-bottom:8px">Founding member</span><h3 style="font-family:var(--serif);font-size:1.35rem;margin-bottom:6px">Bliv founding member</h3><p style="color:var(--muted);font-size:.97rem;max-width:62ch">Som founding member får du gratis 3-måneders opfølgning med re-test af dine kernemarkører (værdi 3.595 kr.) med i dit første forløb — og din medlemspris låst fast fremover. <strong style="color:var(--text)">Et tidsbegrænset introtilbud, mens vi bygger vores første hold af medlemmer.</strong></p></div><a href="book.html" class="btn btn-primary" style="flex:none">Book dit check</a></div></div></section>
 <!-- GAVEKORT -->
 <section style="padding:0;border:none"><div class="container" style="margin-top:36px;margin-bottom:-20px">
   <div style="border:1px solid var(--line-2);background:var(--navy-2);border-radius:18px;padding:28px 32px">
@@ -659,8 +661,8 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Opdateret personlig plan</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Lægesamtale kan tilkøbes</li>
         </ul>
-        <a href="book.html?pakke=medlemskab-basis&total=3900" class="btn btn-primary" style="width:100%">Bliv medlem, 4.895 kr./år</a>
-        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Eller skriv til os</a>
+        <a href="book.html?pakke=medlemskab-basis&total=4895" class="btn btn-primary" style="width:100%">Bliv medlem, 4.895 kr./år</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Spørg om medlemskab</a>
       </div>
 
       <div class="card pkg feat">
@@ -675,8 +677,8 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fuldt hormonpanel</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Prioriteret booking · lægesamtale som tilkøb</li>
         </ul>
-        <a href="book.html?pakke=medlemskab-plus&total=6900" class="btn btn-primary" style="width:100%">Bliv medlem, 8.595 kr./år</a>
-        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Eller skriv til os</a>
+        <a href="book.html?pakke=medlemskab-plus&total=8595" class="btn btn-primary" style="width:100%">Bliv medlem, 8.595 kr./år</a>
+        <a href="book.html" class="btn btn-ghost" style="width:100%;margin-top:10px">Spørg om medlemskab</a>
       </div>
 
       <div class="card pkg">
@@ -884,6 +886,7 @@ btn.classList.add("active");exp.textContent=btn.getAttribute("data-exp");exp.hid
     </div>
   </div>
 </section>
+</main>
 <footer class="site">
   <div class="container">
     <div class="foot-grid">
@@ -945,7 +948,7 @@ btn.classList.add("active");exp.textContent=btn.getAttribute("data-exp");exp.hid
 </div>
 
 <script>
-function toggleMenu(btn){var n=document.getElementById('navlinks');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o);}
+function toggleMenu(btn){var n=document.getElementById('navlinks');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o);}(function(){var n=document.getElementById('navlinks'),h=document.querySelector('.hamburger');if(!n)return;function c(){n.classList.remove('open');if(h)h.setAttribute('aria-expanded','false');}n.addEventListener('click',function(e){if(e.target.closest('a'))c();});document.addEventListener('click',function(e){if(n.classList.contains('open')&&!e.target.closest('#navlinks')&&!e.target.closest('.hamburger'))c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
 var AEVIA_GA4='G-8J87JYSBZG';/* ← indsæt jeres GA4 måle-ID */
 var AEVIA_CLARITY='x15dq7rsz1';/* ← indsæt jeres Microsoft Clarity-ID */
 window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});function aevGrant(){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}function loadAnalytics(){if(window.__aeviaA)return;window.__aeviaA=1;if(AEVIA_GA4.indexOf('X')<0){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+AEVIA_GA4;document.head.appendChild(s);gtag('js',new Date());gtag('config',AEVIA_GA4);}}function loadClarity(){if(window.__aeviaC)return;window.__aeviaC=1;if(AEVIA_CLARITY.indexOf('xxxx')<0){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',AEVIA_CLARITY);}}(function(){var c;try{c=localStorage.getItem('aevia_cookie');}catch(e){}loadAnalytics();if(c==='all'){aevGrant();loadClarity();}else if(!c){try{document.getElementById('cookie').classList.add('show');}catch(e){}}})();function setCookie(all){try{localStorage.setItem('aevia_cookie',all?'all':'necessary');}catch(e){}try{document.getElementById('cookie').classList.remove('show');}catch(e){}if(all){aevGrant();loadClarity();}}
