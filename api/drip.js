@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   const r = await fetch(`https://api.resend.com/contacts`, {
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
   });
-  if (!r.ok) return res.status(502).json({ error: `Resend ${r.status}: ${await r.text()}` });
+  if (!r.ok) return res.status(502).json({ error: `Resend ${r.status}` });
   const { data: contacts = [] } = await r.json();
 
   const now = Date.now();

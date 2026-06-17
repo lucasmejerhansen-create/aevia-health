@@ -185,7 +185,7 @@ export default async function handler(req, res) {
           html: `<div style="font-family:Arial,sans-serif;font-size:15px;color:#0a1628">
             <h2 style="font-family:Georgia,serif">Ny Aevia-booking</h2>
             <p><b>${svcLabel(p.svc, "da")}</b><br>${fmtDate(p.date, p.time, "da")}<br>Område: ${area}</p>
-            <p>Navn: ${customer.name}<br>E-mail: ${customer.email}<br>Telefon: ${customer.phone || "—"}<br>Pakke: ${customer.pkg || "—"}${alreadyPaid ? "<br><b>Betaling: allerede betalt</b>" : ""}</p>
+            <p>Navn: ${customer.name}<br>Kontakt: ${customer.phone || customer.email}</p>
             <p style="color:#667">Booking-id: ${r.id}</p></div>`,
         });
       }

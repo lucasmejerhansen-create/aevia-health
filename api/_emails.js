@@ -166,7 +166,7 @@ export async function sendMail({ to, subject, html, bcc, attachments }) {
       attachments: attachments && attachments.length ? attachments : undefined,
     }),
   });
-  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`Resend ${res.status}`);
 }
 
 export function unsubSig(email) {

@@ -103,13 +103,13 @@ export default async function handler(req, res) {
       }
       for (const svc of Object.keys(bySvc)) {
         const rows = bySvc[svc].sort((a, b) => a.time.localeCompare(b.time)).map((x) =>
-          `<tr><td style="padding:6px 10px;border-bottom:1px solid #ddd"><b>${x.time}</b></td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.name}</td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.pkg || "—"}</td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.phone || x.c.email}</td></tr>`).join("");
+          `<tr><td style="padding:6px 10px;border-bottom:1px solid #ddd"><b>${x.time}</b></td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.name}</td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.phone || x.c.email}</td></tr>`).join("");
         const conf = (await effectiveConf(area, svc)) || {};
         const to = conf.email || "kontakt@aevia.dk";
         await sendMail({
           to, bcc: to === "kontakt@aevia.dk" ? undefined : "kontakt@aevia.dk",
           subject: `Aevia i dag: ${bySvc[svc].length} × ${svcLabel(svc, "da")} · ${area}`,
-          html: `<div style="font-family:Arial,sans-serif"><h2 style="font-family:Georgia,serif">Dagens Aevia-tider · ${svcLabel(svc, "da")} · ${fmtDay(today, "da")}</h2><table style="border-collapse:collapse;font-size:14px"><tr><th style="text-align:left;padding:6px 10px">Tid</th><th style="text-align:left;padding:6px 10px">Navn</th><th style="text-align:left;padding:6px 10px">Pakke</th><th style="text-align:left;padding:6px 10px">Kontakt</th></tr>${rows}</table><p style="color:#667;font-size:13px">Spørgsmål: kontakt@aevia.dk · +45 28 30 39 33</p></div>`,
+          html: `<div style="font-family:Arial,sans-serif"><h2 style="font-family:Georgia,serif">Dagens Aevia-tider · ${svcLabel(svc, "da")} · ${fmtDay(today, "da")}</h2><table style="border-collapse:collapse;font-size:14px"><tr><th style="text-align:left;padding:6px 10px">Tid</th><th style="text-align:left;padding:6px 10px">Navn</th><th style="text-align:left;padding:6px 10px">Kontakt</th></tr>${rows}</table><p style="color:#667;font-size:13px">Spørgsmål: kontakt@aevia.dk · +45 28 30 39 33</p></div>`,
         });
         reports++;
       }

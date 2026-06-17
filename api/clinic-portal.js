@@ -68,8 +68,11 @@ export default async function handler(req, res) {
       for (const b of dayBookings) {
         for (const p of (b.parts || []).filter((p) => p.date === d && p.svc === chosen)) {
           bookedTimes.add(p.time);
+          // Dataminimering: klinikken får kun navn + ÉN kontaktkanal — ikke
+          // e-mail+telefon+pakke. Ydelsen kender de allerede (portalen er pr. ydelse).
           partRows.push({
-            id: b.id, svc: chosen, time: p.time, customer: b.customer,
+            id: b.id, svc: chosen, time: p.time,
+            customer: { name: (b.customer && b.customer.name) || "", contact: (b.customer && (b.customer.phone || b.customer.email)) || "" },
             attendance: (b.att && b.att[`${chosen}:${d}:${p.time}`]) || "",
           });
         }

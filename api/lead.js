@@ -96,7 +96,7 @@ export default async function handler(req, res) {
     });
     if (!r.ok) {
       isNew = false; // typisk: kontakten findes allerede
-      console.error("Resend contact:", r.status, await r.text());
+      console.error("Resend contact failed:", r.status);
     }
   } catch (err) {
     console.error("Kontakt-fejl:", err.message);

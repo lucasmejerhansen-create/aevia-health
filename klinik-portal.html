@@ -200,12 +200,12 @@ function fillSlots(slots){
 function fillBookings(rows){
   var list=document.getElementById('list');
   if(!rows.length){list.innerHTML='<p class="empty">Ingen bookinger denne dag.</p>';return;}
-  list.innerHTML='<table><thead><tr><th>Tid</th><th>Navn</th><th>Pakke</th><th>Kontakt</th><th>Fremmøde</th></tr></thead><tbody>'+rows.map(function(b){
+  list.innerHTML='<table><thead><tr><th>Tid</th><th>Navn</th><th>Kontakt</th><th>Fremmøde</th></tr></thead><tbody>'+rows.map(function(b){
     var c=b.customer||{};var a=b.attendance||'';
     var att='<div class="att">'+
       '<button class="'+(a==='done'?'on-done':'')+'" data-id="'+b.id+'" data-time="'+b.time+'" data-st="done">Mødt</button>'+
       '<button class="'+(a==='noshow'?'on-noshow':'')+'" data-id="'+b.id+'" data-time="'+b.time+'" data-st="noshow">Udeblev</button></div>';
-    return '<tr><td><strong>'+b.time+'</strong></td><td>'+esc(c.name)+'</td><td>'+esc(c.pkg||'—')+'</td><td class="muted">'+esc(c.phone||c.email)+'</td><td>'+att+'</td></tr>';
+    return '<tr><td><strong>'+b.time+'</strong></td><td>'+esc(c.name)+'</td><td class="muted">'+esc(c.contact)+'</td><td>'+att+'</td></tr>';
   }).join('')+'</tbody></table>';
   Array.prototype.forEach.call(list.querySelectorAll('.att button'),function(el){
     el.onclick=function(){

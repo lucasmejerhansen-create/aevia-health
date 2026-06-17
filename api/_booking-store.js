@@ -76,7 +76,7 @@ async function redis(cmd) {
     },
     body: JSON.stringify(cmd),
   });
-  if (!res.ok) throw new Error(`Upstash ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`Upstash ${res.status}`);
   return (await res.json()).result;
 }
 
@@ -285,8 +285,14 @@ export async function cancel(id) {
   const lock = await redis(["SET", `cxl:${id}`, "1", "NX", "EX", 86400]);
   if (lock !== "OK") return { ok: true, booking: b };
   for (const p of b.parts || []) await releasePart(b.area, p.svc, p.date, p.time);
+  // Slet også betalingsmarkøren knyttet til kundens e-mail (GDPR-minimering).
+  const email = b.customer && b.customer.email;
+  if (email) { try { await redis(["DEL", `paid:${String(email).trim().toLowerCase()}`]); } catch (_) {} }
   b.status = "cancelled";
-  await redis(["SET", `bk:${id}`, JSON.stringify(b), "EX", 60 * 60 * 24 * 30]);
+  // Pseudonymisér: fjern kundens persondata fra den lagrede (aflyste) post.
+  // Kalderen får den fulde booking retur til evt. kvitterings-/aflysningsmail.
+  const stored = { ...b, customer: { cancelled: true } };
+  await redis(["SET", `bk:${id}`, JSON.stringify(stored), "EX", 60 * 60 * 24 * 30]);
   return { ok: true, booking: b };
 }
 
@@ -436,7 +442,7 @@ export async function waitlistPop(area) {
 export async function markPaid(email, info) {
   if (!isConfigured() || !email) return { ok: false };
   await redis(["SET", `paid:${String(email).trim().toLowerCase()}`,
-    JSON.stringify({ at: new Date().toISOString(), ...(info || {}) }), "EX", 60 * 60 * 24 * 365]);
+    JSON.stringify({ at: new Date().toISOString(), ...(info || {}) }), "EX", 60 * 60 * 24 * 180]);
   return { ok: true };
 }
 export async function isPaid(email) {

@@ -101,7 +101,7 @@ async function sendMail({ to, subject, html, bcc }) {
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({ from: process.env.MAIL_FROM || "Aevia <kontakt@aevia.dk>", to: [to], bcc: bcc ? [bcc] : undefined, subject, html }),
   });
-  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`Resend ${res.status}`);
 }
 
 // Registrér kunden som Resend-kontakt med købsdato i last_name ("KUNDE:YYYY-MM-DD").
