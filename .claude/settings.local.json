@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cd \"/Users/lucas/Documents/Dokumenter – MacBook Air tilhørende Lucas\" && find . -name \"report-engine*\" 2>/dev/null | head && echo \"=== aevia-health/api ===\" && ls -la \"GitHub/aevia-health/api\" 2>/dev/null && echo \"=== aevia App tree ===\" && ls -la \"Claude/Projects/Hjemmeside creator/Aevia App/src/\" 2>/dev/null && echo \"=== app package.json ===\" && cat \"Claude/Projects/Hjemmeside creator/Aevia App/package.json\" 2>/dev/null)"
-    ]
-  }
-}

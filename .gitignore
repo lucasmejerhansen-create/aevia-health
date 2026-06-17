@@ -5,3 +5,6 @@ node_modules/
 
 # lokalt dev-værktøj (ship ikke)
 _cw_server*.mjs
+
+# OS/FS-junk
+*.fuse_hidden*
