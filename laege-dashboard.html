@@ -38,8 +38,8 @@ code{background:var(--navy-3);padding:1px 5px;border-radius:5px;font-size:.85em}
   <h1>Læge-dashboard</h1>
   <p class="sub">Kø af pseudonymiserede rapport-udkast til gennemgang. Ingen PII vises — beslutning træffes på de klassificerede data. Godkendelse kræver dit læge-id.</p>
   <div class="bar">
-    <div><label for="tok">Admin-token</label><input id="tok" type="password" placeholder="ADMIN_TOKEN" style="width:160px"></div>
-    <div><label for="did">Læge-id</label><input id="did" placeholder="fx dr-judit" style="width:140px"></div>
+    <div><label for="tok">Adgangs-token</label><input id="tok" type="password" placeholder="Din læge-token" style="width:170px"></div>
+    <div><label for="did">Læge-id <span style="font-weight:400;opacity:.7">(kun hvis du bruger admin-token)</span></label><input id="did" placeholder="fx dr-judit" style="width:160px"></div>
     <button class="btn" onclick="load()">Hent kø</button>
     <span class="note" id="status"></span>
   </div>

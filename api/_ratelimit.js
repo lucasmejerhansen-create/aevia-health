@@ -15,6 +15,19 @@ export function bearerToken(req) {
   return m ? m[1].trim() : "";
 }
 
+// Læge-rolle: DOCTOR_TOKENS er en JSON-map { "<token>": "<doctorId>" }. En gyldig
+// læge-token oversættes server-side til doctorId — så godkenderen ikke kan
+// forfalskes via en klient-leveret doctorId.
+export function doctorFor(token) {
+  if (!token) return null;
+  try { const v = JSON.parse(process.env.DOCTOR_TOKENS || "{}")[String(token)]; return v ? String(v) : null; }
+  catch { return null; }
+}
+export function doctorTokensConfigured() {
+  try { return Object.keys(JSON.parse(process.env.DOCTOR_TOKENS || "{}")).length > 0; }
+  catch { return false; }
+}
+
 function clientIp(req) {
   const xf = req.headers && (req.headers["x-forwarded-for"] || req.headers["X-Forwarded-For"]);
   if (xf) return String(xf).split(",")[0].trim();

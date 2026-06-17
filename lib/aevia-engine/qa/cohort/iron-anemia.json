@@ -1,0 +1,6291 @@
+[
+  {
+    "id": "iron-anemia-001",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "jern",
+        "value": 2.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "transferrin",
+        "value": 6.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haematokrit",
+        "value": 25.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.5,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mch",
+        "value": 17.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "rdw",
+        "value": 20.7,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "trombocytter",
+        "value": 485.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.63,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-002",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 12.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haematokrit",
+        "value": 35.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.91,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mcv",
+        "value": 77.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mch",
+        "value": 24.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "rdw",
+        "value": 15.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "trombocytter",
+        "value": 337.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.51,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-003",
+    "age": 31,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "haematokrit",
+        "value": 31.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.58,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "rdw",
+        "value": 16.8,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "trombocytter",
+        "value": 449.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.47,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 31
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-004",
+    "age": 43,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "transferrin",
+        "value": 15.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haematokrit",
+        "value": 32.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.07,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mcv",
+        "value": 76.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "rdw",
+        "value": 15.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "trombocytter",
+        "value": 379.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.75,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-005",
+    "age": 40,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "haematokrit",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.59,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "mcv",
+        "value": 71.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "rdw",
+        "value": 21.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "trombocytter",
+        "value": 565.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "leukocytter",
+        "value": 7.03,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 40
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-006",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 12.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "transferrin",
+        "value": 13.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haematokrit",
+        "value": 34.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.13,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mcv",
+        "value": 82.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "rdw",
+        "value": 15.2,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "trombocytter",
+        "value": 419.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.53,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-007",
+    "age": 19,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "haematokrit",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.97,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "mcv",
+        "value": 77.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "rdw",
+        "value": 18.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "trombocytter",
+        "value": 517.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 19
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.31,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 19
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-008",
+    "age": 21,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.91,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "rdw",
+        "value": 18.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "trombocytter",
+        "value": 426.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.72,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 21
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-009",
+    "age": 43,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haematokrit",
+        "value": 32.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.91,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mcv",
+        "value": 84.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "rdw",
+        "value": 15.7,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "trombocytter",
+        "value": 379.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.69,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-010",
+    "age": 22,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.48,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "mch",
+        "value": 18.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "rdw",
+        "value": 18.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "trombocytter",
+        "value": 549.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 22
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.83,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 22
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-011",
+    "age": 28,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 9.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.99,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mcv",
+        "value": 74.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "rdw",
+        "value": 18.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "trombocytter",
+        "value": 519.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.39,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-012",
+    "age": 20,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haematokrit",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.57,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mch",
+        "value": 24.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "rdw",
+        "value": 16.7,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "trombocytter",
+        "value": 406.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.3,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-013",
+    "age": 38,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "transferrin",
+        "value": 3.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.79,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "mcv",
+        "value": 64.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "mch",
+        "value": 17.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "rdw",
+        "value": 18.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "trombocytter",
+        "value": 487.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.81,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 38
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-014",
+    "age": 23,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 13.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "haematokrit",
+        "value": 31.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.26,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "mcv",
+        "value": 80.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "rdw",
+        "value": 15.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "trombocytter",
+        "value": 347.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.91,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 23
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-015",
+    "age": 20,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.67,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mcv",
+        "value": 78.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "rdw",
+        "value": 16.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "trombocytter",
+        "value": 418.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.9,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-016",
+    "age": 47,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 4.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.98,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "mcv",
+        "value": 71.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "rdw",
+        "value": 18.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "trombocytter",
+        "value": 429.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.61,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 47
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-017",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 11.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "transferrin",
+        "value": 13.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haematokrit",
+        "value": 35.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.7,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mcv",
+        "value": 80.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "rdw",
+        "value": 16.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "trombocytter",
+        "value": 359.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.91,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-018",
+    "age": 21,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 13.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "haematokrit",
+        "value": 34.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.19,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "mcv",
+        "value": 79.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "rdw",
+        "value": 15.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "trombocytter",
+        "value": 397.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 21
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.73,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 21
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-019",
+    "age": 23,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 11.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "transferrin",
+        "value": 14.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "haematokrit",
+        "value": 32.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.7,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "mcv",
+        "value": 78.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "rdw",
+        "value": 15.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "trombocytter",
+        "value": 348.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 23
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.88,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 23
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-020",
+    "age": 24,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "transferrin",
+        "value": 6.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.38,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "mcv",
+        "value": 74.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "rdw",
+        "value": 21.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "trombocytter",
+        "value": 521.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.36,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 24
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-021",
+    "age": 31,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 11.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "haematokrit",
+        "value": 34.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.81,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "mcv",
+        "value": 80.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "rdw",
+        "value": 16.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "trombocytter",
+        "value": 430.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.79,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 31
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-022",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "transferrin",
+        "value": 5.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haematokrit",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.82,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mch",
+        "value": 19.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "rdw",
+        "value": 22.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "trombocytter",
+        "value": 460.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.91,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-023",
+    "age": 28,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haematokrit",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.54,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mcv",
+        "value": 78.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mch",
+        "value": 24.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "rdw",
+        "value": 18.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "trombocytter",
+        "value": 383.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.97,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-024",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 4.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.51,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mch",
+        "value": 24.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "rdw",
+        "value": 16.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "trombocytter",
+        "value": 434.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.99,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-025",
+    "age": 43,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "haematokrit",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.92,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "rdw",
+        "value": 16.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "trombocytter",
+        "value": 509.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.7,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-026",
+    "age": 20,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "haematokrit",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.72,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mcv",
+        "value": 78.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "rdw",
+        "value": 17.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "trombocytter",
+        "value": 383.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.66,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 20
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-027",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 4.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "jern",
+        "value": 2.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haematokrit",
+        "value": 23.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.6,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "rdw",
+        "value": 21.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "trombocytter",
+        "value": 422.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.19,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-028",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haematokrit",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.66,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "rdw",
+        "value": 16.8,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "trombocytter",
+        "value": 424.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.47,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-029",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 18.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "transferrin",
+        "value": 20.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haematokrit",
+        "value": 36.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.28,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mcv",
+        "value": 87.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mch",
+        "value": 28.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "rdw",
+        "value": 14.7,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "trombocytter",
+        "value": 308.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "leukocytter",
+        "value": 7.35,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 34
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-030",
+    "age": 42,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 12.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "jern",
+        "value": 9.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "transferrin",
+        "value": 23.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "haematokrit",
+        "value": 35.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.49,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "mcv",
+        "value": 83.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "rdw",
+        "value": 15.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "trombocytter",
+        "value": 326.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.56,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 42
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-031",
+    "age": 30,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 27.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "jern",
+        "value": 9.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "transferrin",
+        "value": 18.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haematokrit",
+        "value": 36.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.07,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mcv",
+        "value": 83.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "rdw",
+        "value": 15.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "trombocytter",
+        "value": 297.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.76,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 30
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-032",
+    "age": 25,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 11.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "jern",
+        "value": 10.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "transferrin",
+        "value": 20.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "haematokrit",
+        "value": 35.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.49,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "mcv",
+        "value": 86.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "rdw",
+        "value": 15.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "trombocytter",
+        "value": 301.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.39,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 25
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-033",
+    "age": 29,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 22.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "jern",
+        "value": 11.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "transferrin",
+        "value": 15.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haematokrit",
+        "value": 36.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.46,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mcv",
+        "value": 83.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mch",
+        "value": 27.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "rdw",
+        "value": 14.2,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "trombocytter",
+        "value": 335.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.29,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 29
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-034",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 13.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "jern",
+        "value": 8.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "transferrin",
+        "value": 23.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haematokrit",
+        "value": 38.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.54,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mcv",
+        "value": 85.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "rdw",
+        "value": 15.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "trombocytter",
+        "value": 341.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.8,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-035",
+    "age": 30,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 9.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "transferrin",
+        "value": 18.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.02,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mcv",
+        "value": 82.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "rdw",
+        "value": 15.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "trombocytter",
+        "value": 315.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.73,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 30
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-036",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 15.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "jern",
+        "value": 11.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "transferrin",
+        "value": 20.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.03,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mcv",
+        "value": 87.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "mch",
+        "value": 27.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "rdw",
+        "value": 14.8,
+        "unit": "%",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "trombocytter",
+        "value": 330.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.2,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-037",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 16.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "jern",
+        "value": 10.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "transferrin",
+        "value": 16.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.47,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "mcv",
+        "value": 82.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "rdw",
+        "value": 14.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "trombocytter",
+        "value": 289.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.25,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 39
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-038",
+    "age": 25,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 23.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "jern",
+        "value": 8.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "transferrin",
+        "value": 23.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.15,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "mcv",
+        "value": 88.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "mch",
+        "value": 27.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "rdw",
+        "value": 14.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "trombocytter",
+        "value": 286.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 25
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.43,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 25
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-039",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haematokrit",
+        "value": 34.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.09,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mcv",
+        "value": 71.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "rdw",
+        "value": 17.4,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "trombocytter",
+        "value": 456.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.03,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 63
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-040",
+    "age": 40,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 2.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "transferrin",
+        "value": 6.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.68,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "rdw",
+        "value": 21.6,
+        "unit": "%",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "trombocytter",
+        "value": 523.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.92,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 40
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-041",
+    "age": 59,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.0,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "haematokrit",
+        "value": 33.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.42,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "mcv",
+        "value": 74.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "rdw",
+        "value": 16.8,
+        "unit": "%",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "trombocytter",
+        "value": 459.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.49,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 59
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-042",
+    "age": 39,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "haematokrit",
+        "value": 32.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.27,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "rdw",
+        "value": 17.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "trombocytter",
+        "value": 484.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 39
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.96,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 39
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-043",
+    "age": 58,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 13.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "transferrin",
+        "value": 13.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.4,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "mcv",
+        "value": 78.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "rdw",
+        "value": 15.5,
+        "unit": "%",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "trombocytter",
+        "value": 419.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.41,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 58
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-044",
+    "age": 43,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 4.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "haematokrit",
+        "value": 32.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.21,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "rdw",
+        "value": 17.3,
+        "unit": "%",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "trombocytter",
+        "value": 483.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.73,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-045",
+    "age": 67,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "transferrin",
+        "value": 5.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "haematokrit",
+        "value": 33.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.12,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "mcv",
+        "value": 77.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "rdw",
+        "value": 17.6,
+        "unit": "%",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "trombocytter",
+        "value": 441.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.23,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 67
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-046",
+    "age": 35,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 10.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "jern",
+        "value": 8.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "transferrin",
+        "value": 14.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "haematokrit",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.46,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "mcv",
+        "value": 82.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "rdw",
+        "value": 16.2,
+        "unit": "%",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "trombocytter",
+        "value": 358.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 35
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.78,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-047",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haematokrit",
+        "value": 33.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.0,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mcv",
+        "value": 79.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "rdw",
+        "value": 16.9,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "trombocytter",
+        "value": 498.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.86,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 63
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-048",
+    "age": 37,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "transferrin",
+        "value": 15.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "haematokrit",
+        "value": 38.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.29,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "mcv",
+        "value": 83.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "mch",
+        "value": 26.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "rdw",
+        "value": 16.3,
+        "unit": "%",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "trombocytter",
+        "value": 350.0,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.18,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 37
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-049",
+    "age": 80,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 2.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "haematokrit",
+        "value": 25.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.65,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "mch",
+        "value": 18.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "rdw",
+        "value": 20.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "trombocytter",
+        "value": 542.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 80
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.64,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 80
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-050",
+    "age": 72,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "transferrin",
+        "value": 5.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.92,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "mcv",
+        "value": 76.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "rdw",
+        "value": 17.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "trombocytter",
+        "value": 441.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 72
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.77,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 72
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-051",
+    "age": 79,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "transferrin",
+        "value": 6.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.97,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "rdw",
+        "value": 18.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "trombocytter",
+        "value": 496.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.5,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 79
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-052",
+    "age": 79,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "transferrin",
+        "value": 3.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.88,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "mcv",
+        "value": 62.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "rdw",
+        "value": 20.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "trombocytter",
+        "value": 484.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 79
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.75,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 79
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-053",
+    "age": 78,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.58,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "mcv",
+        "value": 76.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "rdw",
+        "value": 18.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "trombocytter",
+        "value": 478.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 78
+      },
+      {
+        "id": "leukocytter",
+        "value": 4.87,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 78
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-054",
+    "age": 55,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "transferrin",
+        "value": 5.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "haematokrit",
+        "value": 24.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.64,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "mcv",
+        "value": 65.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "mch",
+        "value": 19.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "rdw",
+        "value": 19.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "trombocytter",
+        "value": 511.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "leukocytter",
+        "value": 6.19,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 55
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-055",
+    "age": 65,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "jern",
+        "value": 2.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "transferrin",
+        "value": 6.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "haematokrit",
+        "value": 22.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.62,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "mcv",
+        "value": 65.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "rdw",
+        "value": 18.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "trombocytter",
+        "value": 473.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "leukocytter",
+        "value": 7.24,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 65
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-056",
+    "age": 61,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 5.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "haematokrit",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "erytrocytter",
+        "value": 4.08,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "rdw",
+        "value": 18.8,
+        "unit": "%",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "trombocytter",
+        "value": 460.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.62,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 61
+      }
+    ]
+  },
+  {
+    "id": "iron-anemia-057",
+    "age": 81,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 302.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "transferrin",
+        "value": 14.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "mcv",
+        "value": 87.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "mch",
+        "value": 30.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "rdw",
+        "value": 14.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "hscrp",
+        "value": 31.6,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 81
+      },
+      {
+        "id": "sr",
+        "value": 45.0,
+        "unit": "mm/t",
+        "sex": "female",
+        "age": 81
+      }
+    ],
+    "_trap": "Anæmi ved kronisk sygdom (ACD): lav Hb + lav transferrinmætning ligner jernmangel, MEN ferritin er HØJ (akutfase) og hs-CRP/SR markant forhøjet. Må IKKE klassificeres som jerndepletion — jerndepoter er normale/høje."
+  },
+  {
+    "id": "iron-anemia-058",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 283.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "jern",
+        "value": 7.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mcv",
+        "value": 89.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "rdw",
+        "value": 13.8,
+        "unit": "%",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hscrp",
+        "value": 18.8,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "sr",
+        "value": 74.0,
+        "unit": "mm/t",
+        "sex": "male",
+        "age": 63
+      }
+    ],
+    "_trap": "Anæmi ved kronisk sygdom (ACD): lav Hb + lav transferrinmætning ligner jernmangel, MEN ferritin er HØJ (akutfase) og hs-CRP/SR markant forhøjet. Må IKKE klassificeres som jerndepletion — jerndepoter er normale/høje."
+  },
+  {
+    "id": "iron-anemia-059",
+    "age": 69,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 343.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "mcv",
+        "value": 89.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "mch",
+        "value": 30.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "rdw",
+        "value": 13.5,
+        "unit": "%",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "hscrp",
+        "value": 16.6,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "sr",
+        "value": 42.0,
+        "unit": "mm/t",
+        "sex": "male",
+        "age": 69
+      }
+    ],
+    "_trap": "Anæmi ved kronisk sygdom (ACD): lav Hb + lav transferrinmætning ligner jernmangel, MEN ferritin er HØJ (akutfase) og hs-CRP/SR markant forhøjet. Må IKKE klassificeres som jerndepletion — jerndepoter er normale/høje."
+  },
+  {
+    "id": "iron-anemia-060",
+    "age": 69,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 366.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "transferrin",
+        "value": 14.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "mcv",
+        "value": 82.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "mch",
+        "value": 27.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "rdw",
+        "value": 13.7,
+        "unit": "%",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "hscrp",
+        "value": 36.4,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 69
+      },
+      {
+        "id": "sr",
+        "value": 42.0,
+        "unit": "mm/t",
+        "sex": "female",
+        "age": 69
+      }
+    ],
+    "_trap": "Anæmi ved kronisk sygdom (ACD): lav Hb + lav transferrinmætning ligner jernmangel, MEN ferritin er HØJ (akutfase) og hs-CRP/SR markant forhøjet. Må IKKE klassificeres som jerndepletion — jerndepoter er normale/høje."
+  },
+  {
+    "id": "iron-anemia-061",
+    "age": 84,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 82.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "jern",
+        "value": 16.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "transferrin",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "mcv",
+        "value": 109.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "mch",
+        "value": 37.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "rdw",
+        "value": 15.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "b12",
+        "value": 90.0,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 84
+      },
+      {
+        "id": "folat",
+        "value": 6.0,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 84
+      }
+    ],
+    "_trap": "Makrocytær anæmi (B12-/folatmangel): lav Hb men MCV/MCH HØJ og jernstatus normal — modsat jernmangelens mikrocytære billede. Lav B12 og folat er årsagen."
+  },
+  {
+    "id": "iron-anemia-062",
+    "age": 85,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 138.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "jern",
+        "value": 17.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "transferrin",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "mcv",
+        "value": 103.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "mch",
+        "value": 35.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "rdw",
+        "value": 17.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "b12",
+        "value": 75.0,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 85
+      },
+      {
+        "id": "folat",
+        "value": 8.0,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 85
+      }
+    ],
+    "_trap": "Makrocytær anæmi (B12-/folatmangel): lav Hb men MCV/MCH HØJ og jernstatus normal — modsat jernmangelens mikrocytære billede. Lav B12 og folat er årsagen."
+  },
+  {
+    "id": "iron-anemia-063",
+    "age": 50,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 75.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "jern",
+        "value": 16.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "transferrin",
+        "value": 30.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mcv",
+        "value": 103.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mch",
+        "value": 36.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "rdw",
+        "value": 17.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "b12",
+        "value": 80.0,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "folat",
+        "value": 4.0,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 50
+      }
+    ],
+    "_trap": "Makrocytær anæmi (B12-/folatmangel): lav Hb men MCV/MCH HØJ og jernstatus normal — modsat jernmangelens mikrocytære billede. Lav B12 og folat er årsagen."
+  },
+  {
+    "id": "iron-anemia-064",
+    "age": 74,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 75.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "jern",
+        "value": 23.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "transferrin",
+        "value": 29.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "mcv",
+        "value": 114.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "mch",
+        "value": 36.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "rdw",
+        "value": 15.9,
+        "unit": "%",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "b12",
+        "value": 80.0,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "folat",
+        "value": 6.0,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      }
+    ],
+    "_trap": "Makrocytær anæmi (B12-/folatmangel): lav Hb men MCV/MCH HØJ og jernstatus normal — modsat jernmangelens mikrocytære billede. Lav B12 og folat er årsagen."
+  },
+  {
+    "id": "iron-anemia-065",
+    "age": 28,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 3.0,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "transferrin",
+        "value": 9.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haematokrit",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.75,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mcv",
+        "value": 74.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "rdw",
+        "value": 16.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "trombocytter",
+        "value": 466.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.86,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 28
+      }
+    ],
+    "_trap": "Forkert enhed: ferritin er angivet i mg/L i stedet for µg/L. Værdien (~5) er korrekt for jernmangel, men enheden er forkert — motoren skal fange enheds-mismatch mod referencedata (µg/L)."
+  },
+  {
+    "id": "iron-anemia-066",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 2.0,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "jern",
+        "value": 3.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "transferrin",
+        "value": 7.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 4.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haematokrit",
+        "value": 25.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.84,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "rdw",
+        "value": 18.1,
+        "unit": "%",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "trombocytter",
+        "value": 462.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "leukocytter",
+        "value": 5.72,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 33
+      }
+    ],
+    "_trap": "Forkert enhed: ferritin er angivet i mg/L i stedet for µg/L. Værdien (~5) er korrekt for jernmangel, men enheden er forkert — motoren skal fange enheds-mismatch mod referencedata (µg/L)."
+  },
+  {
+    "id": "iron-anemia-067",
+    "age": 29,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 4.0,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haemoglobin",
+        "value": 5.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haematokrit",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.4,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mcv",
+        "value": 72.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "rdw",
+        "value": 21.8,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "trombocytter",
+        "value": 533.0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "leukocytter",
+        "value": 7.45,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 29
+      }
+    ],
+    "_trap": "Forkert enhed: ferritin er angivet i mg/L i stedet for µg/L. Værdien (~5) er korrekt for jernmangel, men enheden er forkert — motoren skal fange enheds-mismatch mod referencedata (µg/L)."
+  },
+  {
+    "id": "iron-anemia-068",
+    "age": 47,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 7.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "transferrin",
+        "value": 12.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "haemoglobin",
+        "value": 11.2,
+        "unit": "g/dL",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "mcv",
+        "value": 77.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "mch",
+        "value": 23.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "rdw",
+        "value": 16.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 47
+      }
+    ],
+    "_trap": "Forkert enhed: hæmoglobin angivet i g/dL (~10) i stedet for SI-enheden mmol/L. Som tal ligner det ikke alarmerende, men enheden matcher ikke referencedata (mmol/L). Resten af panelet viser ægte jernmangel."
+  },
+  {
+    "id": "iron-anemia-069",
+    "age": 50,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 6.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "jern",
+        "value": 4.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.7,
+        "unit": "g/dL",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mcv",
+        "value": 73.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "rdw",
+        "value": 16.5,
+        "unit": "%",
+        "sex": "female",
+        "age": 50
+      }
+    ],
+    "_trap": "Forkert enhed: hæmoglobin angivet i g/dL (~10) i stedet for SI-enheden mmol/L. Som tal ligner det ikke alarmerende, men enheden matcher ikke referencedata (mmol/L). Resten af panelet viser ægte jernmangel."
+  },
+  {
+    "id": "iron-anemia-070",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 8.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "transferrin",
+        "value": 8.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.9,
+        "unit": "g/dL",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "mcv",
+        "value": 75.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "rdw",
+        "value": 18.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      }
+    ],
+    "_trap": "Forkert enhed: hæmoglobin angivet i g/dL (~10) i stedet for SI-enheden mmol/L. Som tal ligner det ikke alarmerende, men enheden matcher ikke referencedata (mmol/L). Resten af panelet viser ægte jernmangel."
+  },
+  {
+    "id": "iron-anemia-071",
+    "age": 26,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 175.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "jern",
+        "value": 16.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "transferrin",
+        "value": 37.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "mcv",
+        "value": 63.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "mch",
+        "value": 20.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "erytrocytter",
+        "value": 6.16,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 26
+      },
+      {
+        "id": "rdw",
+        "value": 13.5,
+        "unit": "%",
+        "sex": "male",
+        "age": 26
+      }
+    ],
+    "_trap": "Thalassæmi-træk-mimik: udtalt mikrocytose (lav MCV) MEN ferritin/transferrinmætning normale, erytrocyt-TAL højt og RDW normal. Mentzer-index <13. Ikke jernmangel — må ikke behandles med jern."
+  },
+  {
+    "id": "iron-anemia-072",
+    "age": 30,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 168.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "jern",
+        "value": 19.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "transferrin",
+        "value": 28.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "mcv",
+        "value": 70.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "mch",
+        "value": 21.0,
+        "unit": "pg",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "erytrocytter",
+        "value": 6.17,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "rdw",
+        "value": 13.9,
+        "unit": "%",
+        "sex": "male",
+        "age": 30
+      }
+    ],
+    "_trap": "Thalassæmi-træk-mimik: udtalt mikrocytose (lav MCV) MEN ferritin/transferrinmætning normale, erytrocyt-TAL højt og RDW normal. Mentzer-index <13. Ikke jernmangel — må ikke behandles med jern."
+  },
+  {
+    "id": "iron-anemia-073",
+    "age": 30,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 96.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "jern",
+        "value": 23.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "transferrin",
+        "value": 38.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mcv",
+        "value": 71.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "mch",
+        "value": 19.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "erytrocytter",
+        "value": 5.44,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "rdw",
+        "value": 13.2,
+        "unit": "%",
+        "sex": "female",
+        "age": 30
+      }
+    ],
+    "_trap": "Thalassæmi-træk-mimik: udtalt mikrocytose (lav MCV) MEN ferritin/transferrinmætning normale, erytrocyt-TAL højt og RDW normal. Mentzer-index <13. Ikke jernmangel — må ikke behandles med jern."
+  },
+  {
+    "id": "iron-anemia-074",
+    "age": 46,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 771.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "jern",
+        "value": 37.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "transferrin",
+        "value": 84.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "haemoglobin",
+        "value": 10.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "mcv",
+        "value": 95.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "alat",
+        "value": 46.0,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 46
+      }
+    ],
+    "_trap": "Jern-OVERLOAD (hæmokromatose) — invers fælde: ferritin meget høj, transferrinmætning meget høj, ALAT forhøjet. Stratummet hedder iron-anemia, men dette er det modsatte og må ikke forveksles med jernmangel."
+  },
+  {
+    "id": "iron-anemia-075",
+    "age": 51,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 786.0,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "jern",
+        "value": 33.0,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "transferrin",
+        "value": 85.0,
+        "unit": "%",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "haemoglobin",
+        "value": 10.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "mcv",
+        "value": 93.0,
+        "unit": "fL",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "alat",
+        "value": 71.0,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 51
+      }
+    ],
+    "_trap": "Jern-OVERLOAD (hæmokromatose) — invers fælde: ferritin meget høj, transferrinmætning meget høj, ALAT forhøjet. Stratummet hedder iron-anemia, men dette er det modsatte og må ikke forveksles med jernmangel."
+  },
+  {
+    "id": "iron-anemia-076",
+    "age": 61,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 91.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "jern",
+        "value": 6.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "transferrin",
+        "value": 11.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.0,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "mcv",
+        "value": 76.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "mch",
+        "value": 25.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "rdw",
+        "value": 18.9,
+        "unit": "%",
+        "sex": "female",
+        "age": 61
+      },
+      {
+        "id": "hscrp",
+        "value": 14.7,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 61
+      }
+    ],
+    "_trap": "Blandet billede: ægte jernmangel SAMTIDIG med inflammation. Ferritin trukket 'falsk normalt' op i 50-95 µg/L af akutfase, men transferrinmætning meget lav, RDW høj og hs-CRP forhøjet røber depletionen. Ferritin alene ville misse diagnosen."
+  },
+  {
+    "id": "iron-anemia-077",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 66.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "jern",
+        "value": 5.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "transferrin",
+        "value": 10.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "haemoglobin",
+        "value": 6.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "mcv",
+        "value": 80.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "mch",
+        "value": 22.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "rdw",
+        "value": 17.3,
+        "unit": "%",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hscrp",
+        "value": 15.8,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 41
+      }
+    ],
+    "_trap": "Blandet billede: ægte jernmangel SAMTIDIG med inflammation. Ferritin trukket 'falsk normalt' op i 50-95 µg/L af akutfase, men transferrinmætning meget lav, RDW høj og hs-CRP forhøjet røber depletionen. Ferritin alene ville misse diagnosen."
+  },
+  {
+    "id": "iron-anemia-078",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 14.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "jern",
+        "value": 11.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "transferrin",
+        "value": 27.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "mcv",
+        "value": 92.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "mch",
+        "value": 30.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "rdw",
+        "value": 12.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 37
+      }
+    ],
+    "_trap": "Isoleret jerndepletion uden anæmi: KUN ferritin lav, Hb/MCV/RDW helt normale. Tidligt stadie — motoren bør flagge tomme jerndepoter (ferritin) men ikke anæmi."
+  },
+  {
+    "id": "iron-anemia-079",
+    "age": 38,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 15.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "jern",
+        "value": 14.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "transferrin",
+        "value": 22.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "mcv",
+        "value": 92.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "mch",
+        "value": 29.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "rdw",
+        "value": 13.4,
+        "unit": "%",
+        "sex": "female",
+        "age": 38
+      }
+    ],
+    "_trap": "Isoleret jerndepletion uden anæmi: KUN ferritin lav, Hb/MCV/RDW helt normale. Tidligt stadie — motoren bør flagge tomme jerndepoter (ferritin) men ikke anæmi."
+  },
+  {
+    "id": "iron-anemia-080",
+    "age": 29,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 13.0,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "jern",
+        "value": 16.0,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "transferrin",
+        "value": 24.0,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mcv",
+        "value": 90.0,
+        "unit": "fL",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "mch",
+        "value": 28.0,
+        "unit": "pg",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "rdw",
+        "value": 12.6,
+        "unit": "%",
+        "sex": "female",
+        "age": 29
+      }
+    ],
+    "_trap": "Isoleret jerndepletion uden anæmi: KUN ferritin lav, Hb/MCV/RDW helt normale. Tidligt stadie — motoren bør flagge tomme jerndepoter (ferritin) men ikke anæmi."
+  }
+]

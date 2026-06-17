@@ -6,11 +6,11 @@
 // approved_for_release) ligger i motoren (nextState i _engine.mjs) — single
 // source of truth. Beskyttes af ADMIN_TOKEN. Bruges af admin-rapport.html.
 import crypto from "crypto";
-import { tooManyFails } from "./_ratelimit.js";
+import { tooManyFails, bearerToken, doctorFor, doctorTokensConfigured } from "./_ratelimit.js";
 import { nextState } from "./_engine.mjs";
 import { setStatus } from "./_store.js";
 
-function authed(token) {
+function adminAuthed(token) {
   const expected = process.env.ADMIN_TOKEN || "";
   if (!expected || !token) return false;
   const a = Buffer.from(String(token));
@@ -24,8 +24,17 @@ export default async function handler(req, res) {
 
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
-  const { token, status, event, doctorId, note, reportId } = body || {};
-  if (!authed(token)) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
+  const { token, status, event, doctorId: bodyDoctorId, note, reportId } = body || {};
+  const tok = bearerToken(req) || token;
+
+  // Godkenderens doctorId udledes server-side fra en gyldig læge-token (kan ikke
+  // forfalskes). Når DOCTOR_TOKENS ikke er konfigureret, falder vi tilbage til
+  // ADMIN_TOKEN + klient-doctorId (uændret adfærd, så intet låses).
+  const docId = doctorFor(tok);
+  let doctorId = null, authOk = false;
+  if (docId) { authOk = true; doctorId = docId; }
+  else if (!doctorTokensConfigured() && adminAuthed(tok)) { authOk = true; doctorId = bodyDoctorId; }
+  if (!authOk) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
 
   try {
     const at = new Date().toISOString();

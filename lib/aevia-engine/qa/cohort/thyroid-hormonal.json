@@ -1,0 +1,8476 @@
+[
+  {
+    "id": "thyroid-hormonal-001",
+    "age": 56,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 33,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "ft4",
+        "value": 11,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "ft3",
+        "value": 3,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "antitpo",
+        "value": 830,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "ldl",
+        "value": 3.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "apob",
+        "value": 1.01,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "ferritin",
+        "value": 92,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "prolaktin",
+        "value": 168,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "hscrp",
+        "value": 1.1,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 56
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-002",
+    "age": 53,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 42.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "ft4",
+        "value": 7,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "ft3",
+        "value": 2.3,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "antitpo",
+        "value": 561,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "ldl",
+        "value": 3.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "apob",
+        "value": 0.92,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "ferritin",
+        "value": 105,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "prolaktin",
+        "value": 315,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "hscrp",
+        "value": 1.7,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 53
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-003",
+    "age": 50,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 98.8,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "ft4",
+        "value": 4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "ft3",
+        "value": 2.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "antitpo",
+        "value": 22,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "ldl",
+        "value": 3.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "apob",
+        "value": 0.99,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "ferritin",
+        "value": 81,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "prolaktin",
+        "value": 308,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "hscrp",
+        "value": 2.1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 50
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-004",
+    "age": 56,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 18.4,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "ft4",
+        "value": 8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "ft3",
+        "value": 2.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "antitpo",
+        "value": 963,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "ldl",
+        "value": 3.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "apob",
+        "value": 0.91,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "ferritin",
+        "value": 51,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "prolaktin",
+        "value": 205,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 56
+      },
+      {
+        "id": "hscrp",
+        "value": 0.9,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 56
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-005",
+    "age": 36,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 52,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "ft4",
+        "value": 6,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "ft3",
+        "value": 2.8,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "antitpo",
+        "value": 902,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "ldl",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "apob",
+        "value": 0.98,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "ferritin",
+        "value": 135,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "prolaktin",
+        "value": 141,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "hscrp",
+        "value": 0.6,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 36
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-006",
+    "age": 70,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 77.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ft4",
+        "value": 6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ft3",
+        "value": 2.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "antitpo",
+        "value": 941,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ldl",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "apob",
+        "value": 1.12,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ferritin",
+        "value": 50,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "prolaktin",
+        "value": 191,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hscrp",
+        "value": 0.8,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 70
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-007",
+    "age": 67,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 28,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ft4",
+        "value": 9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ft3",
+        "value": 3.4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "antitpo",
+        "value": 614,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ldl",
+        "value": 3.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "apob",
+        "value": 0.91,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ferritin",
+        "value": 89,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "prolaktin",
+        "value": 294,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "hscrp",
+        "value": 1.1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 67
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-008",
+    "age": 66,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 13.9,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "ft4",
+        "value": 11,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "ft3",
+        "value": 3.2,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "antitpo",
+        "value": 1182,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "ldl",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "triglycerid",
+        "value": 1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "apob",
+        "value": 0.95,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "ferritin",
+        "value": 51,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "prolaktin",
+        "value": 208,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 66
+      },
+      {
+        "id": "hscrp",
+        "value": 2,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 66
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-009",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 88.4,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft4",
+        "value": 5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft3",
+        "value": 2.1,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "antitpo",
+        "value": 6,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ldl",
+        "value": 3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "apob",
+        "value": 1.03,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ferritin",
+        "value": 73,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "prolaktin",
+        "value": 122,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hscrp",
+        "value": 1.3,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 41
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-010",
+    "age": 46,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 34.7,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft4",
+        "value": 10,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft3",
+        "value": 3,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "antitpo",
+        "value": 28,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ldl",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "apob",
+        "value": 0.94,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ferritin",
+        "value": 101,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "prolaktin",
+        "value": 310,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hscrp",
+        "value": 1.7,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 46
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-011",
+    "age": 36,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 17.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ft4",
+        "value": 9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ft3",
+        "value": 3.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "antitpo",
+        "value": 1085,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ldl",
+        "value": 3.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "apob",
+        "value": 1.13,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ferritin",
+        "value": 99,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "prolaktin",
+        "value": 270,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "hscrp",
+        "value": 1.9,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 36
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-012",
+    "age": 30,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 23,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ft4",
+        "value": 9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ft3",
+        "value": 3.4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "antitpo",
+        "value": 29,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ldl",
+        "value": 2.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "apob",
+        "value": 0.91,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ferritin",
+        "value": 73,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "prolaktin",
+        "value": 323,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "hscrp",
+        "value": 1.6,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 30
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-013",
+    "age": 29,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 6.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "ft4",
+        "value": 12,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "ft3",
+        "value": 4.4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "antitpo",
+        "value": 26,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "ldl",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "apob",
+        "value": 1.05,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "ferritin",
+        "value": 70,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "prolaktin",
+        "value": 239,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "hscrp",
+        "value": 1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 29
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-014",
+    "age": 49,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 23.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 11,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 3.5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "antitpo",
+        "value": 11,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ldl",
+        "value": 3.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "apob",
+        "value": 0.86,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ferritin",
+        "value": 49,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "prolaktin",
+        "value": 220,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "hscrp",
+        "value": 0.4,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 49
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-015",
+    "age": 49,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 5.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 3.9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "antitpo",
+        "value": 700,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ldl",
+        "value": 3.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "apob",
+        "value": 0.98,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ferritin",
+        "value": 62,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "prolaktin",
+        "value": 174,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "hscrp",
+        "value": 0.9,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 49
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-016",
+    "age": 31,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 6.3,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ft3",
+        "value": 4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "antitpo",
+        "value": 439,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ldl",
+        "value": 3.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "apob",
+        "value": 0.9,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ferritin",
+        "value": 84,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "prolaktin",
+        "value": 274,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "hscrp",
+        "value": 1.8,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 31
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-017",
+    "age": 40,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 7.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ft3",
+        "value": 4.1,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "antitpo",
+        "value": 14,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ldl",
+        "value": 2.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "apob",
+        "value": 1.12,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ferritin",
+        "value": 64,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "prolaktin",
+        "value": 167,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "hscrp",
+        "value": 1.4,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 40
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-018",
+    "age": 31,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 63.4,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "ft4",
+        "value": 5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "ft3",
+        "value": 2.6,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "antitpo",
+        "value": 739,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 5.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "ldl",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "apob",
+        "value": 1.02,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "ferritin",
+        "value": 87,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "prolaktin",
+        "value": 339,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 31
+      },
+      {
+        "id": "hscrp",
+        "value": 0.8,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 31
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-019",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.076,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft4",
+        "value": 32,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft3",
+        "value": 11.7,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "antitpo",
+        "value": 6,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ldl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "apob",
+        "value": 0.68,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ferritin",
+        "value": 52,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hvilepuls",
+        "value": 110,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 39
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-020",
+    "age": 29,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.016,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "ft4",
+        "value": 33,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "ft3",
+        "value": 11.2,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "antitpo",
+        "value": 19,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "apob",
+        "value": 0.78,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "ferritin",
+        "value": 79,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "hvilepuls",
+        "value": 102,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 29
+      },
+      {
+        "id": "hscrp",
+        "value": 1.2,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 29
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-021",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.001,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ft4",
+        "value": 58,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ft3",
+        "value": 15.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "antitpo",
+        "value": 20,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "apob",
+        "value": 0.77,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ferritin",
+        "value": 54,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hvilepuls",
+        "value": 87,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 37
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-022",
+    "age": 36,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.009,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ft4",
+        "value": 29,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ft3",
+        "value": 11.9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "antitpo",
+        "value": 448,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ldl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "apob",
+        "value": 0.68,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "ferritin",
+        "value": 73,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "hvilepuls",
+        "value": 87,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "hscrp",
+        "value": 1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 36
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-023",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.008,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft4",
+        "value": 45,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft3",
+        "value": 22,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "antitpo",
+        "value": 141,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "apob",
+        "value": 0.76,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ferritin",
+        "value": 82,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hvilepuls",
+        "value": 83,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hscrp",
+        "value": 0.8,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 41
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-024",
+    "age": 46,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.37,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft4",
+        "value": 19,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft3",
+        "value": 6.2,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "antitpo",
+        "value": 352,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "apob",
+        "value": 0.8,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ferritin",
+        "value": 91,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hvilepuls",
+        "value": 104,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hscrp",
+        "value": 0.6,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 46
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-025",
+    "age": 33,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.003,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "ft4",
+        "value": 54,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "ft3",
+        "value": 16.5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "antitpo",
+        "value": 22,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "ldl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "apob",
+        "value": 0.7,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "ferritin",
+        "value": 65,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "hvilepuls",
+        "value": 95,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "hscrp",
+        "value": 1.2,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 33
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-026",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.055,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ft4",
+        "value": 26,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ft3",
+        "value": 8.1,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "antitpo",
+        "value": 14,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ldl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "apob",
+        "value": 0.73,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ferritin",
+        "value": 94,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hvilepuls",
+        "value": 98,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hscrp",
+        "value": 1.2,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 63
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-027",
+    "age": 55,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.38,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ft4",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ft3",
+        "value": 6.3,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "antitpo",
+        "value": 210,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "apob",
+        "value": 0.79,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ferritin",
+        "value": 133,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hvilepuls",
+        "value": 84,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hscrp",
+        "value": 0.8,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 55
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-028",
+    "age": 32,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.063,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "ft4",
+        "value": 24,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "ft3",
+        "value": 10.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "antitpo",
+        "value": 2,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "apob",
+        "value": 0.78,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "ferritin",
+        "value": 90,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "hvilepuls",
+        "value": 93,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "hscrp",
+        "value": 1.1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 32
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-029",
+    "age": 46,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.023,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft4",
+        "value": 28,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ft3",
+        "value": 7.5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "antitpo",
+        "value": 8,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ldl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "apob",
+        "value": 0.74,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "ferritin",
+        "value": 88,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hvilepuls",
+        "value": 90,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 46
+      },
+      {
+        "id": "hscrp",
+        "value": 1.3,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 46
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-030",
+    "age": 30,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.007,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ft4",
+        "value": 41,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ft3",
+        "value": 19.1,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "antitpo",
+        "value": 205,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ldl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "apob",
+        "value": 0.67,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "ferritin",
+        "value": 64,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "hvilepuls",
+        "value": 87,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 30
+      },
+      {
+        "id": "hscrp",
+        "value": 0.7,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 30
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-031",
+    "age": 60,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.036,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "ft4",
+        "value": 31,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "ft3",
+        "value": 8.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "antitpo",
+        "value": 416,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "ldl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "apob",
+        "value": 0.74,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "ferritin",
+        "value": 52,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "hvilepuls",
+        "value": 79,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "hscrp",
+        "value": 1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 60
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-032",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0.008,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft4",
+        "value": 53,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft3",
+        "value": 14.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "antitpo",
+        "value": 11,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 3.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.65,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ferritin",
+        "value": 61,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hvilepuls",
+        "value": 108,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hscrp",
+        "value": 0.7,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-033",
+    "age": 74,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 4.8,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "frittestosteron",
+        "value": 83,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "shbg",
+        "value": 59,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "oestradiol",
+        "value": 71,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "prolaktin",
+        "value": 163,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "dheas",
+        "value": 3.1,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "tsh",
+        "value": 1.3,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "apob",
+        "value": 0.8,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ferritin",
+        "value": 81,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "vitd",
+        "value": 43,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-034",
+    "age": 47,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 9.6,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "frittestosteron",
+        "value": 62,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "shbg",
+        "value": 84,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "oestradiol",
+        "value": 51,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "prolaktin",
+        "value": 3129,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "dheas",
+        "value": 4.7,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "tsh",
+        "value": 2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "apob",
+        "value": 0.78,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ferritin",
+        "value": 135,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "vitd",
+        "value": 72,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-035",
+    "age": 54,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 9.5,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "frittestosteron",
+        "value": 160,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "shbg",
+        "value": 13,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "oestradiol",
+        "value": 57,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "prolaktin",
+        "value": 158,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "dheas",
+        "value": 5.8,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "tsh",
+        "value": 2.2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "ft4",
+        "value": 14,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "apob",
+        "value": 0.71,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "ferritin",
+        "value": 106,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "vitd",
+        "value": 50,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 54
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-036",
+    "age": 49,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 6.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "frittestosteron",
+        "value": 163,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "shbg",
+        "value": 10,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "oestradiol",
+        "value": 83,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "prolaktin",
+        "value": 1432,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "dheas",
+        "value": 4.5,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "tsh",
+        "value": 1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ldl",
+        "value": 2.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "apob",
+        "value": 0.75,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ferritin",
+        "value": 61,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "vitd",
+        "value": 54,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-037",
+    "age": 59,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 8.8,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "frittestosteron",
+        "value": 95,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "shbg",
+        "value": 26,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "oestradiol",
+        "value": 88,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "prolaktin",
+        "value": 1818,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "dheas",
+        "value": 5,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "tsh",
+        "value": 2.6,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "ft4",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "apob",
+        "value": 0.62,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "ferritin",
+        "value": 101,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 59
+      },
+      {
+        "id": "vitd",
+        "value": 56,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 59
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-038",
+    "age": 68,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 10.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "frittestosteron",
+        "value": 110,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "shbg",
+        "value": 10,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "oestradiol",
+        "value": 55,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "prolaktin",
+        "value": 204,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "dheas",
+        "value": 2.6,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "tsh",
+        "value": 1.4,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "apob",
+        "value": 0.62,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "ferritin",
+        "value": 82,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 68
+      },
+      {
+        "id": "vitd",
+        "value": 47,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 68
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-039",
+    "age": 69,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 6.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "frittestosteron",
+        "value": 82,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "shbg",
+        "value": 16,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "oestradiol",
+        "value": 51,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "prolaktin",
+        "value": 145,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "dheas",
+        "value": 5.9,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "tsh",
+        "value": 1.6,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "ldl",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "ferritin",
+        "value": 127,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "vitd",
+        "value": 60,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 69
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-040",
+    "age": 38,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 9.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "frittestosteron",
+        "value": 84,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "shbg",
+        "value": 11,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "oestradiol",
+        "value": 89,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "prolaktin",
+        "value": 140,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "dheas",
+        "value": 2.5,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "tsh",
+        "value": 2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ft4",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "apob",
+        "value": 0.79,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ferritin",
+        "value": 91,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "vitd",
+        "value": 63,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 38
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-041",
+    "age": 74,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 10.7,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "frittestosteron",
+        "value": 147,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "shbg",
+        "value": 37,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "oestradiol",
+        "value": 49,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "prolaktin",
+        "value": 131,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "dheas",
+        "value": 3.3,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "tsh",
+        "value": 1.4,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "apob",
+        "value": 0.65,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ferritin",
+        "value": 112,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "vitd",
+        "value": 43,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-042",
+    "age": 74,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 6.1,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "frittestosteron",
+        "value": 140,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "shbg",
+        "value": 11,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "oestradiol",
+        "value": 42,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "prolaktin",
+        "value": 268,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "dheas",
+        "value": 3.3,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "tsh",
+        "value": 1.3,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ft4",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ldl",
+        "value": 2.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "apob",
+        "value": 0.72,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "haemoglobin",
+        "value": 10.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "ferritin",
+        "value": 120,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 74
+      },
+      {
+        "id": "vitd",
+        "value": 70,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 74
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-043",
+    "age": 55,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 9.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "frittestosteron",
+        "value": 87,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "shbg",
+        "value": 40,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "oestradiol",
+        "value": 79,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "prolaktin",
+        "value": 2099,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "dheas",
+        "value": 4.9,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "tsh",
+        "value": 0.9,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "apob",
+        "value": 0.7,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "haemoglobin",
+        "value": 10.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "vitd",
+        "value": 45,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 55
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-044",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 5.3,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "frittestosteron",
+        "value": 77,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "shbg",
+        "value": 44,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "oestradiol",
+        "value": 51,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "prolaktin",
+        "value": 143,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "dheas",
+        "value": 5.7,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "tsh",
+        "value": 1.1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ft4",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "apob",
+        "value": 0.77,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "ferritin",
+        "value": 119,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "vitd",
+        "value": 49,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 63
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-045",
+    "age": 43,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 8.7,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "frittestosteron",
+        "value": 204,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "shbg",
+        "value": 12,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "oestradiol",
+        "value": 88,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "prolaktin",
+        "value": 133,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "dheas",
+        "value": 2.5,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ldl",
+        "value": 2.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "apob",
+        "value": 0.71,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ferritin",
+        "value": 86,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "vitd",
+        "value": 61,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-046",
+    "age": 37,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 6.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "frittestosteron",
+        "value": 69,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "shbg",
+        "value": 38,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "oestradiol",
+        "value": 42,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "prolaktin",
+        "value": 240,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "dheas",
+        "value": 5.3,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "tsh",
+        "value": 2.3,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "ferritin",
+        "value": 88,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 37
+      },
+      {
+        "id": "vitd",
+        "value": 70,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 37
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-047",
+    "age": 52,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 6.1,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "frittestosteron",
+        "value": 109,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "shbg",
+        "value": 29,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "oestradiol",
+        "value": 45,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "prolaktin",
+        "value": 213,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "dheas",
+        "value": 3.7,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "tsh",
+        "value": 2.1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "ft4",
+        "value": 14,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "ldl",
+        "value": 2.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "apob",
+        "value": 0.76,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "ferritin",
+        "value": 141,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "vitd",
+        "value": 74,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-048",
+    "age": 43,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 7.3,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "frittestosteron",
+        "value": 215,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "shbg",
+        "value": 27,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "oestradiol",
+        "value": 80,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "prolaktin",
+        "value": 177,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "dheas",
+        "value": 4.6,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "tsh",
+        "value": 1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "apob",
+        "value": 0.63,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "haemoglobin",
+        "value": 10,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ferritin",
+        "value": 89,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "vitd",
+        "value": 53,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-049",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 153,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "testosteron",
+        "value": 1.7,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "frittestosteron",
+        "value": 29,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "shbg",
+        "value": 61,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "prolaktin",
+        "value": 335,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "dheas",
+        "value": 6.1,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "tsh",
+        "value": 1.7,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft4",
+        "value": 14,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ferritin",
+        "value": 71,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-050",
+    "age": 28,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 1163,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "testosteron",
+        "value": 1.1,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "frittestosteron",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "shbg",
+        "value": 100,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "prolaktin",
+        "value": 185,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "dheas",
+        "value": 3.2,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "tsh",
+        "value": 1.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "ldl",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "apob",
+        "value": 0.71,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 28
+      },
+      {
+        "id": "ferritin",
+        "value": 73,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 28
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-051",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 412,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "testosteron",
+        "value": 1.8,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "frittestosteron",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "shbg",
+        "value": 85,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "prolaktin",
+        "value": 169,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "dheas",
+        "value": 4.3,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft4",
+        "value": 12,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft3",
+        "value": 5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ldl",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.63,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ferritin",
+        "value": 108,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-052",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 104,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "testosteron",
+        "value": 1.2,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "frittestosteron",
+        "value": 25,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "shbg",
+        "value": 87,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "prolaktin",
+        "value": 358,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "dheas",
+        "value": 5.4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "tsh",
+        "value": 2.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft4",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ldl",
+        "value": 2.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "triglycerid",
+        "value": 1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.69,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ferritin",
+        "value": 62,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-053",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 182,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "testosteron",
+        "value": 1,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "frittestosteron",
+        "value": 31,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "shbg",
+        "value": 84,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "prolaktin",
+        "value": 153,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "dheas",
+        "value": 3.1,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "tsh",
+        "value": 0.9,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "ft4",
+        "value": 14,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "apob",
+        "value": 0.75,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "ferritin",
+        "value": 107,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 33
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-054",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 1191,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "testosteron",
+        "value": 1,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "frittestosteron",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "shbg",
+        "value": 92,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "prolaktin",
+        "value": 106,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "dheas",
+        "value": 4.9,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "tsh",
+        "value": 2.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft4",
+        "value": 19,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft3",
+        "value": 5.2,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ldl",
+        "value": 2.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ferritin",
+        "value": 49,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 39
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-055",
+    "age": 38,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 580,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "frittestosteron",
+        "value": 30,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "shbg",
+        "value": 46,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "prolaktin",
+        "value": 233,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "dheas",
+        "value": 4.4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "tsh",
+        "value": 1.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "ft4",
+        "value": 12,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "ft3",
+        "value": 4.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "ldl",
+        "value": 2.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "apob",
+        "value": 0.71,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 38
+      },
+      {
+        "id": "ferritin",
+        "value": 48,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 38
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-056",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 96,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "frittestosteron",
+        "value": 32,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "shbg",
+        "value": 87,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "prolaktin",
+        "value": 291,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "dheas",
+        "value": 3.4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "tsh",
+        "value": 1.4,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft3",
+        "value": 4.1,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "apob",
+        "value": 0.67,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ferritin",
+        "value": 77,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 41
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-057",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 112,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "testosteron",
+        "value": 0.7,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "frittestosteron",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "shbg",
+        "value": 73,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "prolaktin",
+        "value": 266,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "dheas",
+        "value": 6.6,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "tsh",
+        "value": 2.3,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ldl",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "apob",
+        "value": 0.74,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ferritin",
+        "value": 93,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-058",
+    "age": 24,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 425,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "testosteron",
+        "value": 1.7,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "frittestosteron",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "shbg",
+        "value": 66,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "prolaktin",
+        "value": 162,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "dheas",
+        "value": 4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "tsh",
+        "value": 1.9,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "ft3",
+        "value": 4.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "hdl",
+        "value": 1.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "apob",
+        "value": 0.6,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 24
+      },
+      {
+        "id": "ferritin",
+        "value": 86,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 24
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-059",
+    "age": 42,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 558,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "testosteron",
+        "value": 1,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "frittestosteron",
+        "value": 29,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "shbg",
+        "value": 83,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "prolaktin",
+        "value": 108,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "dheas",
+        "value": 6.6,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "tsh",
+        "value": 2.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "ft3",
+        "value": 5.4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "ldl",
+        "value": 2.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "apob",
+        "value": 0.77,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 42
+      },
+      {
+        "id": "ferritin",
+        "value": 92,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 42
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-060",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 99,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "testosteron",
+        "value": 1.3,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "frittestosteron",
+        "value": 26,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "shbg",
+        "value": 82,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "prolaktin",
+        "value": 240,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "dheas",
+        "value": 6.4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "tsh",
+        "value": 2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ft3",
+        "value": 5.7,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "apob",
+        "value": 0.73,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "ferritin",
+        "value": 55,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 41
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-061",
+    "age": 52,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 71,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "testosteron",
+        "value": 0.7,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "frittestosteron",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "shbg",
+        "value": 92,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "prolaktin",
+        "value": 318,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "dheas",
+        "value": 4.9,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "tsh",
+        "value": 2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "ft3",
+        "value": 5.3,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "ldl",
+        "value": 2.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "triglycerid",
+        "value": 1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 52
+      },
+      {
+        "id": "ferritin",
+        "value": 102,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 52
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-062",
+    "age": 68,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 44,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "frittestosteron",
+        "value": 24,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "shbg",
+        "value": 58,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "prolaktin",
+        "value": 103,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "dheas",
+        "value": 3.9,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "tsh",
+        "value": 2.4,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ft3",
+        "value": 4.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "apob",
+        "value": 0.64,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ferritin",
+        "value": 51,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 68
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-063",
+    "age": 54,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 38,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "testosteron",
+        "value": 1.6,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "frittestosteron",
+        "value": 25,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "shbg",
+        "value": 48,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "prolaktin",
+        "value": 105,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "dheas",
+        "value": 6.8,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "tsh",
+        "value": 1.3,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ft3",
+        "value": 5.5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ldl",
+        "value": 2.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "apob",
+        "value": 0.78,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.1,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ferritin",
+        "value": 83,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 54
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-064",
+    "age": 64,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 22,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "testosteron",
+        "value": 1.6,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "frittestosteron",
+        "value": 24,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "shbg",
+        "value": 56,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "prolaktin",
+        "value": 170,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "dheas",
+        "value": 6,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "tsh",
+        "value": 1.3,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "ft4",
+        "value": 12,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "ft3",
+        "value": 4.5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "apob",
+        "value": 0.63,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "ferritin",
+        "value": 71,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 64
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-065",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft4",
+        "value": 14,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ft3",
+        "value": 5.6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "antitpo",
+        "value": 23,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "testosteron",
+        "value": 1.5,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "oestradiol",
+        "value": 318,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "shbg",
+        "value": 57,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ldl",
+        "value": 2.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hdl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "apob",
+        "value": 0.65,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "ferritin",
+        "value": 102,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 39
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-066",
+    "age": 50,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.7,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "antitpo",
+        "value": 14,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "testosteron",
+        "value": 26.7,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "oestradiol",
+        "value": 132,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "shbg",
+        "value": 25,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "apob",
+        "value": 0.67,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ferritin",
+        "value": 74,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 50
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-067",
+    "age": 49,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 5.5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "antitpo",
+        "value": 11,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "testosteron",
+        "value": 18.1,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "oestradiol",
+        "value": 127,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "shbg",
+        "value": 43,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ldl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "hdl",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "apob",
+        "value": 0.74,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ferritin",
+        "value": 92,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 49
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-068",
+    "age": 51,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ft4",
+        "value": 18,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ft3",
+        "value": 5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "antitpo",
+        "value": 19,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "testosteron",
+        "value": 17.9,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "oestradiol",
+        "value": 126,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "shbg",
+        "value": 46,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "apob",
+        "value": 0.69,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ferritin",
+        "value": 71,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 51
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-069",
+    "age": 47,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "ft3",
+        "value": 5.1,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "antitpo",
+        "value": 18,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "testosteron",
+        "value": 1.3,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "oestradiol",
+        "value": 239,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "shbg",
+        "value": 92,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "ldl",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "hdl",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "apob",
+        "value": 0.7,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "ferritin",
+        "value": 83,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 47
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-070",
+    "age": 54,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ft4",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ft3",
+        "value": 5.7,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "antitpo",
+        "value": 13,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "oestradiol",
+        "value": 429,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "shbg",
+        "value": 63,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ldl",
+        "value": 2.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "apob",
+        "value": 0.61,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 54
+      },
+      {
+        "id": "ferritin",
+        "value": 50,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 54
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-071",
+    "age": 49,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.1,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 19,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 4.5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "antitpo",
+        "value": 18,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "testosteron",
+        "value": 17.4,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "oestradiol",
+        "value": 96,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "shbg",
+        "value": 32,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ldl",
+        "value": 2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "hdl",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "apob",
+        "value": 0.66,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "haemoglobin",
+        "value": 9.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ferritin",
+        "value": 87,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 49
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-072",
+    "age": 51,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ft4",
+        "value": 17,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ft3",
+        "value": 4.4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "antitpo",
+        "value": 11,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "testosteron",
+        "value": 1.5,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "oestradiol",
+        "value": 168,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "shbg",
+        "value": 85,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.7,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "apob",
+        "value": 0.6,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "haemoglobin",
+        "value": 8.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ferritin",
+        "value": 89,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 51
+      }
+    ]
+  },
+  {
+    "id": "thyroid-hormonal-073",
+    "age": 45,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 8500,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ft3",
+        "value": 4.8,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "antitpo",
+        "value": 20,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 45
+      }
+    ],
+    "_trap": "Enhedsfælde: TSH 8500 'mIU/L' — urealistisk magnitude (sandsynligvis forkert skala/decimaltegn, reelt ~8,5). Skal flagges, ikke klassificeres som ekstrem hypo."
+  },
+  {
+    "id": "thyroid-hormonal-074",
+    "age": 38,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 14,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ft4",
+        "value": 28,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ft3",
+        "value": 9.5,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "antitpo",
+        "value": 12,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "testosteron",
+        "value": 19,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 38
+      }
+    ],
+    "_trap": "Diskordant mønster: høj TSH SAMTIDIG med høj fT4/fT3 — sjælden (thyroideahormonresistens / TSH-om) eller assay-interferens. Motoren bør ikke 'glatte' modstriden."
+  },
+  {
+    "id": "thyroid-hormonal-075",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 22,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "frittestosteron",
+        "value": 480,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "shbg",
+        "value": 30,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "oestradiol",
+        "value": 220,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "tsh",
+        "value": 1.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 41
+      }
+    ],
+    "_trap": "Køn/værdi-fælde: total testosteron 22 nmol/L hos kvinde = mandeniveau (markant forhøjet for female-zone 0,7-2,0). Enten PCOS/androgen-producerende tumor eller forbyttet prøve — skal eskalere, ikke matche male-zone."
+  },
+  {
+    "id": "thyroid-hormonal-076",
+    "age": 29,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 55,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "testosteron",
+        "value": 1.2,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "shbg",
+        "value": 70,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 29
+      },
+      {
+        "id": "tsh",
+        "value": 1.8,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 29
+      }
+    ],
+    "_trap": "Enhedsfælde: østradiol 55 med tag 'pmol/L' men værdien ligner pg/mL (×3,67 → ~202 pmol/L, normal follikulær). Motoren bør ikke fejlklassificere som lav østradiol."
+  },
+  {
+    "id": "thyroid-hormonal-077",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ft3",
+        "value": 5,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "antitpo",
+        "value": 950,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 34
+      }
+    ],
+    "_trap": "Subtil ægte sag (ikke fejl): høj anti-TPO 950 med endnu normal TSH/fT4 = euthyroid autoimmun thyroiditis. Bør flagges som tidlig risiko, ikke afvises fordi stofskiftetal er normale."
+  },
+  {
+    "id": "thyroid-hormonal-078",
+    "age": 52,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 290,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "testosteron",
+        "value": 17,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "shbg",
+        "value": 22,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "taljemaal",
+        "value": 108,
+        "unit": "cm",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "tsh",
+        "value": 1.9,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 52
+      }
+    ],
+    "_trap": "Mønster-fælde: forhøjet østradiol hos mand (aromatisering ved bugfedt, taljemål 108) med normal testosteron — skal tolkes i mandekontekst, ikke mod female-østradiol-zonen."
+  },
+  {
+    "id": "thyroid-hormonal-079",
+    "age": 47,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": -1.2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ft4",
+        "value": 15,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "testosteron",
+        "value": 20,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      }
+    ],
+    "_trap": "Datakorruption: negativ TSH (-1,2) er fysiologisk umulig. Motoren skal afvise/flagge i stedet for at klassificere."
+  },
+  {
+    "id": "thyroid-hormonal-080",
+    "age": 40,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ft4",
+        "value": 20,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "ft3",
+        "value": 6,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "antitpo",
+        "value": 35,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 40
+      },
+      {
+        "id": "testosteron",
+        "value": 2,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 40
+      }
+    ],
+    "_trap": "Grænse-stress: alle thyroidea-værdier nøjagtig på optimalHigh (TSH 2,5 / fT4 20 / fT3 6,0 / antiTPO 35) + testosteron på female-optimalHigh 2,0. Tester inklusiv/eksklusiv grænselogik."
+  },
+  {
+    "id": "thyroid-hormonal-081",
+    "age": 31,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 0,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "tsh",
+        "value": 1.4,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "testosteron",
+        "value": 1.1,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "shbg",
+        "value": 65,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 31
+      }
+    ],
+    "_trap": "Nul-værdi-fælde: østradiol 0 hos 31-årig kvinde er biologisk usandsynligt (assay-gulv/manglende prøve). Bør flagges som datafejl, ikke som ekstrem hypoøstrogenæmi."
+  },
+  {
+    "id": "thyroid-hormonal-082",
+    "age": 36,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 650,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "frittestosteron",
+        "value": 480,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "shbg",
+        "value": 35,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 36
+      },
+      {
+        "id": "tsh",
+        "value": 1.7,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 36
+      }
+    ],
+    "_trap": "Enhedsfælde: testosteron 650 med tag 'nmol/L' men ligner ng/dL (×0,0347 → ~22,6 nmol/L, normalt). Urealistisk høj i nmol/L — skal fanges som enhedsfejl."
+  },
+  {
+    "id": "thyroid-hormonal-083",
+    "age": 58,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 6.2,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "ft4",
+        "value": 13,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "ft3",
+        "value": 5.9,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "antitpo",
+        "value": 8,
+        "unit": "kIU/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "testosteron",
+        "value": 12,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 58
+      }
+    ],
+    "_trap": "Mixed/overlap: subklinisk hypo (TSH 6,2, lav-normal fT4) MEN bevaret høj-normal fT3 og let lav testosteron. Flertydigt billede der tester at motoren ikke overforenkler til ét diagnoselabel."
+  },
+  {
+    "id": "thyroid-hormonal-084",
+    "age": 33,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "prolaktin",
+        "value": 8200,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "testosteron",
+        "value": 4,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "frittestosteron",
+        "value": 70,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "shbg",
+        "value": 28,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 33
+      },
+      {
+        "id": "oestradiol",
+        "value": 50,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 33
+      }
+    ],
+    "_trap": "Akse-fælde: ekstrem prolaktin 8200 (makroprolaktinom) driver sekundær hypogonadisme (testosteron 4). Motoren bør koble prolaktin→lav-T, ikke vurdere dem isoleret."
+  },
+  {
+    "id": "thyroid-hormonal-085",
+    "age": 44,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "oestradiol",
+        "value": 280,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "shbg",
+        "value": 80,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "tsh",
+        "value": 1.8,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 44
+      }
+    ],
+    "_trap": "Køns-tag-fælde: patient sex='male' men markørernes sex-felt='female' (inkonsistent). Tester om motoren bruger patientkøn eller markørkøn — og flagger uoverensstemmelse."
+  },
+  {
+    "id": "thyroid-hormonal-086",
+    "age": 67,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ft4",
+        "value": 21,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "ft3",
+        "value": 2.9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "antitpo",
+        "value": 15,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 67
+      },
+      {
+        "id": "hscrp",
+        "value": 9,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 67
+      }
+    ],
+    "_trap": "Konverterings-fælde: høj-normal fT4 men lav fT3 ved normal TSH + høj hs-CRP = low-T3-syndrom (euthyroid sick). Skal ikke læses som primær thyroideasygdom."
+  },
+  {
+    "id": "thyroid-hormonal-087",
+    "age": 50,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "antitpo",
+        "value": 410,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 50
+      }
+    ],
+    "_trap": "Sparsom-panel-fælde: kun anti-TPO (410) til stede, ingen TSH/fT4/fT3. Motoren skal kunne håndtere manglende kontekst uden at fabrikere en stofskiftekonklusion."
+  },
+  {
+    "id": "thyroid-hormonal-088",
+    "age": 27,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 1.9,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 27
+      },
+      {
+        "id": "ft4",
+        "value": 16,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 27
+      },
+      {
+        "id": "ft3",
+        "value": 52,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 27
+      },
+      {
+        "id": "testosteron",
+        "value": 23,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 27
+      }
+    ],
+    "_trap": "Skrivefejl-fælde: fT3 52 pmol/L (10× af sandsynlige 5,2) ved ellers helt normalt panel. Indre inkonsistens skal fange tastefejlen."
+  },
+  {
+    "id": "thyroid-hormonal-089",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "oestradiol",
+        "value": 600,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "testosteron",
+        "value": 1.5,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "shbg",
+        "value": 75,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "tsh",
+        "value": 1.7,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "antitpo",
+        "value": 0,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 37
+      }
+    ],
+    "_trap": "Grænse-fælde: østradiol nøjagtig på female-optimalHigh 600 (fysiologisk luteal-top) — bør IKKE eskaleres, men ovulatorisk peak >600 er også normalt. Tester at cyklisk variation ikke fejltolkes."
+  },
+  {
+    "id": "thyroid-hormonal-090",
+    "age": 49,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 0,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 32,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 11,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "antitpo",
+        "value": 320,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "hvilepuls",
+        "value": 102,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 49
+      }
+    ],
+    "_trap": "Nul-vs-suppression-fælde: TSH rapporteret som præcis 0 (reelt 'supprimeret/<0,01'). Klart hyperthyroidt billede (høj fT4/fT3, takykardi, Graves-antistoffer) — 0 skal tolkes som suppression, ikke som manglende data."
+  }
+]

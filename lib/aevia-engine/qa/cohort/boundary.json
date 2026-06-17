@@ -1,0 +1,6182 @@
+[
+  {
+    "id": "boundary-001",
+    "age": 44,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "totalkolesterol",
+        "value": 5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "ldl",
+        "value": 2.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "hdl",
+        "value": 1.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "triglycerid",
+        "value": 1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "apob",
+        "value": 0.8,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "apoa1",
+        "value": 1.4,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "apobratio",
+        "value": 0.6,
+        "unit": "ratio",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "nonhdl",
+        "value": 3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "lpa",
+        "value": 75,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "omega3",
+        "value": 8,
+        "unit": "%",
+        "sex": "male",
+        "age": 44
+      }
+    ],
+    "_trap": "Alle lipidmarkører ligger PRÆCIST på øvre/nedre optimal-grænse — skal alle klassificeres som optimal (inkl. edge), ikke reference."
+  },
+  {
+    "id": "boundary-002",
+    "age": 51,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "totalkolesterol",
+        "value": 6.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 3.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "apob",
+        "value": 1,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "apobratio",
+        "value": 0.75,
+        "unit": "ratio",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "nonhdl",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "apoa1",
+        "value": 1.05,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 51
+      }
+    ],
+    "_trap": "Lipider på reference-grænsen (optimal×1.25 hhv ×0.75) — edge skal lande i reference-tier, ikke watch."
+  },
+  {
+    "id": "boundary-003",
+    "age": 58,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ldl",
+        "value": 3.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "apob",
+        "value": 1.01,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "nonhdl",
+        "value": 3.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "apobratio",
+        "value": 0.76,
+        "unit": "ratio",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "hdl",
+        "value": 0.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "apoa1",
+        "value": 1.04,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 58
+      }
+    ],
+    "_trap": "Lipider én epsilon OVER reference-grænsen — skal tippe fra reference til watch."
+  },
+  {
+    "id": "boundary-004",
+    "age": 63,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ldl",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "apob",
+        "value": 1.28,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "nonhdl",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 63
+      },
+      {
+        "id": "hscrp",
+        "value": 1.6,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 63
+      }
+    ],
+    "_trap": "Markører PRÆCIST på watch-grænsen (optimal×1.6) — edge skal være watch, ikke action."
+  },
+  {
+    "id": "boundary-005",
+    "age": 67,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "ldl",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "apob",
+        "value": 1.29,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.7,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "nonhdl",
+        "value": 4.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 67
+      },
+      {
+        "id": "apobratio",
+        "value": 0.97,
+        "unit": "ratio",
+        "sex": "male",
+        "age": 67
+      }
+    ],
+    "_trap": "Lipider én epsilon OVER watch-grænsen — skal tippe til action."
+  },
+  {
+    "id": "boundary-006",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ldl",
+        "value": 0.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.2,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "triglycerid",
+        "value": 0.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hscrp",
+        "value": 0,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hba1c",
+        "value": 20,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "homocystein",
+        "value": 3,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "tsh",
+        "value": 0.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "urat",
+        "value": 0.08,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "eosinofile",
+        "value": 0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "basofile",
+        "value": 0,
+        "unit": "×10⁹/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "antitpo",
+        "value": 0,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 35
+      }
+    ],
+    "_trap": "lower-er-bedre markører i deres ÅBNE nedre ende (helt ned mod 0) — skal alle være optimal, da kun den høje side eskalerer."
+  },
+  {
+    "id": "boundary-007",
+    "age": 30,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "hdl",
+        "value": 3.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "apoa1",
+        "value": 2.6,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "omega3",
+        "value": 16,
+        "unit": "%",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "egfr",
+        "value": 145,
+        "unit": "mL/min",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "vo2max",
+        "value": 72,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "gribestyrke",
+        "value": 75,
+        "unit": "kg",
+        "sex": "male",
+        "age": 30
+      }
+    ],
+    "_trap": "højere-er-bedre markører i deres ÅBNE øvre ende — skal alle være optimal, kun den lave side eskalerer."
+  },
+  {
+    "id": "boundary-008",
+    "age": 41,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 75,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "b12",
+        "value": 350,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "folat",
+        "value": 15,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "magnesium",
+        "value": 0.85,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "zink",
+        "value": 12,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "calcium",
+        "value": 2.2,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 41
+      },
+      {
+        "id": "selen",
+        "value": 1,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 41
+      }
+    ],
+    "_trap": "To-sidede vitaminer PRÆCIST på nedre optimal-grænse — edge skal være optimal."
+  },
+  {
+    "id": "boundary-009",
+    "age": 47,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 74,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "b12",
+        "value": 349,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "folat",
+        "value": 14,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "magnesium",
+        "value": 0.84,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      },
+      {
+        "id": "calcium",
+        "value": 2.19,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 47
+      }
+    ],
+    "_trap": "Vitaminer én epsilon UNDER optimal — skal tippe fra optimal til reference."
+  },
+  {
+    "id": "boundary-010",
+    "age": 53,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 56,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "b12",
+        "value": 263,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "folat",
+        "value": 11,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "magnesium",
+        "value": 0.63,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      },
+      {
+        "id": "calcium",
+        "value": 1.64,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 53
+      }
+    ],
+    "_trap": "Vitaminer på/under reference-nedre-grænse — blandet reference-edge og watch."
+  },
+  {
+    "id": "boundary-011",
+    "age": 59,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 30,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "calcium",
+        "value": 0.87,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "natrium",
+        "value": 54,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "kalium",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "magnesium",
+        "value": 0.34,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      }
+    ],
+    "_trap": "Mineraler på/under watch-nedre-grænse — natrium/kalium hypo-action-test."
+  },
+  {
+    "id": "boundary-012",
+    "age": 38,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "natrium",
+        "value": 137,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "kalium",
+        "value": 4.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "calcium",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "magnesium",
+        "value": 1,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      }
+    ],
+    "_trap": "Elektrolytter på snævre optimal-edges — tester præcision på meget smalle bånd."
+  },
+  {
+    "id": "boundary-013",
+    "age": 62,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "natrium",
+        "value": 180,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "kalium",
+        "value": 5.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "calcium",
+        "value": 3.13,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      }
+    ],
+    "_trap": "Elektrolytter på øvre reference-grænse."
+  },
+  {
+    "id": "boundary-014",
+    "age": 40,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 15,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "frittestosteron",
+        "value": 250,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "shbg",
+        "value": 55,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "oestradiol",
+        "value": 150,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "dheas",
+        "value": 4,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "igf1",
+        "value": 24,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "kortisol",
+        "value": 550,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "prolaktin",
+        "value": 320,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 40
+      }
+    ],
+    "_trap": "Mandlige hormoner på optimal-edges (mand-zone testosteron 15, fri-T 250)."
+  },
+  {
+    "id": "boundary-015",
+    "age": 36,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 0.7,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "frittestosteron",
+        "value": 40,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "shbg",
+        "value": 110,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "oestradiol",
+        "value": 600,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "dheas",
+        "value": 2.5,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "kortisol",
+        "value": 250,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 36
+      },
+      {
+        "id": "prolaktin",
+        "value": 80,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 36
+      }
+    ],
+    "_trap": "Kvindelige hormoner på KVINDE-zone optimal-edges (testosteron 0.7, SHBG 110) — tester FEMALE_OPTIMAL override."
+  },
+  {
+    "id": "boundary-016",
+    "age": 33,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "testosteron",
+        "value": 15,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "frittestosteron",
+        "value": 250,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 33
+      },
+      {
+        "id": "dheas",
+        "value": 4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 33
+      }
+    ],
+    "_trap": "FÆLDE: testosteron=15 og frit-T=250 er mande-optimal, men hos KVINDE langt over watch → action. Tester at kønsoverride anvendes."
+  },
+  {
+    "id": "boundary-017",
+    "age": 45,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ft4",
+        "value": 12,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ft3",
+        "value": 4,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "antitpo",
+        "value": 35,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 45
+      }
+    ],
+    "_trap": "Thyroidea-panel på optimal-edges: TSH=2.5 (lower-better top), anti-TPO=35."
+  },
+  {
+    "id": "boundary-018",
+    "age": 55,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 3.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "antitpo",
+        "value": 45,
+        "unit": "kIU/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ft4",
+        "value": 11,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ft3",
+        "value": 3.9,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 55
+      }
+    ],
+    "_trap": "Subklinisk hypothyreose-mønster: TSH på reference-grænse, ft4/ft3 lige under optimal."
+  },
+  {
+    "id": "boundary-019",
+    "age": 48,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "alat",
+        "value": 35,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 48
+      },
+      {
+        "id": "asat",
+        "value": 35,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 48
+      },
+      {
+        "id": "ggt",
+        "value": 40,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 48
+      },
+      {
+        "id": "basiskfosfatase",
+        "value": 105,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 48
+      },
+      {
+        "id": "bilirubin",
+        "value": 20,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 48
+      },
+      {
+        "id": "albumin",
+        "value": 40,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 48
+      }
+    ],
+    "_trap": "Leverenzymer på optimal-høj-edge (ALAT/ASAT 35, GGT 40)."
+  },
+  {
+    "id": "boundary-020",
+    "age": 56,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "alat",
+        "value": 45,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "ggt",
+        "value": 51,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "hba1c",
+        "value": 44,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "homair",
+        "value": 1.9,
+        "unit": "indeks",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "fedtprocent",
+        "value": 26,
+        "unit": "%",
+        "sex": "male",
+        "age": 56
+      },
+      {
+        "id": "taljemaal",
+        "value": 100,
+        "unit": "cm",
+        "sex": "male",
+        "age": 56
+      }
+    ],
+    "_trap": "Fedtlever/metabolisk mønster: ALAT+GGT+triglycerid lige over reference, korreleret HbA1c/HOMA-IR — plausibel klynge på grænseværdier."
+  },
+  {
+    "id": "boundary-021",
+    "age": 52,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "hba1c",
+        "value": 44,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "glukose",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "insulin",
+        "value": 75,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "homair",
+        "value": 1.9,
+        "unit": "indeks",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "cpeptid",
+        "value": 875,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 52
+      }
+    ],
+    "_trap": "Metabolisk klynge PRÆCIST på reference-øvre-grænse — koordineret prædiabetes-edge."
+  },
+  {
+    "id": "boundary-022",
+    "age": 60,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "hba1c",
+        "value": 56,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "glukose",
+        "value": 8.6,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "insulin",
+        "value": 96,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 60
+      },
+      {
+        "id": "homair",
+        "value": 2.4,
+        "unit": "indeks",
+        "sex": "female",
+        "age": 60
+      }
+    ],
+    "_trap": "Metabolisk klynge på watch-øvre-grænse — diabetes-edge, watch ikke action."
+  },
+  {
+    "id": "boundary-023",
+    "age": 49,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "hscrp",
+        "value": 1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "homocystein",
+        "value": 9,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "fibrinogen",
+        "value": 3,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 49
+      },
+      {
+        "id": "sr",
+        "value": 10,
+        "unit": "mm/t",
+        "sex": "female",
+        "age": 49
+      }
+    ],
+    "_trap": "Inflammationsmarkører på optimal-høj-edge (hs-CRP=1.0)."
+  },
+  {
+    "id": "boundary-024",
+    "age": 64,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "hscrp",
+        "value": 1.4,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "fibrinogen",
+        "value": 3.9,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "sr",
+        "value": 14,
+        "unit": "mm/t",
+        "sex": "female",
+        "age": 64
+      },
+      {
+        "id": "homocystein",
+        "value": 11.4,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 64
+      }
+    ],
+    "_trap": "Inflammation lige over reference → watch."
+  },
+  {
+    "id": "boundary-025",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ferritin",
+        "value": 40,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "jern",
+        "value": 10,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haemoglobin",
+        "value": 7.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "haematokrit",
+        "value": 36,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "erytrocytter",
+        "value": 3.9,
+        "unit": "×10¹²/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "transferrin",
+        "value": 25,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mcv",
+        "value": 85,
+        "unit": "fL",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "mch",
+        "value": 27,
+        "unit": "pg",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "rdw",
+        "value": 14,
+        "unit": "%",
+        "sex": "female",
+        "age": 34
+      }
+    ],
+    "_trap": "Kvinde jern/blod-status på nedre optimal-edges (female-zoner ferritin 40, Hb 7.3) — koordineret jernmangel-grænse."
+  },
+  {
+    "id": "boundary-026",
+    "age": 42,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "leukocytter",
+        "value": 8,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "neutrofile",
+        "value": 6,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "lymfocytter",
+        "value": 3.5,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "monocytter",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "eosinofile",
+        "value": 0.4,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "basofile",
+        "value": 0.1,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      },
+      {
+        "id": "trombocytter",
+        "value": 350,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 42
+      }
+    ],
+    "_trap": "Komplet differentialtælling på optimal-høj-edges."
+  },
+  {
+    "id": "boundary-027",
+    "age": 50,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "haemoglobin",
+        "value": 10.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "haematokrit",
+        "value": 50,
+        "unit": "%",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "erytrocytter",
+        "value": 5.7,
+        "unit": "×10¹²/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ferritin",
+        "value": 150,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "jern",
+        "value": 28,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "transferrin",
+        "value": 40,
+        "unit": "%",
+        "sex": "male",
+        "age": 50
+      }
+    ],
+    "_trap": "Mande blod-status på øvre optimal-edges (Hb 10.5, hæmatokrit 50)."
+  },
+  {
+    "id": "boundary-028",
+    "age": 57,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "egfr",
+        "value": 90,
+        "unit": "mL/min",
+        "sex": "male",
+        "age": 57
+      },
+      {
+        "id": "kreatinin",
+        "value": 100,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 57
+      },
+      {
+        "id": "cystatinc",
+        "value": 1,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 57
+      },
+      {
+        "id": "urat",
+        "value": 0.4,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 57
+      },
+      {
+        "id": "karbamid",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 57
+      }
+    ],
+    "_trap": "Nyrepanel på optimal-edges: eGFR=90 (higher-better nedre edge), kreatinin/cystatin C top."
+  },
+  {
+    "id": "boundary-029",
+    "age": 71,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "egfr",
+        "value": 67,
+        "unit": "mL/min",
+        "sex": "male",
+        "age": 71
+      },
+      {
+        "id": "cystatinc",
+        "value": 1.26,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 71
+      },
+      {
+        "id": "kreatinin",
+        "value": 126,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 71
+      },
+      {
+        "id": "urat",
+        "value": 0.51,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 71
+      }
+    ],
+    "_trap": "Aldersrelateret nyrefunktionsfald: eGFR under reference, kreatinin/cystatin C over — korreleret grænseklynge."
+  },
+  {
+    "id": "boundary-030",
+    "age": 39,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 36,
+        "unit": "ml/kg/min",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "gribestyrke",
+        "value": 26,
+        "unit": "kg",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "hvilepuls",
+        "value": 62,
+        "unit": "slag/min",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "blodtryksys",
+        "value": 125,
+        "unit": "mmHg",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "blodtrykdia",
+        "value": 80,
+        "unit": "mmHg",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "fedtprocent",
+        "value": 28,
+        "unit": "%",
+        "sex": "female",
+        "age": 39
+      },
+      {
+        "id": "taljemaal",
+        "value": 80,
+        "unit": "cm",
+        "sex": "female",
+        "age": 39
+      }
+    ],
+    "_trap": "Kvinde fitness/krop på optimal-edges (VO2max 36, talje 80, fedt 28% — female-zoner)."
+  },
+  {
+    "id": "boundary-031",
+    "age": 28,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 65,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "gribestyrke",
+        "value": 68,
+        "unit": "kg",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "hvilepuls",
+        "value": 42,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "blodtryksys",
+        "value": 108,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "blodtrykdia",
+        "value": 66,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "fedtprocent",
+        "value": 9,
+        "unit": "%",
+        "sex": "male",
+        "age": 28
+      },
+      {
+        "id": "taljemaal",
+        "value": 76,
+        "unit": "cm",
+        "sex": "male",
+        "age": 28
+      }
+    ],
+    "_trap": "Atlet: konditionsmarkører i åben optimal-ende, lav fedtprocent — plausibel sammenhængende veltrænet profil."
+  },
+  {
+    "id": "boundary-032",
+    "age": 66,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 17,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "gribestyrke",
+        "value": 16,
+        "unit": "kg",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "hvilepuls",
+        "value": 99,
+        "unit": "slag/min",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "blodtryksys",
+        "value": 200,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "blodtrykdia",
+        "value": 128,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "taljemaal",
+        "value": 151,
+        "unit": "cm",
+        "sex": "male",
+        "age": 66
+      }
+    ],
+    "_trap": "Stillesiddende grænseprofil: VO2max på watch-nedre, blodtryk på watch-øvre — action-edge-test."
+  },
+  {
+    "id": "boundary-033",
+    "age": 46,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 0.7,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "ldl",
+        "value": 100,
+        "unit": "mg/dL",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "glukose",
+        "value": 95,
+        "unit": "mg/dL",
+        "sex": "male",
+        "age": 46
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 200,
+        "unit": "mg/dL",
+        "sex": "male",
+        "age": 46
+      }
+    ],
+    "_trap": "FÆLDE: forkerte enheder (mg/dL i stedet for mmol/L). Motoren bør flagge enhedsmismatch, ikke fejlklassificere 100 mg/dL LDL som ekstremt højt i mmol/L."
+  },
+  {
+    "id": "boundary-034",
+    "age": 32,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "hdl",
+        "value": 3.5,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "egfr",
+        "value": 150,
+        "unit": "mL/min",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "apoa1",
+        "value": 2.8,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "vo2max",
+        "value": 58,
+        "unit": "ml/kg/min",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "ldl",
+        "value": 0.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 32
+      },
+      {
+        "id": "hscrp",
+        "value": 0.1,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 32
+      }
+    ],
+    "_trap": "FÆLDE: meget HØJ HDL/eGFR/ApoA1 og meget LAV LDL/CRP — alle 'gode' yderpunkter må IKKE klassificeres som action pga. retningsbestemthed."
+  },
+  {
+    "id": "boundary-035",
+    "age": 54,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "kalium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "natrium",
+        "value": 137,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      },
+      {
+        "id": "kalium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 54
+      }
+    ],
+    "_trap": "FÆLDE: duplikeret markør-id (kalium to gange med forskellig værdi) — tester deduplikering/sidste-vinder."
+  },
+  {
+    "id": "boundary-036",
+    "age": 43,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 0.8,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 43
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'optHigh' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-037",
+    "age": 43,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 0.81,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 43
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 43
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'optHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-038",
+    "age": 50,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 1,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 50
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'refHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-039",
+    "age": 50,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 1.01,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 50
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 50
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'refHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-040",
+    "age": 61,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 1.28,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 61
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'watchHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-041",
+    "age": 61,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "apob",
+        "value": 1.29,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 61
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 61
+      }
+    ],
+    "_trap": "Pinpoint: apob PRÆCIST på 'watchHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-042",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 75,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 37
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'optLow' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-043",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 74,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 37
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'optLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-044",
+    "age": 55,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 56,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 55
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'refLowOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-045",
+    "age": 55,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 55,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 55
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 55
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'refLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-046",
+    "age": 68,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 30,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 68
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'watchLowOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-047",
+    "age": 68,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "vitd",
+        "value": 29,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 68
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 68
+      }
+    ],
+    "_trap": "Pinpoint: vitd PRÆCIST på 'watchLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-048",
+    "age": 44,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 44
+      }
+    ],
+    "_trap": "Pinpoint: tsh PRÆCIST på 'optHigh' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-049",
+    "age": 44,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 2.6,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 44
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 44
+      }
+    ],
+    "_trap": "Pinpoint: tsh PRÆCIST på 'optHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-050",
+    "age": 58,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 3.1,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 58
+      }
+    ],
+    "_trap": "Pinpoint: tsh PRÆCIST på 'refHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-051",
+    "age": 58,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "tsh",
+        "value": 3.2,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 58
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 58
+      }
+    ],
+    "_trap": "Pinpoint: tsh PRÆCIST på 'refHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-052",
+    "age": 47,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 42,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 47
+      }
+    ],
+    "_trap": "Pinpoint: vo2max PRÆCIST på 'optLow' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-053",
+    "age": 47,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 41,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 47
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 47
+      }
+    ],
+    "_trap": "Pinpoint: vo2max PRÆCIST på 'optLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-054",
+    "age": 62,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 32,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 62
+      }
+    ],
+    "_trap": "Pinpoint: vo2max PRÆCIST på 'refLowOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-055",
+    "age": 62,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "vo2max",
+        "value": 31,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 62
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 62
+      }
+    ],
+    "_trap": "Pinpoint: vo2max PRÆCIST på 'refLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-056",
+    "age": 40,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "lpa",
+        "value": 75,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 40
+      }
+    ],
+    "_trap": "Pinpoint: lpa PRÆCIST på 'optHigh' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-057",
+    "age": 40,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "lpa",
+        "value": 76,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 40
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 40
+      }
+    ],
+    "_trap": "Pinpoint: lpa PRÆCIST på 'optHighOver' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-058",
+    "age": 51,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "lpa",
+        "value": 94,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 51
+      }
+    ],
+    "_trap": "Pinpoint: lpa PRÆCIST på 'refHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-059",
+    "age": 51,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "lpa",
+        "value": 120,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 51
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 51
+      }
+    ],
+    "_trap": "Pinpoint: lpa PRÆCIST på 'watchHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-060",
+    "age": 70,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "egfr",
+        "value": 90,
+        "unit": "mL/min",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 70
+      }
+    ],
+    "_trap": "Pinpoint: egfr PRÆCIST på 'optLow' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-061",
+    "age": 70,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "egfr",
+        "value": 67,
+        "unit": "mL/min",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 70
+      }
+    ],
+    "_trap": "Pinpoint: egfr PRÆCIST på 'refLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-062",
+    "age": 70,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "egfr",
+        "value": 35,
+        "unit": "mL/min",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 70
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 70
+      }
+    ],
+    "_trap": "Pinpoint: egfr PRÆCIST på 'watchLowUnder' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-063",
+    "age": 53,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "hba1c",
+        "value": 35,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 53
+      }
+    ],
+    "_trap": "Pinpoint: hba1c PRÆCIST på 'optHigh' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-064",
+    "age": 53,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "hba1c",
+        "value": 44,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 53
+      }
+    ],
+    "_trap": "Pinpoint: hba1c PRÆCIST på 'refHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-065",
+    "age": 53,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "hba1c",
+        "value": 56,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 53
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 53
+      }
+    ],
+    "_trap": "Pinpoint: hba1c PRÆCIST på 'watchHighOn' (rest optimal-midt) — isolerer netop denne tier-overgang."
+  },
+  {
+    "id": "boundary-066",
+    "age": 45,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "basiskfosfatase",
+        "value": 105,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "bilirubin",
+        "value": 20,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "albumin",
+        "value": 48,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "karbamid",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "selen",
+        "value": 1.5,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "zink",
+        "value": 18,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "mch",
+        "value": 33,
+        "unit": "pg",
+        "sex": "male",
+        "age": 45
+      },
+      {
+        "id": "mcv",
+        "value": 95,
+        "unit": "fL",
+        "sex": "male",
+        "age": 45
+      }
+    ],
+    "_trap": "Dækningssweep: blandede markører på øvre optimal-edge."
+  },
+  {
+    "id": "boundary-067",
+    "age": 49,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "monocytter",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "prolaktin",
+        "value": 320,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "igf1",
+        "value": 30,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft4",
+        "value": 20,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "ft3",
+        "value": 6,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "dheas",
+        "value": 10,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "oestradiol",
+        "value": 150,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 49
+      },
+      {
+        "id": "shbg",
+        "value": 55,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 49
+      }
+    ],
+    "_trap": "Dækningssweep: hormoner/thyroidea på øvre optimal-edge."
+  },
+  {
+    "id": "boundary-068",
+    "age": 55,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "frittestosteron",
+        "value": 750,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "kortisol",
+        "value": 688,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "fibrinogen",
+        "value": 3.8,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "sr",
+        "value": 13,
+        "unit": "mm/t",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "homocystein",
+        "value": 11.3,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "transferrin",
+        "value": 50,
+        "unit": "%",
+        "sex": "male",
+        "age": 55
+      }
+    ],
+    "_trap": "Dækningssweep: inflammation/jern på reference-øvre-edge."
+  },
+  {
+    "id": "boundary-069",
+    "age": 50,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "basiskfosfatase",
+        "value": 35,
+        "unit": "U/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "bilirubin",
+        "value": 5,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "albumin",
+        "value": 40,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "karbamid",
+        "value": 3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "selen",
+        "value": 1,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "zink",
+        "value": 12,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mch",
+        "value": 27,
+        "unit": "pg",
+        "sex": "female",
+        "age": 50
+      },
+      {
+        "id": "mcv",
+        "value": 85,
+        "unit": "fL",
+        "sex": "female",
+        "age": 50
+      }
+    ],
+    "_trap": "Dækningssweep: to-sidede markører på NEDRE optimal-edge."
+  },
+  {
+    "id": "boundary-070",
+    "age": 60,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "totalkolesterol",
+        "value": 6.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "ldl",
+        "value": 3.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "hdl",
+        "value": 0.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "triglycerid",
+        "value": 1.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "apob",
+        "value": 1,
+        "unit": "g/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "hba1c",
+        "value": 44,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "glukose",
+        "value": 6.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "hscrp",
+        "value": 1.1,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "blodtryksys",
+        "value": 126,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "blodtrykdia",
+        "value": 81,
+        "unit": "mmHg",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "vo2max",
+        "value": 32,
+        "unit": "ml/kg/min",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "taljemaal",
+        "value": 95,
+        "unit": "cm",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "ggt",
+        "value": 41,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 60
+      },
+      {
+        "id": "alat",
+        "value": 36,
+        "unit": "U/L",
+        "sex": "male",
+        "age": 60
+      }
+    ],
+    "_trap": "Sammenhængende 'borderline metabolisk syndrom' 60-årig mand — alle markører tæt på samme tier-overgang, klinisk plausibel helhed."
+  },
+  {
+    "id": "boundary-071",
+    "age": 35,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "apob",
+        "value": 0.6,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "vo2max",
+        "value": 44,
+        "unit": "ml/kg/min",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "testosteron",
+        "value": 1.4,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 35
+      },
+      {
+        "id": "oestradiol",
+        "value": 350,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 35
+      }
+    ],
+    "_trap": "Negativ kontrol: alt midt i optimal — ingen overgang skal trigge."
+  },
+  {
+    "id": "boundary-072",
+    "age": 30,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "totalkolesterol",
+        "value": 5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 30
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 30
+      }
+    ],
+    "_trap": "Pinpoint-fyld: totalkolesterol på 'optHigh' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-073",
+    "age": 37,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "triglycerid",
+        "value": 1.4,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 37
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 37
+      }
+    ],
+    "_trap": "Pinpoint-fyld: triglycerid på 'refHighOver' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-074",
+    "age": 44,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "nonhdl",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 44
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 44
+      }
+    ],
+    "_trap": "Pinpoint-fyld: nonhdl på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-075",
+    "age": 51,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "apobratio",
+        "value": 0.76,
+        "unit": "ratio",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 51
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 51
+      }
+    ],
+    "_trap": "Pinpoint-fyld: apobratio på 'refHighOver' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-076",
+    "age": 58,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "omega3",
+        "value": 8,
+        "unit": "%",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 58
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 58
+      }
+    ],
+    "_trap": "Pinpoint-fyld: omega3 på 'optLow' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-077",
+    "age": 65,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "apoa1",
+        "value": 1.04,
+        "unit": "g/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 65
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 65
+      }
+    ],
+    "_trap": "Pinpoint-fyld: apoa1 på 'refLowUnder' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-078",
+    "age": 72,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "insulin",
+        "value": 75,
+        "unit": "pmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 72
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 72
+      }
+    ],
+    "_trap": "Pinpoint-fyld: insulin på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-079",
+    "age": 34,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "cpeptid",
+        "value": 876,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 34
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 34
+      }
+    ],
+    "_trap": "Pinpoint-fyld: cpeptid på 'refHighOver' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-080",
+    "age": 41,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "homair",
+        "value": 1.9,
+        "unit": "indeks",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 41
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 41
+      }
+    ],
+    "_trap": "Pinpoint-fyld: homair på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-081",
+    "age": 48,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "cystatinc",
+        "value": 1.26,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 48
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 48
+      }
+    ],
+    "_trap": "Pinpoint-fyld: cystatinc på 'refHighOver' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-082",
+    "age": 55,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "urat",
+        "value": 0.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 55
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 55
+      }
+    ],
+    "_trap": "Pinpoint-fyld: urat på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-083",
+    "age": 62,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "kreatinin",
+        "value": 49,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 62
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 62
+      }
+    ],
+    "_trap": "Pinpoint-fyld: kreatinin på 'optLowUnder' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-084",
+    "age": 69,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "karbamid",
+        "value": 8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 69
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 69
+      }
+    ],
+    "_trap": "Pinpoint-fyld: karbamid på 'optHigh' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-085",
+    "age": 31,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "natrium",
+        "value": 180,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 31
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 31
+      }
+    ],
+    "_trap": "Pinpoint-fyld: natrium på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-086",
+    "age": 38,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "kalium",
+        "value": 3.6,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 38
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 38
+      }
+    ],
+    "_trap": "Pinpoint-fyld: kalium på 'optLowUnder' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-087",
+    "age": 45,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "b12",
+        "value": 650,
+        "unit": "pmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 45
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 45
+      }
+    ],
+    "_trap": "Pinpoint-fyld: b12 på 'optHigh' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-088",
+    "age": 52,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "folat",
+        "value": 44,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 52
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 52
+      }
+    ],
+    "_trap": "Pinpoint-fyld: folat på 'refHighOn' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-089",
+    "age": 59,
+    "sex": "female",
+    "markers": [
+      {
+        "id": "magnesium",
+        "value": 0.84,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "ferritin",
+        "value": 80,
+        "unit": "µg/L",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "female",
+        "age": 59
+      },
+      {
+        "id": "kreatinin",
+        "value": 70,
+        "unit": "µmol/L",
+        "sex": "female",
+        "age": 59
+      }
+    ],
+    "_trap": "Pinpoint-fyld: magnesium på 'optLowUnder' (rest optimal) — udvider grænse-dækning."
+  },
+  {
+    "id": "boundary-090",
+    "age": 66,
+    "sex": "male",
+    "markers": [
+      {
+        "id": "calcium",
+        "value": 2.5,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "totalkolesterol",
+        "value": 4.3,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "hdl",
+        "value": 1.9,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "ldl",
+        "value": 1.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "glukose",
+        "value": 4.8,
+        "unit": "mmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "hscrp",
+        "value": 0.5,
+        "unit": "mg/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "tsh",
+        "value": 1.5,
+        "unit": "mIU/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "vitd",
+        "value": 98,
+        "unit": "nmol/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "ferritin",
+        "value": 100,
+        "unit": "µg/L",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "hba1c",
+        "value": 32,
+        "unit": "mmol/mol",
+        "sex": "male",
+        "age": 66
+      },
+      {
+        "id": "kreatinin",
+        "value": 80,
+        "unit": "µmol/L",
+        "sex": "male",
+        "age": 66
+      }
+    ],
+    "_trap": "Pinpoint-fyld: calcium på 'optHigh' (rest optimal) — udvider grænse-dækning."
+  }
+]
