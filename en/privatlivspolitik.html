@@ -369,7 +369,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 </section>
 
 <section><div class="container"><article class="prose" style="margin:0 auto">
-<p class="muted">Last updated: 31 May 2026</p>
+<p class="muted">Last updated: 17 June 2026</p>
 
 <h2>1. Data controller</h2>
 <p>Aevia Health, Bredgade 11, 7400 Herning, Denmark, CVR 46 52 07 50, is the data controller for the processing of your personal data. Contact: <a class="gold" href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a>.</p>
@@ -377,21 +377,32 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 <h2>2. What information we process</h2>
 <ul>
 <li><strong>Contact details:</strong> name, job title, company, email and phone that you provide yourself via a form or conversation.</li>
-<li><strong>Health information:</strong> results from diagnostics, which are sensitive personal data under GDPR Article 9. These are never collected via the website, only in connection with an agreed programme and with your explicit consent.</li>
+<li><strong>Booking details:</strong> chosen package and services plus appointment date/time and area, which we store to complete and administer your booking.</li>
+<li><strong>Health information:</strong> diagnostic results are sensitive personal data (GDPR Article 9). Clinical results (e.g. blood test values) are not collected via the website's public pages, only in connection with an agreed programme and with your explicit consent. If you use our biological-age estimator, we process your self-reported lifestyle answers and the calculated estimate to send you the result (sent via our email provider, see section 5).</li>
 <li><strong>Technical data:</strong> anonymised usage statistics via Google Analytics 4 and Microsoft Clarity, only if you accept cookies.</li>
 </ul>
 
 <h2>3. Legal basis for processing</h2>
-<p>Contact details are processed on the basis of your enquiry and our legitimate interest in responding to it (Article 6(1)(b) and (f)). Health information is processed solely on the basis of your explicit consent (Article 9(2)(a)) and for the purpose of medical assessment.</p>
+<p>Contact details are processed on the basis of your enquiry and our legitimate interest in responding to it (Article 6(1)(b) and (f)). Booking details are processed to perform the agreement for your programme (Article 6(1)(b)). If you sign up for our checklist/newsletter or use the biological-age estimator, we process your email and answers on the basis of your consent (Article 6(1)(a)), which you may withdraw at any time. Health information is processed solely on the basis of your explicit consent (Article 9(2)(a)) and for the purpose of medical assessment.</p>
 
 <h2>4. Sensitive health data</h2>
 <p>Your health data is stored encrypted and is only accessible to the treating staff and the specialists involved in your programme. We never share individual health results with your employer. With company agreements, the employer receives only anonymised and aggregated reports in which no individual can be identified.</p>
 
 <h2>5. Data processors &amp; partners</h2>
-<p>We use accredited laboratories, imaging centres and specialist physicians as independent or joint data controllers/processors. Data-processing agreements ensuring the same level of protection are in place with all parties.</p>
+<p>To deliver the service we use a number of data processors and partners that process personal data on our behalf or as independent/joint controllers. Data-processing agreements are in place where relevant:</p>
+<ul>
+<li><strong>Partner clinics, accredited laboratories, imaging centres and specialist physicians</strong> — perform the diagnostics; receive your name, one contact detail and the appointment time to coordinate your programme.</li>
+<li><strong>Upstash</strong> (cloud database) — stores booking details (name, email, phone, package and times).</li>
+<li><strong>Resend</strong> (email provider) — sends confirmation and service emails and stores email/lead contacts.</li>
+<li><strong>Stripe</strong> (payment provider) — processes name, billing details and phone at payment.</li>
+<li><strong>Vercel</strong> (hosting) — operates the website and server functions.</li>
+<li><strong>Google</strong> (Analytics 4) and <strong>Microsoft</strong> (Clarity) — anonymous statistics, only with your consent.</li>
+<li><strong>Anthropic</strong> (AI) — powers the chat assistant and drafts the report's wording from already-classified, pseudonymised data (see section 9). A physician always reviews and approves the report before delivery.</li>
+</ul>
+<p><strong>International transfers:</strong> Some of the above providers (incl. Anthropic, Google, Microsoft and Stripe) are established in or transfer data to the USA. Transfers rely on the European Commission's Standard Contractual Clauses (SCCs) and/or the provider's certification under the EU-US Data Privacy Framework. You can contact us for a copy of the relevant transfer safeguard.</p>
 
 <h2>6. Retention</h2>
-<p>Contact details from enquiries are deleted within 12 months of the last contact unless an agreement is entered into. Health data is retained in accordance with applicable medical record-keeping rules and deleted thereafter.</p>
+<p>Contact details from enquiries and lead/newsletter contacts are kept until you unsubscribe or until removed during periodic cleanup — at most 12 months after the last contact if no agreement is made. Booking details (name, email, phone, package and times) are kept for up to ~6 months; cancelled bookings are pseudonymised/deleted within ~30 days; a payment marker linked to your email for up to ~6 months. Health data is retained in accordance with applicable medical record-keeping rules and deleted thereafter.</p>
 
 <h2>7. Your rights</h2>
 <ul>
@@ -468,7 +479,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 
 <!-- Cookie -->
 <div class="cookie" id="cookie">
-  <p><strong style="color:var(--text)">We respect your data.</strong> Aevia uses cookies to improve your experience and measure anonymous traffic (Google Analytics 4, Microsoft Clarity). If you accept all, our AI chat can also answer your questions via a secure AI service. Health data is never collected via the website.</p>
+  <p><strong style="color:var(--text)">We respect your data.</strong> Aevia uses cookies to improve your experience and measure anonymous traffic (Google Analytics 4, Microsoft Clarity). If you accept all, our AI chat can also answer your questions via a secure AI service. We never collect clinical health results via the website.</p>
   <div class="row">
     <button class="btn btn-primary" onclick="setCookie(true)">Accept all</button>
     <button class="btn btn-ghost" onclick="setCookie(false)">Necessary only</button>

@@ -370,7 +370,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 </section>
 
 <section><div class="container"><article class="prose" style="margin:0 auto">
-<p class="muted">Senest opdateret: 31. maj 2026</p>
+<p class="muted">Senest opdateret: 17. juni 2026</p>
 
 <h2>1. Dataansvarlig</h2>
 <p>Aevia Health, Bredgade 11, 7400 Herning, CVR 46 52 07 50, er dataansvarlig for behandlingen af dine personoplysninger. Kontakt: <a class="gold" href="mailto:kontakt@aevia.dk">kontakt@aevia.dk</a>.</p>
@@ -378,21 +378,32 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 <h2>2. Hvilke oplysninger vi behandler</h2>
 <ul>
 <li><strong>Kontaktoplysninger:</strong> navn, stilling, virksomhed, e-mail og telefon, som du selv afgiver via formular eller samtale.</li>
-<li><strong>Helbredsoplysninger:</strong> resultater fra diagnostik, som er følsomme personoplysninger jf. GDPR artikel 9. Disse indsamles aldrig via hjemmesiden, men kun i forbindelse med et aftalt forløb og med dit udtrykkelige samtykke.</li>
+<li><strong>Bookingoplysninger:</strong> valgt pakke og ydelser samt aftaledato/-tid og område, som vi gemmer for at gennemføre og administrere din booking.</li>
+<li><strong>Helbredsoplysninger:</strong> resultater fra diagnostik er følsomme personoplysninger (GDPR artikel 9). Kliniske resultater (fx blodprøvesvar) indsamles ikke via hjemmesidens offentlige sider, men kun i forbindelse med et aftalt forløb og med dit udtrykkelige samtykke. Bruger du vores biologisk-alder-estimator, behandler vi dine selvrapporterede livsstilssvar og det beregnede estimat for at sende dig resultatet (afsendes via vores e-mailudbyder, se afsnit 5).</li>
 <li><strong>Tekniske data:</strong> anonymiseret brugsstatistik via Google Analytics 4 og Microsoft Clarity, kun hvis du accepterer cookies.</li>
 </ul>
 
 <h2>3. Behandlingsgrundlag</h2>
-<p>Kontaktoplysninger behandles på grundlag af din forespørgsel og vores legitime interesse i at besvare den (artikel 6, stk. 1, litra b og f). Helbredsoplysninger behandles udelukkende på grundlag af dit udtrykkelige samtykke (artikel 9, stk. 2, litra a) samt med henblik på sundhedsfaglig vurdering.</p>
+<p>Kontaktoplysninger behandles på grundlag af din forespørgsel og vores legitime interesse i at besvare den (artikel 6, stk. 1, litra b og f). Bookingoplysninger behandles for at opfylde aftalen om dit forløb (artikel 6, stk. 1, litra b). Tilmelder du dig vores tjekliste/nyhedsbrev eller bruger biologisk-alder-estimatoren, behandler vi din e-mail og dine svar på grundlag af dit samtykke (artikel 6, stk. 1, litra a), som du til enhver tid kan trække tilbage. Helbredsoplysninger behandles udelukkende på grundlag af dit udtrykkelige samtykke (artikel 9, stk. 2, litra a) samt med henblik på sundhedsfaglig vurdering.</p>
 
 <h2>4. Følsomme helbredsdata</h2>
 <p>Dine helbredsdata opbevares krypteret og er kun tilgængelige for det behandlende personale og de specialister, der er involveret i dit forløb. Vi deler aldrig individuelle helbredsresultater med din arbejdsgiver. Ved virksomhedsaftaler modtager arbejdsgiveren udelukkende anonymiserede og aggregerede rapporter, hvor ingen enkeltperson kan identificeres.</p>
 
 <h2>5. Databehandlere &amp; partnere</h2>
-<p>Vi anvender akkrediterede laboratorier, billeddiagnostiske centre og speciallæger som selvstændige eller fælles dataansvarlige/databehandlere. Med alle parter er der indgået databehandleraftaler, der sikrer samme beskyttelsesniveau.</p>
+<p>For at levere ydelsen anvender vi en række databehandlere og partnere, der behandler personoplysninger på vores vegne eller som selvstændige/fælles dataansvarlige. Der er indgået databehandleraftaler, hvor det er relevant:</p>
+<ul>
+<li><strong>Partnerklinikker, akkrediterede laboratorier, billeddiagnostiske centre og speciallæger</strong> — gennemfører diagnostikken; modtager dit navn, én kontaktoplysning og aftaletiden for at koordinere dit forløb.</li>
+<li><strong>Upstash</strong> (cloud-database) — opbevarer bookingoplysninger (navn, e-mail, telefon, pakke og tider).</li>
+<li><strong>Resend</strong> (e-mailudbyder) — sender bekræftelses- og servicemails og opbevarer e-mail-/lead-kontakter.</li>
+<li><strong>Stripe</strong> (betalingsudbyder) — behandler navn, faktureringsoplysninger og telefon ved betaling.</li>
+<li><strong>Vercel</strong> (hosting) — drift af hjemmeside og serverfunktioner.</li>
+<li><strong>Google</strong> (Analytics 4) og <strong>Microsoft</strong> (Clarity) — anonym statistik, kun ved dit samtykke.</li>
+<li><strong>Anthropic</strong> (AI) — driver chatassistenten og udarbejder et sprogligt udkast til rapporten ud fra allerede klassificerede, pseudonymiserede data (se afsnit 9). En læge gennemgår og godkender altid rapporten inden levering.</li>
+</ul>
+<p><strong>Overførsel til tredjelande:</strong> Visse af ovenstående leverandører (bl.a. Anthropic, Google, Microsoft og Stripe) er etableret i eller overfører oplysninger til USA. Overførslerne sker på grundlag af EU-Kommissionens standardkontraktbestemmelser (SCC) og/eller leverandørens certificering under EU-US Data Privacy Framework. Du kan kontakte os for en kopi af det relevante overførselsgrundlag.</p>
 
 <h2>6. Opbevaring</h2>
-<p>Kontaktoplysninger fra forespørgsler slettes senest 12 måneder efter sidste kontakt, medmindre der indgås en aftale. Helbredsdata opbevares efter gældende journalføringsregler og slettes herefter.</p>
+<p>Kontaktoplysninger fra forespørgsler samt lead-/nyhedsbrevskontakter opbevares, indtil du framelder dig, eller til de slettes ved periodisk oprydning — dog højst 12 måneder efter sidste kontakt, hvis der ikke indgås en aftale. Bookingoplysninger (navn, e-mail, telefon, pakke og tider) opbevares i op til ca. 6 måneder; aflyste bookinger pseudonymiseres/slettes inden for ca. 30 dage; en betalingsmarkering knyttet til din e-mail opbevares i op til ca. 6 måneder. Helbredsdata opbevares efter gældende journalføringsregler og slettes herefter.</p>
 
 <h2>7. Dine rettigheder</h2>
 <ul>
@@ -469,7 +480,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
 
 <!-- Cookie -->
 <div class="cookie" id="cookie">
-  <p><strong style="color:var(--text)">Vi respekterer dine data.</strong> Aevia bruger cookies til at forbedre din oplevelse og måle anonym trafik (Google Analytics 4, Microsoft Clarity). Accepterer du alle, kan vores AI-chat også besvare dine spørgsmål via en sikker AI-tjeneste. Helbredsdata indsamles aldrig via hjemmesiden.</p>
+  <p><strong style="color:var(--text)">Vi respekterer dine data.</strong> Aevia bruger cookies til at forbedre din oplevelse og måle anonym trafik (Google Analytics 4, Microsoft Clarity). Accepterer du alle, kan vores AI-chat også besvare dine spørgsmål via en sikker AI-tjeneste. Vi indsamler aldrig kliniske helbredsresultater via hjemmesiden.</p>
   <div class="row">
     <button class="btn btn-primary" onclick="setCookie(true)">Accepter alle</button>
     <button class="btn btn-ghost" onclick="setCookie(false)">Kun nødvendige</button>
