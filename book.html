@@ -713,7 +713,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
             <label for="pakke">Pakke-interesse</label>
             <div class="bk-dd" style="max-width:none">
               <input type="hidden" name="pakke" id="pakke" value="">
-              <button type="button" class="bk-dd-btn"><span class="bk-dd-cur">Jeg er ikke sikker endnu</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button type="button" class="bk-dd-btn" aria-haspopup="listbox" aria-expanded="false"><span class="bk-dd-cur">Jeg er ikke sikker endnu</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
               <div class="bk-dd-list">
                 <button type="button" class="bk-dd-opt" data-val="">Jeg er ikke sikker endnu</button>
                 <button type="button" class="bk-dd-opt" data-val="Aevia Intro (5.995 DKK)">Aevia Intro (5.995 DKK)</button>
@@ -1110,9 +1110,9 @@ var BOOKING={
           function lbl(c){return c.name+(c.d!=null?' ('+Math.round(c.d)+' km)':'');}
           var first=lbl(list[0]);
           var opts=list.map(function(c){return '<button type="button" class="bk-dd-opt">'+lbl(c)+'</button>';}).join('');
-          ctrl='<div class="bk-svc" data-svc="'+r[0]+'" data-cat="'+cat+'" data-kind="'+r[2]+'"><label class="bk-pick"><span>Foretrukket område</span><div class="bk-dd"><input type="hidden" class="bk-loc" value="'+first+'"><button type="button" class="bk-dd-btn"><span class="bk-dd-cur">'+first+'</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+opts+'</div></div></label>';
+          ctrl='<div class="bk-svc" data-svc="'+r[0]+'" data-cat="'+cat+'" data-kind="'+r[2]+'"><label class="bk-pick"><span>Foretrukket område</span><div class="bk-dd"><input type="hidden" class="bk-loc" value="'+first+'"><button type="button" class="bk-dd-btn" aria-haspopup="listbox" aria-expanded="false"><span class="bk-dd-cur">'+first+'</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+opts+'</div></div></label>';
           var cal=genDays().map(function(dd){var bs=dd.times.map(function(t){return '<button type="button" class="bk-slot" data-full="'+dd.day+' · '+t+'">'+t+'</button>';}).join('');return '<div class="bk-day"><div class="bk-day-h">'+dd.day+'</div>'+bs+'</div>';}).join('');
-          ctrl+='<div class="bk-svccal"><span class="bk-callbl">Foreslå et tidspunkt — vi bekræfter på mail</span><div class="bk-daygrid">'+cal+'</div><div class="bk-other"><span class="bk-other-lbl">Eller en anden dato</span><button type="button" class="bk-datebtn">Vælg dato</button><input type="hidden" class="bk-odate" value=""><div class="bk-dd bk-timedd"><input type="hidden" class="bk-otime" value="08:00"><button type="button" class="bk-dd-btn"><span class="bk-dd-cur">08:00</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+TIMEDD_OPTS+'</div></div></div></div></div>';
+          ctrl+='<div class="bk-svccal"><span class="bk-callbl">Foreslå et tidspunkt — vi bekræfter på mail</span><div class="bk-daygrid">'+cal+'</div><div class="bk-other"><span class="bk-other-lbl">Eller en anden dato</span><button type="button" class="bk-datebtn">Vælg dato</button><input type="hidden" class="bk-odate" value=""><div class="bk-dd bk-timedd"><input type="hidden" class="bk-otime" value="08:00"><button type="button" class="bk-dd-btn" aria-haspopup="listbox" aria-expanded="false"><span class="bk-dd-cur">08:00</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+TIMEDD_OPTS+'</div></div></div></div></div>';
         }
         var tag='';
         var inPkg=incl.indexOf(r[0])>-1;
@@ -1210,19 +1210,25 @@ var BOOKING={
       var dbtn=e.target.closest('.bk-datebtn'); if(dbtn){ openCal(dbtn); return; }
       var btn=e.target.closest('.bk-dd-btn');
       if(btn){ var dd=btn.parentNode, was=dd.classList.contains('open');
-        Array.prototype.forEach.call(document.querySelectorAll('.bk-dd.open'),function(x){x.classList.remove('open');});
-        if(!was)dd.classList.add('open'); return; }
+        closeAllDd();
+        if(!was){ dd.classList.add('open'); btn.setAttribute('aria-expanded','true');
+          var lst=dd.querySelector('.bk-dd-list'); if(lst){ lst.setAttribute('role','listbox'); Array.prototype.forEach.call(lst.querySelectorAll('.bk-dd-opt'),function(o){o.setAttribute('role','option');}); } }
+        return; }
       var opt=e.target.closest('.bk-dd-opt');
       if(opt){ var d2=opt.closest('.bk-dd'), hid=d2.querySelector('input');
         var val=opt.getAttribute('data-val'); if(val===null)val=opt.textContent;
         if(hid)hid.value=val; var cur=d2.querySelector('.bk-dd-cur'); if(cur)cur.textContent=opt.textContent; d2.classList.remove('open');
+        var db=d2.querySelector('.bk-dd-btn'); if(db)db.setAttribute('aria-expanded','false');
         if(d2.closest('.bk-svc')){ updateSum(); if(curRegion)loadBlood(); }
         return; }
       var sl=e.target.closest('.bk-slot');
       if(sl){ var calc=sl.closest('.bk-svccal'); if(calc)Array.prototype.forEach.call(calc.querySelectorAll('.bk-slot'),function(x){x.classList.remove('sel');}); var svcb=sl.closest('.bk-svc'); if(svcb){var odd=svcb.querySelector('.bk-odate'); if(odd)odd.value='';} sl.classList.add('sel'); updateSum(); if(curRegion)loadBlood(); return; }
-      if(!e.target.closest('.bk-dd')) Array.prototype.forEach.call(document.querySelectorAll('.bk-dd.open'),function(x){x.classList.remove('open');});
+      if(!e.target.closest('.bk-dd')) closeAllDd();
       if(!e.target.closest('.bk-calpop')&&!e.target.closest('.bk-datebtn'))closeCal();
     });
+    function closeAllDd(){ Array.prototype.forEach.call(document.querySelectorAll('.bk-dd.open'),function(x){ x.classList.remove('open'); var b=x.querySelector('.bk-dd-btn'); if(b)b.setAttribute('aria-expanded','false'); }); }
+    // Escape lukker dropdowns + datovælger og giver fokus tilbage.
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeAllDd(); closeCal(); } });
     document.addEventListener('change',function(e){
       var t=e.target;
       if(t&&t.classList&&(t.classList.contains('bk-odate')||t.classList.contains('bk-otime'))){
@@ -1232,7 +1238,7 @@ var BOOKING={
       }
     });
     var MON_FULL=['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
-    var calPop=document.createElement('div'); calPop.className='bk-calpop'; calPop.setAttribute('aria-hidden','true');
+    var calPop=document.createElement('div'); calPop.className='bk-calpop'; calPop.setAttribute('role','dialog'); calPop.setAttribute('aria-label','Vælg dato'); calPop.setAttribute('aria-hidden','true');
     calPop.innerHTML='<div class="bk-calpop-head"><button type="button" class="bk-calnav" data-dir="-1" aria-label="Forrige måned"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><span class="bk-calpop-title"></span><button type="button" class="bk-calnav" data-dir="1" aria-label="Næste måned"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button></div><div class="bk-calpop-wd"><span>M</span><span>T</span><span>O</span><span>T</span><span>F</span><span>L</span><span>S</span></div><div class="bk-calpop-grid"></div><div class="bk-calpop-foot"><button type="button" class="bk-calclear">Ryd</button><button type="button" class="bk-caltoday">I dag</button></div>';
     document.body.appendChild(calPop);
     var calTitle=calPop.querySelector('.bk-calpop-title'), calGrid=calPop.querySelector('.bk-calpop-grid');
@@ -1253,8 +1259,9 @@ var BOOKING={
     function clearSlots(inp){ var sv=inp.closest('.bk-svc'),cc=sv&&sv.querySelector('.bk-svccal'); if(cc)Array.prototype.forEach.call(cc.querySelectorAll('.bk-slot'),function(x){x.classList.remove('sel');}); }
     function openCal(btn){ var other=btn.closest('.bk-other'); calTarget={btn:btn, input:other.querySelector('.bk-odate')};
       var v=calTarget.input.value; calView=v?new Date(v):new Date(); renderCal();
-      var r=btn.getBoundingClientRect(); var popW=294; var maxL=document.documentElement.clientWidth-popW-8; var l=Math.max(8,Math.min(r.left,maxL)); calPop.style.top=(window.scrollY+r.bottom+6)+'px'; calPop.style.left=(window.scrollX+l)+'px'; calPop.classList.add('open'); }
-    function closeCal(){ calPop.classList.remove('open'); }
+      var r=btn.getBoundingClientRect(); var popW=294; var maxL=document.documentElement.clientWidth-popW-8; var l=Math.max(8,Math.min(r.left,maxL)); calPop.style.top=(window.scrollY+r.bottom+6)+'px'; calPop.style.left=(window.scrollX+l)+'px'; calPop.classList.add('open'); calPop.setAttribute('aria-hidden','false');
+      var fc=calGrid.querySelector('.bk-cal-cell.sel')||calGrid.querySelector('.bk-cal-cell.today:not([disabled])')||calGrid.querySelector('.bk-cal-cell[data-iso]:not([disabled])'); if(fc)fc.focus(); }
+    function closeCal(){ if(!calPop.classList.contains('open'))return; calPop.classList.remove('open'); calPop.setAttribute('aria-hidden','true'); if(calTarget&&calTarget.btn)calTarget.btn.focus(); }
     calPop.addEventListener('click',function(e){
       var nav=e.target.closest('.bk-calnav'); if(nav){ calView.setMonth(calView.getMonth()+(+nav.getAttribute('data-dir'))); renderCal(); return; }
       if(e.target.closest('.bk-caltoday')){ calView=new Date(); renderCal(); return; }

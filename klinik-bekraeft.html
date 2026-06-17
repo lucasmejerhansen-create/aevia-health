@@ -77,23 +77,26 @@ button{font-family:inherit;font-size:.97rem;font-weight:600;padding:14px 26px;bo
   var t=new URLSearchParams(location.search).get('t')||'';
   var tbl=document.getElementById('infotbl');
   function row(k,v){return '<tr><td class="k">'+k+'</td><td class="v">'+String(v).replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];})+'</td></tr>';}
-  var data=null;
-  try{
-    var p=t.split('.')[0].replace(/-/g,'+').replace(/_/g,'/');
-    while(p.length%4)p+='=';
-    data=JSON.parse(decodeURIComponent(escape(atob(p))));
-  }catch(e){}
-  if(!t||!data){
+  // Detaljer hentes server-verificeret (HMAC + udløbstjek). Vi af-koder ALDRIG
+  // tokenet i browseren — så et manipuleret/uægte link viser intet.
+  if(!t){
     tbl.innerHTML=row('Fejl','Linket er ugyldigt. Kontakt Aevia på +45 28 30 39 33.');
   }else{
-    var h='';
-    if(data.navn)h+=row('Navn',data.navn);
-    if(data.telefon)h+=row('Telefon',data.telefon);
-    if(data.pakke)h+=row('Pakke',data.pakke);
-    if(data.omraade)h+=row('Område',data.omraade);
-    if(data.forloeb)h+=row('Forløb',data.forloeb);
-    if(data.besked)h+=row('Besked',data.besked);
-    tbl.innerHTML=h||row('Info','Ingen detaljer');
+    tbl.innerHTML=row('Henter…','');
+    fetch('/api/booking-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({t:t,action:'read'})})
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(!j||!j.ok||!j.info){tbl.innerHTML=row('Fejl','Linket er ugyldigt eller udløbet. Kontakt Aevia på +45 28 30 39 33.');return;}
+        var d=j.info,h='';
+        if(d.navn)h+=row('Navn',d.navn);
+        if(d.telefon)h+=row('Telefon',d.telefon);
+        if(d.pakke)h+=row('Pakke',d.pakke);
+        if(d.omraade)h+=row('Område',d.omraade);
+        if(d.forloeb)h+=row('Forløb',d.forloeb);
+        if(d.besked)h+=row('Besked',d.besked);
+        tbl.innerHTML=h||row('Info','Ingen detaljer');
+      })
+      .catch(function(){tbl.innerHTML=row('Fejl','Kunne ikke hente detaljer. Kontakt Aevia på +45 28 30 39 33.');});
   }
   function send(action){
     var dato=document.getElementById('dato').value, tid=document.getElementById('tid').value;

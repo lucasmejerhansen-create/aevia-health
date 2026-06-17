@@ -87,9 +87,9 @@ function shell(inner, eyebrow) {
 }
 
 export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store");
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
-  if (!process.env.RESEND_API_KEY || !process.env.BOOKING_SECRET)
-    return res.status(500).json({ error: "not configured" });
+  if (!process.env.BOOKING_SECRET) return res.status(500).json({ error: "not configured" });
 
   let b = req.body;
   if (typeof b === "string") { try { b = JSON.parse(b); } catch { b = {}; } }
@@ -100,6 +100,17 @@ export default async function handler(req, res) {
   // links er gyldige i 30 dage
   if (Date.now() - (data.ts || 0) > 30 * 24 * 3600 * 1000) return res.status(400).json({ error: "linket er udløbet" });
 
+  // Verificeret visning: klinik-bekraeft.html henter detaljer HERFRA (efter HMAC +
+  // udløbstjek) i stedet for at af-base64'e tokenet i browseren uden verifikation.
+  if (b.action === "read") {
+    return res.status(200).json({ ok: true, info: {
+      navn: data.navn || "", telefon: data.telefon || "", pakke: data.pakke || "",
+      omraade: data.omraade || "", forloeb: data.forloeb || "", besked: data.besked || "",
+    } });
+  }
+
+  // confirm/decline sender mail og kræver derfor Resend
+  if (!process.env.RESEND_API_KEY) return res.status(500).json({ error: "not configured" });
   const action = b.action === "confirm" ? "confirm" : "decline";
   const dato = (b.dato || "").toString().slice(0, 40);
   const tid = (b.tid || "").toString().slice(0, 20);
