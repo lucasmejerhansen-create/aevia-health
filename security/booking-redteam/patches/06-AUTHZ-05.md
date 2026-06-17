@@ -102,22 +102,21 @@ behøver ingen ændring.
 ### Unified diff (klar til `git apply` fra repo-roden)
 
 ```diff
+diff --git a/api/_ratelimit.js b/api/_ratelimit.js
+index ba01356..d6df0d4 100644
 --- a/api/_ratelimit.js
 +++ b/api/_ratelimit.js
-@@ -28,11 +28,30 @@ export function doctorTokensConfigured() {
+@@ -28,12 +28,33 @@ export function doctorTokensConfigured() {
    catch { return false; }
  }
  
--function clientIp(req) {
--  const xf = req.headers && (req.headers["x-forwarded-for"] || req.headers["X-Forwarded-For"]);
--  if (xf) return String(xf).split(",")[0].trim();
--  return (req.socket && req.socket.remoteAddress) || "unknown";
--}
 +// Spoof-sikker klient-IP. Bag Vercels proxy er KLIENT-leveret XFF leftmost; det
 +// BETROEDE (proxy-tilføjede) segment er højre-mest. Foretræk x-real-ip (sat af
 +// platformen), ellers højre-mest XFF-segment, ellers socket. Det forhindrer at
 +// en angriber nulstiller sin per-IP-bucket ved at rotere leftmost XFF.
-+function clientIp(req) {
+ function clientIp(req) {
+-  const xf = req.headers && (req.headers["x-forwarded-for"] || req.headers["X-Forwarded-For"]);
+-  if (xf) return String(xf).split(",")[0].trim();
 +  const h = req.headers || {};
 +  const real = h["x-real-ip"] || h["X-Real-IP"];
 +  if (real) return String(real).trim();
@@ -126,9 +125,9 @@ behøver ingen ændring.
 +    const parts = String(xf).split(",").map((s) => s.trim()).filter(Boolean);
 +    if (parts.length) return parts[parts.length - 1]; // højre-mest = betroet hop
 +  }
-+  return (req.socket && req.socket.remoteAddress) || "unknown";
-+}
-+
+   return (req.socket && req.socket.remoteAddress) || "unknown";
+ }
+ 
 +// KV-uafhængig fallback: per-instans tæller, så fail-open ikke er UBREMSET når
 +// KV mangler/fejler. Warm-instanser bremser et vedvarende auth-fejl-loop.
 +const _mem = new Map(); // key -> { n, exp }
@@ -139,11 +138,11 @@ behøver ingen ændring.
 +  e.n += 1;
 +  return e.n > max;
 +}
- 
++
  async function cmd(c) {
    const r = await fetch(kvUrl(), {
-@@ -47,13 +66,14 @@ async function cmd(c) {
- // Tæl én auth-fejl for (bucket, IP). Returnér true hvis grænsen er overskredet.
+     method: "POST",
+@@ -48,14 +69,16 @@ async function cmd(c) {
  export async function tooManyFails(req, bucket, opts) {
    const max = (opts && opts.max) || 10;
    const windowSec = (opts && opts.windowSec) || 900; // 15 min
@@ -163,6 +162,9 @@ behøver ingen ændring.
    }
  }
 ```
+
+> Verificeret: diffen ovenfor anvender rent på den nuværende `api/_ratelimit.js`
+> (`git apply --check` uden fejl). Den er IKKE anvendt — kun foreslået.
 
 ### Regressions-risiko
 - **Delt kode:** `_ratelimit.js` deles af `clinic-portal.js`, `admin-bookings.js`
