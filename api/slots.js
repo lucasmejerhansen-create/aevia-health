@@ -12,10 +12,10 @@ export default async function handler(req, res) {
     const svc = req.query.svc ? String(req.query.svc) : "";
 
     if (!area) {
-      const areas = Object.keys(AREAS).map((name) => ({
+      const areas = await Promise.all(Object.keys(AREAS).map(async (name) => ({
         name, ready: !!AREAS[name].ready, lat: AREAS[name].lat, lng: AREAS[name].lng,
-        services: areaServices(name),
-      }));
+        services: await areaServices(name),
+      })));
       return res.status(200).json({ configured: isConfigured(), areas, svcLabels: SVC_LABELS });
     }
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     if (!svc) {
       return res.status(200).json({
         configured: isConfigured(), area, ready: !!AREAS[area].ready,
-        services: areaServices(area), svcLabels: SVC_LABELS,
+        services: await areaServices(area), svcLabels: SVC_LABELS,
       });
     }
 

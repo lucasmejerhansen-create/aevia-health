@@ -11,12 +11,13 @@
 // foregår hos forskellige klinikker med hver deres kalender. En booking har
 // derfor PARTS — én tid pr. ydelse — som reserveres alt-eller-intet.
 //
-// Nøgler i Redis:
-//   cnt:<area>:<svc>:<YYYY-MM-DD>:<HH:MM>  = antal bookede (INCR, atomisk)
-//   full:<area>:<svc>:<YYYY-MM-DD>         = SET af fyldte tider
+// Nøgler i Redis (ledighed = cnt < cap OG ikke i blk:):
+//   cnt:<area>:<svc>:<YYYY-MM-DD>:<HH:MM>  = antal bookede (INCR/DECR, atomisk)
 //   blk:<area>:<svc>:<YYYY-MM-DD>          = SET af manuelt blokerede tider
-//   bk:<id>                                = JSON: booking m. parts[]
+//   rules:<area>                           = JSON: klinik-redigerbart skema pr. ydelse
+//   bk:<id>                                = JSON: booking m. parts[] (+ att-map)
 //   day:<area>:<YYYY-MM-DD>                = SET af booking-id'er m. en part den dag
+//   cxl:<id>                               = aflysnings-lås (NX, enkelt-skud)
 //   wait:<area>                            = SET af venteliste-mails
 
 import crypto from "crypto";
@@ -90,85 +91,146 @@ function svcConf(area, svc) {
   return (a && a.svcs && a.svcs[svc]) || null;
 }
 
-// Alle teoretiske tider for en ydelse på en dato (uden hensyn til bookinger).
-export function slotsForDate(area, svc, dateStr) {
-  const c = svcConf(area, svc);
-  if (!c) return [];
+// ── Klinik-redigerbare tilgængeligheds-regler (Redis: rules:<area>) ───────────
+// Når en klinik gemmer sit skema i portalen, lægges det her og OVERSKRIVER
+// standardskemaet i AREAS for den ydelse. Findes ingen regel, bruges AREAS som
+// fallback — så nuværende live-adfærd er uændret, indtil en klinik selv sætter
+// sine tider. Format: rules:<area> = { <svc>: {wd,open,close,slot,cap,clinic,email,active} }
+export async function loadRules(area) {
+  if (!isConfigured()) return {};
+  try { const raw = await redis(["GET", `rules:${area}`]); return (raw && JSON.parse(raw)) || {}; }
+  catch { return {}; }
+}
+
+// Flet standard + klinik-regel til den EFFEKTIVE konfiguration for en ydelse.
+function mergeConf(def, rule) {
+  if (rule) {
+    if (rule.active === false) return null;             // ydelse slået fra af klinikken
+    return {
+      wd:    Array.isArray(rule.wd) ? rule.wd : (def ? def.wd : []),
+      open:  rule.open  || (def && def.open)  || "08:00",
+      close: rule.close || (def && def.close) || "12:00",
+      slot:  rule.slot  || (def && def.slot)  || 30,
+      cap:   rule.cap   || (def && def.cap)   || 1,
+      clinic: rule.clinic != null ? rule.clinic : ((def && def.clinic) || ""),
+      email:  rule.email  != null ? rule.email  : ((def && def.email)  || ""),
+    };
+  }
+  return def; // kan være null
+}
+
+// Effektiv konfiguration for én ydelse = klinik-regel ELLER AREAS-standard.
+// Returnerer null hvis ydelsen ikke findes eller er slået fra.
+export async function effectiveConf(area, svc) {
+  if (!AREAS[area]) return null;
+  return mergeConf(svcConf(area, svc), (await loadRules(area))[svc]);
+}
+
+// Teoretiske tider ud fra en konkret konfiguration (uden hensyn til bookinger).
+function slotsFromConf(conf, dateStr) {
+  if (!conf || !Array.isArray(conf.wd)) return [];
   const d = new Date(dateStr + "T00:00:00");
-  if (!c.wd.includes(d.getDay())) return [];
+  if (isNaN(d) || !conf.wd.includes(d.getDay())) return [];
   const out = [];
-  for (let t = toMin(c.open); t + c.slot <= toMin(c.close); t += c.slot) out.push(fromMin(t));
+  for (let t = toMin(conf.open); t + conf.slot <= toMin(conf.close); t += conf.slot) out.push(fromMin(t));
   return out;
+}
+
+// Rule-bevidste tider for en dato (klinik-regel ELLER standard). Async.
+export async function slotsForDateEff(area, svc, dateStr) {
+  return slotsFromConf(await effectiveConf(area, svc), dateStr);
+}
+
+// Bagudkompatibel SYNKRON variant ud fra STANDARD-skemaet (AREAS) — beholdt for
+// evt. legacy-kald. De rule-bevidste stier bruger slotsForDateEff/effectiveConf.
+export function slotsForDate(area, svc, dateStr) {
+  return slotsFromConf(svcConf(area, svc), dateStr);
 }
 
 // Ledige tider for én ydelse i et område (lead → horizon dage frem).
 export async function availability(area, svc) {
   const a = AREAS[area];
-  const c = svcConf(area, svc);
+  const c = a && a.ready ? await effectiveConf(area, svc) : null;
   if (!a || !a.ready || !c) return { ready: false, days: [] };
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const days = [];
-  const fullByDate = {};
 
-  if (isConfigured()) {
-    const dates = [];
-    for (let i = a.lead; i <= a.horizon; i++) {
-      const d = new Date(today); d.setDate(d.getDate() + i);
-      if (c.wd.includes(d.getDay())) dates.push(isoDate(d));
-    }
-    await Promise.all(dates.map(async (ds) => {
-      try { fullByDate[ds] = new Set((await redis(["SMEMBERS", `full:${area}:${svc}:${ds}`])) || []); }
-      catch { fullByDate[ds] = new Set(); }
-    }));
-  }
-
+  // Saml de datoer (m. teoretiske tider) der overhovedet kan have ledighed.
+  const dateSlots = [];
   for (let i = a.lead; i <= a.horizon; i++) {
     const d = new Date(today); d.setDate(d.getDate() + i);
     const ds = isoDate(d);
-    const all = slotsForDate(area, svc, ds);
-    if (!all.length) continue;
-    const full = fullByDate[ds] || new Set();
-    const free = all.filter((t) => !full.has(t));
-    if (free.length) days.push({ date: ds, times: free });
+    const all = slotsFromConf(c, ds);
+    if (all.length) dateSlots.push({ ds, all });
   }
+
+  // Uden Redis: vis alle teoretiske tider (booking afvises pænt andetsteds).
+  if (!isConfigured()) {
+    return { ready: true, days: dateSlots.map(({ ds, all }) => ({ date: ds, times: all })), clinic: c.clinic || "" };
+  }
+
+  // Ledig = cnt < cap OG ikke blokeret. cnt hentes samlet pr. dato via MGET.
+  const days = [];
+  await Promise.all(dateSlots.map(async ({ ds, all }) => {
+    let blocked = new Set(); let counts = [];
+    try { blocked = new Set((await redis(["SMEMBERS", `blk:${area}:${svc}:${ds}`])) || []); } catch {}
+    try { counts = (await redis(["MGET", ...all.map((t) => `cnt:${area}:${svc}:${ds}:${t}`)])) || []; } catch {}
+    const free = all.filter((t, i) => (parseInt(counts[i] || "0", 10) < c.cap) && !blocked.has(t));
+    if (free.length) days.push({ date: ds, times: free });
+  }));
+  days.sort((x, y) => x.date.localeCompare(y.date)); // Promise.all kan blande rækkefølgen
   return { ready: true, days, clinic: c.clinic || "" };
 }
 
-// Hvilke ydelser er bookbare i området (har eget skema)?
-export function areaServices(area) {
+// Hvilke ydelser er bookbare i området (standard ELLER klinik-regel)? Async.
+export async function areaServices(area) {
   const a = AREAS[area];
   if (!a) return {};
+  const rules = await loadRules(area);
   const out = {};
   for (const svc of Object.keys(SVC_LABELS)) {
-    out[svc] = a.svcs && a.svcs[svc] ? { bookable: true, clinic: a.svcs[svc].clinic || "" } : { bookable: false };
+    const conf = mergeConf(a.svcs && a.svcs[svc], rules[svc]);
+    out[svc] = (conf && Array.isArray(conf.wd) && conf.wd.length)
+      ? { bookable: true, clinic: conf.clinic || "" }
+      : { bookable: false };
   }
   return out;
 }
 
 // ── Lavniveau-reservation af én part (atomisk) ───────────────────────────────
-async function reservePart(area, svc, date, time) {
-  const c = svcConf(area, svc);
+// SANDHED: ledighed = cnt (antal bookede) < cap OG ikke i blk: (blokeret).
+// Vi bruger IKKE et separat "full:"-sæt — det kunne ikke holdes konsistent, når
+// klinikker selv ændrer kapacitet. cnt er den eneste tæller, blk det eneste flag.
+
+// DECR der aldrig går under 0 (atomisk via Lua) — beskytter mod dobbelt-frigivelse.
+async function decrFloor(key) {
+  return redis(["EVAL",
+    "local n=redis.call('DECR',KEYS[1]); if tonumber(n)<0 then redis.call('SET',KEYS[1],'0'); n=0 end; return n",
+    1, key]);
+}
+
+async function reservePart(area, svc, date, time, conf) {
+  const c = conf || svcConf(area, svc);
   if (!c) return { ok: false, reason: "Ydelsen findes ikke i området." };
-  if (!slotsForDate(area, svc, date).includes(time)) return { ok: false, reason: "Tiden findes ikke i kalenderen." };
+  if (!slotsFromConf(c, date).includes(time)) return { ok: false, reason: "Tiden findes ikke i kalenderen." };
   const cntKey = `cnt:${area}:${svc}:${date}:${time}`;
   const n = await redis(["INCR", cntKey]);
   if (n > c.cap) {
     await redis(["DECR", cntKey]);
     return { ok: false, reason: "Tiden blev desværre lige booket. Vælg en anden." };
   }
-  if (n === c.cap) await redis(["SADD", `full:${area}:${svc}:${date}`, time]);
+  // Blokeret af klinikken (ferie/sygdom)? Rul reservationen tilbage.
+  if (await redis(["SISMEMBER", `blk:${area}:${svc}:${date}`, time])) {
+    await decrFloor(cntKey);
+    return { ok: false, reason: "Tiden er ikke længere ledig." };
+  }
   await redis(["EXPIRE", cntKey, 60 * 60 * 24 * 90]);
   return { ok: true };
 }
 
 async function releasePart(area, svc, date, time) {
-  try {
-    await redis(["DECR", `cnt:${area}:${svc}:${date}:${time}`]);
-    // Frigiv kun hvis tiden ikke også er manuelt blokeret.
-    const blocked = await redis(["SISMEMBER", `blk:${area}:${svc}:${date}`, time]);
-    if (!blocked) await redis(["SREM", `full:${area}:${svc}:${date}`, time]);
-  } catch (e) { console.error("releasePart-fejl:", e.message); }
+  try { await decrFloor(`cnt:${area}:${svc}:${date}:${time}`); }
+  catch (e) { console.error("releasePart-fejl:", e.message); }
 }
 
 // ── Multi-reservation: alt eller intet ───────────────────────────────────────
@@ -188,9 +250,14 @@ export async function reserveMulti({ area, parts, customer }) {
     seen.add(p.svc);
   }
 
+  // Forudindlæs effektive konfigurationer, så hele reservationen er konsistent
+  // (klinik-regel ELLER standard) — også selvom en regel ændres undervejs.
+  const confs = {};
+  for (const p of parts) confs[p.svc] = await effectiveConf(area, p.svc);
+
   const reserved = [];
   for (const p of parts) {
-    const r = await reservePart(area, p.svc, p.date, p.time);
+    const r = await reservePart(area, p.svc, p.date, p.time, confs[p.svc]);
     if (!r.ok) {
       for (const q of reserved) await releasePart(area, q.svc, q.date, q.time);
       const lbl = (SVC_LABELS[p.svc] && SVC_LABELS[p.svc].da) || p.svc;
@@ -213,6 +280,10 @@ export async function cancel(id) {
   if (!raw) return { ok: false, reason: "Booking findes ikke." };
   const b = JSON.parse(raw);
   if (b.status === "cancelled") return { ok: true, booking: b };
+  // Enkelt-skud: kun ÉN samtidig aflysning frigiver tiderne (NX-lås) — så to
+  // klik/retries ikke dobbelt-dekrementerer cnt og frigiver fremmede pladser.
+  const lock = await redis(["SET", `cxl:${id}`, "1", "NX", "EX", 86400]);
+  if (lock !== "OK") return { ok: true, booking: b };
   for (const p of b.parts || []) await releasePart(b.area, p.svc, p.date, p.time);
   b.status = "cancelled";
   await redis(["SET", `bk:${id}`, JSON.stringify(b), "EX", 60 * 60 * 24 * 30]);
@@ -251,23 +322,99 @@ export function verifyBookingSig(id, sig) {
 }
 
 // ── Blokering pr. ydelse (klinik-portal/admin) ───────────────────────────────
+// Kun blk:-flaget — ledighed afgøres af cnt < cap OG ikke-blokeret (se reservePart
+// og availability). Ingen kapacitets-logik nødvendig her længere.
 export async function blockTime(area, svc, date, time) {
   if (!isConfigured()) return { ok: false };
-  await redis(["SADD", `full:${area}:${svc}:${date}`, time]);
   await redis(["SADD", `blk:${area}:${svc}:${date}`, time]);
   return { ok: true };
 }
 export async function unblockTime(area, svc, date, time) {
   if (!isConfigured()) return { ok: false };
   await redis(["SREM", `blk:${area}:${svc}:${date}`, time]);
-  const c = svcConf(area, svc);
-  const n = parseInt((await redis(["GET", `cnt:${area}:${svc}:${date}:${time}`])) || "0", 10);
-  if (!c || n < c.cap) await redis(["SREM", `full:${area}:${svc}:${date}`, time]);
   return { ok: true };
 }
 export async function blockedTimes(area, svc, date) {
   if (!isConfigured()) return [];
   return (await redis(["SMEMBERS", `blk:${area}:${svc}:${date}`])) || [];
+}
+
+// ── Klinik gemmer/ændrer sit ugentlige skema (rules:<area>) ──────────────────
+const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function sanitizeRule(input, def) {
+  // wd: brug input hvis givet, ellers fald tilbage til standard-skemaets dage
+  // (så fx setactive uden et nyt skema ikke kommer til at nulstille til 0 dage).
+  const wd = Array.isArray(input.wd)
+    ? [...new Set(input.wd.map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n <= 6))].sort((a, b) => a - b)
+    : ((def && Array.isArray(def.wd)) ? def.wd.slice() : []);
+  const hhmm = (v, fb) => (/^([01]\d|2[0-3]):[0-5]\d$/.test(String(v)) ? String(v) : fb);
+  const open = hhmm(input.open, (def && def.open) || "08:00");
+  const close = hhmm(input.close, (def && def.close) || "12:00");
+  if (toMin(close) <= toMin(open)) return { error: "Sluttid skal være efter starttid." };
+  let slot = Math.round(Number(input.slot)); if (!(slot >= 10 && slot <= 240)) slot = (def && def.slot) || 30;
+  let cap = Math.round(Number(input.cap)); if (!(cap >= 1 && cap <= 20)) cap = (def && def.cap) || 1;
+  const clinic = input.clinic != null ? String(input.clinic).slice(0, 80) : ((def && def.clinic) || "");
+  const email = (input.email != null && EMAIL_OK.test(String(input.email).trim()))
+    ? String(input.email).trim().toLowerCase()
+    : ((def && def.email) || "");
+  // active: respektér eksplicit valg (default true) — så ét gem kan sætte til/fra
+  // atomisk uden en separat setactive-runde (ingen kort "åben"-vinduesrace).
+  return { wd, open, close, slot, cap, clinic, email, active: input.active !== false };
+}
+
+export async function saveRules(area, svc, input) {
+  if (!isConfigured()) return { ok: false, reason: "Ikke konfigureret." };
+  if (!AREAS[area] || !SVC_LABELS[svc]) return { ok: false, reason: "Ugyldigt område/ydelse." };
+  const rule = sanitizeRule(input || {}, svcConf(area, svc));
+  if (rule.error) return { ok: false, reason: rule.error };
+  const rules = await loadRules(area);
+  rules[svc] = rule;
+  await redis(["SET", `rules:${area}`, JSON.stringify(rules)]);
+  return { ok: true, rule };
+}
+
+// Slå en ydelse til/fra for området (uden at slette skemaet).
+export async function setServiceActive(area, svc, active) {
+  if (!isConfigured()) return { ok: false };
+  if (!AREAS[area] || !SVC_LABELS[svc]) return { ok: false };
+  const rules = await loadRules(area);
+  const base = rules[svc] || sanitizeRule({}, svcConf(area, svc));
+  rules[svc] = { ...base, active: !!active };
+  await redis(["SET", `rules:${area}`, JSON.stringify(rules)]);
+  return { ok: true, active: !!active };
+}
+
+// Konfiguration til portalens skema-editor: nuværende værdier + til/fra-status,
+// uanset om ydelsen er aktiv (så klinikken kan se og redigere et slået-fra skema).
+export async function configForEditor(area, svc) {
+  const def = svcConf(area, svc);
+  const stored = (await loadRules(area))[svc];
+  const base = stored || def || {};
+  return {
+    wd: Array.isArray(base.wd) ? base.wd : [],
+    open: base.open || "08:00",
+    close: base.close || "12:00",
+    slot: base.slot || 30,
+    cap: base.cap || 1,
+    clinic: base.clinic || "",
+    email: base.email || "",
+    active: stored ? stored.active !== false : !!def,
+    hasDefault: !!def,
+  };
+}
+
+// ── Fremmøde: klinikken markerer gennemført / udeblevet pr. part ──────────────
+// Gemmes på bookingen som att[`<svc>:<date>:<time>`] = "done" | "noshow".
+export async function markAttendance(id, key, status) {
+  if (!isConfigured() || !id) return { ok: false };
+  const raw = await redis(["GET", `bk:${id}`]);
+  if (!raw) return { ok: false, reason: "Booking findes ikke." };
+  const b = JSON.parse(raw);
+  b.att = b.att || {};
+  if (status === "done" || status === "noshow") b.att[key] = status;
+  else delete b.att[key];
+  await redis(["SET", `bk:${id}`, JSON.stringify(b), "KEEPTTL"]);
+  return { ok: true, booking: b };
 }
 
 // ── Venteliste pr. område ────────────────────────────────────────────────────

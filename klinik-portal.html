@@ -6,113 +6,227 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Aevia · Klinik-portal</title>
 <style>
-:root{--navy:#ffffff;--navy-2:#f6f8fb;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--ok:#3fb27f;--bad:#e0844b}
+:root{--navy:#ffffff;--navy-2:#f6f8fb;--line-2:#d4dbe3;--text:#0a1628;--muted:#46505f;--muted-2:#697585;--gold:#8f7118;--gold-deep:#6f5912;--ok:#3fb27f;--bad:#b3261e;--amber:#b07a16}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#ffffff;color:var(--text);line-height:1.5;padding:24px 16px}
-.wrap{max-width:680px;margin:0 auto}
+.wrap{max-width:720px;margin:0 auto}
 h1{font-size:1.4rem;margin-bottom:4px}
 .sub{color:var(--muted-2);font-size:.9rem;margin-bottom:22px}
-.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--navy-2);border:1px solid var(--line-2);border-radius:12px;padding:14px;margin-bottom:18px}
+.card{background:var(--navy-2);border:1px solid var(--line-2);border-radius:14px;padding:18px;margin-bottom:18px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
 label{font-size:.78rem;color:var(--muted-2);display:block;margin-bottom:4px}
-input{background:#ffffff;border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.92rem}
-input:focus{outline:none;border-color:var(--gold)}
-.btn{background:var(--text);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-weight:600;cursor:pointer;font:inherit;font-size:.9rem}
+input,select{background:#ffffff;border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.92rem}
+input:focus,select:focus{outline:2px solid var(--text);outline-offset:1px;border-color:var(--gold)}
+.btn{background:var(--text);color:#fff;border:none;border-radius:999px;padding:10px 18px;font-weight:600;cursor:pointer;font:inherit;font-size:.9rem;display:inline-flex;align-items:center;min-height:42px}
 .btn:hover{background:var(--gold-deep)}
-.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--line-2)}
-.areatag{font-size:.85rem;color:var(--gold);margin-bottom:14px;display:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:20px}
-.slot{border-radius:10px;padding:10px 8px;text-align:center;font-size:.88rem;cursor:pointer;border:1px solid var(--line-2);background:var(--navy-2)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid #8a96a5}
+.btn.sm{padding:6px 12px;min-height:34px;font-size:.82rem}
+h2{font-size:1.05rem;margin:0 0 12px}
+.tag{font-size:.85rem;color:var(--gold);margin:2px 0 14px;display:none}
+.muted{color:var(--muted-2);font-size:.82rem}
+.hidden{display:none}
+/* skema-editor */
+.days{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.day{border:1px solid var(--line-2);border-radius:999px;padding:8px 13px;font-size:.85rem;cursor:pointer;user-select:none;background:#fff;min-height:40px;display:inline-flex;align-items:center}
+.day.on{background:var(--text);color:#fff;border-color:var(--text)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:14px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--text);cursor:pointer}
+/* dag-view */
+.legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted-2);margin-bottom:10px;flex-wrap:wrap}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:6px}
+.slot{border-radius:10px;padding:10px 8px;text-align:center;font-size:.88rem;cursor:pointer;border:1px solid var(--line-2);background:#fff;min-height:54px}
 .slot small{display:block;font-size:.68rem;margin-top:3px;color:var(--muted-2)}
-.slot.free{border-color:rgba(63,178,127,.4)}
-.slot.free small{color:var(--ok)}
-.slot.blocked{background:rgba(224,132,75,.08);border-color:rgba(224,132,75,.45);color:var(--muted)}
-.slot.blocked small{color:var(--bad)}
-.slot.booked{background:rgba(201,164,55,.1);border-color:var(--gold);cursor:default}
-.slot.booked small{color:var(--gold)}
-h2{font-size:1rem;margin:18px 0 10px}
+.slot.free{border-color:rgba(63,178,127,.45)}.slot.free small{color:var(--ok)}
+.slot.blocked{background:rgba(176,122,22,.08);border-color:rgba(176,122,22,.5);color:var(--muted)}.slot.blocked small{color:var(--amber)}
+.slot.booked{background:rgba(201,164,55,.1);border-color:var(--gold);cursor:default}.slot.booked small{color:var(--gold)}
 table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line-2);font-size:.9rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line-2);font-size:.9rem;vertical-align:middle}
 th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
 .empty{color:var(--muted-2);padding:24px 0;text-align:center}
-.note{font-size:.8rem;color:var(--muted-2);margin-top:14px}
-.legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted-2);margin-bottom:10px;flex-wrap:wrap}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
+.pill{font-size:.72rem;padding:3px 9px;border-radius:999px;font-weight:600}
+.pill.done{background:rgba(63,178,127,.14);color:#2e7d57}
+.pill.noshow{background:rgba(179,38,30,.12);color:var(--bad)}
+.att{display:flex;gap:6px;flex-wrap:wrap}
+.att button{border:1px solid var(--line-2);background:#fff;border-radius:8px;padding:5px 9px;font-size:.78rem;cursor:pointer;min-height:32px}
+.att button.on-done{background:var(--ok);color:#fff;border-color:var(--ok)}
+.att button.on-noshow{background:var(--bad);color:#fff;border-color:var(--bad)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:11px 20px;border-radius:999px;font-size:.9rem;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+.note{font-size:.8rem;color:var(--muted-2);margin-top:6px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Klinik-portal</h1>
-  <p class="sub">Se dagens Aevia-bookinger og blokér tider, når I selv skal bruge dem. Ændringer slår igennem med det samme.</p>
+  <p class="sub">Styr selv jeres Aevia-tider. Ændringer slår igennem med det samme — kunder ser kun reelt ledige tider og får bekræftelse på sekundet.</p>
 
-  <div class="bar">
-    <div><label for="tok">Jeres adgangsnøgle</label><input id="tok" type="password" placeholder="Indsæt nøglen fra Aevia" style="width:200px"></div>
-    <div><label for="svc">Ydelse</label><select id="svc" style="background:#ffffff;border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;color:var(--text);font:inherit;font-size:.92rem"></select></div>
-    <div><label for="date">Dato</label><input id="date" type="date"></div>
-    <button class="btn" onclick="load()">Vis dag</button>
-    <button class="btn ghost" onclick="day('blockday')">Blokér hele dagen</button>
-    <button class="btn ghost" onclick="day('unblockday')">Frigiv hele dagen</button>
+  <!-- Login + valg -->
+  <div class="card">
+    <div class="bar">
+      <div><label for="tok">Jeres adgangsnøgle</label><input id="tok" type="password" placeholder="Indsæt nøglen fra Aevia" style="width:200px"></div>
+      <div><label for="svc">Ydelse</label><select id="svc"></select></div>
+      <button class="btn" onclick="load()">Åbn</button>
+    </div>
+    <p class="tag" id="tag"></p>
   </div>
 
-  <p class="areatag" id="areatag"></p>
-  <div class="legend"><span><span class="dot" style="background:var(--ok)"></span>Ledig (klik for at blokere)</span><span><span class="dot" style="background:var(--bad)"></span>Blokeret (klik for at frigive)</span><span><span class="dot" style="background:var(--gold)"></span>Booket af kunde</span></div>
-  <div class="grid" id="slots"><p class="empty">Indtast nøgle og dato, og tryk "Vis dag".</p></div>
+  <!-- Skema-editor -->
+  <div class="card hidden" id="editor">
+    <h2>Jeres faste skema</h2>
+    <p class="muted" style="margin-bottom:14px">Vælg ugedage, åbningstid, hvor lang en tid varer, og hvor mange I kan tage ad gangen. Aevia laver automatisk de bookbare tider ud fra det — I behøver ikke taste enkelttider ind.</p>
+    <label>Ugedage</label>
+    <div class="days" id="days"></div>
+    <div class="fields">
+      <div><label for="open">Åbner</label><input id="open" type="time" step="900"></div>
+      <div><label for="close">Lukker</label><input id="close" type="time" step="900"></div>
+      <div><label for="slot">Varighed pr. tid</label><select id="slot"><option value="15">15 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option><option value="90">90 min</option></select></div>
+      <div><label for="cap">Kapacitet (samtidige)</label><input id="cap" type="number" min="1" max="20" value="1"></div>
+    </div>
+    <div class="fields">
+      <div><label for="clinic">Klinikkens visningsnavn (valgfri)</label><input id="clinic" type="text" placeholder="Fx Heartfit Viborg"></div>
+      <div><label for="email">Notifikations-e-mail (valgfri)</label><input id="email" type="email" placeholder="booking@jeresklinik.dk"></div>
+    </div>
+    <div class="bar" style="margin-top:4px;justify-content:space-between">
+      <label class="switch"><input type="checkbox" id="active"> Ydelsen er åben for booking</label>
+      <button class="btn" onclick="saveRules()">Gem skema</button>
+    </div>
+    <p class="note">Eksempel: Tirsdag + torsdag, 08:00–12:00, 30 min, kapacitet 1 → 8 bookbare tider pr. dag.</p>
+  </div>
 
-  <h2>Dagens bookinger</h2>
-  <div id="list"><p class="empty">—</p></div>
-  <p class="note">Skal en kundes tid aflyses, så kontakt Aevia: kontakt@aevia.dk · +45 28 30 39 33. Bookede tider kan ikke blokeres her.</p>
+  <!-- Dag-view: undtagelser -->
+  <div class="card hidden" id="dayview">
+    <div class="bar" style="justify-content:space-between;margin-bottom:12px">
+      <h2 style="margin:0">Enkeltdag — blokér ved ferie/sygdom</h2>
+      <div class="bar">
+        <div><label for="date">Dato</label><input id="date" type="date"></div>
+        <button class="btn ghost sm" onclick="load()">Vis dag</button>
+      </div>
+    </div>
+    <div class="legend"><span><span class="dot" style="background:var(--ok)"></span>Ledig (klik for at blokere)</span><span><span class="dot" style="background:var(--amber)"></span>Blokeret (klik for at frigive)</span><span><span class="dot" style="background:var(--gold)"></span>Booket</span></div>
+    <div class="grid" id="slots"></div>
+    <div class="bar" style="margin-top:8px">
+      <button class="btn ghost sm" onclick="day('blockday')">Blokér hele dagen</button>
+      <button class="btn ghost sm" onclick="day('unblockday')">Frigiv hele dagen</button>
+    </div>
+  </div>
+
+  <!-- Bookinger -->
+  <div class="card hidden" id="bookcard">
+    <h2>Bookinger denne dag</h2>
+    <div id="list"><p class="empty">—</p></div>
+    <p class="note">Aflysning af en kundes tid: kontakt Aevia — kontakt@aevia.dk · +45 28 30 39 33.</p>
+  </div>
 </div>
+<div class="toast" id="toast"></div>
 
 <script>
+var DAYS=[["Man",1],["Tir",2],["Ons",3],["Tor",4],["Fre",5],["Lør",6],["Søn",0]];
+document.getElementById('days').innerHTML=DAYS.map(function(d){return '<span class="day" data-wd="'+d[1]+'">'+d[0]+'</span>';}).join('');
+Array.prototype.forEach.call(document.querySelectorAll('.day'),function(el){el.onclick=function(){el.classList.toggle('on');};});
 document.getElementById('date').value=new Date().toISOString().slice(0,10);
 document.getElementById('svc').addEventListener('change',function(){if(tok())load();});
+
 function tok(){return document.getElementById('tok').value.trim();}
 function dt(){return document.getElementById('date').value;}
-function svcSel(){var el=document.getElementById('svc');return el.value||'';}
+function svcSel(){return document.getElementById('svc').value||'';}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+
 function load(){
   if(!tok()){alert('Indsæt jeres adgangsnøgle');return;}
   fetch('/api/clinic-portal?token='+encodeURIComponent(tok())+'&date='+dt()+(svcSel()?'&svc='+encodeURIComponent(svcSel()):''))
     .then(function(r){return r.json();})
     .then(function(d){
       if(d.error){alert(d.error);return;}
-      var at=document.getElementById('areatag'); at.textContent='Område: '+d.area+(d.svc?' · '+d.svc:'')+' · '+dt(); at.style.display='block';
+      var tag=document.getElementById('tag');tag.textContent='Område: '+d.area+(d.svc?' · '+d.svc:'');tag.style.display='block';
+      if(!d.configured){
+        document.getElementById('editor').classList.add('hidden');
+        document.getElementById('bookcard').classList.add('hidden');
+        document.getElementById('dayview').classList.remove('hidden');
+        document.getElementById('slots').innerHTML='<p class="empty">Systemet er ikke aktiveret endnu — kontakt Aevia.</p>';
+        return;
+      }
+      document.getElementById('editor').classList.remove('hidden');
+      document.getElementById('dayview').classList.remove('hidden');
+      document.getElementById('bookcard').classList.remove('hidden');
       if(d.svcs){var sel=document.getElementById('svc');var cur=d.svc||'';
-        sel.innerHTML=d.svcs.map(function(x){return '<option value="'+x.key+'"'+(x.key===cur?' selected':'')+'>'+x.label+'</option>';}).join('');}
-      var g=document.getElementById('slots');
-      if(!d.configured){g.innerHTML='<p class="empty">Systemet er ikke aktiveret endnu.</p>';return;}
-      if(!d.slots||!d.slots.length){g.innerHTML='<p class="empty">Ingen Aevia-tider denne dag (uden for jeres faste dage).</p>';}
-      else{
-        g.innerHTML=d.slots.map(function(s){
-          var lbl=s.status==='booked'?'Booket':(s.status==='blocked'?'Blokeret':'Ledig');
-          return '<div class="slot '+s.status+'" data-time="'+s.time+'" data-status="'+s.status+'"><strong>'+s.time+'</strong><small>'+lbl+'</small></div>';
-        }).join('');
-        Array.prototype.forEach.call(g.querySelectorAll('.slot'),function(el){
-          el.onclick=function(){
-            var st=el.getAttribute('data-status');
-            if(st==='booked')return;
-            act(st==='blocked'?'unblock':'block',el.getAttribute('data-time'));
-          };
-        });
-      }
-      var list=document.getElementById('list');
-      var conf=d.bookings||[];
-      if(!conf.length){list.innerHTML='<p class="empty">Ingen bookinger denne dag.</p>';}
-      else{
-        list.innerHTML='<table><thead><tr><th>Tid</th><th>Navn</th><th>Pakke</th><th>Kontakt</th></tr></thead><tbody>'+conf.map(function(b){
-          return '<tr><td><strong>'+b.time+'</strong></td><td>'+esc(b.customer&&b.customer.name||'')+'</td><td>'+esc(b.customer&&b.customer.pkg||'—')+'</td><td style="color:var(--muted-2)">'+esc(b.customer&&(b.customer.phone||b.customer.email)||'')+'</td></tr>';
-        }).join('')+'</tbody></table>';
-      }
+        sel.innerHTML=d.svcs.map(function(x){return '<option value="'+x.key+'"'+(x.key===cur?' selected':'')+'>'+esc(x.label)+'</option>';}).join('');}
+      fillEditor(d.rule||{});
+      fillSlots(d.slots||[]);
+      fillBookings(d.bookings||[]);
     }).catch(function(){alert('Netværksfejl');});
 }
-function act(action,time){
-  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok(),action:action,date:dt(),time:time,svc:svcSel()})})
-    .then(function(r){return r.json();}).then(function(d){if(d.error)alert(d.error);load();});
+
+function fillEditor(rule){
+  var on=new Set(rule.wd||[]);
+  Array.prototype.forEach.call(document.querySelectorAll('.day'),function(el){
+    el.classList.toggle('on',on.has(Number(el.getAttribute('data-wd'))));});
+  document.getElementById('open').value=rule.open||'08:00';
+  document.getElementById('close').value=rule.close||'12:00';
+  document.getElementById('slot').value=String(rule.slot||30);
+  document.getElementById('cap').value=rule.cap||1;
+  document.getElementById('clinic').value=rule.clinic||'';
+  document.getElementById('email').value=rule.email||'';
+  document.getElementById('active').checked=rule.active!==false;
 }
+
+function selectedWd(){return Array.prototype.filter.call(document.querySelectorAll('.day'),function(el){return el.classList.contains('on');}).map(function(el){return Number(el.getAttribute('data-wd'));});}
+
+function saveRules(){
+  var wd=selectedWd();
+  if(!wd.length){alert('Vælg mindst én ugedag');return;}
+  post({action:'saveRules',svc:svcSel(),wd:wd,
+    open:document.getElementById('open').value,close:document.getElementById('close').value,
+    slot:Number(document.getElementById('slot').value),cap:Number(document.getElementById('cap').value),
+    clinic:document.getElementById('clinic').value,email:document.getElementById('email').value,
+    active:document.getElementById('active').checked
+  },function(){toast('Skema gemt');load();});
+}
+
+function fillSlots(slots){
+  var g=document.getElementById('slots');
+  if(!slots.length){g.innerHTML='<p class="empty">Ingen tider denne dag (uden for jeres skema).</p>';return;}
+  g.innerHTML=slots.map(function(s){
+    var lbl=s.status==='booked'?'Booket':(s.status==='blocked'?'Blokeret':'Ledig');
+    return '<div class="slot '+s.status+'" data-time="'+s.time+'" data-status="'+s.status+'"><strong>'+s.time+'</strong><small>'+lbl+'</small></div>';
+  }).join('');
+  Array.prototype.forEach.call(g.querySelectorAll('.slot'),function(el){
+    el.onclick=function(){var st=el.getAttribute('data-status');if(st==='booked')return;
+      post({action:st==='blocked'?'unblock':'block',svc:svcSel(),date:dt(),time:el.getAttribute('data-time')},load);};
+  });
+}
+
+function fillBookings(rows){
+  var list=document.getElementById('list');
+  if(!rows.length){list.innerHTML='<p class="empty">Ingen bookinger denne dag.</p>';return;}
+  list.innerHTML='<table><thead><tr><th>Tid</th><th>Navn</th><th>Pakke</th><th>Kontakt</th><th>Fremmøde</th></tr></thead><tbody>'+rows.map(function(b){
+    var c=b.customer||{};var a=b.attendance||'';
+    var att='<div class="att">'+
+      '<button class="'+(a==='done'?'on-done':'')+'" data-id="'+b.id+'" data-time="'+b.time+'" data-st="done">Mødt</button>'+
+      '<button class="'+(a==='noshow'?'on-noshow':'')+'" data-id="'+b.id+'" data-time="'+b.time+'" data-st="noshow">Udeblev</button></div>';
+    return '<tr><td><strong>'+b.time+'</strong></td><td>'+esc(c.name)+'</td><td>'+esc(c.pkg||'—')+'</td><td class="muted">'+esc(c.phone||c.email)+'</td><td>'+att+'</td></tr>';
+  }).join('')+'</tbody></table>';
+  Array.prototype.forEach.call(list.querySelectorAll('.att button'),function(el){
+    el.onclick=function(){
+      var cur=el.classList.contains('on-done')||el.classList.contains('on-noshow');
+      var st=cur?'':el.getAttribute('data-st');
+      post({action:'attendance',svc:svcSel(),bookingId:el.getAttribute('data-id'),date:dt(),time:el.getAttribute('data-time'),status:st},function(){toast('Fremmøde gemt');load();});
+    };
+  });
+}
+
 function day(action){
-  if(!tok()){alert('Indsæt jeres adgangsnøgle');return;}
-  if(action==='blockday'&&!confirm('Blokér ALLE ledige tider '+dt()+'? Bookede tider påvirkes ikke.'))return;
-  act(action,null);
+  if(action==='blockday'&&!confirm('Blokér ALLE tider '+dt()+' for nye bookinger? Allerede bookede tider beholdes.'))return;
+  post({action:action,svc:svcSel(),date:dt()},load);
 }
-function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+
+function post(payload,cb){
+  payload.token=tok();
+  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();}).then(function(d){if(d.error){alert(d.error);return;}if(cb)cb(d);})
+    .catch(function(){alert('Netværksfejl');});
+}
 </script>
 </body>
 </html>

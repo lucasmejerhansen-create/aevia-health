@@ -6,7 +6,7 @@
 // Sikkerhed: Vercel Cron sender "Authorization: Bearer <CRON_SECRET>".
 // Miljøvariabler: CRON_SECRET, KV_REST_API_URL, KV_REST_API_TOKEN, RESEND_API_KEY, MAIL_FROM
 
-import { AREAS, SVC_LABELS, listDay, bookingSig, isConfigured } from "./_booking-store.js";
+import { AREAS, SVC_LABELS, listDay, bookingSig, isConfigured, effectiveConf } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
       for (const svc of Object.keys(bySvc)) {
         const rows = bySvc[svc].sort((a, b) => a.time.localeCompare(b.time)).map((x) =>
           `<tr><td style="padding:6px 10px;border-bottom:1px solid #ddd"><b>${x.time}</b></td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.name}</td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.pkg || "—"}</td><td style="padding:6px 10px;border-bottom:1px solid #ddd">${x.c.phone || x.c.email}</td></tr>`).join("");
-        const conf = AREAS[area].svcs[svc] || {};
+        const conf = (await effectiveConf(area, svc)) || {};
         const to = conf.email || "kontakt@aevia.dk";
         await sendMail({
           to, bcc: to === "kontakt@aevia.dk" ? undefined : "kontakt@aevia.dk",

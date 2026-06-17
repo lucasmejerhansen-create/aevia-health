@@ -7,7 +7,7 @@
 //
 // Miljøvariabler: KV_REST_API_URL, KV_REST_API_TOKEN, RESEND_API_KEY, MAIL_FROM, SITE_URL
 
-import { reserveMulti, AREAS, SVC_LABELS, bookingSig, isPaid, setBookingPaid } from "./_booking-store.js";
+import { reserveMulti, AREAS, SVC_LABELS, bookingSig, isPaid, setBookingPaid, effectiveConf } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -18,9 +18,9 @@ function svcLabel(svc, lang) {
   const l = SVC_LABELS[svc];
   return l ? (lang === "en" ? l.en : l.da) : svc;
 }
-function clinicFor(area, svc) {
-  const c = AREAS[area] && AREAS[area].svcs && AREAS[area].svcs[svc];
-  return (c && c.clinic) || "";
+// confs = { <svc>: effektiv konfiguration } — klinik-regel ELLER standard.
+function clinicFor(confs, svc) {
+  return (confs && confs[svc] && confs[svc].clinic) || "";
 }
 function fmtDate(date, time, lang) {
   try {
@@ -31,18 +31,18 @@ function fmtDate(date, time, lang) {
 }
 
 // .ics med ét VEVENT pr. ydelse.
-function icsFor({ id, area, parts, lang }) {
+function icsFor({ id, area, parts, lang, confs }) {
   const da = lang !== "en";
   const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Aevia Health//Booking//DA", "METHOD:PUBLISH"];
   const stamp = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
   parts.forEach((p, i) => {
-    const conf = AREAS[area] && AREAS[area].svcs && AREAS[area].svcs[p.svc];
+    const conf = confs && confs[p.svc];
     const slotMin = (conf && conf.slot) || 30;
     const [h, m] = p.time.split(":").map(Number);
     const start = p.date.replace(/-/g, "") + "T" + String(h).padStart(2, "0") + String(m).padStart(2, "0") + "00";
     const endMin = h * 60 + m + slotMin;
     const end = p.date.replace(/-/g, "") + "T" + String(Math.floor(endMin / 60)).padStart(2, "0") + String(endMin % 60).padStart(2, "0") + "00";
-    const loc = clinicFor(area, p.svc) || area;
+    const loc = clinicFor(confs, p.svc) || area;
     lines.push(
       "BEGIN:VEVENT",
       `UID:${id}-${i}@aevia.dk`,
@@ -65,14 +65,14 @@ function icsFor({ id, area, parts, lang }) {
   return Buffer.from(lines.join("\r\n")).toString("base64");
 }
 
-function partsTable(area, parts, lang) {
+function partsTable(confs, parts, lang) {
   return parts.map((p) => {
-    const cl = clinicFor(area, p.svc);
+    const cl = clinicFor(confs, p.svc);
     return `<tr><td style="color:#0a1628;font-size:14px;padding:7px 0;border-bottom:1px solid #eef1f4">${svcLabel(p.svc, lang)}${cl ? `<br><span style="color:#697585;font-size:12px">${cl}</span>` : ""}</td><td style="color:#8a6d10;font-size:14px;font-weight:bold;text-align:right;border-bottom:1px solid #eef1f4">${fmtDate(p.date, p.time, lang)}</td></tr>`;
   }).join("");
 }
 
-function customerMail({ lang, name, area, parts, payUrl, manageUrl, paid }) {
+function customerMail({ lang, name, area, parts, payUrl, manageUrl, paid, confs }) {
   const da = lang !== "en";
   const h1 = paid
     ? (da ? `Tusind tak${name ? ", " + name : ""} — alt er på plads` : `Thank you${name ? ", " + name : ""} — everything is in place`)
@@ -101,7 +101,7 @@ function customerMail({ lang, name, area, parts, payUrl, manageUrl, paid }) {
       <h1 style="color:#0a1628;font-size:20px;margin:0 0 12px;font-family:Georgia,serif">${h1}</h1>
       <p style="color:#46505f;font-size:15px;line-height:1.7;margin:0 0 14px">${intro}</p>
       <p style="color:#697585;font-size:13px;margin:0 0 6px">${area}</p>
-      <table style="width:100%;border-collapse:collapse;margin:0 0 16px">${partsTable(area, parts, lang)}</table>
+      <table style="width:100%;border-collapse:collapse;margin:0 0 16px">${partsTable(confs, parts, lang)}</table>
       ${payBlock}
       ${next}
       <p style="color:#46505f;font-size:14px;line-height:1.6;margin:16px 0 0">${da
@@ -154,6 +154,11 @@ export default async function handler(req, res) {
   const manageUrl = `${SITE}/api/min-booking?id=${r.id}&sig=${bookingSig(r.id)}${isEN ? "&lang=en" : ""}`;
   const whenList = cleanParts.map((p) => `${svcLabel(p.svc, customer.lang)}: ${fmtDate(p.date, p.time, customer.lang)}`);
 
+  // Effektive konfigurationer (klinik-regel ELLER standard) til klinik-navn,
+  // slot-længde i .ics og notifikations-mail pr. ydelse.
+  const confs = {};
+  for (const p of cleanParts) { try { confs[p.svc] = await effectiveConf(area, p.svc); } catch { confs[p.svc] = null; } }
+
   // Kunde-bekræftelse (én mail, alle tider, .ics med flere events)
   try {
     if (process.env.RESEND_API_KEY) {
@@ -161,8 +166,8 @@ export default async function handler(req, res) {
         to: customer.email,
         bcc: "kontakt@aevia.dk",
         subject: isEN ? "Your appointments with Aevia are confirmed" : "Dine tider hos Aevia er bekræftet",
-        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, parts: cleanParts, payUrl, manageUrl, paid: alreadyPaid }),
-        attachments: [{ filename: "aevia-booking.ics", content: icsFor({ id: r.id, area, parts: cleanParts, lang: customer.lang }) }],
+        html: customerMail({ lang: customer.lang, name: customer.name.split(" ")[0], area, parts: cleanParts, payUrl, manageUrl, paid: alreadyPaid, confs }),
+        attachments: [{ filename: "aevia-booking.ics", content: icsFor({ id: r.id, area, parts: cleanParts, lang: customer.lang, confs }) }],
       });
     }
   } catch (e) { console.error("Kundemail-fejl:", e.message); }
@@ -171,7 +176,7 @@ export default async function handler(req, res) {
   try {
     if (process.env.RESEND_API_KEY) {
       for (const p of cleanParts) {
-        const conf = AREAS[area].svcs[p.svc] || {};
+        const conf = confs[p.svc] || {};
         const to = conf.email || "kontakt@aevia.dk";
         await sendMail({
           to,
