@@ -50,7 +50,7 @@ th{color:var(--muted-2);font-size:.74rem;text-transform:uppercase;letter-spacing
 <script>
 var AREAS=[];
 function tok(){return document.getElementById('tok').value.trim();}
-function api(path){return fetch(path,{headers:{'Cache-Control':'no-store'}}).then(function(r){return r.json();});}
+function api(path){return fetch(path,{headers:{'Cache-Control':'no-store','Authorization':'Bearer '+tok()}}).then(function(r){return r.json();});}
 
 // Init: hent områdeliste (offentligt endpoint)
 api('/api/slots').then(function(d){
@@ -66,7 +66,7 @@ function load(){
   if(!tok()){alert('Angiv admin-token');return;}
   var area=document.getElementById('area').value, date=document.getElementById('date').value;
   var out=document.getElementById('out'); out.innerHTML='<p class="empty">Henter…</p>';
-  api('/api/admin-bookings?token='+encodeURIComponent(tok())+'&area='+encodeURIComponent(area)+'&date='+date)
+  api('/api/admin-bookings?area='+encodeURIComponent(area)+'&date='+date)
     .then(function(d){
       if(d.error){out.innerHTML='<p class="empty">'+d.error+'</p>';return;}
       var b=d.bookings||[];

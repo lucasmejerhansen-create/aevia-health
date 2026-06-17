@@ -8,7 +8,14 @@
 
 import { listDay, cancel, AREAS, isConfigured, waitlistPop } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
+import { tooManyFails, bearerToken } from "./_ratelimit.js";
 import crypto from "crypto";
+
+// 403 + brute-force-bremse: tæl auth-fejl, returnér 429 ved for mange.
+async function deny(req, res) {
+  if (await tooManyFails(req, "admin-bookings")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." });
+  return res.status(403).json({ error: "Adgang nægtet" });
+}
 
 function authed(token) {
   const expected = process.env.ADMIN_TOKEN || "";
@@ -22,8 +29,9 @@ export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   if (req.method === "GET") {
-    const { token, area, date } = req.query || {};
-    if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+    const { area, date } = req.query || {};
+    const token = bearerToken(req) || (req.query && req.query.token); // header foretrukket; query som fallback
+    if (!authed(token)) return deny(req, res);
     if (!isConfigured()) return res.status(200).json({ configured: false, bookings: [], areas: Object.keys(AREAS) });
     if (!area || !date) return res.status(200).json({ configured: true, bookings: [], areas: Object.keys(AREAS) });
     try {
@@ -38,8 +46,9 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     let body = req.body;
     if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
-    const { token, action, id } = body || {};
-    if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+    const { action, id } = body || {};
+    const token = bearerToken(req) || (body && body.token);
+    if (!authed(token)) return deny(req, res);
     if (action === "cancel" && id) {
       try {
         const r = await cancel(String(id));

@@ -6,6 +6,7 @@
 // approved_for_release) ligger i motoren (nextState i _engine.mjs) — single
 // source of truth. Beskyttes af ADMIN_TOKEN. Bruges af admin-rapport.html.
 import crypto from "crypto";
+import { tooManyFails } from "./_ratelimit.js";
 import { nextState } from "./_engine.mjs";
 import { setStatus } from "./_store.js";
 
@@ -24,7 +25,7 @@ export default async function handler(req, res) {
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
   const { token, status, event, doctorId, note, reportId } = body || {};
-  if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+  if (!authed(token)) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
 
   try {
     const at = new Date().toISOString();

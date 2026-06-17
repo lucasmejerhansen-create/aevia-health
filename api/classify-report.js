@@ -10,6 +10,7 @@
 //
 // ⚠️  Ingen LIVE patientdata før DPIA + DPA-aftaler er på plads.
 import crypto from "crypto";
+import { tooManyFails } from "./_ratelimit.js";
 import { buildReportDraft } from "./_engine.mjs";
 
 function authed(token) {
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
   if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
   const { token, patient, patients, adherence, previous, baseline } = body || {};
 
-  if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+  if (!authed(token)) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
 
   // ---- Batch: masseindlæsning af flere patienter ----
   if (Array.isArray(patients)) {

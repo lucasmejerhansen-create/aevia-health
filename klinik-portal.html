@@ -135,7 +135,7 @@ function toast(m){var t=document.getElementById('toast');t.textContent=m;t.class
 
 function load(){
   if(!tok()){alert('Indsæt jeres adgangsnøgle');return;}
-  fetch('/api/clinic-portal?token='+encodeURIComponent(tok())+'&date='+dt()+(svcSel()?'&svc='+encodeURIComponent(svcSel()):''))
+  fetch('/api/clinic-portal?date='+dt()+(svcSel()?'&svc='+encodeURIComponent(svcSel()):''),{headers:{'Authorization':'Bearer '+tok()}})
     .then(function(r){return r.json();})
     .then(function(d){
       if(d.error){alert(d.error);return;}

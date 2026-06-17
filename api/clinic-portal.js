@@ -22,6 +22,13 @@ import {
   slotsForDateEff, saveRules, setServiceActive, configForEditor,
   getBooking, markAttendance, isConfigured,
 } from "./_booking-store.js";
+import { tooManyFails, bearerToken } from "./_ratelimit.js";
+
+// 403 + brute-force-bremse: tæl auth-fejl, returnér 429 ved for mange.
+async function deny(req, res) {
+  if (await tooManyFails(req, "clinic-portal")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." });
+  return res.status(403).json({ error: "Adgang nægtet" });
+}
 
 function accessForToken(token) {
   try {
@@ -48,9 +55,10 @@ export default async function handler(req, res) {
 
   // ── GET: dagens overblik + skema for valgt ydelse ──────────────────────────
   if (req.method === "GET") {
-    const { token, date, svc } = req.query || {};
+    const { date, svc } = req.query || {};
+    const token = bearerToken(req) || (req.query && req.query.token); // header foretrukket; query som fallback
     const access = accessForToken(token);
-    if (!access) return res.status(403).json({ error: "Adgang nægtet" });
+    if (!access) return deny(req, res);
     if (!isConfigured()) return res.status(200).json({ configured: false, area: access.area });
 
     const svcs = allowedSvcs(access);
@@ -96,9 +104,10 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     let body = req.body;
     if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
-    const { token, action } = body || {};
+    const { action } = body || {};
+    const token = bearerToken(req) || (body && body.token);
     const access = accessForToken(token);
-    if (!access) return res.status(403).json({ error: "Adgang nægtet" });
+    if (!access) return deny(req, res);
     if (!isConfigured()) return res.status(503).json({ error: "Ikke konfigureret" });
 
     const svcs = allowedSvcs(access);
