@@ -255,6 +255,11 @@ async function reservePart(area, svc, date, time, conf, busy) {
   if (!slotsFromConf(c, date).includes(time)) return { ok: false, reason: "Tiden findes ikke i kalenderen." };
   // Optaget i klinikkens tilknyttede kalender? (tjek før INCR — ingen rollback)
   if (slotIsBusy(busy, date, time, c.slot)) return { ok: false, reason: "Tiden er ikke længere ledig." };
+  // Live re-tjek mod kalenderen for den endelige commit — lukker det op-til-5-min
+  // cache-vindue, så instant-bekræftelse ikke booker oven i en ekstern aftale.
+  if (c.calUrl) {
+    try { if (slotIsBusy(await fetchBusy(c.calUrl), date, time, c.slot)) return { ok: false, reason: "Tiden er ikke længere ledig." }; } catch (_) {}
+  }
   const cntKey = `cnt:${area}:${svc}:${date}:${time}`;
   const n = await redis(["INCR", cntKey]);
   // Sæt TTL straks efter INCR, så nøglen udløber uanset hvilken sti vi forlader

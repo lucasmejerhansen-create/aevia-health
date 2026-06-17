@@ -338,7 +338,9 @@ header.site{background:rgba(255,255,255,.82)}
 .nav-cta:hover{background:#16243d!important;color:#fff!important}
 #aev-mcta a{background:var(--text)!important;color:#fff!important}
 .bioage .big,.stat .num{color:var(--text)}
-.hero-bg{display:block;background:#11223a url('assets/billeder/hero-lounge.webp') center/cover}.hero-bg img{display:none}.hero-bg::after{background:radial-gradient(72% 52% at 8% 108%,rgba(255,255,255,.82) 0%,rgba(255,255,255,0) 60%),linear-gradient(100deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.74) 42%,rgba(255,255,255,.4) 100%)}.hero .btn-ghost{background:rgba(255,255,255,.82);border-color:rgba(10,22,40,.22);color:var(--text);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}.hero .btn-ghost:hover{background:#fff;border-color:var(--gold);color:var(--text)}
+.hero-bg{display:block;background:#11223a url('assets/billeder/hero-lounge.webp') center/cover}
+@media(max-width:1200px){.hero-bg{background-image:url('assets/billeder/hero-lounge-1200.webp')}}
+@media(max-width:800px){.hero-bg{background-image:url('assets/billeder/hero-lounge-800.webp')}}.hero-bg img{display:none}.hero-bg::after{background:radial-gradient(72% 52% at 8% 108%,rgba(255,255,255,.82) 0%,rgba(255,255,255,0) 60%),linear-gradient(100deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.74) 42%,rgba(255,255,255,.4) 100%)}.hero .btn-ghost{background:rgba(255,255,255,.82);border-color:rgba(10,22,40,.22);color:var(--text);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}.hero .btn-ghost:hover{background:#fff;border-color:var(--gold);color:var(--text)}
 .hero::before{background:radial-gradient(900px 440px at var(--gx,70%) var(--gy,-10%),rgba(143,113,24,.06),transparent 70%)}
 .page-hero::before{background:radial-gradient(700px 320px at 25% -20%,rgba(143,113,24,.05),transparent 70%)}
 .bar{background:#e3e9f0;border-color:var(--line)}
@@ -363,7 +365,7 @@ header.site{background:rgba(255,255,255,.82)}
 header.site .nav{transition:height .25s ease}header.site .logo{transition:font-size .25s ease}
 header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .nav{height:58px}header.site.aev-shrink .logo{font-size:1.26rem}
 </style>
-<link rel="preload" as="image" href="assets/billeder/hero-lounge.webp" fetchpriority="high"></head>
+<link rel="preload" as="image" href="assets/billeder/hero-lounge-800.webp" media="(max-width:800px)" fetchpriority="high"><link rel="preload" as="image" href="assets/billeder/hero-lounge.webp" media="(min-width:801px)" fetchpriority="high"></head>
 <body>
 <a class="skiplink" href="#main">Spring til indhold</a>
 
