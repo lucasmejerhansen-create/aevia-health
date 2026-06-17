@@ -39,9 +39,14 @@ function icsFor({ id, area, parts, lang, confs }) {
     const conf = confs && confs[p.svc];
     const slotMin = (conf && conf.slot) || 30;
     const [h, m] = p.time.split(":").map(Number);
-    const start = p.date.replace(/-/g, "") + "T" + String(h).padStart(2, "0") + String(m).padStart(2, "0") + "00";
-    const endMin = h * 60 + m + slotMin;
-    const end = p.date.replace(/-/g, "") + "T" + String(Math.floor(endMin / 60)).padStart(2, "0") + String(endMin % 60).padStart(2, "0") + "00";
+    // Beregn via Date, så slut-tider efter midnat ruller datoen korrekt
+    // (i stedet for ugyldigt 'T240000').
+    const startDt = new Date(p.date + "T" + String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0") + ":00");
+    const endDt = new Date(startDt.getTime() + slotMin * 60000);
+    const z2 = (n) => String(n).padStart(2, "0");
+    const fmtLocal = (d) => "" + d.getFullYear() + z2(d.getMonth() + 1) + z2(d.getDate()) + "T" + z2(d.getHours()) + z2(d.getMinutes()) + "00";
+    const start = fmtLocal(startDt);
+    const end = fmtLocal(endDt);
     const loc = clinicFor(confs, p.svc) || area;
     lines.push(
       "BEGIN:VEVENT",

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     const { area, date } = req.query || {};
-    const token = bearerToken(req) || (req.query && req.query.token); // header foretrukket; query som fallback
+    const token = bearerToken(req); // kun Authorization-header — aldrig i URL/logs
     if (!authed(token)) return deny(req, res);
     if (!isConfigured()) return res.status(200).json({ configured: false, bookings: [], areas: Object.keys(AREAS) });
     if (!area || !date) return res.status(200).json({ configured: true, bookings: [], areas: Object.keys(AREAS) });
@@ -52,15 +52,16 @@ export default async function handler(req, res) {
     if (action === "cancel" && id) {
       try {
         const r = await cancel(String(id));
-        // Frigivet tid → mail ventelisten (først til mølle).
-        if (r.ok && process.env.RESEND_API_KEY) {
+        // Frigivet tid → mail ventelisten (kun når DENNE aflysning frigjorde).
+        if (r.released && process.env.RESEND_API_KEY) {
           try {
             const b = r.booking;
+            const when = (b.parts || []).map((p) => `${p.date} kl. ${p.time}`).join(" · ");
             const waiters = await waitlistPop(b.area);
             const SITE = process.env.SITE_URL || "https://aevia.dk";
             for (const em of waiters) {
               await sendMail({ to: em, subject: `En tid er blevet ledig i ${b.area}`,
-                html: `<div style="font-family:Arial,sans-serif"><p>God nyhed — en tid er netop blevet ledig i ${b.area} (${b.date} kl. ${b.time}). Først til mølle:</p><p><a href="${SITE}/book.html" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px">Book tiden nu</a></p></div>` });
+                html: `<div style="font-family:Arial,sans-serif"><p>God nyhed — en tid er netop blevet ledig i ${b.area}${when ? ` (${when})` : ""}. Først til mølle:</p><p><a href="${SITE}/book.html" style="display:inline-block;background:#eef2f7;color:#ffffff;font-weight:bold;text-decoration:none;border-radius:999px;padding:12px 24px">Book tiden nu</a></p></div>` });
             }
           } catch (e) { console.error("Venteliste-notifikation:", e.message); }
         }

@@ -84,6 +84,13 @@ async function redis(cmd) {
 // ── Slot-generering ──────────────────────────────────────────────────────────
 function pad(n) { return n < 10 ? "0" + n : "" + n; }
 function isoDate(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+// Dags dato i DANSK kalender (ikke serverens UTC) — så lead/horizon tælles fra
+// den danske dag også når Vercel kører i UTC og klokken er 00-02 dansk tid.
+function dkToday() {
+  const s = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Copenhagen", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
 function toMin(hhmm) { const [h, m] = hhmm.split(":").map(Number); return h * 60 + m; }
 function fromMin(min) { return pad(Math.floor(min / 60)) + ":" + pad(min % 60); }
 
@@ -174,7 +181,7 @@ export async function availability(area, svc) {
   const c = a && a.ready ? await effectiveConf(area, svc) : null;
   if (!a || !a.ready || !c) return { ready: false, days: [] };
 
-  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const today = dkToday();
 
   // Saml de datoer (m. teoretiske tider) der overhovedet kan have ledighed.
   const dateSlots = [];
@@ -198,9 +205,16 @@ export async function availability(area, svc) {
   // Ledig = cnt < cap OG ikke blokeret OG ikke optaget i kalenderen.
   const days = [];
   await Promise.all(dateSlots.map(async ({ ds, all }) => {
-    let blocked = new Set(); let counts = [];
-    try { blocked = new Set((await redis(["SMEMBERS", `blk:${area}:${svc}:${ds}`])) || []); } catch {}
-    try { counts = (await redis(["MGET", ...all.map((t) => `cnt:${area}:${svc}:${ds}:${t}`)])) || []; } catch {}
+    let blocked, counts;
+    try {
+      blocked = new Set((await redis(["SMEMBERS", `blk:${area}:${svc}:${ds}`])) || []);
+      counts = (await redis(["MGET", ...all.map((t) => `cnt:${area}:${svc}:${ds}:${t}`)])) || [];
+    } catch (e) {
+      // Fail-CLOSED: udelad dagen hvis vi ikke kan afgøre ledighed — vis aldrig
+      // bookede/blokerede tider som ledige ved transient Redis-fejl.
+      console.error(`availability: Redis-fejl ${area}/${svc}/${ds} — dagen udelades`, e && e.message);
+      return;
+    }
     const free = all.filter((t, i) => (parseInt(counts[i] || "0", 10) < c.cap) && !blocked.has(t) && !slotIsBusy(busy, ds, t, c.slot));
     if (free.length) days.push({ date: ds, times: free });
   }));
@@ -231,7 +245,7 @@ export async function areaServices(area) {
 // DECR der aldrig går under 0 (atomisk via Lua) — beskytter mod dobbelt-frigivelse.
 async function decrFloor(key) {
   return redis(["EVAL",
-    "local n=redis.call('DECR',KEYS[1]); if tonumber(n)<0 then redis.call('SET',KEYS[1],'0'); n=0 end; return n",
+    "local n=redis.call('DECR',KEYS[1]); if tonumber(n)<0 then redis.call('SET',KEYS[1],'0','KEEPTTL'); n=0 end; return n",
     1, key]);
 }
 
@@ -243,6 +257,9 @@ async function reservePart(area, svc, date, time, conf, busy) {
   if (slotIsBusy(busy, date, time, c.slot)) return { ok: false, reason: "Tiden er ikke længere ledig." };
   const cntKey = `cnt:${area}:${svc}:${date}:${time}`;
   const n = await redis(["INCR", cntKey]);
+  // Sæt TTL straks efter INCR, så nøglen udløber uanset hvilken sti vi forlader
+  // ad (success ELLER afvist) — ingen evigt-levende cnt-nøgler.
+  await redis(["EXPIRE", cntKey, 60 * 60 * 24 * 90]);
   if (n > c.cap) {
     await redis(["DECR", cntKey]);
     return { ok: false, reason: "Tiden blev desværre lige booket. Vælg en anden." };
@@ -252,7 +269,6 @@ async function reservePart(area, svc, date, time, conf, busy) {
     await decrFloor(cntKey);
     return { ok: false, reason: "Tiden er ikke længere ledig." };
   }
-  await redis(["EXPIRE", cntKey, 60 * 60 * 24 * 90]);
   return { ok: true };
 }
 
@@ -269,11 +285,13 @@ export async function reserveMulti({ area, parts, customer }) {
   if (!Array.isArray(parts) || !parts.length || parts.length > 4) return { ok: false, reason: "Ugyldigt tidsvalg." };
   if (!isConfigured()) return { ok: false, reason: "Booking er ikke konfigureret endnu." };
 
-  const minDate = new Date(); minDate.setHours(0, 0, 0, 0); minDate.setDate(minDate.getDate() + a.lead);
+  const minDate = dkToday(); minDate.setDate(minDate.getDate() + a.lead);
   const seen = new Set();
   for (const p of parts) {
     const d = new Date(p.date + "T00:00:00");
-    if (isNaN(d) || d < minDate) return { ok: false, reason: "Vælg en senere dato." };
+    // isoDate(d) !== p.date afviser ikke-eksisterende datoer (fx 2026-02-30 som
+    // JS-Date ellers ruller til 2026-03-02).
+    if (isNaN(d) || isoDate(d) !== p.date || d < minDate) return { ok: false, reason: "Vælg en senere dato." };
     if (seen.has(p.svc)) return { ok: false, reason: "Samme ydelse er valgt to gange." };
     seen.add(p.svc);
   }
@@ -309,11 +327,13 @@ export async function cancel(id) {
   const raw = await redis(["GET", `bk:${id}`]);
   if (!raw) return { ok: false, reason: "Booking findes ikke." };
   const b = JSON.parse(raw);
-  if (b.status === "cancelled") return { ok: true, booking: b };
+  // released=false: denne kald frigjorde IKKE tiderne (allerede aflyst / tabte
+  // låsen) → kalderen skal ikke maile venteliste/klinik igen.
+  if (b.status === "cancelled") return { ok: true, released: false, booking: b };
   // Enkelt-skud: kun ÉN samtidig aflysning frigiver tiderne (NX-lås) — så to
   // klik/retries ikke dobbelt-dekrementerer cnt og frigiver fremmede pladser.
   const lock = await redis(["SET", `cxl:${id}`, "1", "NX", "EX", 86400]);
-  if (lock !== "OK") return { ok: true, booking: b };
+  if (lock !== "OK") return { ok: true, released: false, booking: b };
   for (const p of b.parts || []) await releasePart(b.area, p.svc, p.date, p.time);
   // Slet også betalingsmarkøren knyttet til kundens e-mail (GDPR-minimering).
   const email = b.customer && b.customer.email;
@@ -323,7 +343,7 @@ export async function cancel(id) {
   // Kalderen får den fulde booking retur til evt. kvitterings-/aflysningsmail.
   const stored = { ...b, customer: { cancelled: true } };
   await redis(["SET", `bk:${id}`, JSON.stringify(stored), "EX", 60 * 60 * 24 * 30]);
-  return { ok: true, booking: b };
+  return { ok: true, released: true, booking: b };
 }
 
 export async function getBooking(id) {

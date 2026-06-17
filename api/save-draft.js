@@ -2,6 +2,7 @@
 import crypto from "crypto";
 import { assertNoPII } from "./_engine.mjs";
 import { saveDraft } from "./_store.js";
+import { tooManyFails } from "./_ratelimit.js";
 
 function authed(token) {
   const expected = process.env.ADMIN_TOKEN || "";
@@ -15,7 +16,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
   let body = req.body; if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
   const { token, draft } = body || {};
-  if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+  if (!authed(token)) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
   if (!draft || !Array.isArray(draft.classifiedMarkers)) return res.status(400).json({ error: "Mangler draft" });
   try { assertNoPII(draft, "save-draft"); } catch (e) { return res.status(400).json({ error: e.message }); }
   try {

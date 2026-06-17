@@ -486,8 +486,9 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
         <li><a href="proces.html">Sådan virker det</a></li>
         <li><a href="indsigter.html">Indsigter</a></li>
         <li><a href="om-os.html">Om Aevia</a></li>
+        <li><a href="klinikker.html">Klinikker</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a class="nav-cta active" href="book.html">Book dit check</a></li>
-      
         <li class="lang-li"><a href="book.html" class="lang-active" aria-current="true">DA</a><span class="sep" aria-hidden="true">/</span><a href="en/book.html" hreflang="en" aria-label="Switch to English">EN</a></li>
       </ul>
     </nav>
@@ -639,7 +640,7 @@ header.site.aev-shrink{background:rgba(255,255,255,.92)}header.site.aev-shrink .
       var leg=document.getElementById('map-legend');
       Object.keys(cats).forEach(function(k){var s=document.createElement('span');s.className='leg';s.innerHTML='<i style="background:'+cats[k].c+'"></i>'+cats[k].navn;leg.appendChild(s);});
       var map=L.map('aevia-map',{gestureHandling:true,gestureHandlingOptions:{text:{touch:"Brug to fingre for at flytte kortet",scroll:"Brug Ctrl + scroll for at zoome",scrollMac:"Brug \u2318 + scroll for at zoome"},duration:1200}}).setView([55.9,11.3],6);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap, &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap, &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
       var pts=[];
       clinics.forEach(function(c){
         var m=L.circleMarker([c.lat,c.lng],{radius:9,weight:2,color:'#0a1628',fillColor:cats[c.kat].c,fillOpacity:1}).addTo(map);

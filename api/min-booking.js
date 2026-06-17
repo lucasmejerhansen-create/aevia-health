@@ -6,7 +6,7 @@
 // ikke kan gættes. "Flyt" = aflys + book ny tid (tiden frigives med det samme).
 // Ved aflysning notificeres klinik/kontakt@ og ventelisten for området mailes.
 
-import { getBooking, cancel, verifyBookingSig, waitlistPop, AREAS, SVC_LABELS } from "./_booking-store.js";
+import { getBooking, cancel, verifyBookingSig, waitlistPop, effectiveConf, AREAS, SVC_LABELS } from "./_booking-store.js";
 import { sendMail } from "./_emails.js";
 
 const SITE = process.env.SITE_URL || "https://aevia.dk";
@@ -75,13 +75,22 @@ export default async function handler(req, res) {
         `<h1>${da ? "Kunne ikke aflyse" : "Could not cancel"}</h1><p>${r.reason || ""}</p><p>${da ? "Skriv til kontakt@aevia.dk." : "Write to kontakt@aevia.dk."}</p>` }));
     }
 
-    // Notifikationer (må ikke vælte svaret)
+    // Notifikationer (må ikke vælte svaret). Kun når DENNE aflysning reelt
+    // frigjorde tiderne (r.released) — så to samtidige aflysninger ikke
+    // dobbelt-mailer ventelisten.
     try {
-      if (process.env.RESEND_API_KEY) {
-        const to = (AREAS[b.area] && AREAS[b.area].clinic) || "kontakt@aevia.dk";
-        await sendMail({ to, bcc: to === "kontakt@aevia.dk" ? undefined : "kontakt@aevia.dk",
-          subject: `Aflyst af kunden: ${b.area} · ${when}`,
-          html: `<p style="font-family:Arial,sans-serif">Kunden har aflyst:<br><b>${when}</b> · ${b.area}<br>${b.customer ? b.customer.name + " · " + b.customer.email : ""}<br>Booking-id: ${id}</p>` });
+      if (process.env.RESEND_API_KEY && r.released) {
+        // Find klinik-modtager(e) pr. ydelse (samme kilde som ny-booking: conf.email).
+        const recipients = new Set();
+        for (const p of (b.parts || [])) {
+          try { const c = await effectiveConf(b.area, p.svc); if (c && c.email) recipients.add(c.email); } catch (_) {}
+        }
+        if (!recipients.size) recipients.add("kontakt@aevia.dk");
+        for (const to of recipients) {
+          await sendMail({ to, bcc: to === "kontakt@aevia.dk" ? undefined : "kontakt@aevia.dk",
+            subject: `Aflyst af kunden: ${b.area} · ${when}`,
+            html: `<p style="font-family:Arial,sans-serif">Kunden har aflyst:<br><b>${when}</b> · ${b.area}<br>${b.customer ? b.customer.name + " · " + (b.customer.phone || b.customer.email || "") : ""}<br>Booking-id: ${id}</p>` });
+        }
 
         // Venteliste: tiden er frigivet — giv besked (først til mølle).
         const waiters = await waitlistPop(b.area);

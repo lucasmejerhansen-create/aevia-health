@@ -40,13 +40,18 @@ async function sendMail({ to, subject, html, bcc, attachments }) {
 
 // Kalenderfil (.ics) for den bekræftede tid — 1 times varighed, lokal dansk tid.
 function icsFor({ dato, tid, sted }) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dato)) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(String(tid))) return null;
   const [y, mo, da] = dato.split("-").map(Number);
   const [hh, mi] = tid.split(":").map(Number);
   if (!y || !mo || !da || isNaN(hh)) return null;
   const p = (n) => (n < 10 ? "0" + n : "" + n);
-  const start = `${y}${p(mo)}${p(da)}T${p(hh)}${p(mi || 0)}00`;
-  const endH = hh + 1;
-  const end = `${y}${p(mo)}${p(da)}T${p(endH)}${p(mi || 0)}00`;
+  // Beregn slut via Date (1 times varighed), så sene tider ruller datoen korrekt
+  // i stedet for ugyldigt 'T243000'.
+  const startDt = new Date(y, mo - 1, da, hh, mi || 0, 0);
+  const endDt = new Date(startDt.getTime() + 60 * 60 * 1000);
+  const fmt = (d) => `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}T${p(d.getHours())}${p(d.getMinutes())}00`;
+  const start = fmt(startDt);
+  const end = fmt(endDt);
   const stamp = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
   const escIcs = (s) => String(s || "").replace(/\\/g, "\\\\").replace(/[,;]/g, (c) => "\\" + c).replace(/\n/g, "\\n");
   return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Aevia//Booking//DA", "METHOD:PUBLISH",

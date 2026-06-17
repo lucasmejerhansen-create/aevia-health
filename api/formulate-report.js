@@ -12,6 +12,7 @@
 // Kræver ANTHROPIC_API_KEY (+ valgfri AEVIA_AI_MODEL). Uden nøgle → klar fejl.
 import crypto from "crypto";
 import { assertNoPII } from "./_engine.mjs";
+import { tooManyFails } from "./_ratelimit.js";
 
 function authed(token) {
   const expected = process.env.ADMIN_TOKEN || "";
@@ -39,7 +40,7 @@ export default async function handler(req, res) {
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
   const { token, draft, lang } = body || {};
-  if (!authed(token)) return res.status(403).json({ error: "Adgang nægtet" });
+  if (!authed(token)) { if (await tooManyFails(req, "reports")) return res.status(429).json({ error: "For mange forsøg. Prøv igen senere." }); return res.status(403).json({ error: "Adgang nægtet" }); }
   if (!draft || !Array.isArray(draft.classifiedMarkers)) return res.status(400).json({ error: "Mangler draft" });
 
   // Hård sikkerhedskontrol: ingen PII må nå AI'en.

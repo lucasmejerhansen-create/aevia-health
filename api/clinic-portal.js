@@ -57,7 +57,7 @@ export default async function handler(req, res) {
   // ── GET: dagens overblik + skema for valgt ydelse ──────────────────────────
   if (req.method === "GET") {
     const { date, svc } = req.query || {};
-    const token = bearerToken(req) || (req.query && req.query.token); // header foretrukket; query som fallback
+    const token = bearerToken(req); // kun Authorization-header — aldrig i URL/logs
     const access = accessForToken(token);
     if (!access) return deny(req, res);
     if (!isConfigured()) return res.status(200).json({ configured: false, area: access.area });
