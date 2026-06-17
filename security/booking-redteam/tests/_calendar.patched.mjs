@@ -54,11 +54,12 @@ function parseRRule(s) {
 }
 // Ekspandér gentaget hændelse (DAILY/WEEKLY m. INTERVAL/COUNT/UNTIL/BYDAY) inden
 // for [winStart, winEnd]. Ikke-understøttede frekvenser → kun førsteforekomst.
-function expandRRule(startMs, durMs, rruleStr, exset, winStart, winEnd) {
+// budget: { left } — delt iterations-budget på tværs af alle VEVENT'er i feedet.
+function expandRRule(startMs, durMs, rruleStr, exset, winStart, winEnd, budget) {
   const out = [];
   const r = parseRRule(rruleStr);
   const freq = (r.FREQ || "").toUpperCase();
-  const interval = Math.max(1, parseInt(r.INTERVAL || "1", 10) || 1);
+  const interval = Math.min(MAX_INTERVAL, Math.max(1, parseInt(r.INTERVAL || "1", 10) || 1));
   const count = r.COUNT ? (parseInt(r.COUNT, 10) || Infinity) : Infinity;
   let until = Infinity;
   if (r.UNTIL) { const m = /^(\d{4})(\d{2})(\d{2})/.exec(r.UNTIL); if (m) until = Date.UTC(+m[1], +m[2] - 1, +m[3], 23, 59, 59); }
@@ -72,8 +73,18 @@ function expandRRule(startMs, durMs, rruleStr, exset, winStart, winEnd) {
   const tod = startMs - startDay;
   const startWeekday = new Date(startMs).getUTCDay();
   const weekAnchor = startDay - startWeekday * DAY;
+  // ICS-01: spring direkte frem til den første dag, der kan ramme vinduet, i
+  // stedet for at iterere dag-for-dag fra DTSTART (som kan ligge år i fortiden).
+  const winFloor = winStart - durMs;
+  let firstDay = startDay;
+  if (winFloor > startMs) {
+    const daysAhead = Math.floor((winFloor - startDay) / DAY);
+    firstDay = startDay + daysAhead * DAY; // bevarer fase mod startDay (DAILY/WEEKLY-modulo holder)
+  }
   let emitted = 0, cap = 4000;
-  for (let day = startDay; day <= winEnd && emitted < count && cap > 0; day += DAY, cap--) {
+  for (let day = firstDay; day <= winEnd && emitted < count && cap > 0; day += DAY, cap--) {
+    if (budget.left <= 0) break;        // globalt feed-budget opbrugt
+    budget.left--;
     const occ = day + tod;
     if (occ < startMs) continue;
     if (occ > until) break;
@@ -100,10 +111,15 @@ export function parseICS(text) {
   const now = Date.now();
   const winStart = now - 2 * 86400000;
   const winEnd = now + 60 * 86400000; // dækker lead..horizon (42d) + buffer
+  const budget = { left: MAX_TOTAL_ITERS }; // ICS-01: delt iterations-budget for hele feedet
+  let veventCount = 0;
   let inEv = false, start = null, end = null, rrule = null, rdates = [], exdates = [];
   for (const ln of merged) {
     const up = ln.toUpperCase();
-    if (up.startsWith("BEGIN:VEVENT")) { inEv = true; start = end = rrule = null; rdates = []; exdates = []; continue; }
+    if (up.startsWith("BEGIN:VEVENT")) {
+      if (++veventCount > MAX_VEVENTS) break; // ICS-01: loft på antal VEVENT'er
+      inEv = true; start = end = rrule = null; rdates = []; exdates = []; continue;
+    }
     if (up.startsWith("END:VEVENT")) {
       if (start) {
         let e = end ? end.ms : (start.dateOnly ? start.ms + 86400000 : start.ms);
@@ -111,7 +127,7 @@ export function parseICS(text) {
         const dur = Math.max(e - start.ms, start.dateOnly ? 86400000 : 0);
         const exset = new Set(exdates);
         if (rrule) {
-          for (const iv of expandRRule(start.ms, dur, rrule, exset, winStart, winEnd)) out.push(iv);
+          for (const iv of expandRRule(start.ms, dur, rrule, exset, winStart, winEnd, budget)) out.push(iv);
         } else if (dur > 0 && !exset.has(start.ms)) {
           out.push({ start: start.ms, end: start.ms + dur });
         }
