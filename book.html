@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book dit helbredstjek online | Aevia Health, Vælg dato og tid</title>
+<title>Book dit helbredstjek online | Aevia, vælg dato og tid</title>
 <meta name="description" content="Book dit helbredstjek på under et minut: vælg dato og tid i kalenderen og få bekræftelse på mail med det samme. Ingen salgssamtale.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aevia.dk/book.html">
@@ -852,7 +852,7 @@ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(argu
 .aevc-chip:hover{border-color:var(--gold);color:var(--text)}
 #aevc-form{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
 #aevc-input{flex:1;background:var(--navy);border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;color:var(--text);font-family:inherit;font-size:.92rem}
-#aevc-input:focus{outline:none;border-color:var(--gold)}
+#aevc-input:focus{border-color:var(--gold)}#aevc-input:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-color:var(--gold)}
 #aevc-form button{flex:none;width:44px;border:none;border-radius:10px;background:var(--gold);color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:center}
 #aevc-form button:hover{background:var(--gold-deep)}
 #aevc-form button svg{width:18px;height:18px}
@@ -936,7 +936,7 @@ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(argu
 (function(){
   var p=new URLSearchParams(location.search);var pk=p.get('pakke');if(!pk)return;
   var names={intro:'Aevia Intro',core:'Aevia Core',kvinde:'Aevia Kvinde',mand:'Aevia Mand',atlet:'Aevia Atlet',executive:'Aevia Plus',elite:'Aevia Elite'};
-  var an={vo2max:'Konditionstest (VO2max)',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. follow-up'};
+  var an={vo2max:'Konditionstest (VO2max)',hormon:'Fuldt hormonpanel',mri:'Helkrops-MRI',genetik:'Genetisk profil',followup:'3-mdr. opfølgning'};
   var sel=document.getElementById('pakke');
   if(sel&&names[pk]){var dd=sel.closest('.bk-dd'),op=dd?dd.querySelectorAll('.bk-dd-opt'):[];for(var i=0;i<op.length;i++){if(op[i].textContent.indexOf(names[pk])===0){sel.value=op[i].getAttribute('data-val')||op[i].textContent;var cu=dd.querySelector('.bk-dd-cur');if(cu)cu.textContent=op[i].textContent;break;}}}
   var addons=(p.get('addons')||'').split(',').filter(Boolean).map(function(k){return an[k]||k;});
@@ -1037,7 +1037,7 @@ var BOOKING={
       ['Konditionstest (VO2max)','Vælg sted og din ønskede tid · vi bekræfter.','coord','kondition'],
       ['Helkrops-MRI','Vælg sted og din ønskede tid · vi bekræfter.','coord','mr'],
       ['Genetisk profil','Vælg sted og din ønskede tid · vi bekræfter.','self','genetik'],
-      ['Rapport & lægegodkendelse','Vi samler dine resultater og gennemgår dem med dig.','coord',null]
+      ['Rapport & lægegodkendelse','Vi samler dine resultater i én rapport, gennemgået og godkendt af en læge.','coord',null]
     ];
     var PKG_INCL={
       intro:['Blodpanel · 25–30 markører','Rapport & lægegodkendelse'],
@@ -1112,7 +1112,7 @@ var BOOKING={
           var opts=list.map(function(c){return '<button type="button" class="bk-dd-opt">'+lbl(c)+'</button>';}).join('');
           ctrl='<div class="bk-svc" data-svc="'+r[0]+'" data-cat="'+cat+'" data-kind="'+r[2]+'"><label class="bk-pick"><span>Foretrukket område</span><div class="bk-dd"><input type="hidden" class="bk-loc" value="'+first+'"><button type="button" class="bk-dd-btn"><span class="bk-dd-cur">'+first+'</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+opts+'</div></div></label>';
           var cal=genDays().map(function(dd){var bs=dd.times.map(function(t){return '<button type="button" class="bk-slot" data-full="'+dd.day+' · '+t+'">'+t+'</button>';}).join('');return '<div class="bk-day"><div class="bk-day-h">'+dd.day+'</div>'+bs+'</div>';}).join('');
-          ctrl+='<div class="bk-svccal"><span class="bk-callbl">Næste ledige tider</span><div class="bk-daygrid">'+cal+'</div><div class="bk-other"><span class="bk-other-lbl">Eller en anden dato</span><button type="button" class="bk-datebtn">Vælg dato</button><input type="hidden" class="bk-odate" value=""><div class="bk-dd bk-timedd"><input type="hidden" class="bk-otime" value="08:00"><button type="button" class="bk-dd-btn"><span class="bk-dd-cur">08:00</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+TIMEDD_OPTS+'</div></div></div></div></div>';
+          ctrl+='<div class="bk-svccal"><span class="bk-callbl">Foreslå et tidspunkt — vi bekræfter på mail</span><div class="bk-daygrid">'+cal+'</div><div class="bk-other"><span class="bk-other-lbl">Eller en anden dato</span><button type="button" class="bk-datebtn">Vælg dato</button><input type="hidden" class="bk-odate" value=""><div class="bk-dd bk-timedd"><input type="hidden" class="bk-otime" value="08:00"><button type="button" class="bk-dd-btn"><span class="bk-dd-cur">08:00</span><svg class="bk-dd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button><div class="bk-dd-list">'+TIMEDD_OPTS+'</div></div></div></div></div>';
         }
         var tag='';
         var inPkg=incl.indexOf(r[0])>-1;

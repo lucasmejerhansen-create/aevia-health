@@ -27,7 +27,7 @@ h2{font-size:1.05rem;margin:0 0 12px}
 .hidden{display:none}
 /* skema-editor */
 .days{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.day{border:1px solid var(--line-2);border-radius:999px;padding:8px 13px;font-size:.85rem;cursor:pointer;user-select:none;background:#fff;min-height:40px;display:inline-flex;align-items:center}
+.day{border:1px solid var(--line-2);border-radius:999px;padding:8px 13px;font-size:.85rem;cursor:pointer;user-select:none;background:#fff;min-height:44px;display:inline-flex;align-items:center;font-family:inherit;color:var(--text)}
 .day.on{background:var(--text);color:#fff;border-color:var(--text)}
 .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:14px}
 .switch{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--text);cursor:pointer}
@@ -35,11 +35,14 @@ h2{font-size:1.05rem;margin:0 0 12px}
 .legend{display:flex;gap:14px;font-size:.78rem;color:var(--muted-2);margin-bottom:10px;flex-wrap:wrap}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:6px}
-.slot{border-radius:10px;padding:10px 8px;text-align:center;font-size:.88rem;cursor:pointer;border:1px solid var(--line-2);background:#fff;min-height:54px}
+.slot{border-radius:10px;padding:10px 8px;text-align:center;font-size:.88rem;cursor:pointer;border:1px solid var(--line-2);background:#fff;min-height:54px;font-family:inherit;color:var(--text);width:100%}
+.slot:disabled{opacity:1;cursor:default}
 .slot small{display:block;font-size:.68rem;margin-top:3px;color:var(--muted-2)}
-.slot.free{border-color:rgba(63,178,127,.45)}.slot.free small{color:var(--ok)}
-.slot.blocked{background:rgba(176,122,22,.08);border-color:rgba(176,122,22,.5);color:var(--muted)}.slot.blocked small{color:var(--amber)}
-.slot.booked{background:rgba(201,164,55,.1);border-color:var(--gold);cursor:default}.slot.booked small{color:var(--gold)}
+.slot.free{border-color:rgba(63,178,127,.45)}.slot.free small{color:#2e7d57}
+.slot.blocked{background:rgba(176,122,22,.08);border-color:rgba(176,122,22,.5);color:var(--muted)}.slot.blocked small{color:#8a5e10}
+.slot.booked{background:rgba(201,164,55,.1);border-color:var(--gold);cursor:default}.slot.booked small{color:var(--gold-deep)}
+.day:focus-visible,.slot:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.day[aria-pressed=true]{background:var(--text);color:#fff;border-color:var(--text)}
 table{width:100%;border-collapse:collapse}
 th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line-2);font-size:.9rem;vertical-align:middle}
 th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
@@ -131,8 +134,8 @@ th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing
 
 <script>
 var DAYS=[["Man",1],["Tir",2],["Ons",3],["Tor",4],["Fre",5],["Lør",6],["Søn",0]];
-document.getElementById('days').innerHTML=DAYS.map(function(d){return '<span class="day" data-wd="'+d[1]+'">'+d[0]+'</span>';}).join('');
-Array.prototype.forEach.call(document.querySelectorAll('.day'),function(el){el.onclick=function(){el.classList.toggle('on');};});
+document.getElementById('days').innerHTML=DAYS.map(function(d){return '<button type="button" class="day" data-wd="'+d[1]+'" aria-pressed="false">'+d[0]+'</button>';}).join('');
+Array.prototype.forEach.call(document.querySelectorAll('.day'),function(el){el.onclick=function(){var on=el.classList.toggle('on');el.setAttribute('aria-pressed',on?'true':'false');};});
 document.getElementById('date').value=new Date().toISOString().slice(0,10);
 document.getElementById('svc').addEventListener('change',function(){if(tok())load();});
 
@@ -170,7 +173,7 @@ function load(){
 function fillEditor(rule){
   var on=new Set(rule.wd||[]);
   Array.prototype.forEach.call(document.querySelectorAll('.day'),function(el){
-    el.classList.toggle('on',on.has(Number(el.getAttribute('data-wd'))));});
+    var act=on.has(Number(el.getAttribute('data-wd')));el.classList.toggle('on',act);el.setAttribute('aria-pressed',act?'true':'false');});
   document.getElementById('open').value=rule.open||'08:00';
   document.getElementById('close').value=rule.close||'12:00';
   document.getElementById('slot').value=String(rule.slot||30);
@@ -212,7 +215,8 @@ function fillSlots(slots){
   if(!slots.length){g.innerHTML='<p class="empty">Ingen tider denne dag (uden for jeres skema).</p>';return;}
   g.innerHTML=slots.map(function(s){
     var lbl=s.status==='booked'?'Booket':(s.status==='blocked'?'Blokeret':'Ledig');
-    return '<div class="slot '+s.status+'" data-time="'+s.time+'" data-status="'+s.status+'"><strong>'+s.time+'</strong><small>'+lbl+'</small></div>';
+    var dis=s.status==='booked'?' disabled aria-disabled="true"':'';
+    return '<button type="button" class="slot '+s.status+'" data-time="'+s.time+'" data-status="'+s.status+'"'+dis+' aria-label="'+s.time+' — '+lbl+'"><strong>'+s.time+'</strong><small>'+lbl+'</small></button>';
   }).join('');
   Array.prototype.forEach.call(g.querySelectorAll('.slot'),function(el){
     el.onclick=function(){var st=el.getAttribute('data-status');if(st==='booked')return;
@@ -245,8 +249,7 @@ function day(action){
 }
 
 function post(payload,cb){
-  payload.token=tok();
-  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  fetch('/api/clinic-portal',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+tok()},body:JSON.stringify(payload)})
     .then(function(r){return r.json();}).then(function(d){if(d.error){alert(d.error);return;}if(cb)cb(d);})
     .catch(function(){alert('Netværksfejl');});
 }
