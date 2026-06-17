@@ -21,6 +21,7 @@
 //   wait:<area>                            = SET af venteliste-mails
 
 import crypto from "crypto";
+import { fetchBusy, slotIsBusy, normalizeIcsUrl } from "./_calendar.js";
 
 // ── Ydelses-typer ────────────────────────────────────────────────────────────
 // hormon bookes IKKE separat (samme besøg som blod); rapport er online.
@@ -114,6 +115,7 @@ function mergeConf(def, rule) {
       cap:   rule.cap   || (def && def.cap)   || 1,
       clinic: rule.clinic != null ? rule.clinic : ((def && def.clinic) || ""),
       email:  rule.email  != null ? rule.email  : ((def && def.email)  || ""),
+      calUrl: rule.calUrl != null ? rule.calUrl : ((def && def.calUrl) || ""),
     };
   }
   return def; // kan være null
@@ -124,6 +126,25 @@ function mergeConf(def, rule) {
 export async function effectiveConf(area, svc) {
   if (!AREAS[area]) return null;
   return mergeConf(svcConf(area, svc), (await loadRules(area))[svc]);
+}
+
+// Optaget-tider fra klinikkens tilknyttede ICS-kalender (cachet 5 min i Redis,
+// så vi ikke henter feed'et ved hvert kald). Fail-open: [] ved manglende/fejl.
+async function busyFor(area, svc, conf) {
+  const c = conf || await effectiveConf(area, svc);
+  if (!c || !c.calUrl) return [];
+  if (!isConfigured()) return fetchBusy(c.calUrl);
+  const key = `calcache:${area}:${svc}`;
+  try { const cached = await redis(["GET", key]); if (cached) return JSON.parse(cached); } catch (_) {}
+  const busy = await fetchBusy(c.calUrl);
+  try { await redis(["SET", key, JSON.stringify(busy), "EX", 300]); } catch (_) {}
+  return busy;
+}
+
+// Klinikkens kalender er tilknyttet? (til portal-status)
+export async function calStatus(area, svc) {
+  const c = await effectiveConf(area, svc);
+  return { connected: !!(c && c.calUrl), url: (c && c.calUrl) || "" };
 }
 
 // Teoretiske tider ud fra en konkret konfiguration (uden hensyn til bookinger).
@@ -164,18 +185,23 @@ export async function availability(area, svc) {
     if (all.length) dateSlots.push({ ds, all });
   }
 
-  // Uden Redis: vis alle teoretiske tider (booking afvises pænt andetsteds).
+  // Optaget-tider fra klinikkens tilknyttede ICS-kalender (tom hvis ingen).
+  const busy = await busyFor(area, svc, c);
+
+  // Uden Redis: vis teoretiske tider minus kalender-optaget (booking afvises pænt andetsteds).
   if (!isConfigured()) {
-    return { ready: true, days: dateSlots.map(({ ds, all }) => ({ date: ds, times: all })), clinic: c.clinic || "" };
+    return { ready: true, clinic: c.clinic || "", days: dateSlots
+      .map(({ ds, all }) => ({ date: ds, times: all.filter((t) => !slotIsBusy(busy, ds, t, c.slot)) }))
+      .filter((x) => x.times.length) };
   }
 
-  // Ledig = cnt < cap OG ikke blokeret. cnt hentes samlet pr. dato via MGET.
+  // Ledig = cnt < cap OG ikke blokeret OG ikke optaget i kalenderen.
   const days = [];
   await Promise.all(dateSlots.map(async ({ ds, all }) => {
     let blocked = new Set(); let counts = [];
     try { blocked = new Set((await redis(["SMEMBERS", `blk:${area}:${svc}:${ds}`])) || []); } catch {}
     try { counts = (await redis(["MGET", ...all.map((t) => `cnt:${area}:${svc}:${ds}:${t}`)])) || []; } catch {}
-    const free = all.filter((t, i) => (parseInt(counts[i] || "0", 10) < c.cap) && !blocked.has(t));
+    const free = all.filter((t, i) => (parseInt(counts[i] || "0", 10) < c.cap) && !blocked.has(t) && !slotIsBusy(busy, ds, t, c.slot));
     if (free.length) days.push({ date: ds, times: free });
   }));
   days.sort((x, y) => x.date.localeCompare(y.date)); // Promise.all kan blande rækkefølgen
@@ -209,10 +235,12 @@ async function decrFloor(key) {
     1, key]);
 }
 
-async function reservePart(area, svc, date, time, conf) {
+async function reservePart(area, svc, date, time, conf, busy) {
   const c = conf || svcConf(area, svc);
   if (!c) return { ok: false, reason: "Ydelsen findes ikke i området." };
   if (!slotsFromConf(c, date).includes(time)) return { ok: false, reason: "Tiden findes ikke i kalenderen." };
+  // Optaget i klinikkens tilknyttede kalender? (tjek før INCR — ingen rollback)
+  if (slotIsBusy(busy, date, time, c.slot)) return { ok: false, reason: "Tiden er ikke længere ledig." };
   const cntKey = `cnt:${area}:${svc}:${date}:${time}`;
   const n = await redis(["INCR", cntKey]);
   if (n > c.cap) {
@@ -252,12 +280,14 @@ export async function reserveMulti({ area, parts, customer }) {
 
   // Forudindlæs effektive konfigurationer, så hele reservationen er konsistent
   // (klinik-regel ELLER standard) — også selvom en regel ændres undervejs.
-  const confs = {};
-  for (const p of parts) confs[p.svc] = await effectiveConf(area, p.svc);
+  const confs = {}; const busies = {};
+  for (const p of parts) {
+    if (!confs[p.svc]) { confs[p.svc] = await effectiveConf(area, p.svc); busies[p.svc] = await busyFor(area, p.svc, confs[p.svc]); }
+  }
 
   const reserved = [];
   for (const p of parts) {
-    const r = await reservePart(area, p.svc, p.date, p.time, confs[p.svc]);
+    const r = await reservePart(area, p.svc, p.date, p.time, confs[p.svc], busies[p.svc]);
     if (!r.ok) {
       for (const q of reserved) await releasePart(area, q.svc, q.date, q.time);
       const lbl = (SVC_LABELS[p.svc] && SVC_LABELS[p.svc].da) || p.svc;
@@ -363,9 +393,12 @@ function sanitizeRule(input, def) {
   const email = (input.email != null && EMAIL_OK.test(String(input.email).trim()))
     ? String(input.email).trim().toLowerCase()
     : ((def && def.email) || "");
+  // calUrl: privat ICS-feed (Google/Outlook/Apple) — optaget-tider blokerer
+  // automatisk Aevia-ledigheden. Kun https accepteres; tom = ingen kalender.
+  const calUrl = normalizeIcsUrl(input.calUrl);
   // active: respektér eksplicit valg (default true) — så ét gem kan sætte til/fra
   // atomisk uden en separat setactive-runde (ingen kort "åben"-vinduesrace).
-  return { wd, open, close, slot, cap, clinic, email, active: input.active !== false };
+  return { wd, open, close, slot, cap, clinic, email, calUrl, active: input.active !== false };
 }
 
 export async function saveRules(area, svc, input) {
@@ -404,6 +437,7 @@ export async function configForEditor(area, svc) {
     cap: base.cap || 1,
     clinic: base.clinic || "",
     email: base.email || "",
+    calUrl: base.calUrl || "",
     active: stored ? stored.active !== false : !!def,
     hasDefault: !!def,
   };

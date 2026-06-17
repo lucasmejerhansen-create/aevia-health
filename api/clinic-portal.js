@@ -23,6 +23,7 @@ import {
   getBooking, markAttendance, isConfigured,
 } from "./_booking-store.js";
 import { tooManyFails, bearerToken } from "./_ratelimit.js";
+import { fetchBusy, normalizeIcsUrl } from "./_calendar.js";
 
 // 403 + brute-force-bremse: tæl auth-fejl, returnér 429 ved for mange.
 async function deny(req, res) {
@@ -124,6 +125,13 @@ export default async function handler(req, res) {
         if (!chosen) return res.status(400).json({ error: "Ugyldig ydelse" });
         const r = await setServiceActive(access.area, chosen, !!body.active);
         return r.ok ? res.status(200).json({ ok: true, active: r.active }) : res.status(400).json({ error: "Kunne ikke ændre status" });
+      }
+      // Test af tilknyttet kalender: hent ICS og rapportér antal hændelser.
+      if (action === "testcal") {
+        const url = normalizeIcsUrl(body.calUrl || "");
+        if (!url) return res.status(400).json({ error: "Indsæt en gyldig https-ICS-URL (Google/Outlook/Apple)" });
+        const busy = await fetchBusy(url);
+        return res.status(200).json({ ok: true, events: busy.length });
       }
 
       // Fremmøde — kun for en booking der reelt hører til denne klinik

@@ -87,6 +87,15 @@ th{color:var(--muted-2);font-size:.72rem;text-transform:uppercase;letter-spacing
       <div><label for="clinic">Klinikkens visningsnavn (valgfri)</label><input id="clinic" type="text" placeholder="Fx Heartfit Viborg"></div>
       <div><label for="email">Notifikations-e-mail (valgfri)</label><input id="email" type="email" placeholder="booking@jeresklinik.dk"></div>
     </div>
+    <div style="margin-top:14px;padding:14px 16px;background:var(--navy-2);border:1px solid var(--line-2);border-radius:10px">
+      <label for="calUrl" style="font-weight:600">Tilknyt kalender (valgfri)</label>
+      <p class="note" style="margin:4px 0 8px">Indsæt jeres kalenders private <strong>ICS-URL</strong>. Google: Indstillinger → din kalender → "Hemmelig adresse i iCal-format". Outlook/Apple har tilsvarende. Optaget-tider blokerer automatisk jeres Aevia-tider — så I aldrig dobbeltbookes.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="calUrl" type="url" placeholder="https://calendar.google.com/calendar/ical/.../basic.ics" style="flex:1;min-width:240px">
+        <button class="btn" type="button" onclick="testCal()" style="background:transparent;color:var(--gold);border:1px solid var(--line-2)">Test forbindelse</button>
+      </div>
+      <p id="calstatus" class="note" style="margin-top:8px"></p>
+    </div>
     <div class="bar" style="margin-top:4px;justify-content:space-between">
       <label class="switch"><input type="checkbox" id="active"> Ydelsen er åben for booking</label>
       <button class="btn" onclick="saveRules()">Gem skema</button>
@@ -168,10 +177,23 @@ function fillEditor(rule){
   document.getElementById('cap').value=rule.cap||1;
   document.getElementById('clinic').value=rule.clinic||'';
   document.getElementById('email').value=rule.email||'';
+  document.getElementById('calUrl').value=rule.calUrl||'';
+  document.getElementById('calstatus').textContent=rule.calUrl?'✓ Kalender tilknyttet.':'';
   document.getElementById('active').checked=rule.active!==false;
 }
 
 function selectedWd(){return Array.prototype.filter.call(document.querySelectorAll('.day'),function(el){return el.classList.contains('on');}).map(function(el){return Number(el.getAttribute('data-wd'));});}
+
+function testCal(){
+  var url=document.getElementById('calUrl').value.trim();
+  var st=document.getElementById('calstatus');
+  if(!url){st.style.color='';st.textContent='Indsæt en ICS-URL først.';return;}
+  st.style.color='';st.textContent='Tester…';
+  post({action:'testcal',calUrl:url},function(d){
+    st.style.color='var(--gold)';
+    st.textContent='✓ Forbindelse OK — fandt '+d.events+' hændelser. Husk at gemme skemaet for at aktivere.';
+  });
+}
 
 function saveRules(){
   var wd=selectedWd();
@@ -180,6 +202,7 @@ function saveRules(){
     open:document.getElementById('open').value,close:document.getElementById('close').value,
     slot:Number(document.getElementById('slot').value),cap:Number(document.getElementById('cap').value),
     clinic:document.getElementById('clinic').value,email:document.getElementById('email').value,
+    calUrl:document.getElementById('calUrl').value,
     active:document.getElementById('active').checked
   },function(){toast('Skema gemt');load();});
 }
