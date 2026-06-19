@@ -8,3 +8,6 @@ _cw_server*.mjs
 
 # OS/FS-junk
 *.fuse_hidden*
+
+# NATT design system (Claude Design upload — ikke til GitHub)
+natt-design/
