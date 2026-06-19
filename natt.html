@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NATT — Sleep Like It Matters</title>
+  <meta name="description" content="4 videnskabeligt underbyggede ingredienser. Ingen melatonin. Ingen grogginess. Ingen afhængighed. NATT er søvntilskuddet til folk der tager ydeevne seriøst.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #0D0D0D;
+      --bg-2:          #111111;
+      --bg-3:          #181818;
+      --text:          #F5F5F0;
+      --text-muted:    #7A7A75;
+      --accent:        #C4853A;
+      --accent-light:  #D4A06A;
+      --border:        rgba(245,245,240,0.07);
+      --border-accent: rgba(196,133,58,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      background: rgba(13,13,13,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 10px 22px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--accent-light); }
+
+    /* ─── DIVIDER ─── */
+    .divider { height: 1px; background: var(--border); }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 100px 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 15px 30px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--text);
+      padding: 15px 30px;
+      border-radius: 3px;
+      font-weight: 500;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(245,245,240,0.2);
+      background: rgba(245,245,240,0.03);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 130px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -15%;
+      right: -5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(196,133,58,0.055) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5.5vw, 68px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .hero-tag::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    /* Product visual */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-box {
+      width: 340px;
+      height: 440px;
+      background: var(--bg-3);
+      border: 1px solid rgba(245,245,240,0.06);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 25%, rgba(196,133,58,0.07) 0%, transparent 65%);
+    }
+
+    .product-bottle {
+      width: 96px;
+      height: 148px;
+      background: linear-gradient(160deg, #252525 0%, #161616 100%);
+      border: 1px solid rgba(196,133,58,0.18);
+      border-radius: 14px 14px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-bottle::before {
+      content: 'NATT';
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .product-bottle::after {
+      content: 'DEEP REST';
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .product-caption {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── PROBLEM ─── */
+    .problem { background: var(--bg); }
+
+    .problem-intro {
+      max-width: 580px;
+      margin-bottom: 60px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .problem-card {
+      background: var(--bg);
+      padding: 40px 32px;
+    }
+
+    .problem-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .problem-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .problem-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .strike { text-decoration: line-through; color: var(--text-muted); }
+
+    /* ─── SOLUTION ─── */
+    .solution { background: var(--bg-2); }
+
+    .solution-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .stack-list {
+      list-style: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .stack-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-item:last-child { border-bottom: none; }
+
+    .stack-dose {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 74px;
+      font-feature-settings: 'tnum';
+    }
+
+    .stack-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .stack-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how { background: var(--bg); }
+
+    .how-intro {
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto 72px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 1px;
+      background: var(--border-accent);
+    }
+
+    .step { text-align: center; padding: 0 28px; }
+
+    .step-num {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--bg-3);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ─── INGREDIENTS ─── */
+    .ingredients { background: var(--bg-2); }
+
+    .ingredients-intro {
+      max-width: 560px;
+      margin-bottom: 52px;
+    }
+
+    .accordion {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-item:last-child { border-bottom: none; }
+
+    .acc-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 26px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--text);
+      text-align: left;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+    .acc-trigger:hover { background: rgba(245,245,240,0.02); }
+
+    .acc-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .acc-dose {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(196,133,58,0.1);
+      padding: 4px 10px;
+      border-radius: 3px;
+      white-space: nowrap;
+      font-feature-settings: 'tnum';
+      flex-shrink: 0;
+    }
+
+    .acc-name {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .acc-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .acc-chevron {
+      width: 18px;
+      height: 18px;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      transform: rotate(45deg) translateY(-3px);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .acc-item.open .acc-chevron {
+      transform: rotate(-135deg) translateY(-3px);
+    }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+    .acc-item.open .acc-body { max-height: 500px; }
+
+    .acc-content {
+      padding: 4px 28px 28px calc(28px + 20px + 74px);
+    }
+
+    .acc-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .acc-ref {
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0.55;
+      font-style: italic;
+      border-left: 2px solid var(--border-accent);
+      padding-left: 12px;
+      line-height: 1.6;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--bg); }
+
+    .testimonials-inner { text-align: center; }
+    .testimonials-inner .section-label,
+    .testimonials-inner .section-title { text-align: center; }
+    .testimonials-inner .section-title { margin-bottom: 56px; }
+
+    .t-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .t-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      text-align: left;
+    }
+
+    .t-stars {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .t-quote {
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+      color: rgba(245,245,240,0.8);
+      font-style: italic;
+    }
+
+    .t-author {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .t-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing { background: var(--bg-2); }
+    .pricing-inner { text-align: center; }
+    .pricing-inner .section-label,
+    .pricing-inner .section-title { text-align: center; }
+    .pricing-inner .section-sub {
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .p-card {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 28px;
+      text-align: left;
+      position: relative;
+    }
+
+    .p-card.featured { border-color: var(--accent); }
+
+    .p-badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .p-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .p-price {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .p-price span {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .p-per {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .p-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 26px;
+    }
+
+    .p-features li {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .p-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .p-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: inherit;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .p-btn-primary { background: var(--accent); color: var(--bg); }
+    .p-btn-primary:hover { background: var(--accent-light); }
+
+    .p-btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .p-btn-ghost:hover {
+      border-color: rgba(245,245,240,0.18);
+      background: rgba(245,245,240,0.03);
+    }
+
+    .pricing-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 22px;
+      text-align: center;
+    }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--bg); }
+
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .faq-list {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text);
+      text-align: left;
+      font-size: 15px;
+      font-weight: 600;
+      gap: 16px;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+    .faq-q:hover { background: rgba(245,245,240,0.02); }
+
+    .faq-icon {
+      font-size: 22px;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-item.open .faq-a { max-height: 360px; }
+
+    .faq-a p {
+      padding: 0 26px 22px;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 56px 0 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand .logo { font-size: 18px; }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-legal {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-legal p {
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0.45;
+      line-height: 1.6;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 920px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+      .hero-visual { order: -1; }
+      .product-box { width: 240px; height: 320px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .solution-inner { grid-template-columns: 1fr; gap: 48px; }
+      .steps { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+      .t-grid { grid-template-columns: 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; max-width: 380px; }
+      .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+      section { padding: 72px 0; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .acc-content { padding-left: 28px; }
+      .acc-left { flex-wrap: wrap; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header>
+    <div class="container">
+      <div class="logo">NATT</div>
+      <a href="#pricing" class="header-cta">Start abonnement — 249 kr/md.</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-eyebrow">Premium sleep supplement · Melatonin-free · Made in EU</p>
+          <h1>Sleep like<br>it matters.<br>Because it does.</h1>
+          <p class="hero-sub">4 videnskabeligt underbyggede ingredienser. Ingen melatonin. Ingen grogginess. Ingen afhængighed. NATT er søvntilskuddet til folk der tager ydeevne seriøst.</p>
+          <div class="hero-ctas">
+            <a href="#pricing" class="btn-primary">Prøv NATT — 249 kr/md.</a>
+            <a href="#ingredients" class="btn-ghost">Se ingredienser →</a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag">Ingen melatonin</span>
+            <span class="hero-tag">Produceret i EU (GMP)</span>
+            <span class="hero-tag">Vegansk · Non-GMO</span>
+            <span class="hero-tag">Fri fragt over 499 kr.</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="product-box">
+            <div class="product-bottle"></div>
+            <p class="product-caption">NATT Deep Rest<br>60 kapsler · 30 dages forsyning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── PROBLEM ─── -->
+  <section class="problem">
+    <div class="container">
+      <div class="problem-intro fade-up">
+        <p class="section-label">Problemet</p>
+        <h2 class="section-title">Hvorfor de fleste søvntilskud ikke virker</h2>
+        <p class="section-sub">De fleste søvnprodukter er designet til folk der sover dårligt. NATT er designet til folk der ved, at de ikke sover optimalt.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card fade-up">
+          <p class="problem-num">01</p>
+          <h3><span class="strike">Melatonin</span></h3>
+          <p>Melatonin er et hormon, ikke et supplement. Daglig brug kan nedsætte din krops egen produktion, skabe afhængighed og give grogginess næste morgen. Det er ikke en løsning — det er et plaster.</p>
+        </div>
+        <div class="problem-card fade-up delay-1">
+          <p class="problem-num">02</p>
+          <h3>Underdoserede ingredienser</h3>
+          <p>De fleste produkter bruger 20–50 mg magnesium og kalder det "søvnstøtte". Effektive doser starter ved 200 mg elementært magnesium. Læs mærkaten — ikke forsiden.</p>
+        </div>
+        <div class="problem-card fade-up delay-2">
+          <p class="problem-num">03</p>
+          <h3>Forkerte ingredienser</h3>
+          <p>Kamille. Baldrian. Citronmelisse. Ingen af dem har stærk klinisk evidens for søvnkvalitet. Der er mere interessante mekanismer tilgængelige — NATT bruger dem alle fire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── SOLUTION ─── -->
+  <section class="solution">
+    <div class="container">
+      <div class="solution-inner">
+        <div class="fade-up">
+          <p class="section-label">Stacken</p>
+          <h2 class="section-title">4 ingredienser.<br>Alle med en grund.</h2>
+          <p class="section-sub">Komponeret af de fire ingredienser med stærkest kombineret evidensbase for at støtte kroppens naturlige søvnprocesser. Ingen fyld. Ingen overraskelser.</p>
+          <br>
+          <p style="font-size: 14px; color: var(--text-muted);">Tag 3 kapsler 30–60 minutter inden sengetid.</p>
+        </div>
+        <div class="fade-up delay-1">
+          <ul class="stack-list">
+            <li class="stack-item">
+              <div class="stack-dose">200 mg</div>
+              <div>
+                <div class="stack-name">Magnesium glycinate</div>
+                <div class="stack-note">Elementært Mg · Optagelig chelat-form</div>
+              </div>
+            </li>
+            <li class="stack-item">
+              <div class="stack-dose">200 mg</div>
+              <div>
+                <div class="stack-name">L-theanin</div>
+                <div class="stack-note">Aminosyre fra grøn te</div>
+              </div>
+            </li>
+            <li class="stack-item">
+              <div class="stack-dose">50 mg</div>
+              <div>
+                <div class="stack-name">Apigenin</div>
+                <div class="stack-note">Flavonoid · Standardiseret ekstrakt</div>
+              </div>
+            </li>
+            <li class="stack-item">
+              <div class="stack-dose">1.500 mg</div>
+              <div>
+                <div class="stack-name">L-glycin</div>
+                <div class="stack-note">Aminosyre · Termisk + kognitiv effekt</div>
+              </div>
+            </li>
+          </ul>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 14px; opacity: 0.6;">Produceret i GMP/HACCP-certificeret EU-facility. Vegansk, non-GMO, ingen fyldstof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="how">
+    <div class="container">
+      <div class="how-intro fade-up">
+        <p class="section-label">Protokollen</p>
+        <h2 class="section-title">Tre trin.</h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-num">01</div>
+          <h3>Tag 3 kapsler</h3>
+          <p>30–60 minutter inden sengetid. Ingen komplicerede protokoller. Ingen timing-akrobatik.</p>
+        </div>
+        <div class="step fade-up delay-1">
+          <div class="step-num">02</div>
+          <h3>Ingredienserne aktiverer</h3>
+          <p>L-glycin sænker kernetemperaturen. L-theanin dæmper mental aktivitet. Apigenin og magnesium understøtter den naturlige søvnovergang.</p>
+        </div>
+        <div class="step fade-up delay-2">
+          <div class="step-num">03</div>
+          <h3>Vågn op restitueret</h3>
+          <p>Ingen grogginess. Ingen hormonforstyrrelser. Bare den søvn din krop er designet til at have.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── INGREDIENTS ─── -->
+  <section class="ingredients" id="ingredients">
+    <div class="container">
+      <div class="ingredients-intro fade-up">
+        <p class="section-label">Ingredienser</p>
+        <h2 class="section-title">Videnskaben bag stacken.</h2>
+        <p class="section-sub">Klik på en ingrediens for at læse om mekanismen og den kliniske evidens bag.</p>
+      </div>
+      <div class="accordion fade-up">
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-left">
+              <span class="acc-dose">200 mg</span>
+              <div>
+                <div class="acc-name">Magnesium Glycinate</div>
+                <div class="acc-tag">Ro i nervesystemet</div>
+              </div>
+            </div>
+            <div class="acc-chevron"></div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p>Magnesium er co-faktor for over 300 enzymatiske reaktioner — herunder systemer der regulerer GABA-aktivitet og temperaturregulering. Glycinat-formen er valgt for sin overlegne biotilgængelighed sammenlignet med magnesiumoxid og -citrat.</p>
+              <p>Lavt magnesiumindtag er dokumenteret korreleret med dårligere søvnkvalitet i adskillige populationsstudier. 200 mg elementært Mg svarer til de niveauer der bruges i kontrollerede kliniske forsøg.</p>
+              <p class="acc-ref">Abbasi B et al. (2012). "The effect of magnesium supplementation on primary insomnia in elderly." Journal of Research in Medical Sciences, 17(12), 1161–1169.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-left">
+              <span class="acc-dose">200 mg</span>
+              <div>
+                <div class="acc-name">L-Theanin</div>
+                <div class="acc-tag">Rolig årvågenhed → mental nedlukning</div>
+              </div>
+            </div>
+            <div class="acc-chevron"></div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p>L-theanin er en aminosyre primært fra grøn te. Det er én af de bedst dokumenterede naturlige forbindelser til at fremme alfa-bølgeaktivitet i hjernen — den tilstand forbundet med afslappet årvågenhed og lettere overgang til søvn.</p>
+              <p>I doser fra 100–200 mg er L-theanin vist at reducere subjektiv stress og mentalt pres uden at forårsage sedation. Kombineret med magnesium og glycin forstærkes den anxiolytiske effekt yderligere.</p>
+              <p class="acc-ref">Hidese S et al. (2019). "Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults." Nutrients, 11(10), 2362.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-left">
+              <span class="acc-dose">50 mg</span>
+              <div>
+                <div class="acc-name">Apigenin</div>
+                <div class="acc-tag">GABA-modulation uden toleranseopbygning</div>
+              </div>
+            </div>
+            <div class="acc-chevron"></div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p>Apigenin er et flavonoid fra kamille — men her i standardiseret, isoleret ekstrakt-form med reproducerbar dosering. Det fungerer som en mild positiv allosterisk modulator af GABA-A receptorer, samme mekanisme som benzodiazepiner — men uden receptorbinding der fører til toleranseopbygning.</p>
+              <p>50 mg er den dosis der bruges i de mest citerede undersøgelser og anbefales af søvnforskere. Det er en ikke-hormonel mekanisme med et gunstigt sikkerhedsprofil ved klinisk relevante doser.</p>
+              <p class="acc-ref">Viola H et al. (1995). "Apigenin, a component of Matricaria recutita flowers, is a central benzodiazepine receptors-ligand with anxiolytic effects." Planta Medica, 61(3), 213–216.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-left">
+              <span class="acc-dose">1.500 mg</span>
+              <div>
+                <div class="acc-name">L-Glycin</div>
+                <div class="acc-tag">Sænker kernetemperaturen · Forbedrer søvnkvalitet</div>
+              </div>
+            </div>
+            <div class="acc-chevron"></div>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p>L-glycin har to primære søvnrelevante mekanismer: Det sænker kroppens kernetemperatur via vasodilation i ekstremiteterne — og et fald i kernetemperatur er et af de stærkeste fysiologiske signaler for søvninitiering. Derudover fungerer det som inhibitorisk neurotransmitter i hjernestammen og understøtter dybere søvncyklusser.</p>
+              <p>1.500 mg er den klinisk validerede dosis fra japansk søvnforskning der har undersøgt glycin-søvn-forbindelsen mest systematisk. Subjektive mål viser reduceret søvnlatens og forbedret næste-dags kognition.</p>
+              <p class="acc-ref">Bannai M & Kawai N (2012). "New therapeutic strategy for amino acid medicine: glycine improves the quality of sleep." Journal of Pharmacological Sciences, 118(2), 145–148.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-inner">
+        <p class="section-label">Erfaringer</p>
+        <h2 class="section-title">Fra folk der tager søvn seriøst.</h2>
+        <div class="t-grid">
+          <div class="t-card fade-up">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"Jeg har prøvet melatonin i årevis og altid haft svært ved at vågne. Med NATT falder jeg til ro på 20 minutter og vågner klar. Markant forskel."</p>
+            <div class="t-author">Mikkel R.</div>
+            <div class="t-role">Konsulent, 38 år · Oura-bruger · København</div>
+          </div>
+          <div class="t-card fade-up delay-1">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"Skeptiker fra starten. Men stacken er identisk med det den evidensbaserede søvnlitteratur anbefaler — og prisen er fair. Jeg ser bedre søvnscorer og mere energi om morgenen."</p>
+            <div class="t-author">Thomas A.</div>
+            <div class="t-role">Iværksætter, 42 år · Whoop-bruger · Aarhus</div>
+          </div>
+          <div class="t-card fade-up delay-2">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"Endelig et produkt der ikke behandler mig som syg. Ingen grogginess, ingen afhængighed, og ingredienslisten er præcis hvad den burde være."</p>
+            <div class="t-author">Sofie M.</div>
+            <div class="t-role">Leder, 35 år · København</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── PRICING ─── -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-inner">
+        <p class="section-label">Pris</p>
+        <h2 class="section-title">Vælg dit format.</h2>
+        <p class="section-sub">60 kapsler = 30 dages forsyning. Annuller abonnement til enhver tid. Ingen binding.</p>
+        <div class="pricing-cards">
+          <div class="p-card featured fade-up">
+            <div class="p-badge">Anbefalet</div>
+            <div class="p-type">Abonnement</div>
+            <div class="p-price">249 <span>DKK</span></div>
+            <div class="p-per">/ måned · leveret hver 30. dag</div>
+            <ul class="p-features">
+              <li>60 kapsler NATT Deep Rest</li>
+              <li>Spar 50 DKK om måneden</li>
+              <li>Gratis fragt</li>
+              <li>Pause eller annuller til enhver tid</li>
+              <li>Prioritet ved nye produkter</li>
+            </ul>
+            <a href="#" class="p-btn p-btn-primary">Start abonnement</a>
+          </div>
+          <div class="p-card fade-up delay-1">
+            <div class="p-type">Engangskøb</div>
+            <div class="p-price">299 <span>DKK</span></div>
+            <div class="p-per">/ boks · ingen forpligtelse</div>
+            <ul class="p-features">
+              <li>60 kapsler NATT Deep Rest</li>
+              <li>Ingen binding</li>
+              <li>Fragt fra 49 DKK</li>
+              <li>Gratis fragt over 499 DKK</li>
+            </ul>
+            <a href="#" class="p-btn p-btn-ghost">Køb én gang</a>
+          </div>
+        </div>
+        <p class="pricing-note">Alle priser inkl. moms · Levering 2–4 hverdage · Dankort, Visa, MasterCard, MobilePay</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── FAQ ─── -->
+  <section class="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="fade-up">
+          <p class="section-label">FAQ</p>
+          <h2 class="section-title">Ofte stillede spørgsmål.</h2>
+          <p class="section-sub" style="margin-top: 16px; font-size: 15px;">Ikke svar her? Skriv til <a href="mailto:hej@natt.dk" style="color: var(--accent);">hej@natt.dk</a></p>
+        </div>
+        <div class="faq-list fade-up delay-1">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Hvorfor ingen melatonin?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Melatonin er et hormon, ikke et supplement. Daglig eksogen melatonin kan hæmme din krops egen produktion, forstyrre den cirkadiske rytme og skabe afhængighed over tid. NATT virker ved at understøtte de biologiske processer der naturligt leder til søvn — ikke ved at overtage styringen.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Er det sikkert at tage NATT dagligt?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Alle fire ingredienser i NATT er veltoleerede ved de angivne doser og har et gunstigt sikkerhedsprofil i kliniske studier. Ingen af ingredienserne er hormonelle, og ingen er vist at skabe afhængighed eller tolerance ved daglig brug. Konsulter din læge, hvis du er gravid, ammende eller tager receptpligtig medicin.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Hvornår mærker jeg effekt?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Mange brugere oplever effekt i den første uge. L-glycin og L-theanin har en relativt hurtig onset — typisk 30–60 minutter. Magnesiumets effekter er mere kumulative og mærkbare efter 1–2 ugers konsekvent brug. Vi anbefaler at give det minimum 14 dage for at evaluere.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Er NATT vegansk?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Ja. NATT Deep Rest er 100% vegansk. Kapslerne er lavet af HPMC (hydroxypropylmethylcellulose) — en plantebaseret cellulose. Alle ingredienser er veganske og produktet indeholder ingen animalske biprodukter, gluten eller GMO-ingredienser.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Kan jeg kombinere NATT med andre tilskud?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>NATT er kompatibelt med de fleste almindelige kosttilskud, herunder protein, kreatin og omega-3. Tag NATT adskilt fra koffeinindtag (mindst 6 timer forinden). Hvis du tager søvnmedicin eller angstdæmpende medicin, bør du konsultere din læge inden du starter med NATT.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">NATT</div>
+          <p class="footer-tagline">Sleep like it matters.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="#ingredients">Ingredienser</a>
+          <a href="#pricing">Pris</a>
+          <a href="mailto:hej@natt.dk">Kontakt</a>
+          <a href="#">Handelsbetingelser</a>
+          <a href="#">Privatlivspolitik</a>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 NATT ApS · Fremstillet i EU · CVR: XXXXXXXX</p>
+        <p>Kosttilskud er ikke egnet som erstatning for en varieret og afbalanceret kost. Opbevares utilgængeligt for børn. Overskrid ikke den anbefalede daglige dosis.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleAcc(trigger) {
+      const item = trigger.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function toggleFaq(trigger) {
+      trigger.closest('.faq-item').classList.toggle('open');
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
